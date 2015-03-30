@@ -56,7 +56,32 @@
                     <view key="view" contentMode="scaleToFill" id="j8T-om-EVn">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CqG-gR-2R8">
+                                <rect key="frame" x="0.0" y="64" width="50" height="536"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fleche droite" translatesAutoresizingMaskIntoConstraints="NO" id="JaR-U0-Syp">
+                                        <rect key="frame" x="0.0" y="168" width="50" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="54k-1G-mkP"/>
+                                            <constraint firstAttribute="width" constant="50" id="XuP-Mb-zeA"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="JaR-U0-Syp" secondAttribute="centerY" id="BXB-Hc-LoS"/>
+                                    <constraint firstAttribute="width" constant="50" id="S0P-gh-fXu"/>
+                                    <constraint firstItem="JaR-U0-Syp" firstAttribute="leading" secondItem="CqG-gR-2R8" secondAttribute="leading" id="grc-l5-KFz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KSd-Ir-v1b" firstAttribute="top" secondItem="CqG-gR-2R8" secondAttribute="bottom" id="32K-vO-H6f"/>
+                            <constraint firstItem="CqG-gR-2R8" firstAttribute="leading" secondItem="j8T-om-EVn" secondAttribute="leading" id="sFy-Zg-amr"/>
+                            <constraint firstItem="CqG-gR-2R8" firstAttribute="top" secondItem="eyV-kq-hCP" secondAttribute="bottom" id="tYx-15-9gi"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="U3d-e1-KGV">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="5DZ-wh-5uc">
@@ -65,6 +90,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="showList" destination="CqG-gR-2R8" id="Olb-Zf-uIG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26K-g6-v2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,4 +135,7 @@
             <point key="canvasLocation" x="1131" y="816"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fleche droite" width="50" height="200"/>
+    </resources>
 </document>
