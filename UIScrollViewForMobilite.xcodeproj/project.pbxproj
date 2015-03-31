@@ -16,6 +16,9 @@
 		489B31611AC9520300C04732 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489B31601AC9520300C04732 /* SWRevealViewController.m */; };
 		489B31641AC952C800C04732 /* ListAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B31631AC952C800C04732 /* ListAccountsViewController.swift */; };
 		489B31661AC952DB00C04732 /* DetailAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */; };
+		48EA73961AC9977B0067C417 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA73951AC9977B0067C417 /* Test1ViewController.swift */; };
+		48EA73981AC997870067C417 /* Test2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA73971AC997870067C417 /* Test2ViewController.swift */; };
+		48EA739A1AC9AF1D0067C417 /* Test3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA73991AC9AF1D0067C417 /* Test3ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		489B31621AC9526100C04732 /* UIScrollViewForMobilite-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollViewForMobilite-Bridging-Header.h"; sourceTree = "<group>"; };
 		489B31631AC952C800C04732 /* ListAccountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAccountsViewController.swift; sourceTree = "<group>"; };
 		489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailAccountsViewController.swift; sourceTree = "<group>"; };
+		48EA73951AC9977B0067C417 /* Test1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test1ViewController.swift; sourceTree = "<group>"; };
+		48EA73971AC997870067C417 /* Test2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test2ViewController.swift; sourceTree = "<group>"; };
+		48EA73991AC9AF1D0067C417 /* Test3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test3ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,9 @@
 				4881861B1AC94F6600923A18 /* Main.storyboard */,
 				489B31631AC952C800C04732 /* ListAccountsViewController.swift */,
 				489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */,
+				48EA73991AC9AF1D0067C417 /* Test3ViewController.swift */,
+				48EA73951AC9977B0067C417 /* Test1ViewController.swift */,
+				48EA73971AC997870067C417 /* Test2ViewController.swift */,
 				488186121AC94F6600923A18 /* Supporting Files */,
 			);
 			path = UIScrollViewForMobilite;
@@ -233,10 +242,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48EA73961AC9977B0067C417 /* Test1ViewController.swift in Sources */,
+				48EA73981AC997870067C417 /* Test2ViewController.swift in Sources */,
 				489B31661AC952DB00C04732 /* DetailAccountsViewController.swift in Sources */,
 				489B31641AC952C800C04732 /* ListAccountsViewController.swift in Sources */,
 				488186181AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld in Sources */,
 				488186151AC94F6600923A18 /* AppDelegate.swift in Sources */,
+				48EA739A1AC9AF1D0067C417 /* Test3ViewController.swift in Sources */,
 				489B31611AC9520300C04732 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
