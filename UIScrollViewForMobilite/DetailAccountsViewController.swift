@@ -32,6 +32,16 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         self.showList.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         buttonForPages(listeButtonsForPages)
         
+        var dataBase = DataBase()
+        let dataBasePath = dataBase.readDataBasePath()
+        if dataBasePath == "" {
+            dataBase.createDataBase()
+            
+        } else {
+            println("dataBase was already Created")
+            println(dataBasePath)
+        }
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -90,7 +100,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         for i in 0..<numberOfPages {
             pageBoundsForViews.origin.x = CGFloat(i) * pageSize.width
             let newPageView = pageViews[i]
-            newPageView.frame = pageBoundsForViews.rectByInsetting(dx: 1, dy: 1)
+            newPageView.frame = pageBoundsForViews.rectByInsetting(dx: 0, dy: 0)
             containerView.addSubview(newPageView)
         }
     }

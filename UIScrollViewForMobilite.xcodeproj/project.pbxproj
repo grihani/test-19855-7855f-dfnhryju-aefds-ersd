@@ -19,6 +19,27 @@
 		48EA73961AC9977B0067C417 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA73951AC9977B0067C417 /* Test1ViewController.swift */; };
 		48EA73981AC997870067C417 /* Test2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA73971AC997870067C417 /* Test2ViewController.swift */; };
 		48EA739A1AC9AF1D0067C417 /* Test3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA73991AC9AF1D0067C417 /* Test3ViewController.swift */; };
+		48FCB1231ACAD55500A770B2 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1221ACAD55500A770B2 /* DataBase.swift */; };
+		48FCB1301ACAD73600A770B2 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1261ACAD73600A770B2 /* FMDatabase.m */; };
+		48FCB1311ACAD73600A770B2 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1281ACAD73600A770B2 /* FMDatabaseAdditions.m */; };
+		48FCB1321ACAD73600A770B2 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB12A1ACAD73600A770B2 /* FMDatabasePool.m */; };
+		48FCB1331ACAD73600A770B2 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB12C1ACAD73600A770B2 /* FMDatabaseQueue.m */; };
+		48FCB1341ACAD73600A770B2 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB12F1ACAD73600A770B2 /* FMResultSet.m */; };
+		48FCB1361ACADBAC00A770B2 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1351ACADBAC00A770B2 /* AccountModel.swift */; };
+		48FCB1381ACADCCD00A770B2 /* MeetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1371ACADCCD00A770B2 /* MeetingModel.swift */; };
+		48FCB13A1ACADE0A00A770B2 /* OpportunityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1391ACADE0A00A770B2 /* OpportunityModel.swift */; };
+		48FCB13C1ACADED000A770B2 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB13B1ACADED000A770B2 /* ContactModel.swift */; };
+		48FCB1401ACAE09E00A770B2 /* AccountContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB13F1ACAE09E00A770B2 /* AccountContactModel.swift */; };
+		48FCB1421ACAE1F500A770B2 /* OpportunitiesContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1411ACAE1F500A770B2 /* OpportunitiesContactsModel.swift */; };
+		48FCB1441ACAE31300A770B2 /* AccountOpportunitiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1431ACAE31300A770B2 /* AccountOpportunitiesModel.swift */; };
+		48FCB1461ACAE45300A770B2 /* MeetingContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1451ACAE45300A770B2 /* MeetingContactModel.swift */; };
+		48FCB1481ACAE50000A770B2 /* ContractsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1471ACAE50000A770B2 /* ContractsModel.swift */; };
+		48FCB14A1ACAE5E200A770B2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 48FCB1491ACAE5E200A770B2 /* libsqlite3.dylib */; };
+		48FCB14C1ACAE61700A770B2 /* AccountContractsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB14B1ACAE61700A770B2 /* AccountContractsModel.swift */; };
+		48FCB14E1ACAE77C00A770B2 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB14D1ACAE77C00A770B2 /* TaskModel.swift */; };
+		48FCB1501ACAE80300A770B2 /* TasksAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB14F1ACAE80300A770B2 /* TasksAccountModel.swift */; };
+		48FCB1521ACAE8DB00A770B2 /* TasksContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1511ACAE8DB00A770B2 /* TasksContactsModel.swift */; };
+		48FCB1541ACAE97E00A770B2 /* TasksMeetingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1531ACAE97E00A770B2 /* TasksMeetingsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +71,33 @@
 		48EA73951AC9977B0067C417 /* Test1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test1ViewController.swift; sourceTree = "<group>"; };
 		48EA73971AC997870067C417 /* Test2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test2ViewController.swift; sourceTree = "<group>"; };
 		48EA73991AC9AF1D0067C417 /* Test3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test3ViewController.swift; sourceTree = "<group>"; };
+		48FCB1221ACAD55500A770B2 /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		48FCB1251ACAD73600A770B2 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		48FCB1261ACAD73600A770B2 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		48FCB1271ACAD73600A770B2 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		48FCB1281ACAD73600A770B2 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		48FCB1291ACAD73600A770B2 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		48FCB12A1ACAD73600A770B2 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		48FCB12B1ACAD73600A770B2 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		48FCB12C1ACAD73600A770B2 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		48FCB12D1ACAD73600A770B2 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		48FCB12E1ACAD73600A770B2 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		48FCB12F1ACAD73600A770B2 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		48FCB1351ACADBAC00A770B2 /* AccountModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+		48FCB1371ACADCCD00A770B2 /* MeetingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingModel.swift; sourceTree = "<group>"; };
+		48FCB1391ACADE0A00A770B2 /* OpportunityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityModel.swift; sourceTree = "<group>"; };
+		48FCB13B1ACADED000A770B2 /* ContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
+		48FCB13F1ACAE09E00A770B2 /* AccountContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountContactModel.swift; sourceTree = "<group>"; };
+		48FCB1411ACAE1F500A770B2 /* OpportunitiesContactsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunitiesContactsModel.swift; sourceTree = "<group>"; };
+		48FCB1431ACAE31300A770B2 /* AccountOpportunitiesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountOpportunitiesModel.swift; sourceTree = "<group>"; };
+		48FCB1451ACAE45300A770B2 /* MeetingContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingContactModel.swift; sourceTree = "<group>"; };
+		48FCB1471ACAE50000A770B2 /* ContractsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractsModel.swift; sourceTree = "<group>"; };
+		48FCB1491ACAE5E200A770B2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		48FCB14B1ACAE61700A770B2 /* AccountContractsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountContractsModel.swift; sourceTree = "<group>"; };
+		48FCB14D1ACAE77C00A770B2 /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		48FCB14F1ACAE80300A770B2 /* TasksAccountModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksAccountModel.swift; sourceTree = "<group>"; };
+		48FCB1511ACAE8DB00A770B2 /* TasksContactsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksContactsModel.swift; sourceTree = "<group>"; };
+		48FCB1531ACAE97E00A770B2 /* TasksMeetingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksMeetingsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48FCB14A1ACAE5E200A770B2 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +122,7 @@
 		488186061AC94F6600923A18 = {
 			isa = PBXGroup;
 			children = (
+				48FCB1491ACAE5E200A770B2 /* libsqlite3.dylib */,
 				488186111AC94F6600923A18 /* UIScrollViewForMobilite */,
 				4881862A1AC94F6700923A18 /* UIScrollViewForMobiliteTests */,
 				488186101AC94F6600923A18 /* Products */,
@@ -91,12 +141,9 @@
 		488186111AC94F6600923A18 /* UIScrollViewForMobilite */ = {
 			isa = PBXGroup;
 			children = (
+				48FCB11F1ACAD52600A770B2 /* dataBase */,
 				4881861B1AC94F6600923A18 /* Main.storyboard */,
-				489B31631AC952C800C04732 /* ListAccountsViewController.swift */,
-				489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */,
-				48EA73991AC9AF1D0067C417 /* Test3ViewController.swift */,
-				48EA73951AC9977B0067C417 /* Test1ViewController.swift */,
-				48EA73971AC997870067C417 /* Test2ViewController.swift */,
+				48FCB11E1ACAD50500A770B2 /* Accounts */,
 				488186121AC94F6600923A18 /* Supporting Files */,
 			);
 			path = UIScrollViewForMobilite;
@@ -105,6 +152,7 @@
 		488186121AC94F6600923A18 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				48FCB1241ACAD73600A770B2 /* fmdb */,
 				489B315E1AC9520300C04732 /* SWRevealViewController */,
 				488186161AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld */,
 				488186141AC94F6600923A18 /* AppDelegate.swift */,
@@ -140,6 +188,74 @@
 				489B31601AC9520300C04732 /* SWRevealViewController.m */,
 			);
 			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		48FCB11E1ACAD50500A770B2 /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				489B31631AC952C800C04732 /* ListAccountsViewController.swift */,
+				489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */,
+				48EA73951AC9977B0067C417 /* Test1ViewController.swift */,
+				48EA73971AC997870067C417 /* Test2ViewController.swift */,
+				48EA73991AC9AF1D0067C417 /* Test3ViewController.swift */,
+			);
+			name = Accounts;
+			sourceTree = "<group>";
+		};
+		48FCB11F1ACAD52600A770B2 /* dataBase */ = {
+			isa = PBXGroup;
+			children = (
+				48FCB1221ACAD55500A770B2 /* DataBase.swift */,
+				48FCB13D1ACADF6300A770B2 /* Priority Tables */,
+				48FCB13E1ACAE06900A770B2 /* Transition Tables */,
+			);
+			name = dataBase;
+			sourceTree = "<group>";
+		};
+		48FCB1241ACAD73600A770B2 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				48FCB1251ACAD73600A770B2 /* FMDatabase.h */,
+				48FCB1261ACAD73600A770B2 /* FMDatabase.m */,
+				48FCB1271ACAD73600A770B2 /* FMDatabaseAdditions.h */,
+				48FCB1281ACAD73600A770B2 /* FMDatabaseAdditions.m */,
+				48FCB1291ACAD73600A770B2 /* FMDatabasePool.h */,
+				48FCB12A1ACAD73600A770B2 /* FMDatabasePool.m */,
+				48FCB12B1ACAD73600A770B2 /* FMDatabaseQueue.h */,
+				48FCB12C1ACAD73600A770B2 /* FMDatabaseQueue.m */,
+				48FCB12D1ACAD73600A770B2 /* FMDB.h */,
+				48FCB12E1ACAD73600A770B2 /* FMResultSet.h */,
+				48FCB12F1ACAD73600A770B2 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		48FCB13D1ACADF6300A770B2 /* Priority Tables */ = {
+			isa = PBXGroup;
+			children = (
+				48FCB1351ACADBAC00A770B2 /* AccountModel.swift */,
+				48FCB1371ACADCCD00A770B2 /* MeetingModel.swift */,
+				48FCB1391ACADE0A00A770B2 /* OpportunityModel.swift */,
+				48FCB13B1ACADED000A770B2 /* ContactModel.swift */,
+				48FCB14D1ACAE77C00A770B2 /* TaskModel.swift */,
+				48FCB1471ACAE50000A770B2 /* ContractsModel.swift */,
+			);
+			name = "Priority Tables";
+			sourceTree = "<group>";
+		};
+		48FCB13E1ACAE06900A770B2 /* Transition Tables */ = {
+			isa = PBXGroup;
+			children = (
+				48FCB13F1ACAE09E00A770B2 /* AccountContactModel.swift */,
+				48FCB1411ACAE1F500A770B2 /* OpportunitiesContactsModel.swift */,
+				48FCB1431ACAE31300A770B2 /* AccountOpportunitiesModel.swift */,
+				48FCB1451ACAE45300A770B2 /* MeetingContactModel.swift */,
+				48FCB14B1ACAE61700A770B2 /* AccountContractsModel.swift */,
+				48FCB14F1ACAE80300A770B2 /* TasksAccountModel.swift */,
+				48FCB1511ACAE8DB00A770B2 /* TasksContactsModel.swift */,
+				48FCB1531ACAE97E00A770B2 /* TasksMeetingsModel.swift */,
+			);
+			name = "Transition Tables";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,12 +359,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				48EA73961AC9977B0067C417 /* Test1ViewController.swift in Sources */,
+				48FCB1441ACAE31300A770B2 /* AccountOpportunitiesModel.swift in Sources */,
+				48FCB1321ACAD73600A770B2 /* FMDatabasePool.m in Sources */,
+				48FCB13C1ACADED000A770B2 /* ContactModel.swift in Sources */,
+				48FCB1521ACAE8DB00A770B2 /* TasksContactsModel.swift in Sources */,
+				48FCB1341ACAD73600A770B2 /* FMResultSet.m in Sources */,
+				48FCB13A1ACADE0A00A770B2 /* OpportunityModel.swift in Sources */,
+				48FCB1401ACAE09E00A770B2 /* AccountContactModel.swift in Sources */,
+				48FCB1421ACAE1F500A770B2 /* OpportunitiesContactsModel.swift in Sources */,
 				48EA73981AC997870067C417 /* Test2ViewController.swift in Sources */,
+				48FCB1541ACAE97E00A770B2 /* TasksMeetingsModel.swift in Sources */,
 				489B31661AC952DB00C04732 /* DetailAccountsViewController.swift in Sources */,
+				48FCB1331ACAD73600A770B2 /* FMDatabaseQueue.m in Sources */,
+				48FCB1301ACAD73600A770B2 /* FMDatabase.m in Sources */,
+				48FCB1501ACAE80300A770B2 /* TasksAccountModel.swift in Sources */,
+				48FCB1381ACADCCD00A770B2 /* MeetingModel.swift in Sources */,
 				489B31641AC952C800C04732 /* ListAccountsViewController.swift in Sources */,
+				48FCB1231ACAD55500A770B2 /* DataBase.swift in Sources */,
 				488186181AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld in Sources */,
+				48FCB1361ACADBAC00A770B2 /* AccountModel.swift in Sources */,
+				48FCB14E1ACAE77C00A770B2 /* TaskModel.swift in Sources */,
+				48FCB1311ACAD73600A770B2 /* FMDatabaseAdditions.m in Sources */,
+				48FCB1481ACAE50000A770B2 /* ContractsModel.swift in Sources */,
 				488186151AC94F6600923A18 /* AppDelegate.swift in Sources */,
 				48EA739A1AC9AF1D0067C417 /* Test3ViewController.swift in Sources */,
+				48FCB14C1ACAE61700A770B2 /* AccountContractsModel.swift in Sources */,
+				48FCB1461ACAE45300A770B2 /* MeetingContactModel.swift in Sources */,
 				489B31611AC9520300C04732 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
