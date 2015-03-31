@@ -40,7 +40,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YpM-iV-aKr"/>
+                    <navigationItem key="navigationItem" id="YpM-iV-aKr">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="bar" selectedSegmentIndex="0" id="flJ-BJ-rCq">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="par meetings"/>
+                                <segment title="A &gt; Z"/>
+                                <segment title="Z &gt; A"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kYJ-lL-ZDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -137,9 +148,9 @@
                                 <rect key="frame" x="0.0" y="64" width="50" height="536"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fleche droite" translatesAutoresizingMaskIntoConstraints="NO" id="JaR-U0-Syp">
-                                        <rect key="frame" x="0.0" y="168" width="50" height="200"/>
+                                        <rect key="frame" x="0.0" y="218" width="50" height="100"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="54k-1G-mkP"/>
+                                            <constraint firstAttribute="height" constant="100" id="54k-1G-mkP"/>
                                             <constraint firstAttribute="width" constant="50" id="XuP-Mb-zeA"/>
                                         </constraints>
                                     </imageView>
@@ -197,6 +208,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="containerView" destination="zST-QS-V5W" id="Ngg-AD-l1j"/>
+                        <outlet property="listeButtonsForPages" destination="dId-Ql-EZl" id="SZv-hW-AeY"/>
                         <outlet property="pageControl" destination="ieg-MN-oo3" id="dbK-Vq-Rg4"/>
                         <outlet property="showList" destination="CqG-gR-2R8" id="Olb-Zf-uIG"/>
                     </connections>
