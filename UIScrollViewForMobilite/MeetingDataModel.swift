@@ -15,11 +15,12 @@ class MeetingDataModel {
     func comingMeetings() -> [MeetingModel] {
         var allNextMeetings: [MeetingModel] = []
         
-        
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let dataBasePath = DataBase().readDataBasePath()
         let contactDB = FMDatabase(path: dataBasePath)
         
         let date = NSDate()
+        let dateFromString = dateFormatter.stringFromDate(date)
         
         if contactDB == nil {
             println("Error: \(contactDB.lastErrorMessage());\n")

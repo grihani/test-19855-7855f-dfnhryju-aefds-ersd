@@ -74,4 +74,32 @@ class AccountDataModel {
         }
         return erreur
     }
+    
+    func checkEmptyAccount(dataBasePath: NSString) -> Bool {
+        let contactDB = FMDatabase(path: dataBasePath)
+        
+        if contactDB == nil {
+            println("contactDB == nil")
+            println("Error: \(contactDB.lastErrorMessage());\n")
+        }
+        println("contactDB.open()")
+        if contactDB.open(){
+            var querySQL = "SELECT count(*) as COUNT FROM Account"
+            let results: FMResultSet? = contactDB.executeQuery(querySQL, withArgumentsInArray: nil)
+            if let results = results {
+                while results.next() == true {
+                    var count: Int = Int(results.intForColumn("COUNT"))
+                    if count == 0 {
+                        println("Accounts est vide")
+                        return true
+                    }
+                }
+            }
+            contactDB.close()
+        } else {
+            println("pas d'ouverture, Error: \(contactDB.lastErrorMessage());\n")
+        }
+        println("Accounts n'est pas vide")
+        return false
+    }
 }
