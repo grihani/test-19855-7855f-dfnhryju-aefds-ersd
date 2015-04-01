@@ -21,8 +21,10 @@ class TasksAccountModel {
     }
     
     init(idAccount: Int, idTask: Int) {
-            self.idAccount = idAccount
-            self.idTask = idTask
+        self.idAccount = idAccount
+        self.idTask = idTask
     }
-    
+    func arrayFromModel() -> [AnyObject] {
+        return [self.idAccount, self.idTask]
+    }
 }

@@ -21,7 +21,10 @@ class AccountContractsModel {
     }
     
     init(idAccount: Int, idContract: Int) {
-            self.idAccount = idAccount
-            self.idContract = idContract
+        self.idAccount = idAccount
+        self.idContract = idContract
+    }
+    func arrayFromModel() -> [AnyObject] {
+        return [self.idAccount, self.idContract]
     }
 }

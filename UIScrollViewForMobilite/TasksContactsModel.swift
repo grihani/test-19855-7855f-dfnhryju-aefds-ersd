@@ -24,4 +24,7 @@ class TasksContactsModel {
         self.idTask = idTask
         self.idContact = idContact
     }
+    func arrayFromModel() -> [AnyObject] {
+        return [self.idTask, self.idContact]
+    }
 }

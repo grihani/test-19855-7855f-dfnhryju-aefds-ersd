@@ -62,4 +62,8 @@ class ContactModel {
         self.linkedinProfileContact = linkedinProfileContact
         self.idContact1 = idContact1
     }
+    
+    func arrayFromModel() -> [AnyObject] {
+        return [self.jobTitleContact, self.countryContact, self.civilityContact, self.firstNameContact, self.lastNameContact, self.typeContact, self.birthdateContact, self.phoneBusinessContact, self.phoneMobileContact, self.emailContact, self.preferredLanguageContact, self.workingAdressContact, self.linkedinProfileContact, self.idContact1]
+    }
 }

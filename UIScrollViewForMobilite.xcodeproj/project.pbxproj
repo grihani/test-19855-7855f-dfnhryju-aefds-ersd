@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		480DA2271ACBD68E00F43FA1 /* MeetingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA2261ACBD68E00F43FA1 /* MeetingDataModel.swift */; };
+		480DA2291ACC2B7600F43FA1 /* OpportunityDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA2281ACC2B7600F43FA1 /* OpportunityDataModel.swift */; };
+		480DA22B1ACC2B8B00F43FA1 /* ContactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA22A1ACC2B8B00F43FA1 /* ContactDataModel.swift */; };
+		480DA22D1ACC2B9800F43FA1 /* TaskDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA22C1ACC2B9800F43FA1 /* TaskDataModel.swift */; };
+		480DA22F1ACC2BA800F43FA1 /* ContractsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA22E1ACC2BA800F43FA1 /* ContractsDataModel.swift */; };
+		480DA2311ACC2BB900F43FA1 /* AccountContactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA2301ACC2BB900F43FA1 /* AccountContactDataModel.swift */; };
+		480DA2331ACC2BCA00F43FA1 /* OpportunitiesContactsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA2321ACC2BCA00F43FA1 /* OpportunitiesContactsDataModel.swift */; };
+		480DA2351ACC2BDC00F43FA1 /* AccountOpportunitiesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA2341ACC2BDC00F43FA1 /* AccountOpportunitiesDataModel.swift */; };
+		480DA2371ACC2BFC00F43FA1 /* MeetingContactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA2361ACC2BFC00F43FA1 /* MeetingContactDataModel.swift */; };
+		480DA2391ACC2C0D00F43FA1 /* AccountContractsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA2381ACC2C0D00F43FA1 /* AccountContractsDataModel.swift */; };
+		480DA23B1ACC2C1E00F43FA1 /* TasksAccountDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA23A1ACC2C1E00F43FA1 /* TasksAccountDataModel.swift */; };
+		480DA23D1ACC2C3A00F43FA1 /* TasksContactsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA23C1ACC2C3A00F43FA1 /* TasksContactsDataModel.swift */; };
+		480DA23F1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA23E1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift */; };
 		488186151AC94F6600923A18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488186141AC94F6600923A18 /* AppDelegate.swift */; };
 		488186181AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 488186161AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld */; };
 		4881861D1AC94F6600923A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4881861B1AC94F6600923A18 /* Main.storyboard */; };
@@ -57,6 +69,18 @@
 
 /* Begin PBXFileReference section */
 		480DA2261ACBD68E00F43FA1 /* MeetingDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDataModel.swift; sourceTree = "<group>"; };
+		480DA2281ACC2B7600F43FA1 /* OpportunityDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityDataModel.swift; sourceTree = "<group>"; };
+		480DA22A1ACC2B8B00F43FA1 /* ContactDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDataModel.swift; sourceTree = "<group>"; };
+		480DA22C1ACC2B9800F43FA1 /* TaskDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDataModel.swift; sourceTree = "<group>"; };
+		480DA22E1ACC2BA800F43FA1 /* ContractsDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractsDataModel.swift; sourceTree = "<group>"; };
+		480DA2301ACC2BB900F43FA1 /* AccountContactDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountContactDataModel.swift; sourceTree = "<group>"; };
+		480DA2321ACC2BCA00F43FA1 /* OpportunitiesContactsDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunitiesContactsDataModel.swift; sourceTree = "<group>"; };
+		480DA2341ACC2BDC00F43FA1 /* AccountOpportunitiesDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountOpportunitiesDataModel.swift; sourceTree = "<group>"; };
+		480DA2361ACC2BFC00F43FA1 /* MeetingContactDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingContactDataModel.swift; sourceTree = "<group>"; };
+		480DA2381ACC2C0D00F43FA1 /* AccountContractsDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountContractsDataModel.swift; sourceTree = "<group>"; };
+		480DA23A1ACC2C1E00F43FA1 /* TasksAccountDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksAccountDataModel.swift; sourceTree = "<group>"; };
+		480DA23C1ACC2C3A00F43FA1 /* TasksContactsDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksContactsDataModel.swift; sourceTree = "<group>"; };
+		480DA23E1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksMeetingsDataModel.swift; sourceTree = "<group>"; };
 		4881860F1AC94F6600923A18 /* UIScrollViewForMobilite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIScrollViewForMobilite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		488186131AC94F6600923A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		488186141AC94F6600923A18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -271,6 +295,18 @@
 			children = (
 				48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */,
 				480DA2261ACBD68E00F43FA1 /* MeetingDataModel.swift */,
+				480DA2281ACC2B7600F43FA1 /* OpportunityDataModel.swift */,
+				480DA22A1ACC2B8B00F43FA1 /* ContactDataModel.swift */,
+				480DA2301ACC2BB900F43FA1 /* AccountContactDataModel.swift */,
+				480DA22C1ACC2B9800F43FA1 /* TaskDataModel.swift */,
+				480DA22E1ACC2BA800F43FA1 /* ContractsDataModel.swift */,
+				480DA23C1ACC2C3A00F43FA1 /* TasksContactsDataModel.swift */,
+				480DA2321ACC2BCA00F43FA1 /* OpportunitiesContactsDataModel.swift */,
+				480DA2341ACC2BDC00F43FA1 /* AccountOpportunitiesDataModel.swift */,
+				480DA2361ACC2BFC00F43FA1 /* MeetingContactDataModel.swift */,
+				480DA2381ACC2C0D00F43FA1 /* AccountContractsDataModel.swift */,
+				480DA23A1ACC2C1E00F43FA1 /* TasksAccountDataModel.swift */,
+				480DA23E1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift */,
 			);
 			name = dataSearchQueries;
 			sourceTree = "<group>";
@@ -375,24 +411,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				480DA2331ACC2BCA00F43FA1 /* OpportunitiesContactsDataModel.swift in Sources */,
 				48EA73961AC9977B0067C417 /* Test1ViewController.swift in Sources */,
 				48FCB1571ACAED6A00A770B2 /* AccountDataModel.swift in Sources */,
 				48FCB1441ACAE31300A770B2 /* AccountOpportunitiesModel.swift in Sources */,
 				48FCB1591ACAF47200A770B2 /* Bouchonnage.swift in Sources */,
 				48FCB1321ACAD73600A770B2 /* FMDatabasePool.m in Sources */,
+				480DA22B1ACC2B8B00F43FA1 /* ContactDataModel.swift in Sources */,
 				48FCB13C1ACADED000A770B2 /* ContactModel.swift in Sources */,
 				48FCB1521ACAE8DB00A770B2 /* TasksContactsModel.swift in Sources */,
 				48FCB1341ACAD73600A770B2 /* FMResultSet.m in Sources */,
 				48FCB13A1ACADE0A00A770B2 /* OpportunityModel.swift in Sources */,
+				480DA2391ACC2C0D00F43FA1 /* AccountContractsDataModel.swift in Sources */,
 				48FCB1401ACAE09E00A770B2 /* AccountContactModel.swift in Sources */,
 				48FCB1421ACAE1F500A770B2 /* OpportunitiesContactsModel.swift in Sources */,
+				480DA2351ACC2BDC00F43FA1 /* AccountOpportunitiesDataModel.swift in Sources */,
 				480DA2271ACBD68E00F43FA1 /* MeetingDataModel.swift in Sources */,
 				48EA73981AC997870067C417 /* Test2ViewController.swift in Sources */,
+				480DA23F1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift in Sources */,
 				48FCB1541ACAE97E00A770B2 /* TasksMeetingsModel.swift in Sources */,
 				489B31661AC952DB00C04732 /* DetailAccountsViewController.swift in Sources */,
 				48FCB1331ACAD73600A770B2 /* FMDatabaseQueue.m in Sources */,
 				48FCB1301ACAD73600A770B2 /* FMDatabase.m in Sources */,
+				480DA22D1ACC2B9800F43FA1 /* TaskDataModel.swift in Sources */,
 				48FCB1501ACAE80300A770B2 /* TasksAccountModel.swift in Sources */,
+				480DA23D1ACC2C3A00F43FA1 /* TasksContactsDataModel.swift in Sources */,
 				48FCB1381ACADCCD00A770B2 /* MeetingModel.swift in Sources */,
 				489B31641AC952C800C04732 /* ListAccountsViewController.swift in Sources */,
 				48FCB1231ACAD55500A770B2 /* DataBase.swift in Sources */,
@@ -401,9 +444,14 @@
 				48FCB14E1ACAE77C00A770B2 /* TaskModel.swift in Sources */,
 				48FCB1311ACAD73600A770B2 /* FMDatabaseAdditions.m in Sources */,
 				48FCB1481ACAE50000A770B2 /* ContractsModel.swift in Sources */,
+				480DA2311ACC2BB900F43FA1 /* AccountContactDataModel.swift in Sources */,
 				488186151AC94F6600923A18 /* AppDelegate.swift in Sources */,
+				480DA2371ACC2BFC00F43FA1 /* MeetingContactDataModel.swift in Sources */,
 				48EA739A1AC9AF1D0067C417 /* Test3ViewController.swift in Sources */,
+				480DA23B1ACC2C1E00F43FA1 /* TasksAccountDataModel.swift in Sources */,
 				48FCB14C1ACAE61700A770B2 /* AccountContractsModel.swift in Sources */,
+				480DA22F1ACC2BA800F43FA1 /* ContractsDataModel.swift in Sources */,
+				480DA2291ACC2B7600F43FA1 /* OpportunityDataModel.swift in Sources */,
 				48FCB1461ACAE45300A770B2 /* MeetingContactModel.swift in Sources */,
 				489B31611AC9520300C04732 /* SWRevealViewController.m in Sources */,
 			);

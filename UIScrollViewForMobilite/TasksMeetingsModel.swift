@@ -21,8 +21,11 @@ class TasksMeetingsModel {
     }
     
     init(idTask: Int, idMeeting: Int) {
-            self.idTask = idTask
-            self.idMeeting = idMeeting
+        self.idTask = idTask
+        self.idMeeting = idMeeting
+    }
+    func arrayFromModel() -> [AnyObject] {
+        return [self.idTask, self.idMeeting]
     }
     
 }

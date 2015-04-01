@@ -21,7 +21,10 @@ class MeetingContactModel {
     }
     
     init(idContact: Int, idMeeting: Int) {
-            self.idContact = idContact
-            self.idMeeting = idMeeting
+        self.idContact = idContact
+        self.idMeeting = idMeeting
+    }
+    func arrayFromModel() -> [AnyObject] {
+        return [self.idContact, self.idMeeting]
     }
 }

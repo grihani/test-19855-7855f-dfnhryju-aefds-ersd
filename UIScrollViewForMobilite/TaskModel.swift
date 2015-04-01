@@ -30,4 +30,8 @@ class TaskModel {
         self.dateTask = dateTask
         self.statusTask = statusTask
     }
+    
+    func arrayFromModel() -> [AnyObject] {
+        return [self.subjectTask, self.dateTask, self.statusTask]
+    }
 }

@@ -33,4 +33,8 @@ class ContractsModel {
         self.dateContract = dateContract
         self.statusContract = statusContract
     }
+    
+    func arrayFromModel() -> [AnyObject] {
+        return [self.subjectContract, self.valueContract, self.dateContract, self.statusContract]
+    }
 }

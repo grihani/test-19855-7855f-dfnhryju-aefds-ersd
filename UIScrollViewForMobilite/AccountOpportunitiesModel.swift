@@ -25,4 +25,7 @@ class AccountOpportunitiesModel {
         self.idAccount = idAccount
         self.idOpportunite = idOpportunite
     }
+    func arrayFromModel() -> [AnyObject] {
+        return [self.idAccount, self.idOpportunite]
+    }
 }

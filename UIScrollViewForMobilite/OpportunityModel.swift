@@ -32,4 +32,8 @@ class OpportunityModel {
         self.closeDateOpportunity = closeDateOpportunity
         self.statusOpportunity = statusOpportunity
     }
+    
+    func arrayFromModel() -> [AnyObject] {
+        return [self.nomOpportunite, self.contractValueOpportunite, self.closeDateOpportunity, self.statusOpportunity]
+    }
 }

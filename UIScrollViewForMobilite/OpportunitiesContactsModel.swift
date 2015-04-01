@@ -21,7 +21,10 @@ class OpportunitiesContactsModel {
     }
     
     init(idContact: Int, idOpportunite: Int) {
-            self.idContact = idContact
-            self.idOpportunite = idOpportunite
+        self.idContact = idContact
+        self.idOpportunite = idOpportunite
+    }
+    func arrayFromModel() -> [AnyObject] {
+        return [self.idContact, self.idOpportunite]
     }
 }

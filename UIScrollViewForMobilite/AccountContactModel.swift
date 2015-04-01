@@ -27,4 +27,8 @@ class AccountContactModel {
         self.idContact = idContact
         self.roleContact = roleContact
     }
+    
+    func arrayFromModel() -> [AnyObject] {
+        return [self.idAccount, self.idContact, self.roleContact]
+    }
 }

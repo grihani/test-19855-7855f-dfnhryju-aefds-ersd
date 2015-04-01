@@ -18,7 +18,7 @@ class MeetingDataModel {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = NSDate()
         let dateFromString = dateFormatter.stringFromDate(date)
-        var querySQL = "SELECT * FROM Meetings WHERE (date(dateBeginMeeting) > date(\(dateFromString))) ORDER BY nameAccount"
+        var querySQL = "SELECT * FROM Meetings WHERE (datetime(dateBeginMeeting) >= datetime(\(dateFromString))) ORDER BY datetime(dateBeginMeeting)"
         let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
         if let results = results {
             while results.next() == true {
