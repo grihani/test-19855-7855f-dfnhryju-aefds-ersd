@@ -7,3 +7,16 @@
 //
 
 import Foundation
+class ContractsDataModel {
+    
+    func insertContracts(contract: ContractsModel) -> String {
+        println("inserting Into ContractsModel")
+        var erreur = String()
+        let insertSQL = "INSERT INTO Contracts (subjectContract,valueContract,dateContract,statusContract) VALUES ( ?, ?, ?, ?)"
+        let result = contactDataBase.executeUpdate(insertSQL, withArgumentsInArray: contract.arrayFromModel())
+        if !result {
+            erreur += "\n Error: \(contactDataBase.lastErrorMessage())"
+        }
+        return erreur
+    }
+}

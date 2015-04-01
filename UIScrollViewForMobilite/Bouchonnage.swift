@@ -94,7 +94,7 @@ class Bouchonnage {
         viderAccounts()
         return allAccounts
     }
-    func insertingAccounts () {
+    func insertingAccounts() {
         var successful = ""
         let accountsToInsert = remplirTableauAccount()
         for accountToInsert in accountsToInsert {

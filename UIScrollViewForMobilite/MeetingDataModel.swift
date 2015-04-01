@@ -42,7 +42,7 @@ class MeetingDataModel {
     }
     
     func insertMeeting (meeting: MeetingModel) -> String {
-        println("inserting Into Meetings")
+        println("inserting Into MeetingModel")
         var erreur = String()
         let insertSQL = "INSERT INTO Meetings (subjectMeeting,dateBeginMeeting,adressMeeting,dateEndMeeting,allDayMeeting,priorityMeeting,descriptionMeeting,regardingMeeting,reportMeeting) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
             

@@ -109,6 +109,30 @@ class DataBase {
         return sqlStatement
     }
     
+    func checkingAndInsertingTables() {
+        var empty: Bool
+        if (checkEmptyTable("Account")) {
+            Bouchonnage().insertingAccounts()
+        }
+    }
+    
+    func checkEmptyTable(table: String) -> Bool {
+        println("checking if \(table) is empty")
+        var querySQL = "SELECT count(*) as COUNT FROM \(table)"
+        let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let results = results {
+            while results.next() == true {
+                var count: Int = Int(results.intForColumn("COUNT"))
+                if count == 0 {
+                    println("\(table) est vide")
+                    return true
+                }
+            }
+        }
+        println("\(table) n'est pas vide")
+        return false
+    }
+    
     func readDataBasePath() -> String {
         if let databasePath = defaults.stringForKey(DATABASEPATHKEY)
         {

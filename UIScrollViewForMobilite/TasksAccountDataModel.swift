@@ -7,3 +7,16 @@
 //
 
 import Foundation
+class TasksAccountDataModel {
+    
+    func insertTaskAccount(taskAccount: TasksAccountModel) -> String {
+        println("inserting Into TasksAccountModel")
+        var erreur = String()
+        let insertSQL = "INSERT INTO Tasks_Account (idAccount,idTask) VALUES (?, ?)"
+        let result = contactDataBase.executeUpdate(insertSQL, withArgumentsInArray: taskAccount.arrayFromModel())
+        if !result {
+            erreur += "\n Error: \(contactDataBase.lastErrorMessage())"
+        }
+        return erreur
+    }
+}
