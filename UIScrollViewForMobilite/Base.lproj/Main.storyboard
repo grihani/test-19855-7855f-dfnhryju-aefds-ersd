@@ -81,8 +81,15 @@
                                 <segment title="A &gt; Z"/>
                                 <segment title="Z &gt; A"/>
                             </segments>
+                            <connections>
+                                <action selector="changeAccountList:" destination="q1R-rD-kwE" eventType="valueChanged" id="zqm-96-k8P"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
+                    <connections>
+                        <outlet property="listAccounts" destination="OkP-UO-hn5" id="9fe-b3-CTZ"/>
+                        <outlet property="triAccounts" destination="flJ-BJ-rCq" id="FZr-t7-zpM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kYJ-lL-ZDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
