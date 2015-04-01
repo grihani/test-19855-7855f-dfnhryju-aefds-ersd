@@ -9,7 +9,7 @@
 import Foundation
 class TasksContactsDataModel {
     
-    func insertTasksContacts (tasksContacts: TasksContactsModel) -> String {
+    func insertTasksContacts(tasksContacts: TasksContactsModel) -> String {
         println("inserting Into TasksContactsModel")
         var erreur = String()
         let insertSQL = "INSERT INTO Tasks_Contacts (idTask,idContact) VALUES ( ?, ?)"

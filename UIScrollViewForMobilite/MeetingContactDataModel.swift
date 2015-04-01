@@ -9,7 +9,7 @@
 import Foundation
 class MeetingContactDataModel {
     
-    func insertMeetingContactModel (meetingContactModel: MeetingContactModel) -> String {
+    func insertMeetingContactModel(meetingContactModel: MeetingContactModel) -> String {
         println("inserting Into MeetingContactModel")
         var erreur = String()
         let insertSQL = "INSERT INTO Meetings_Contacts (idContact,idMeeting) VALUES ( ?, ?)"

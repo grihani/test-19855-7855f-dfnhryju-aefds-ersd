@@ -220,6 +220,43 @@
 			path = SWRevealViewController;
 			sourceTree = "<group>";
 		};
+		48ECE1CD1ACC41FC004D2003 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				48FCB13D1ACADF6300A770B2 /* PriorityModels */,
+				48FCB13E1ACAE06900A770B2 /* TransitionModels */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		48ECE1CE1ACC420D004D2003 /* Principales */ = {
+			isa = PBXGroup;
+			children = (
+				48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */,
+				480DA2261ACBD68E00F43FA1 /* MeetingDataModel.swift */,
+				480DA2281ACC2B7600F43FA1 /* OpportunityDataModel.swift */,
+				480DA22A1ACC2B8B00F43FA1 /* ContactDataModel.swift */,
+				480DA22C1ACC2B9800F43FA1 /* TaskDataModel.swift */,
+				480DA22E1ACC2BA800F43FA1 /* ContractsDataModel.swift */,
+			);
+			name = Principales;
+			sourceTree = "<group>";
+		};
+		48ECE1CF1ACC4217004D2003 /* secondaires */ = {
+			isa = PBXGroup;
+			children = (
+				480DA2301ACC2BB900F43FA1 /* AccountContactDataModel.swift */,
+				480DA2321ACC2BCA00F43FA1 /* OpportunitiesContactsDataModel.swift */,
+				480DA2341ACC2BDC00F43FA1 /* AccountOpportunitiesDataModel.swift */,
+				480DA2361ACC2BFC00F43FA1 /* MeetingContactDataModel.swift */,
+				480DA2381ACC2C0D00F43FA1 /* AccountContractsDataModel.swift */,
+				480DA23A1ACC2C1E00F43FA1 /* TasksAccountDataModel.swift */,
+				480DA23C1ACC2C3A00F43FA1 /* TasksContactsDataModel.swift */,
+				480DA23E1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift */,
+			);
+			name = secondaires;
+			sourceTree = "<group>";
+		};
 		48FCB11E1ACAD50500A770B2 /* Accounts */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,8 +274,7 @@
 			children = (
 				48FCB1221ACAD55500A770B2 /* DataBase.swift */,
 				48FCB1581ACAF47200A770B2 /* Bouchonnage.swift */,
-				48FCB13D1ACADF6300A770B2 /* PriorityModels */,
-				48FCB13E1ACAE06900A770B2 /* TransitionModels */,
+				48ECE1CD1ACC41FC004D2003 /* Models */,
 				48FCB1551ACAED3E00A770B2 /* dataSearchQueries */,
 			);
 			name = dataBase;
@@ -293,20 +329,8 @@
 		48FCB1551ACAED3E00A770B2 /* dataSearchQueries */ = {
 			isa = PBXGroup;
 			children = (
-				48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */,
-				480DA2261ACBD68E00F43FA1 /* MeetingDataModel.swift */,
-				480DA2281ACC2B7600F43FA1 /* OpportunityDataModel.swift */,
-				480DA22A1ACC2B8B00F43FA1 /* ContactDataModel.swift */,
-				480DA2301ACC2BB900F43FA1 /* AccountContactDataModel.swift */,
-				480DA22C1ACC2B9800F43FA1 /* TaskDataModel.swift */,
-				480DA22E1ACC2BA800F43FA1 /* ContractsDataModel.swift */,
-				480DA23C1ACC2C3A00F43FA1 /* TasksContactsDataModel.swift */,
-				480DA2321ACC2BCA00F43FA1 /* OpportunitiesContactsDataModel.swift */,
-				480DA2341ACC2BDC00F43FA1 /* AccountOpportunitiesDataModel.swift */,
-				480DA2361ACC2BFC00F43FA1 /* MeetingContactDataModel.swift */,
-				480DA2381ACC2C0D00F43FA1 /* AccountContractsDataModel.swift */,
-				480DA23A1ACC2C1E00F43FA1 /* TasksAccountDataModel.swift */,
-				480DA23E1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift */,
+				48ECE1CE1ACC420D004D2003 /* Principales */,
+				48ECE1CF1ACC4217004D2003 /* secondaires */,
 			);
 			name = dataSearchQueries;
 			sourceTree = "<group>";

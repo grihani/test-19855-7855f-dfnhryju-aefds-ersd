@@ -9,7 +9,7 @@
 import Foundation
 class TaskDataModel {
     
-    func insertTask (task: TaskModel) -> String {
+    func insertTask(task: TaskModel) -> String {
         println("inserting Into TaskModel")
         var erreur = String()
         let insertSQL = "INSERT INTO Tasks (subjectTask,dateTask,statusTask) VALUES (?, ?, ?)"

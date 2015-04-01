@@ -9,7 +9,7 @@
 import Foundation
 class TasksMeetingsDataModel {
     
-    func insertTasksMeeting (tasksMeeting: TasksMeetingsModel) -> String {
+    func insertTasksMeeting(tasksMeeting: TasksMeetingsModel) -> String {
         println("inserting Into TasksMeetingsModel")
         var erreur = String()
         let insertSQL = "INSERT INTO tasks_Meetings (idTask,idMeeting) VALUES (?, ?)"

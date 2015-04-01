@@ -41,7 +41,7 @@ class MeetingDataModel {
         return allNextMeetings
     }
     
-    func insertMeeting (meeting: MeetingModel) -> String {
+    func insertMeeting(meeting: MeetingModel) -> String {
         println("inserting Into MeetingModel")
         var erreur = String()
         let insertSQL = "INSERT INTO Meetings (subjectMeeting,dateBeginMeeting,adressMeeting,dateEndMeeting,allDayMeeting,priorityMeeting,descriptionMeeting,regardingMeeting,reportMeeting) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"

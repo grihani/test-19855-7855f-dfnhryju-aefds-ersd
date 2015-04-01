@@ -41,7 +41,7 @@ class AccountDataModel {
         return allAccounts
     }
     
-    func insertAccount (account : AccountModel) -> String {
+    func insertAccount(account : AccountModel) -> String {
         println("inserting Into AccountModel")
         var erreur = String()
         let insertSQL = "INSERT INTO Account (nameAccount,shortNameAccount,leadSource,statusAccount,industryAccount,segmentAccount,websiteAccount,phoneAccount,faxAccount,coverageAccount,regionAccount,adressAccount,idAccount1,countryAccount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
