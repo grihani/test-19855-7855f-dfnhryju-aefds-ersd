@@ -40,15 +40,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if contactDataBase.open() {
             println("ouverture générale de la base de donnée")
         }
-        let emptyAccount = AccountDataModel().checkEmptyAccount()
-        if emptyAccount {
-            Bouchonnage().insertingAccounts()
-        }
-        let emptyMeeting = MeetingDataModel().checkEmptyMeeting()
-        if emptyMeeting {
-            Bouchonnage().insertingMeetings()
-        }
-                return true
+        println(dataBasePath)
+        DataBase().checkingAndInsertingTables()
+        
+        return true
     }
 
     func applicationWillResignActive(application: UIApplication) {

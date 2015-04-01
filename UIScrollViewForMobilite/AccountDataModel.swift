@@ -52,21 +52,4 @@ class AccountDataModel {
         }
         return erreur
     }
-    
-    func checkEmptyAccount() -> Bool {
-        println("checking if accounts is empty")
-        var querySQL = "SELECT count(*) as COUNT FROM Account"
-        let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
-        if let results = results {
-            while results.next() == true {
-                var count: Int = Int(results.intForColumn("COUNT"))
-                if count == 0 {
-                    println("Accounts est vide")
-                    return true
-                }
-            }
-        }
-        println("Accounts n'est pas vide")
-        return false
-    }
 }

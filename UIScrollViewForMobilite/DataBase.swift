@@ -114,6 +114,18 @@ class DataBase {
         if (checkEmptyTable("Account")) {
             Bouchonnage().insertingAccounts()
         }
+        if (checkEmptyTable("Account_Contacts")){
+            Bouchonnage().insertingAccountContacts()
+        }
+        if checkEmptyTable("Contacts"){
+            Bouchonnage().insertingContacts()
+        }
+        if checkEmptyTable("Meetings_Contacts"){
+            Bouchonnage().insertingContactMeetings()
+        }
+        if checkEmptyTable("Meetings"){
+            Bouchonnage().insertingMeetings()
+        }
     }
     
     func checkEmptyTable(table: String) -> Bool {
