@@ -103,4 +103,89 @@ class Bouchonnage {
         }
         println(successful)
     }
+    
+    var meetings = [[ "1" , "Subject 1" , "2015-03-22 11:13" , "QuelquePart 1" , "2015-03-22 11:43" , "1" , "Medium" , "description 1" , "regarding 1" , "report 1" ]]
+    func remplirMeetings() {
+        self.meetings.append([ "2" , "Subject 2" , "2015-09-21 12:22" , "QuelquePart 2" , "2015-09-21 12:52" , "1" , "Low" , "description 2" , "regarding 2" , "report 2" ])
+        self.meetings.append([ "3" , "Subject 3" , "2015-07-06 12:12" , "QuelquePart 3" , "2015-07-06 12:42" , "1" , "Low" , "description 3" , "regarding 3" , "report 3" ])
+        self.meetings.append([ "4" , "Subject 4" , "2015-02-20 14:25" , "QuelquePart 4" , "2015-02-20 14:55" , "0" , "Medium" , "description 4" , "regarding 4" , "report 4" ])
+        self.meetings.append([ "5" , "Subject 5" , "2015-01-21 16:23" , "QuelquePart 5" , "2015-01-21 16:53" , "1" , "High" , "description 5" , "regarding 5" , "report 5" ])
+        self.meetings.append([ "6" , "Subject 6" , "2015-05-17 15:28" , "QuelquePart 6" , "2015-05-17 15:58" , "1" , "Medium" , "description 6" , "regarding 6" , "report 6" ])
+        self.meetings.append([ "7" , "Subject 7" , "2015-07-21 08:12" , "QuelquePart 7" , "2015-07-21 08:42" , "1" , "Medium" , "description 7" , "regarding 7" , "report 7" ])
+        self.meetings.append([ "8" , "Subject 8" , "2015-07-06 10:13" , "QuelquePart 8" , "2015-07-06 10:43" , "1" , "High" , "description 8" , "regarding 8" , "report 8" ])
+        self.meetings.append([ "9" , "Subject 9" , "2015-03-11 10:22" , "QuelquePart 9" , "2015-03-11 10:52" , "0" , "High" , "description 9" , "regarding 9" , "report 9" ])
+        self.meetings.append([ "10" , "Subject 10" , "2015-03-20 08:17" , "QuelquePart 10" , "2015-03-20 08:47" , "1" , "High" , "description 10" , "regarding 10" , "report 10" ])
+        self.meetings.append([ "11" , "Subject 11" , "2015-06-16 08:03" , "QuelquePart 11" , "2015-06-16 08:33" , "1" , "Medium" , "description 11" , "regarding 11" , "report 11" ])
+        self.meetings.append([ "12" , "Subject 12" , "2015-05-21 12:15" , "QuelquePart 12" , "2015-05-21 12:45" , "0" , "High" , "description 12" , "regarding 12" , "report 12" ])
+        self.meetings.append([ "13" , "Subject 13" , "2015-01-07 10:15" , "QuelquePart 13" , "2015-01-07 10:45" , "0" , "Low" , "description 13" , "regarding 13" , "report 13" ])
+        self.meetings.append([ "14" , "Subject 14" , "2015-06-27 12:23" , "QuelquePart 14" , "2015-06-27 12:53" , "0" , "Low" , "description 14" , "regarding 14" , "report 14" ])
+        self.meetings.append([ "15" , "Subject 15" , "2015-02-23 09:10" , "QuelquePart 15" , "2015-02-23 09:40" , "0" , "High" , "description 15" , "regarding 15" , "report 15" ])
+        self.meetings.append([ "16" , "Subject 16" , "2015-12-20 15:26" , "QuelquePart 16" , "2015-12-20 15:56" , "0" , "High" , "description 16" , "regarding 16" , "report 16" ])
+        self.meetings.append([ "17" , "Subject 17" , "2015-08-21 15:07" , "QuelquePart 17" , "2015-08-21 15:37" , "1" , "Medium" , "description 17" , "regarding 17" , "report 17" ])
+        self.meetings.append([ "18" , "Subject 18" , "2015-05-03 14:07" , "QuelquePart 18" , "2015-05-03 14:37" , "1" , "Low" , "description 18" , "regarding 18" , "report 18" ])
+        self.meetings.append([ "19" , "Subject 19" , "2015-10-24 15:18" , "QuelquePart 19" , "2015-10-24 15:48" , "0" , "Medium" , "description 19" , "regarding 19" , "report 19" ])
+        self.meetings.append([ "20" , "Subject 20" , "2015-05-14 10:28" , "QuelquePart 20" , "2015-05-14 10:58" , "1" , "High" , "description 20" , "regarding 20" , "report 20" ])
+        self.meetings.append([ "21" , "Subject 21" , "2015-05-08 13:21" , "QuelquePart 21" , "2015-05-08 13:51" , "1" , "Medium" , "description 21" , "regarding 21" , "report 21" ])
+        self.meetings.append([ "22" , "Subject 22" , "2015-09-16 10:02" , "QuelquePart 22" , "2015-09-16 10:32" , "1" , "High" , "description 22" , "regarding 22" , "report 22" ])
+        self.meetings.append([ "23" , "Subject 23" , "2015-06-23 15:10" , "QuelquePart 23" , "2015-06-23 15:40" , "0" , "Medium" , "description 23" , "regarding 23" , "report 23" ])
+        self.meetings.append([ "24" , "Subject 24" , "2015-01-13 10:26" , "QuelquePart 24" , "2015-01-13 10:56" , "1" , "Medium" , "description 24" , "regarding 24" , "report 24" ])
+        self.meetings.append([ "25" , "Subject 25" , "2015-07-23 12:13" , "QuelquePart 25" , "2015-07-23 12:43" , "1" , "Medium" , "description 25" , "regarding 25" , "report 25" ])
+        self.meetings.append([ "26" , "Subject 26" , "2015-07-12 12:24" , "QuelquePart 26" , "2015-07-12 12:54" , "1" , "Low" , "description 26" , "regarding 26" , "report 26" ])
+        self.meetings.append([ "27" , "Subject 27" , "2015-12-08 15:13" , "QuelquePart 27" , "2015-12-08 15:43" , "0" , "Medium" , "description 27" , "regarding 27" , "report 27" ])
+        self.meetings.append([ "28" , "Subject 28" , "2015-12-08 12:13" , "QuelquePart 28" , "2015-12-08 12:43" , "0" , "High" , "description 28" , "regarding 28" , "report 28" ])
+        self.meetings.append([ "29" , "Subject 29" , "2015-11-28 12:27" , "QuelquePart 29" , "2015-11-28 12:57" , "1" , "Medium" , "description 29" , "regarding 29" , "report 29" ])
+        self.meetings.append([ "30" , "Subject 30" , "2015-09-12 09:15" , "QuelquePart 30" , "2015-09-12 09:45" , "0" , "High" , "description 30" , "regarding 30" , "report 30" ])
+        self.meetings.append([ "31" , "Subject 31" , "2015-10-15 14:15" , "QuelquePart 31" , "2015-10-15 14:45" , "0" , "Low" , "description 31" , "regarding 31" , "report 31" ])
+        self.meetings.append([ "32" , "Subject 32" , "2015-06-11 13:14" , "QuelquePart 32" , "2015-06-11 13:44" , "1" , "High" , "description 32" , "regarding 32" , "report 32" ])
+        self.meetings.append([ "33" , "Subject 33" , "2015-10-01 11:01" , "QuelquePart 33" , "2015-10-01 11:31" , "1" , "Medium" , "description 33" , "regarding 33" , "report 33" ])
+        self.meetings.append([ "34" , "Subject 34" , "2015-08-16 13:05" , "QuelquePart 34" , "2015-08-16 13:35" , "0" , "Medium" , "description 34" , "regarding 34" , "report 34" ])
+        self.meetings.append([ "35" , "Subject 35" , "2015-11-12 14:16" , "QuelquePart 35" , "2015-11-12 14:46" , "0" , "Medium" , "description 35" , "regarding 35" , "report 35" ])
+        self.meetings.append([ "36" , "Subject 36" , "2015-11-18 09:01" , "QuelquePart 36" , "2015-11-18 09:31" , "1" , "Low" , "description 36" , "regarding 36" , "report 36" ])
+        self.meetings.append([ "37" , "Subject 37" , "2015-06-18 16:25" , "QuelquePart 37" , "2015-06-18 16:55" , "0" , "Low" , "description 37" , "regarding 37" , "report 37" ])
+        self.meetings.append([ "38" , "Subject 38" , "2015-02-09 13:05" , "QuelquePart 38" , "2015-02-09 13:35" , "1" , "Medium" , "description 38" , "regarding 38" , "report 38" ])
+        self.meetings.append([ "39" , "Subject 39" , "2015-09-16 08:20" , "QuelquePart 39" , "2015-09-16 08:50" , "0" , "Low" , "description 39" , "regarding 39" , "report 39" ])
+        self.meetings.append([ "40" , "Subject 40" , "2015-11-16 15:24" , "QuelquePart 40" , "2015-11-16 15:54" , "1" , "High" , "description 40" , "regarding 40" , "report 40" ])
+        self.meetings.append([ "41" , "Subject 41" , "2015-12-28 13:07" , "QuelquePart 41" , "2015-12-28 13:37" , "1" , "Medium" , "description 41" , "regarding 41" , "report 41" ])
+        self.meetings.append([ "42" , "Subject 42" , "2015-10-26 16:13" , "QuelquePart 42" , "2015-10-26 16:43" , "0" , "High" , "description 42" , "regarding 42" , "report 42" ])
+        self.meetings.append([ "43" , "Subject 43" , "2015-02-17 15:03" , "QuelquePart 43" , "2015-02-17 15:33" , "1" , "Low" , "description 43" , "regarding 43" , "report 43" ])
+        self.meetings.append([ "44" , "Subject 44" , "2015-07-06 16:29" , "QuelquePart 44" , "2015-07-06 16:59" , "1" , "High" , "description 44" , "regarding 44" , "report 44" ])
+        self.meetings.append([ "45" , "Subject 45" , "2015-11-28 16:13" , "QuelquePart 45" , "2015-11-28 16:43" , "1" , "Medium" , "description 45" , "regarding 45" , "report 45" ])
+        self.meetings.append([ "46" , "Subject 46" , "2015-03-04 16:06" , "QuelquePart 46" , "2015-03-04 16:36" , "1" , "Low" , "description 46" , "regarding 46" , "report 46" ])
+        self.meetings.append([ "47" , "Subject 47" , "2015-03-25 16:06" , "QuelquePart 46" , "2015-03-04 16:36" , "1" , "Low" , "description 46" , "regarding 46" , "report 46" ])
+        self.meetings.append([ "48" , "Subject 48" , "2015-03-25 08:06" , "QuelquePart 46" , "2015-03-04 16:36" , "1" , "Low" , "description 46" , "regarding 46" , "report 46" ])
+        self.meetings.append([ "49" , "Subject 49" , "2015-03-25 12:06" , "QuelquePart 46" , "2015-03-04 16:36" , "1" , "Low" , "description 46" , "regarding 46" , "report 46" ])
+    }
+    func viderMeetings() {
+        self.meetings = [[ "1" , "Subject 1" , "2015-03-22 11:13" , "QuelquePart 1" , "2015-03-22 11:43" , "1" , "Medium" , "description 1" , "regarding 1" , "report 1" ]]
+    }
+    func remplirTableauMeetings() -> [MeetingModel] {
+        remplirMeetings()
+        var meetingsARendre = [MeetingModel]()
+        var meet: MeetingModel
+        for meeting in self.meetings {
+            var idMeeting: Int = meeting[0].toInt()!
+            var subjectMeeting = meeting[01]
+            var dateBeginMeeting = meeting[02]
+            var adressMeeting = meeting[03]
+            var dateEndMeeting = meeting[04]
+            var allDayMeeting: Int = meeting[05].toInt()!
+            var priorityMeeting = meeting[06]
+            var descriptionMeeting = meeting[07]
+            var regardingMeeting = meeting[08]
+            var reportMeeting = meeting[09]
+            meet = MeetingModel(idMeeting: idMeeting, subjectMeeting: subjectMeeting, dateBeginMeeting: dateBeginMeeting, adressMeeting: adressMeeting, dateEndMeeting: dateEndMeeting, allDayMeeting: allDayMeeting, priorityMeeting: priorityMeeting, descriptionMeeting: descriptionMeeting, regardingMeeting: regardingMeeting, reportMeeting: reportMeeting)
+            meetingsARendre.append(meet)
+        }
+        return meetingsARendre
+    }
+    func insertingMeetings() {
+        var successful = ""
+        let meetingsToInsert = remplirTableauMeetings()
+        for meetingToInsert in meetingsToInsert {
+            successful += MeetingDataModel().insertMeeting(meetingToInsert)
+            successful += "\n"
+        }
+        println(successful)
+    }
+    
 }

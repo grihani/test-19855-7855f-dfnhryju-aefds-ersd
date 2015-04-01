@@ -47,4 +47,8 @@ class MeetingModel {
         self.regardingMeeting = regardingMeeting
         self.reportMeeting = reportMeeting
     }
+    
+    func arrayFromModel() -> [AnyObject] {
+        return [self.idMeeting, self.subjectMeeting, self.dateBeginMeeting, self.adressMeeting, self.dateEndMeeting, self.allDayMeeting, self.priorityMeeting, self.descriptionMeeting, self.regardingMeeting, self.reportMeeting]
+    }
 }

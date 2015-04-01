@@ -38,39 +38,6 @@ class DataBase {
         return createDB
     }
     
-    
-    func createDataBase() {
-        var erreursDataBase = "Tout s'est bien passé"
-        let dataBasePath = readDataBasePath()
-        if !filemgr.fileExistsAtPath(dataBasePath) {
-            
-            let contactDB = FMDatabase(path: dataBasePath)
-            
-            if contactDB == nil {
-                erreursDataBase = ""
-                erreursDataBase += "Error: \(contactDB.lastErrorMessage());\n"
-            }
-            
-            if contactDB.open() {
-                let sql_stmt = createTablesStatement()
-                
-                if !contactDB.executeStatements(sql_stmt) {
-                    erreursDataBase += "Error: \(contactDB.lastErrorMessage());\n"
-                } else {
-                    self.defaults.setObject(dataBasePath, forKey: DATABASEPATHKEY)
-                }
-                contactDB.close()
-            } else {
-                erreursDataBase += "Error: \(contactDB.lastErrorMessage()); \n"
-            }
-        } else {
-            erreursDataBase = "La base de donnée a déjà été créé"
-            self.defaults.setObject(dataBasePath, forKey: DATABASEPATHKEY)
-        }
-        println(erreursDataBase)
-        println("_____________________")
-    }
-    
     func createTablesStatement() -> String {
         
         var sqlStatement = ""

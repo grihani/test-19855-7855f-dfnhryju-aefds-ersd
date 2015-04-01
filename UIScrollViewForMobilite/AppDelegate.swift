@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+var contactDataBase: FMDatabase!
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -22,21 +24,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let docsDir = dirPaths[0] as String
         var dataBasePath = docsDir.stringByAppendingPathComponent("DataBase.sqlite")
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(dataBasePath, forKey: "dataBasePath")
+        
         if !filemgr.fileExistsAtPath(dataBasePath) {
             createdDB = DataBase().createDataBase(dataBasePath)
-        }
-        let emptyAccount = AccountDataModel().checkEmptyAccount(dataBasePath)
-        if emptyAccount {
-            Bouchonnage().insertingAccounts()
         }
         if !createdDB {
             println("the dataBase has not been implemented")
         } else {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setObject(dataBasePath, forKey: "dataBasePath")
-            println(dataBasePath)
+            println("the dataBase has been implemented")
         }
-        return true
+        let contactDB = FMDatabase(path: dataBasePath)
+        contactDataBase = contactDB
+        if contactDataBase.open() {
+            println("ouverture générale de la base de donnée")
+        }
+        let emptyAccount = AccountDataModel().checkEmptyAccount()
+        if emptyAccount {
+            Bouchonnage().insertingAccounts()
+        }
+        let emptyMeeting = MeetingDataModel().checkEmptyMeeting()
+        if emptyMeeting {
+            Bouchonnage().insertingMeetings()
+        }
+                return true
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -60,6 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
+        contactDataBase.close()
         self.saveContext()
     }
 
