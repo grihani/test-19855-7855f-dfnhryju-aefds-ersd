@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480DA2271ACBD68E00F43FA1 /* MeetingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA2261ACBD68E00F43FA1 /* MeetingDataModel.swift */; };
 		488186151AC94F6600923A18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488186141AC94F6600923A18 /* AppDelegate.swift */; };
 		488186181AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 488186161AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld */; };
 		4881861D1AC94F6600923A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4881861B1AC94F6600923A18 /* Main.storyboard */; };
@@ -40,6 +41,8 @@
 		48FCB1501ACAE80300A770B2 /* TasksAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB14F1ACAE80300A770B2 /* TasksAccountModel.swift */; };
 		48FCB1521ACAE8DB00A770B2 /* TasksContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1511ACAE8DB00A770B2 /* TasksContactsModel.swift */; };
 		48FCB1541ACAE97E00A770B2 /* TasksMeetingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1531ACAE97E00A770B2 /* TasksMeetingsModel.swift */; };
+		48FCB1571ACAED6A00A770B2 /* AccountDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */; };
+		48FCB1591ACAF47200A770B2 /* Bouchonnage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1581ACAF47200A770B2 /* Bouchonnage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		480DA2261ACBD68E00F43FA1 /* MeetingDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDataModel.swift; sourceTree = "<group>"; };
 		4881860F1AC94F6600923A18 /* UIScrollViewForMobilite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIScrollViewForMobilite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		488186131AC94F6600923A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		488186141AC94F6600923A18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 		48FCB14F1ACAE80300A770B2 /* TasksAccountModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksAccountModel.swift; sourceTree = "<group>"; };
 		48FCB1511ACAE8DB00A770B2 /* TasksContactsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksContactsModel.swift; sourceTree = "<group>"; };
 		48FCB1531ACAE97E00A770B2 /* TasksMeetingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksMeetingsModel.swift; sourceTree = "<group>"; };
+		48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDataModel.swift; sourceTree = "<group>"; };
+		48FCB1581ACAF47200A770B2 /* Bouchonnage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bouchonnage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,8 +212,10 @@
 			isa = PBXGroup;
 			children = (
 				48FCB1221ACAD55500A770B2 /* DataBase.swift */,
-				48FCB13D1ACADF6300A770B2 /* Priority Tables */,
-				48FCB13E1ACAE06900A770B2 /* Transition Tables */,
+				48FCB1581ACAF47200A770B2 /* Bouchonnage.swift */,
+				48FCB13D1ACADF6300A770B2 /* PriorityModels */,
+				48FCB13E1ACAE06900A770B2 /* TransitionModels */,
+				48FCB1551ACAED3E00A770B2 /* dataSearchQueries */,
 			);
 			name = dataBase;
 			sourceTree = "<group>";
@@ -230,7 +238,7 @@
 			path = fmdb;
 			sourceTree = "<group>";
 		};
-		48FCB13D1ACADF6300A770B2 /* Priority Tables */ = {
+		48FCB13D1ACADF6300A770B2 /* PriorityModels */ = {
 			isa = PBXGroup;
 			children = (
 				48FCB1351ACADBAC00A770B2 /* AccountModel.swift */,
@@ -240,10 +248,10 @@
 				48FCB14D1ACAE77C00A770B2 /* TaskModel.swift */,
 				48FCB1471ACAE50000A770B2 /* ContractsModel.swift */,
 			);
-			name = "Priority Tables";
+			name = PriorityModels;
 			sourceTree = "<group>";
 		};
-		48FCB13E1ACAE06900A770B2 /* Transition Tables */ = {
+		48FCB13E1ACAE06900A770B2 /* TransitionModels */ = {
 			isa = PBXGroup;
 			children = (
 				48FCB13F1ACAE09E00A770B2 /* AccountContactModel.swift */,
@@ -255,7 +263,16 @@
 				48FCB1511ACAE8DB00A770B2 /* TasksContactsModel.swift */,
 				48FCB1531ACAE97E00A770B2 /* TasksMeetingsModel.swift */,
 			);
-			name = "Transition Tables";
+			name = TransitionModels;
+			sourceTree = "<group>";
+		};
+		48FCB1551ACAED3E00A770B2 /* dataSearchQueries */ = {
+			isa = PBXGroup;
+			children = (
+				48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */,
+				480DA2261ACBD68E00F43FA1 /* MeetingDataModel.swift */,
+			);
+			name = dataSearchQueries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,7 +376,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				48EA73961AC9977B0067C417 /* Test1ViewController.swift in Sources */,
+				48FCB1571ACAED6A00A770B2 /* AccountDataModel.swift in Sources */,
 				48FCB1441ACAE31300A770B2 /* AccountOpportunitiesModel.swift in Sources */,
+				48FCB1591ACAF47200A770B2 /* Bouchonnage.swift in Sources */,
 				48FCB1321ACAD73600A770B2 /* FMDatabasePool.m in Sources */,
 				48FCB13C1ACADED000A770B2 /* ContactModel.swift in Sources */,
 				48FCB1521ACAE8DB00A770B2 /* TasksContactsModel.swift in Sources */,
@@ -367,6 +386,7 @@
 				48FCB13A1ACADE0A00A770B2 /* OpportunityModel.swift in Sources */,
 				48FCB1401ACAE09E00A770B2 /* AccountContactModel.swift in Sources */,
 				48FCB1421ACAE1F500A770B2 /* OpportunitiesContactsModel.swift in Sources */,
+				480DA2271ACBD68E00F43FA1 /* MeetingDataModel.swift in Sources */,
 				48EA73981AC997870067C417 /* Test2ViewController.swift in Sources */,
 				48FCB1541ACAE97E00A770B2 /* TasksMeetingsModel.swift in Sources */,
 				489B31661AC952DB00C04732 /* DetailAccountsViewController.swift in Sources */,

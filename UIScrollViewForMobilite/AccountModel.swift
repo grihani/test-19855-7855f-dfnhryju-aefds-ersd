@@ -63,4 +63,8 @@ class AccountModel {
         self.idAccount1 = idAccount1
         self.countryAccount = countryAccount
     }
+    
+    func arrayFromModel() -> [AnyObject] {
+        return [self.idAccount, self.nameAccount, self.shortNameAccount, self.leadSource, self.statusAccount, self.industryAccount, self.segmentAccount, self.websiteAccount, self.phoneAccount, self.faxAccount, self.coverageAccount, self.regionAccount, self.adressAccount, self.idAccount1, self.countryAccount]
+    }
 }

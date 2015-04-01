@@ -17,6 +17,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        var createDB = true
+        let filemgr = NSFileManager.defaultManager()
+        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let docsDir = dirPaths[0] as String
+        var dataBasePath = docsDir.stringByAppendingPathComponent("DataBase.sqlite")
+        if !filemgr.fileExistsAtPath(dataBasePath) {
+            createDB = DataBase().createDataBase(dataBasePath)
+        }
+        if !createDB {
+            println("the dataBase has not been implemented")
+        } else {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setObject(dataBasePath, forKey: "dataBasePath")
+        }
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(dataBasePath, forKey: "dataBasePath")
         return true
     }
 

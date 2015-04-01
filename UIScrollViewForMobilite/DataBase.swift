@@ -11,13 +11,37 @@ import Foundation
 class DataBase {
     let defaults = NSUserDefaults.standardUserDefaults()
     let DATABASEPATHKEY = "dataBasePath"
+    let filemgr = NSFileManager.defaultManager()
+    
+    func createDataBase(dataBasePath: NSString) -> Bool {
+        var createDB = false
+        var erreursDataBase = "Tout s'est bien passé"
+        let contactDB = FMDatabase(path: dataBasePath)
+            
+        if contactDB == nil {
+            erreursDataBase = ""
+            erreursDataBase += "Error: \(contactDB.lastErrorMessage());\n"
+        }
+            
+        if contactDB.open() {
+            let sql_stmt = createTablesStatement()
+            
+            if !contactDB.executeStatements(sql_stmt) {
+                erreursDataBase += "Error: \(contactDB.lastErrorMessage());\n"
+            } else {
+                createDB = true
+            }
+            contactDB.close()
+        } else {
+            erreursDataBase += "Error: \(contactDB.lastErrorMessage()); \n"
+        }
+        return createDB
+    }
+    
     
     func createDataBase() {
         var erreursDataBase = "Tout s'est bien passé"
-        let filemgr = NSFileManager.defaultManager()
-        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let docsDir = dirPaths[0] as String
-        var dataBasePath = docsDir.stringByAppendingPathComponent("DataBase.sqlite")
+        let dataBasePath = readDataBasePath()
         if !filemgr.fileExistsAtPath(dataBasePath) {
             
             let contactDB = FMDatabase(path: dataBasePath)
@@ -41,6 +65,7 @@ class DataBase {
             }
         } else {
             erreursDataBase = "La base de donnée a déjà été créé"
+            self.defaults.setObject(dataBasePath, forKey: DATABASEPATHKEY)
         }
         println(erreursDataBase)
         println("_____________________")
@@ -128,7 +153,7 @@ class DataBase {
 
 // méthodes de récupération de NSUserDefaults
 
-// the first 4 methods return 0/0/0.0/0.0 if not found
+// the first 4 methods return 0/0/0.0/0.0 if not found as they are not optional
 //func boolForKey(defaultName: String) -> Bool
 //func integerForKey(defaultName: String) -> Int
 //func floatForKey(defaultName: String) -> Float

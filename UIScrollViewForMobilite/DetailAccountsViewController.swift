@@ -32,16 +32,6 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         self.showList.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         buttonForPages(listeButtonsForPages)
         
-        var dataBase = DataBase()
-        let dataBasePath = dataBase.readDataBasePath()
-        if dataBasePath == "" {
-            dataBase.createDataBase()
-            
-        } else {
-            println("dataBase was already Created")
-            println(dataBasePath)
-        }
-        
     }
     
     override func viewDidLayoutSubviews() {
