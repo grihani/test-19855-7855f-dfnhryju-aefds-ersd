@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4809A8BA1ACD4F3A001FEC98 /* Vue360ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4809A8B91ACD4F3A001FEC98 /* Vue360ViewController.swift */; };
 		480DA2271ACBD68E00F43FA1 /* MeetingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA2261ACBD68E00F43FA1 /* MeetingDataModel.swift */; };
 		480DA2291ACC2B7600F43FA1 /* OpportunityDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA2281ACC2B7600F43FA1 /* OpportunityDataModel.swift */; };
 		480DA22B1ACC2B8B00F43FA1 /* ContactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA22A1ACC2B8B00F43FA1 /* ContactDataModel.swift */; };
@@ -30,7 +31,6 @@
 		489B31641AC952C800C04732 /* ListAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B31631AC952C800C04732 /* ListAccountsViewController.swift */; };
 		489B31661AC952DB00C04732 /* DetailAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */; };
 		48EA73961AC9977B0067C417 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA73951AC9977B0067C417 /* Test1ViewController.swift */; };
-		48EA73981AC997870067C417 /* Test2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA73971AC997870067C417 /* Test2ViewController.swift */; };
 		48EA739A1AC9AF1D0067C417 /* Test3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA73991AC9AF1D0067C417 /* Test3ViewController.swift */; };
 		48FCB1231ACAD55500A770B2 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1221ACAD55500A770B2 /* DataBase.swift */; };
 		48FCB1301ACAD73600A770B2 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1261ACAD73600A770B2 /* FMDatabase.m */; };
@@ -68,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4809A8B91ACD4F3A001FEC98 /* Vue360ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vue360ViewController.swift; sourceTree = "<group>"; };
 		480DA2261ACBD68E00F43FA1 /* MeetingDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDataModel.swift; sourceTree = "<group>"; };
 		480DA2281ACC2B7600F43FA1 /* OpportunityDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityDataModel.swift; sourceTree = "<group>"; };
 		480DA22A1ACC2B8B00F43FA1 /* ContactDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDataModel.swift; sourceTree = "<group>"; };
@@ -97,7 +98,6 @@
 		489B31631AC952C800C04732 /* ListAccountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAccountsViewController.swift; sourceTree = "<group>"; };
 		489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailAccountsViewController.swift; sourceTree = "<group>"; };
 		48EA73951AC9977B0067C417 /* Test1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test1ViewController.swift; sourceTree = "<group>"; };
-		48EA73971AC997870067C417 /* Test2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test2ViewController.swift; sourceTree = "<group>"; };
 		48EA73991AC9AF1D0067C417 /* Test3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test3ViewController.swift; sourceTree = "<group>"; };
 		48FCB1221ACAD55500A770B2 /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		48FCB1251ACAD73600A770B2 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -262,8 +262,8 @@
 			children = (
 				489B31631AC952C800C04732 /* ListAccountsViewController.swift */,
 				489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */,
+				4809A8B91ACD4F3A001FEC98 /* Vue360ViewController.swift */,
 				48EA73951AC9977B0067C417 /* Test1ViewController.swift */,
-				48EA73971AC997870067C417 /* Test2ViewController.swift */,
 				48EA73991AC9AF1D0067C417 /* Test3ViewController.swift */,
 			);
 			name = Accounts;
@@ -302,11 +302,11 @@
 			isa = PBXGroup;
 			children = (
 				48FCB1351ACADBAC00A770B2 /* AccountModel.swift */,
-				48FCB1371ACADCCD00A770B2 /* MeetingModel.swift */,
 				48FCB1391ACADE0A00A770B2 /* OpportunityModel.swift */,
 				48FCB13B1ACADED000A770B2 /* ContactModel.swift */,
 				48FCB14D1ACAE77C00A770B2 /* TaskModel.swift */,
 				48FCB1471ACAE50000A770B2 /* ContractsModel.swift */,
+				48FCB1371ACADCCD00A770B2 /* MeetingModel.swift */,
 			);
 			name = PriorityModels;
 			sourceTree = "<group>";
@@ -448,10 +448,10 @@
 				48FCB13A1ACADE0A00A770B2 /* OpportunityModel.swift in Sources */,
 				480DA2391ACC2C0D00F43FA1 /* AccountContractsDataModel.swift in Sources */,
 				48FCB1401ACAE09E00A770B2 /* AccountContactModel.swift in Sources */,
+				4809A8BA1ACD4F3A001FEC98 /* Vue360ViewController.swift in Sources */,
 				48FCB1421ACAE1F500A770B2 /* OpportunitiesContactsModel.swift in Sources */,
 				480DA2351ACC2BDC00F43FA1 /* AccountOpportunitiesDataModel.swift in Sources */,
 				480DA2271ACBD68E00F43FA1 /* MeetingDataModel.swift in Sources */,
-				48EA73981AC997870067C417 /* Test2ViewController.swift in Sources */,
 				480DA23F1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift in Sources */,
 				48FCB1541ACAE97E00A770B2 /* TasksMeetingsModel.swift in Sources */,
 				489B31661AC952DB00C04732 /* DetailAccountsViewController.swift in Sources */,

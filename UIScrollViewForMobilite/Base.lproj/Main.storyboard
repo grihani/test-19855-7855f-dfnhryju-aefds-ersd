@@ -52,6 +52,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XdO-pI-zv3" id="XZm-w0-GBE">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="7hi-Yz-OEV" kind="custom" identifier="showChosenAccount" customClass="SWRevealViewControllerSeguePushController" id="VMg-4x-Ova"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -168,12 +171,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6x-wW-Oxe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3306" y="729"/>
+            <point key="canvasLocation" x="3303" y="403"/>
         </scene>
-        <!--Detail Accounts View Controller-->
+        <!--Vue360 View Controller-->
+        <scene sceneID="NzU-Tc-oFT">
+            <objects>
+                <viewController storyboardIdentifier="Vue 360°" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H1v-Pv-r5V" customClass="Vue360ViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2XB-bh-KzN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rtx-uT-vWA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jWX-WC-ARg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Test Company Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M7a-2y-arJ">
+                                <rect key="frame" x="16" y="20" width="568" height="17"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="M7a-2y-arJ" firstAttribute="trailing" secondItem="jWX-WC-ARg" secondAttribute="trailingMargin" id="B02-Gg-AwU"/>
+                            <constraint firstItem="M7a-2y-arJ" firstAttribute="leading" secondItem="jWX-WC-ARg" secondAttribute="leadingMargin" id="ms8-Xg-n6E"/>
+                            <constraint firstItem="M7a-2y-arJ" firstAttribute="top" secondItem="2XB-bh-KzN" secondAttribute="bottom" id="thq-yq-tpz"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="GwG-2k-RcS" appends="YES" id="OUM-ln-TVC"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="nameCompany" destination="M7a-2y-arJ" id="dZS-UZ-qzc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9nZ-jJ-zgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="GwG-2k-RcS">
+                    <connections>
+                        <action selector="finishedEditCompany:" destination="H1v-Pv-r5V" id="EaE-Z2-PbF"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2638" y="1078"/>
+        </scene>
+        <!--test-->
         <scene sceneID="dsd-4A-zNC">
             <objects>
-                <viewController id="jpl-la-HIO" customClass="DetailAccountsViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="détails accounts" id="jpl-la-HIO" customClass="DetailAccountsViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eyV-kq-hCP"/>
                         <viewControllerLayoutGuide type="bottom" id="KSd-Ir-v1b"/>
@@ -237,7 +283,7 @@
                             <constraint firstItem="CqG-gR-2R8" firstAttribute="top" secondItem="eyV-kq-hCP" secondAttribute="bottom" id="tYx-15-9gi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="U3d-e1-KGV">
+                    <navigationItem key="navigationItem" title="test" id="U3d-e1-KGV">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="5DZ-wh-5uc">
                             <connections>
                                 <action selector="showList:" destination="jpl-la-HIO" id="Cvo-Od-xDt"/>
@@ -247,46 +293,14 @@
                     <connections>
                         <outlet property="containerView" destination="zST-QS-V5W" id="Ngg-AD-l1j"/>
                         <outlet property="listeButtonsForPages" destination="dId-Ql-EZl" id="SZv-hW-AeY"/>
+                        <outlet property="navigationBar" destination="U3d-e1-KGV" id="eJu-4P-N5g"/>
                         <outlet property="pageControl" destination="ieg-MN-oo3" id="dbK-Vq-Rg4"/>
                         <outlet property="showList" destination="CqG-gR-2R8" id="Olb-Zf-uIG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26K-g6-v2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1943" y="852"/>
-        </scene>
-        <!--Test2 View Controller-->
-        <scene sceneID="9gj-Zd-ZkA">
-            <objects>
-                <viewController storyboardIdentifier="boubou" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g35-G9-1bM" customClass="Test2ViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="j2C-Nf-2Tu"/>
-                        <viewControllerLayoutGuide type="bottom" id="rfk-jO-dWV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vep-l8-0QW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bouh" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CjK-iE-elC">
-                                <rect key="frame" x="16" y="28" width="41" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="CjK-iE-elC" firstAttribute="top" secondItem="j2C-Nf-2Tu" secondAttribute="bottom" constant="8" id="Htc-19-EF0"/>
-                            <constraint firstItem="CjK-iE-elC" firstAttribute="leading" secondItem="vep-l8-0QW" secondAttribute="leadingMargin" id="tYK-8h-KR8"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="leftLabel" destination="CjK-iE-elC" id="m8M-5m-CKi"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cVa-xR-qb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2638" y="1087"/>
+            <point key="canvasLocation" x="1943" y="816"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mYJ-RX-4TL">
@@ -328,4 +342,7 @@
     <resources>
         <image name="fleche droite" width="50" height="200"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="VMg-4x-Ova"/>
+    </inferredMetricsTieBreakers>
 </document>

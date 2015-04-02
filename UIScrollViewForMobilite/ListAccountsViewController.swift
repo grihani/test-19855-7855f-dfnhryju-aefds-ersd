@@ -13,6 +13,12 @@ class ListAccountsViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var listAccounts: UITableView!
     @IBOutlet weak var triAccounts: UISegmentedControl!
     var allAccounts: [AccountModel] = []
+    let backgroundUnhighlighted = UIColor(red: 0, green: 0, blue: 100, alpha: 0.1)
+    let backgroundHighlighted = UIColor(red: 0, green: 0, blue: 100, alpha: 0.25)
+    let whiteBackground = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+    let whiteTint = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+    let blackTint = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         listAccounts.dataSource = self
@@ -36,16 +42,26 @@ class ListAccountsViewController: UIViewController, UITableViewDataSource, UITab
         
         return cell
     }
+    
     @IBAction func changeAccountList(sender: UISegmentedControl) {
         switch triAccounts.selectedSegmentIndex{
         case 0:
-            allAccounts = AccountDataModel().accountsPerMeeting()
+          allAccounts = AccountDataModel().accountsPerMeeting()
         case 1:
-            allAccounts = AccountDataModel().allAccountsAToZ()
+            allAccounts = AccountDataModel().allAccountsAToZ("ASC")
         case 2:
-            allAccounts = AccountDataModel().allAccountsAToZ()
+            allAccounts = AccountDataModel().allAccountsAToZ("DESC")
         default: break
         }
         listAccounts.reloadData()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showChosenAccount" {
+            if let indexPath = self.listAccounts.indexPathForSelectedRow() {
+                let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailAccountsViewController
+                controller.account = allAccounts[indexPath.row]
+            }
+        }
     }
 }

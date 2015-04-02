@@ -15,15 +15,17 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var containerView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var listeButtonsForPages: UIView!
+    @IBOutlet weak var navigationBar: UINavigationItem!
     
     //var identifiers: [String: AnyObject] = ["baba": NSClassFromString("Test1ViewController"), "boubou": NSClassFromString("Test2ViewController")]
-    var identifiers: [String] = ["baba", "boubou", "bibi"]
+    var identifiers: [String] = ["baba", "Vue 360°", "bibi"]
     var firstPageC: Test1ViewController = Test1ViewController()
-    var secondPage: Test2ViewController = Test2ViewController()
+    var vue360: Vue360ViewController = Vue360ViewController()
     var thirdPage: Test3ViewController = Test3ViewController()
     var pageControllers: [UIViewController] = []
     var pageViews: [UIView] = []
     var firstPage = 1
+    var account: AccountModel!
     
     @IBOutlet var buttonPages: [UIButton] = []
     
@@ -31,6 +33,9 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         self.showList.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         buttonForPages(listeButtonsForPages)
+        if account != nil {
+            self.navigationBar.title = account.nameAccount
+        }
         
     }
     
@@ -62,9 +67,10 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             viewControllers.append(viewController)
             self.firstPageC = viewController
         }
-        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[1]) as? Test2ViewController {
+        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[1]) as? Vue360ViewController {
             viewControllers.append(viewController)
-            self.secondPage = viewController
+            self.vue360 = viewController
+            vue360.account = self.account
         }
         if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[2]) as? Test3ViewController {
             viewControllers.append(viewController)
@@ -116,15 +122,14 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         pageControl.currentPage = page
     }
     
-    func changeLabels() {
-        firstPageC.setLabelText()
-        secondPage.setLabelText()
-        thirdPage.setLabelText()
-    }
+//    func changeLabels() {
+//        firstPageC.setLabelText()
+//        secondPage.setLabelText()
+//        thirdPage.setLabelText()
+//    }
     
     @IBAction func showList(sender: UIBarButtonItem) {
         self.revealViewController().revealToggle(sender)
-        changeLabels()
     }
     
     func buttonForPages(view: UIView) {
@@ -132,10 +137,10 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         var i = 0
         let width = CGFloat(100)
         for identifier in identifiers {
-            let button = UIButton(frame: CGRect(x: CGFloat(i) * width, y: 0, width: 50, height: 37))
+            let button = UIButton(frame: CGRect(x: CGFloat(i) * width, y: 0, width: 92, height: 37))
             button.setTitle(identifier, forState: UIControlState.Normal)
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-            
+            button.backgroundColor = UIColor.blueColor()
             button.addTarget(self, action: Selector("goPage:"), forControlEvents: UIControlEvents.TouchUpInside)
             view.addSubview(button)
             buttonPages.append(button)

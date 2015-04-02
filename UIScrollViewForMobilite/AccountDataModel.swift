@@ -10,11 +10,13 @@ import Foundation
 
 class AccountDataModel {
     
-    func allAccountsAToZ() -> [AccountModel] {
+    //ASC for ascendant, DESC for descendant
+    func allAccountsAToZ(order: String) -> [AccountModel] {
         println("getting All Accounts")
         var allAccounts: [AccountModel] = []
         
-        var querySQL = "SELECT * FROM Account  ORDER BY nameAccount"
+        var querySQL = "SELECT * FROM Account  ORDER BY nameAccount "
+        querySQL += order
         let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
         if let results = results {
             while results.next() == true {
