@@ -39,6 +39,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         colorButtons(firstPage)
         
     }
+    
     // every action that has relation to the layout of the view has to be put in here
     // here we get the viewControllers, their views, define which page we want first shown and define their content size
     override func viewDidLayoutSubviews() {
@@ -153,6 +154,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    // colorier les boutons avec la couleur choisie
     func colorButtons(page:Int) {
         for button in buttonPages {
             button.backgroundColor = UIColor.whiteColor()
