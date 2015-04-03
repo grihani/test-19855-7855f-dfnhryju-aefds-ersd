@@ -28,6 +28,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var buttonPages: [UIButton] = []
     
+    // here we define the buttons in the top menu, add the pan gesture to show our list
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showList.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -35,9 +36,11 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         if account != nil {
             self.navigationBar.title = account.nameAccount
         }
+        colorButtons(firstPage)
         
     }
-    
+    // every action that has relation to the layout of the view has to be put in here
+    // here we get the viewControllers, their views, define which page we want first shown and define their content size
     override func viewDidLayoutSubviews() {
                
         pageControllers = getViewControllers()
@@ -52,7 +55,6 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
 
         let pageScrollViewSize = containerView.frame.size
         containerView.contentSize = CGSize(width: pageScrollViewSize.width * CGFloat(pageCount), height: pageScrollViewSize.height)
-        containerView.backgroundColor = UIColor(red: 0, green: 0, blue: 100, alpha: 0.2)
     
     }
 
@@ -60,6 +62,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         super.didReceiveMemoryWarning()
     }
     
+    // get all the viewControllers that have identifiers defined in var identifiers
     func getViewControllers() -> [UIViewController]{
         var viewControllers: [UIViewController] = [UIViewController]()
         if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[0]) as? Test1ViewController {
@@ -78,6 +81,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         return viewControllers
     }
     
+    // from the controllers that we set up earlier, we get their views and show them
     func getViews(viewControllers: [AnyObject]) -> [UIView] {
         var views: [UIView] = []
         for viewController in viewControllers {
@@ -88,6 +92,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         return views
     }
     
+    // load the pages that we want shown
     func loadVisiblePages(numberOfPages: Int) {
         let pageSize = containerView.bounds
         var pageBoundsForViews = pageSize
@@ -95,11 +100,12 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         for i in 0..<numberOfPages {
             pageBoundsForViews.origin.x = CGFloat(i) * pageSize.width
             let newPageView = pageViews[i]
-            newPageView.frame = pageBoundsForViews.rectByInsetting(dx: 0, dy: 0)
+            newPageView.frame = pageBoundsForViews
             containerView.addSubview(newPageView)
         }
     }
     
+    // action added to the buttons of the menu to show a specific page
     @IBAction func goPage(sender: UIButton) {
         let textLabel = sender.titleLabel?.text
         var index = find(buttonPages, sender)
@@ -108,24 +114,29 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    // show the page that we want seen and updates the pageControl's shown page
     func showPage(page: Int) {
         let  pageSize = containerView.bounds
         let xContentOffset = pageSize.width * CGFloat(page)
         containerView.setContentOffset(CGPoint(x: xContentOffset, y: 0), animated: false)
-        pageControl.currentPage = page
+//        pageControl.currentPage = page
     }
     
+    // delegate method of scrollview : called everytime the scrollView is scrolled and update the pageControl's shown page
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let pageWidth = scrollView.frame.size.width
         let page = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
+        colorButtons(page)
         pageControl.currentPage = page
         self.view.endEditing(true)
     }
     
+    // action to show the list of accounts
     @IBAction func showList(sender: UIBarButtonItem) {
         self.revealViewController().revealToggle(sender)
     }
     
+    // creates the button to add to the view
     func buttonForPages(view: UIView) {
         let frame = view.frame
         var i = 0
@@ -134,12 +145,18 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             let button = UIButton(frame: CGRect(x: CGFloat(i) * width, y: 0, width: 92, height: 37))
             button.setTitle(identifier, forState: UIControlState.Normal)
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-            button.backgroundColor = UIColor.blueColor()
             button.addTarget(self, action: Selector("goPage:"), forControlEvents: UIControlEvents.TouchUpInside)
             view.addSubview(button)
             buttonPages.append(button)
             
             i++
         }
+    }
+    
+    func colorButtons(page:Int) {
+        for button in buttonPages {
+            button.backgroundColor = UIColor.whiteColor()
+        }
+        buttonPages[page].backgroundColor = UIColor.blueColor()
     }
 }
