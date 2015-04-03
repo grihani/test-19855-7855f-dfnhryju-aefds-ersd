@@ -17,7 +17,6 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var listeButtonsForPages: UIView!
     @IBOutlet weak var navigationBar: UINavigationItem!
     
-    //var identifiers: [String: AnyObject] = ["baba": NSClassFromString("Test1ViewController"), "boubou": NSClassFromString("Test2ViewController")]
     var identifiers: [String] = ["baba", "Vue 360°", "bibi"]
     var firstPageC: Test1ViewController = Test1ViewController()
     var vue360: Vue360ViewController = Vue360ViewController()
@@ -120,13 +119,8 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         let pageWidth = scrollView.frame.size.width
         let page = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
         pageControl.currentPage = page
+        self.view.endEditing(true)
     }
-    
-//    func changeLabels() {
-//        firstPageC.setLabelText()
-//        secondPage.setLabelText()
-//        thirdPage.setLabelText()
-//    }
     
     @IBAction func showList(sender: UIBarButtonItem) {
         self.revealViewController().revealToggle(sender)
