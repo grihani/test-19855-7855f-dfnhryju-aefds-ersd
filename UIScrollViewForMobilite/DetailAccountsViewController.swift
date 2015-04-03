@@ -10,6 +10,9 @@ import UIKit
 
 class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
 
+    let whiteColor: UIColor = UIColor.whiteColor()
+    let blueUncheckedColor: UIColor = UIColor(red: 0, green: 0, blue: 100, alpha: 1)
+    let blueCheckedColor: UIColor = UIColor(red: 0, green: 0, blue: 50, alpha: 1)
     
     @IBOutlet weak var showList: UIView!
     @IBOutlet weak var containerView: UIScrollView!
@@ -31,8 +34,8 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     // here we define the buttons in the top menu, add the pan gesture to show our list
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.showList.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        
+//        self.showList.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+//        self.showList.addGestureRecognizer()
         buttonForPages(listeButtonsForPages)
         if account != nil {
             self.navigationBar.title = account.nameAccount
@@ -135,6 +138,9 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     
     // action to show the list of accounts
     @IBAction func showList(sender: UIBarButtonItem) {
+        self.revealViewController().revealToggle(sender)
+    }
+    @IBAction func showList(sender: UITapGestureRecognizer) {
         self.revealViewController().revealToggle(sender)
     }
     

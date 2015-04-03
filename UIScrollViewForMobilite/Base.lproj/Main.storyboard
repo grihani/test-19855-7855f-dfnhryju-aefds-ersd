@@ -191,12 +191,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ip4-8f-yAA">
+                                <rect key="frame" x="16" y="45" width="300" height="547"/>
+                                <color key="backgroundColor" red="0.80761167417521817" green="1" blue="0.65871418207192045" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="E2n-7b-kVY"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldl-y6-ggE">
+                                <rect key="frame" x="324" y="45" width="260" height="547"/>
+                                <color key="backgroundColor" red="1" green="0.77709027288187338" blue="0.61364311966120955" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="ldl-y6-ggE" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="trailing" constant="8" id="0cO-cv-x0W"/>
                             <constraint firstItem="M7a-2y-arJ" firstAttribute="trailing" secondItem="jWX-WC-ARg" secondAttribute="trailingMargin" id="B02-Gg-AwU"/>
+                            <constraint firstItem="Rtx-uT-vWA" firstAttribute="top" secondItem="Ip4-8f-yAA" secondAttribute="bottom" constant="8" id="bBR-eC-OGz"/>
+                            <constraint firstItem="Ip4-8f-yAA" firstAttribute="top" secondItem="M7a-2y-arJ" secondAttribute="bottom" constant="8" id="lQl-yN-RUM"/>
+                            <constraint firstItem="ldl-y6-ggE" firstAttribute="trailing" secondItem="jWX-WC-ARg" secondAttribute="trailingMargin" id="lqY-e5-f8S"/>
                             <constraint firstItem="M7a-2y-arJ" firstAttribute="leading" secondItem="jWX-WC-ARg" secondAttribute="leadingMargin" id="ms8-Xg-n6E"/>
+                            <constraint firstItem="Rtx-uT-vWA" firstAttribute="top" secondItem="ldl-y6-ggE" secondAttribute="bottom" constant="8" id="pfz-Vm-nA0"/>
+                            <constraint firstItem="ldl-y6-ggE" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="trailing" constant="8" id="pnN-cY-2er"/>
+                            <constraint firstItem="Ip4-8f-yAA" firstAttribute="leading" secondItem="jWX-WC-ARg" secondAttribute="leadingMargin" id="qty-5W-BGH"/>
+                            <constraint firstItem="ldl-y6-ggE" firstAttribute="top" secondItem="M7a-2y-arJ" secondAttribute="bottom" constant="8" id="tgh-Jd-YJu"/>
                             <constraint firstItem="M7a-2y-arJ" firstAttribute="top" secondItem="2XB-bh-KzN" secondAttribute="bottom" id="thq-yq-tpz"/>
                         </constraints>
                         <connections>
@@ -240,11 +259,15 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="JaR-U0-Syp" secondAttribute="centerY" id="BXB-Hc-LoS"/>
                                     <constraint firstAttribute="width" constant="50" id="S0P-gh-fXu"/>
                                     <constraint firstItem="JaR-U0-Syp" firstAttribute="leading" secondItem="CqG-gR-2R8" secondAttribute="leading" id="grc-l5-KFz"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0AH-kX-UX1" appends="YES" id="bwb-HY-Obi"/>
+                                </connections>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zST-QS-V5W">
                                 <rect key="frame" x="58" y="117" width="526" height="434"/>
@@ -299,6 +322,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26K-g6-v2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="0AH-kX-UX1">
+                    <connections>
+                        <action selector="showList:" destination="jpl-la-HIO" id="26J-gG-SjF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1943" y="816"/>
         </scene>
