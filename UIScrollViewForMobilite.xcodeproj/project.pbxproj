@@ -235,8 +235,8 @@
 				48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */,
 				480DA2261ACBD68E00F43FA1 /* MeetingDataModel.swift */,
 				480DA2281ACC2B7600F43FA1 /* OpportunityDataModel.swift */,
-				480DA22A1ACC2B8B00F43FA1 /* ContactDataModel.swift */,
 				480DA22C1ACC2B9800F43FA1 /* TaskDataModel.swift */,
+				480DA22A1ACC2B8B00F43FA1 /* ContactDataModel.swift */,
 				480DA22E1ACC2BA800F43FA1 /* ContractsDataModel.swift */,
 			);
 			name = Principales;

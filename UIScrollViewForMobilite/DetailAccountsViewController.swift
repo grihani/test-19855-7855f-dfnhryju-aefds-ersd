@@ -32,6 +32,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showList.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
         buttonForPages(listeButtonsForPages)
         if account != nil {
             self.navigationBar.title = account.nameAccount

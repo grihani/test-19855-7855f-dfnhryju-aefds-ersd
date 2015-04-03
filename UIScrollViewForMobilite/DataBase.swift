@@ -111,20 +111,47 @@ class DataBase {
     
     func checkingAndInsertingTables() {
         var empty: Bool
-        if (checkEmptyTable("Account")) {
+        if checkEmptyTable("Account") {
             Bouchonnage().insertingAccounts()
         }
-        if (checkEmptyTable("Account_Contacts")){
+        if checkEmptyTable("Account_Contacts"){
             Bouchonnage().insertingAccountContacts()
+        }
+        if checkEmptyTable("Account_Contracts"){
+            Bouchonnage().insertingAccountContracts()
+        }
+        if checkEmptyTable("Account_Opportunites"){
+            Bouchonnage().insertingAccountOpportunities()
         }
         if checkEmptyTable("Contacts"){
             Bouchonnage().insertingContacts()
         }
-        if checkEmptyTable("Meetings_Contacts"){
-            Bouchonnage().insertingContactMeetings()
+        if checkEmptyTable("Contracts"){
+            Bouchonnage().insertingContracts()
         }
         if checkEmptyTable("Meetings"){
             Bouchonnage().insertingMeetings()
+        }
+        if checkEmptyTable("Meetings_Contacts"){
+            Bouchonnage().insertingContactMeetings()
+        }
+        if checkEmptyTable("Opportunites"){
+            Bouchonnage().insertingOpportunities()
+        }
+        if checkEmptyTable("Opportunites_Contacts"){
+            Bouchonnage().insertingContactOpportunities()
+        }
+        if checkEmptyTable("Tasks"){
+            Bouchonnage().insertingTasks()
+        }
+        if checkEmptyTable("Tasks_Account"){
+            Bouchonnage().insertingAccountTasks()
+        }
+        if checkEmptyTable("Tasks_Contacts"){
+            Bouchonnage().insertingContactTasks()
+        }
+        if checkEmptyTable("Tasks_Meetings"){
+            Bouchonnage().insertingTaskMeetings()
         }
     }
     

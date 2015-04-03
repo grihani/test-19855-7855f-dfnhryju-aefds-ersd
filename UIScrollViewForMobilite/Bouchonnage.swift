@@ -757,7 +757,33 @@ class Bouchonnage {
     func viderContracts() {
         self.contracts = [[ "1" , "sujet contrat 1" , "9397866" , "2015-08-20" , "Got it" ]]
     }
-    
+    func remplirTableauContracts() -> [ContractsModel] {
+        remplirContracts()
+        var contractsARendre = [ContractsModel]()
+        var contractsModel: ContractsModel
+        for contract in contracts {
+            var idContract: Int = contract[0].toInt()!
+            var subjectContract: String = contract[01]
+            var valueContract: String = contract[02]
+            var dateContract: String = contract[03]
+            var statusContract: String = contract[04]
+
+            contractsModel = ContractsModel(idContract: idContract, subjectContract: subjectContract, valueContract: valueContract, dateContract: dateContract, statusContract: statusContract)
+            contractsARendre.append(contractsModel)
+        }
+        viderContracts()
+        return contractsARendre
+    }
+    func insertingContracts() {
+        var successful = ""
+        let contractsToInsert = remplirTableauContracts()
+        for contractToInsert in contractsToInsert {
+            successful += ContractsDataModel().insertContracts(contractToInsert)
+            successful += "\n"
+        }
+        println(successful)
+    }
+
     var accountContracts = [[ "26" , "27" ]]
     func remplirAccountContracts() {
         self.accountContracts.append([ "25" , "27" ])
@@ -816,6 +842,28 @@ class Bouchonnage {
     }
     func viderAccountContracts() {
         self.accountContracts = [[ "26" , "27" ]]
+    }
+    func remplirTableauAccountContracts() -> [AccountContractsModel] {
+        remplirAccountContracts()
+        var accountContractsARendre = [AccountContractsModel]()
+        var accountContractsModel: AccountContractsModel
+        for accountContract in accountContracts {
+            var idAccount: Int = accountContract[0].toInt()!
+            var idContract: Int = accountContract[01].toInt()!
+            accountContractsModel = AccountContractsModel(idAccount: idAccount, idContract: idContract)
+            accountContractsARendre.append(accountContractsModel)
+        }
+        viderAccountContracts()
+        return accountContractsARendre
+    }
+    func insertingAccountContracts() {
+        var successful = ""
+        let accountContractsToInsert = remplirTableauAccountContracts()
+        for accountContractToInsert in accountContractsToInsert {
+            successful += AccountContractsDataModel().insertAccountContracts(accountContractToInsert)
+            successful += "\n"
+        }
+        println(successful)
     }
     
     var tasks = [[ "1" , "sujet task 1" , "2015-07-02" , "Got it" ]]
@@ -877,6 +925,31 @@ class Bouchonnage {
     func viderTasks() {
         self.tasks = [[ "1" , "sujet task 1" , "2015-07-02" , "Got it" ]]
     }
+    func remplirTableauTasks() -> [TaskModel] {
+        remplirTasks()
+        var tasksARendre = [TaskModel]()
+        var tasksModel: TaskModel
+        for task in tasks {
+            var idTask: Int = task[0].toInt()!
+            var subjectTask: String = task[01]
+            var dateTask: String = task[02]
+            var statusTask: String = task[03]
+            
+            tasksModel = TaskModel(idTask: idTask, subjectTask: subjectTask, dateTask: dateTask, statusTask: statusTask)
+            tasksARendre.append(tasksModel)
+        }
+        viderTasks()
+        return tasksARendre
+    }
+    func insertingTasks() {
+        var successful = ""
+        let tasksToInsert = remplirTableauTasks()
+        for taskToInsert in tasksToInsert {
+            successful += TaskDataModel().insertTask(taskToInsert)
+            successful += "\n"
+        }
+        println(successful)
+    }
     
     var accountTasks = [[ "5" , "8" ]]
     func remplirAccountTasks(){
@@ -937,6 +1010,29 @@ class Bouchonnage {
     func viderAccountTasks(){
         self.accountTasks = [[ "5" , "8" ]]
     }
+    func remplirTableauAccountTasks() -> [TasksAccountModel] {
+        remplirAccountTasks()
+        var accountTasksARendre = [TasksAccountModel]()
+        var accountTasksModel: TasksAccountModel
+        for accountTask in accountTasks {
+            var idAccount: Int = accountTask[0].toInt()!
+            var idTask: Int = accountTask[01].toInt()!
+            accountTasksModel = TasksAccountModel(idAccount: idAccount, idTask: idTask)
+            accountTasksARendre.append(accountTasksModel)
+        }
+        viderAccountTasks()
+        return accountTasksARendre
+    }
+    func insertingAccountTasks() {
+        var successful = ""
+        let accountTasksToInsert = remplirTableauAccountTasks()
+        for accountTaskToInsert in accountTasksToInsert {
+            successful += TasksAccountDataModel().insertTaskAccount(accountTaskToInsert)
+            successful += "\n"
+        }
+        println(successful)
+    }
+
     
     var contactTasks = [[ "28" , "3" ]]
     func remplirContactTasks(){
@@ -997,7 +1093,29 @@ class Bouchonnage {
     func viderContactTasks() {
         self.contactTasks = [[ "28" , "3" ]]
     }
-    
+    func remplirTableauContactTasks() -> [TasksContactsModel] {
+        remplirContactTasks()
+        var contactTasksARendre = [TasksContactsModel]()
+        var contactTasksModel: TasksContactsModel
+        for contactTask in contactTasks {
+            var idTask: Int = contactTask[0].toInt()!
+            var idContact: Int = contactTask[01].toInt()!
+            contactTasksModel = TasksContactsModel(idTask: idTask, idContact: idContact)
+            contactTasksARendre.append(contactTasksModel)
+        }
+        viderContactTasks()
+        return contactTasksARendre
+    }
+    func insertingContactTasks() {
+        var successful = ""
+        let contactTasksToInsert = remplirTableauContactTasks()
+        for contactTaskToInsert in contactTasksToInsert {
+            successful += TasksContactsDataModel().insertTasksContacts(contactTaskToInsert)
+            successful += "\n"
+        }
+        println(successful)
+    }
+
     var taskMeetings =  [[ "28" , "3" ]]
     func remplirTaskMeetings(){
         self.taskMeetings.append([ "3" , "40" ])
@@ -1056,6 +1174,28 @@ class Bouchonnage {
     }
     func viderTaksMeetings() {
         self.taskMeetings =  [[ "28" , "3" ]]
+    }
+    func remplirTableauTaskMeetings() -> [TasksMeetingsModel] {
+        remplirTaskMeetings()
+        var taskMeetingsARendre = [TasksMeetingsModel]()
+        var taskMeetingsModel: TasksMeetingsModel
+        for taskMeeting in taskMeetings {
+            var idTask: Int = taskMeeting[0].toInt()!
+            var idMeeting: Int = taskMeeting[01].toInt()!
+            taskMeetingsModel = TasksMeetingsModel(idTask: idTask, idMeeting: idMeeting)
+            taskMeetingsARendre.append(taskMeetingsModel)
+        }
+        viderTaksMeetings()
+        return taskMeetingsARendre
+    }
+    func insertingTaskMeetings() {
+        var successful = ""
+        let taskMeetingsToInsert = remplirTableauTaskMeetings()
+        for taskMeetingToInsert in taskMeetingsToInsert {
+            successful += TasksMeetingsDataModel().insertTasksMeeting(taskMeetingToInsert)
+            successful += "\n"
+        }
+        println(successful)
     }
 
 }
