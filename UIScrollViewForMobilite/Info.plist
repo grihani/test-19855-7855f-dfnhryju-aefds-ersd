@@ -30,6 +30,10 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Do you wish to be able to see the location of the Address?</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Do you wish to be able to see the location of the Address?</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
