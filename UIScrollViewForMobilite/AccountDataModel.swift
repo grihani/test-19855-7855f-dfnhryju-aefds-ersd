@@ -70,8 +70,8 @@ class AccountDataModel {
                 let account = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount)
                 
                 accountsPerMeeting.append(account)
-                println(account)
             }
+            println("got the accounts that have meetings, now to the rest of them")
         }
         querySQL = "SELECT * FROM Account WHERE idAccount NOT IN (SELECT idAccount FROM Account_Contact_Meeting) ORDER BY nameAccount"
         results = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
@@ -96,6 +96,7 @@ class AccountDataModel {
                 
                 accountsPerMeeting.append(account)
             }
+            println("got the accounts that don't have meetings")
         }
         return accountsPerMeeting
     }
