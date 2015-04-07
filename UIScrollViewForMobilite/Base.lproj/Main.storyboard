@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A7r-ge-PhP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A7r-ge-PhP">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -81,8 +81,8 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="par meetings"/>
-                                <segment title="A > Z"/>
-                                <segment title="Z > A"/>
+                                <segment title="A &gt; Z"/>
+                                <segment title="Z &gt; A"/>
                             </segments>
                             <connections>
                                 <action selector="changeAccountList:" destination="q1R-rD-kwE" eventType="valueChanged" id="zqm-96-k8P"/>
@@ -253,9 +253,9 @@
                                     <constraint firstItem="oBf-gX-VcZ" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="leading" id="Bm6-9i-JUF"/>
                                     <constraint firstItem="XxR-Qh-TRC" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="leading" id="EYd-Vj-B0m"/>
                                     <constraint firstItem="WiN-p7-fzl" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="leading" id="Gbu-9c-HOU"/>
-                                    <constraint firstItem="LG5-g0-6VE" firstAttribute="top" secondItem="WiN-p7-fzl" secondAttribute="bottom" constant="8" id="J37-8Y-F6b"/>
                                     <constraint firstItem="XxR-Qh-TRC" firstAttribute="top" secondItem="Ip4-8f-yAA" secondAttribute="top" id="K2n-6D-jay"/>
                                     <constraint firstAttribute="trailing" secondItem="LG5-g0-6VE" secondAttribute="trailing" id="WDO-1l-K0u"/>
+                                    <constraint firstAttribute="bottom" secondItem="WiN-p7-fzl" secondAttribute="bottom" constant="208" id="cry-ND-llc"/>
                                     <constraint firstItem="LG5-g0-6VE" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="leading" id="dXk-fy-RP7"/>
                                     <constraint firstAttribute="trailing" secondItem="jKM-uy-Xrc" secondAttribute="trailing" id="fbn-Vg-81S"/>
                                     <constraint firstAttribute="trailing" secondItem="WiN-p7-fzl" secondAttribute="trailing" id="h9I-Ic-9Zw"/>
@@ -300,6 +300,7 @@
                     <connections>
                         <outlet property="adressCompany" destination="WiN-p7-fzl" id="8ww-kK-loP"/>
                         <outlet property="industryCompany" destination="oBf-gX-VcZ" id="KR0-Gf-fbh"/>
+                        <outlet property="leftView" destination="Ip4-8f-yAA" id="GJV-P1-asi"/>
                         <outlet property="mailCompany" destination="KUj-kU-3Uv" id="o5k-YH-fq2"/>
                         <outlet property="mapAdressCompany" destination="LG5-g0-6VE" id="b5o-Ne-X2b"/>
                         <outlet property="nameCompany" destination="M7a-2y-arJ" id="dZS-UZ-qzc"/>
