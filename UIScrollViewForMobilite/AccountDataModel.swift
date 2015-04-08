@@ -46,7 +46,7 @@ class AccountDataModel {
     func accountsPerMeeting() -> [AccountModel] {
         var accountsPerMeeting: [AccountModel] = []
         
-        createViewForAccountsThatHaveMeetings()
+        DataBase().createViewForAccountsThatHaveMeetings()
         println("getting the Accounts who do have meetings")
         var querySQL = "SELECT DISTINCT idAccount, nameAccount, shortNameAccount, leadSource, statusAccount, industryAccount, segmentAccount, websiteAccount, phoneAccount, faxAccount, coverageAccount, regionAccount, adressAccount, idAccount1, countryAccount FROM Account_Contact_Meeting"
         var results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
@@ -101,14 +101,7 @@ class AccountDataModel {
         return accountsPerMeeting
     }
     
-    func createViewForAccountsThatHaveMeetings() {
-        var querySQL = "CREATE TEMPORARY VIEW IF NOT EXISTS Account_Contact_Meeting AS SELECT * FROM Account INNER JOIN Account_Contacts ON account.idAccount = account_contacts.idAccount INNER JOIN Contacts ON account_contacts.idcontact = Contacts.idContact INNER JOIN Meetings_contacts ON contacts.idcontact = Meetings_contacts.idContact INNER JOIN Meetings ON Meetings_contacts.idMeeting = Meetings.idMeeting WHERE datetime(dateBeginMeeting) >= datetime('now') order by dateBeginMeeting"
-        if !contactDataBase.executeStatements(querySQL) {
-            println("the view Account_Contacts_Meetings can't be created")
-        } else {
-            println("the view Account_Contacts_Meetings was created")
-        }
-    }
+    
     
     func insertAccount(account : AccountModel) -> String {
         println("inserting Into AccountModel")

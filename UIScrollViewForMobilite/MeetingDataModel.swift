@@ -73,7 +73,7 @@ class MeetingDataModel {
         var meetingsOfAccount: [MeetingModel] = []
         
         // Create the view if not already created
-        AccountDataModel().createViewForAccountsThatHaveMeetings()
+        DataBase().createViewForAccountsThatHaveMeetings()
         
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         var querySQL = "SELECT idMeeting, subjectMeeting, dateBeginMeeting, adressMeeting, dateEndMeeting, allDayMeeting, priorityMeeting, descriptionMeeting, regardingMeeting, reportMeeting FROM Account_Contact_Meeting WHERE idAccount = \(account.idAccount) ORDER BY datetime(dateBeginMeeting)"

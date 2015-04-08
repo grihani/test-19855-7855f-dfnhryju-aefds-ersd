@@ -179,6 +179,15 @@ class DataBase {
         }
         return ""
     }
+    
+    func createViewForAccountsThatHaveMeetings() {
+        var querySQL = "CREATE TEMPORARY VIEW IF NOT EXISTS Account_Contact_Meeting AS SELECT * FROM Account INNER JOIN Account_Contacts ON account.idAccount = account_contacts.idAccount INNER JOIN Contacts ON account_contacts.idcontact = Contacts.idContact INNER JOIN Meetings_contacts ON contacts.idcontact = Meetings_contacts.idContact INNER JOIN Meetings ON Meetings_contacts.idMeeting = Meetings.idMeeting WHERE datetime(dateBeginMeeting) >= datetime('now') order by dateBeginMeeting"
+        if !contactDataBase.executeStatements(querySQL) {
+            println("the view Account_Contacts_Meetings can't be created")
+        } else {
+            println("the view Account_Contacts_Meetings was created")
+        }
+    }
 }
 
 // méthodes de récupération de NSUserDefaults
