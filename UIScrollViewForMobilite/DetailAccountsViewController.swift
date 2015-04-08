@@ -73,21 +73,24 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[0]) as? Test1ViewController {
             viewControllers.append(viewController)
             self.firstPageC = viewController
+            println("ajout de première page")
         }
         if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[1]) as? Vue360ViewController {
             viewControllers.append(viewController)
             self.vue360 = viewController
             vue360.account = self.account
+            println("ajout de vue 360 page")
         }
         if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[2]) as? Test3ViewController {
             viewControllers.append(viewController)
             self.thirdPage = viewController
+            println("ajout de troisième page")
         }
         return viewControllers
     }
     
     // from the controllers that we set up earlier, we get their views and show them
-    func getViews(viewControllers: [AnyObject]) -> [UIView] {
+    func getViews(viewControllers: [UIViewController]) -> [UIView] {
         var views: [UIView] = []
         for viewController in viewControllers {
             if let view = viewController.view as UIView? {
