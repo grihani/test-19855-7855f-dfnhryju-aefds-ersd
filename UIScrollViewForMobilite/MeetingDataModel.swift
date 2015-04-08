@@ -41,6 +41,64 @@ class MeetingDataModel {
         return allNextMeetings
     }
     
+    func allMeetings(#fromDate: NSDate, toDate: NSDate) -> [MeetingModel] {
+        var allMeetings: [MeetingModel] = []
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateFromString = dateFormatter.stringFromDate(fromDate)
+        let dateToString = dateFormatter.stringFromDate(toDate)
+        var querySQL = "SELECT * FROM Meetings date(dateBeginMeeting) BETWEEN date(\(dateFromString)) AND date(\(dateToString)) ORDER BY datetime(dateBeginMeeting)"
+        let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let results = results {
+            while results.next() == true {
+                var idMeeting: Int = Int(results.intForColumn("idMeeting"))
+                var subjectMeeting: String = results.stringForColumn("subjectMeeting")
+                var dateBeginMeeting: String = results.stringForColumn("dateBeginMeeting")
+                var adressMeeting: String = results.stringForColumn("adressMeeting")
+                var dateEndMeeting: String = results.stringForColumn("dateEndMeeting")
+                var allDayMeeting: Int = Int(results.intForColumn("allDayMeeting"))
+                var priorityMeeting: String = results.stringForColumn("priorityMeeting")
+                var descriptionMeeting: String = results.stringForColumn("descriptionMeeting")
+                var regardingMeeting: String = results.stringForColumn("regardingMeeting")
+                var reportMeeting: String = results.stringForColumn("reportMeeting")
+                
+                let meeting: MeetingModel = MeetingModel(idMeeting: idMeeting, subjectMeeting: subjectMeeting, dateBeginMeeting: dateBeginMeeting, adressMeeting: adressMeeting, dateEndMeeting: dateEndMeeting, allDayMeeting: allDayMeeting, priorityMeeting: priorityMeeting, descriptionMeeting: descriptionMeeting, regardingMeeting: regardingMeeting, reportMeeting: reportMeeting)
+                
+                allMeetings.append(meeting)
+            }
+        }
+        return allMeetings
+    }
+    
+    func meetingsOfAccount(#account: AccountModel) -> [MeetingModel]? {
+        var meetingsOfAccount: [MeetingModel] = []
+        
+        // Create the view if not already created
+        AccountDataModel().createViewForAccountsThatHaveMeetings()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        var querySQL = "SELECT idMeeting, subjectMeeting, dateBeginMeeting, adressMeeting, dateEndMeeting, allDayMeeting, priorityMeeting, descriptionMeeting, regardingMeeting, reportMeeting FROM Account_Contact_Meeting WHERE idAccount = \(account.idAccount) ORDER BY datetime(dateBeginMeeting)"
+        let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let results = results {
+            while results.next() == true {
+                var idMeeting: Int = Int(results.intForColumn("idMeeting"))
+                var subjectMeeting: String = results.stringForColumn("subjectMeeting")
+                var dateBeginMeeting: String = results.stringForColumn("dateBeginMeeting")
+                var adressMeeting: String = results.stringForColumn("adressMeeting")
+                var dateEndMeeting: String = results.stringForColumn("dateEndMeeting")
+                var allDayMeeting: Int = Int(results.intForColumn("allDayMeeting"))
+                var priorityMeeting: String = results.stringForColumn("priorityMeeting")
+                var descriptionMeeting: String = results.stringForColumn("descriptionMeeting")
+                var regardingMeeting: String = results.stringForColumn("regardingMeeting")
+                var reportMeeting: String = results.stringForColumn("reportMeeting")
+                
+                let meeting: MeetingModel = MeetingModel(idMeeting: idMeeting, subjectMeeting: subjectMeeting, dateBeginMeeting: dateBeginMeeting, adressMeeting: adressMeeting, dateEndMeeting: dateEndMeeting, allDayMeeting: allDayMeeting, priorityMeeting: priorityMeeting, descriptionMeeting: descriptionMeeting, regardingMeeting: regardingMeeting, reportMeeting: reportMeeting)
+                
+                meetingsOfAccount.append(meeting)
+            }
+        }
+        return meetingsOfAccount
+    }
+    
     func insertMeeting(meeting: MeetingModel) -> String {
         println("inserting Into MeetingModel")
         var erreur = String()
