@@ -11,8 +11,8 @@ import UIKit
 class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
 
     let whiteColor: UIColor = UIColor.whiteColor()
-    let blueUncheckedColor: UIColor = UIColor(red: 0, green: 0, blue: 100, alpha: 1)
-    let blueCheckedColor: UIColor = UIColor(red: 0, green: 0, blue: 50, alpha: 1)
+    let blueUncheckedColor: UIColor = UIColor(red: 155/255, green: 250/255, blue: 255/255, alpha: 1)
+    let blueCheckedColor: UIColor = UIColor(red: 143/255, green: 157/255, blue: 255/255, alpha: 1)
     
     @IBOutlet weak var showList: UIView!
     @IBOutlet weak var containerView: UIScrollView!
@@ -154,6 +154,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             button.setTitle(identifier, forState: UIControlState.Normal)
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             button.addTarget(self, action: Selector("goPage:"), forControlEvents: UIControlEvents.TouchUpInside)
+            button.layer.cornerRadius = 8
             view.addSubview(button)
             buttonPages.append(button)
             
@@ -164,8 +165,8 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     // colorier les boutons avec la couleur choisie
     func colorButtons(page:Int) {
         for button in buttonPages {
-            button.backgroundColor = UIColor.whiteColor()
+            button.backgroundColor = blueUncheckedColor
         }
-        buttonPages[page].backgroundColor = UIColor.blueColor()
+        buttonPages[page].backgroundColor = blueCheckedColor
     }
 }
