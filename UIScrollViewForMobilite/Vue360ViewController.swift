@@ -214,11 +214,11 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             name: UIKeyboardDidShowNotification,
             object: nil
         )
-//        NSNotificationCenter.defaultCenter().addObserver(self,
-//            selector: Selector("keyboardWillBeHidden:"),
-//            name: "UIKeyboardWillHideNotification",
-//            object: nil
-//        )
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: Selector("keyboardWillBeHidden:"),
+            name: "UIKeyboardWillHideNotification",
+            object: nil
+        )
         
     }
     
@@ -247,6 +247,10 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
 //                }
 //            }
 //        }
+    }
+    
+    func keyboardWillBeHidden(aNotification: NSNotification) {
+        println("le keyboard a disparu")
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
