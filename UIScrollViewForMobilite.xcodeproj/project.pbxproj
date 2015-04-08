@@ -21,6 +21,8 @@
 		480DA23B1ACC2C1E00F43FA1 /* TasksAccountDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA23A1ACC2C1E00F43FA1 /* TasksAccountDataModel.swift */; };
 		480DA23D1ACC2C3A00F43FA1 /* TasksContactsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA23C1ACC2C3A00F43FA1 /* TasksContactsDataModel.swift */; };
 		480DA23F1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA23E1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift */; };
+		481419D11AD58908009B38D6 /* ListMeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481419D01AD58908009B38D6 /* ListMeetingsViewController.swift */; };
+		481419D31AD58919009B38D6 /* DetailMeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481419D21AD58919009B38D6 /* DetailMeetingsViewController.swift */; };
 		488186151AC94F6600923A18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488186141AC94F6600923A18 /* AppDelegate.swift */; };
 		488186181AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 488186161AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld */; };
 		4881861D1AC94F6600923A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4881861B1AC94F6600923A18 /* Main.storyboard */; };
@@ -82,6 +84,8 @@
 		480DA23A1ACC2C1E00F43FA1 /* TasksAccountDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksAccountDataModel.swift; sourceTree = "<group>"; };
 		480DA23C1ACC2C3A00F43FA1 /* TasksContactsDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksContactsDataModel.swift; sourceTree = "<group>"; };
 		480DA23E1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksMeetingsDataModel.swift; sourceTree = "<group>"; };
+		481419D01AD58908009B38D6 /* ListMeetingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMeetingsViewController.swift; sourceTree = "<group>"; };
+		481419D21AD58919009B38D6 /* DetailMeetingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMeetingsViewController.swift; sourceTree = "<group>"; };
 		4881860F1AC94F6600923A18 /* UIScrollViewForMobilite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIScrollViewForMobilite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		488186131AC94F6600923A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		488186141AC94F6600923A18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +153,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		481419CF1AD588D0009B38D6 /* Meetings */ = {
+			isa = PBXGroup;
+			children = (
+				481419D01AD58908009B38D6 /* ListMeetingsViewController.swift */,
+				481419D21AD58919009B38D6 /* DetailMeetingsViewController.swift */,
+			);
+			name = Meetings;
+			sourceTree = "<group>";
+		};
 		488186061AC94F6600923A18 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +187,7 @@
 				4881861B1AC94F6600923A18 /* Main.storyboard */,
 				48FCB11F1ACAD52600A770B2 /* dataBase */,
 				48FCB11E1ACAD50500A770B2 /* Accounts */,
+				481419CF1AD588D0009B38D6 /* Meetings */,
 				488186121AC94F6600923A18 /* Supporting Files */,
 			);
 			path = UIScrollViewForMobilite;
@@ -443,6 +457,7 @@
 				48FCB1321ACAD73600A770B2 /* FMDatabasePool.m in Sources */,
 				480DA22B1ACC2B8B00F43FA1 /* ContactDataModel.swift in Sources */,
 				48FCB13C1ACADED000A770B2 /* ContactModel.swift in Sources */,
+				481419D11AD58908009B38D6 /* ListMeetingsViewController.swift in Sources */,
 				48FCB1521ACAE8DB00A770B2 /* TasksContactsModel.swift in Sources */,
 				48FCB1341ACAD73600A770B2 /* FMResultSet.m in Sources */,
 				48FCB13A1ACADE0A00A770B2 /* OpportunityModel.swift in Sources */,
@@ -467,6 +482,7 @@
 				48FCB1361ACADBAC00A770B2 /* AccountModel.swift in Sources */,
 				48FCB14E1ACAE77C00A770B2 /* TaskModel.swift in Sources */,
 				48FCB1311ACAD73600A770B2 /* FMDatabaseAdditions.m in Sources */,
+				481419D31AD58919009B38D6 /* DetailMeetingsViewController.swift in Sources */,
 				48FCB1481ACAE50000A770B2 /* ContractsModel.swift in Sources */,
 				480DA2311ACC2BB900F43FA1 /* AccountContactDataModel.swift in Sources */,
 				488186151AC94F6600923A18 /* AppDelegate.swift in Sources */,
