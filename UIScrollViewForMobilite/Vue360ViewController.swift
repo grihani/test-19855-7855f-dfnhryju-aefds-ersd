@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITextViewDelegate {
+class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var nameCompany: UITextField!
     @IBOutlet weak var shortNameCompany: UITextField!
@@ -21,6 +21,7 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     @IBOutlet weak var mapAdressCompany: MKMapView!
     @IBOutlet weak var leftView: UIView!
     
+    var activeField: AnyObject!
     var account: AccountModel!
     var locationManager = CLLocationManager()
     let fileManager = NSFileManager.defaultManager()
@@ -28,7 +29,13 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.nameCompany.delegate = self
+        self.shortNameCompany.delegate = self
+        self.industryCompany.delegate = self
+        self.phoneCompany.delegate = self
+        self.mailCompany.delegate = self
+        self.webSite.delegate = self
+        registerForKeyboardNotifications()
         self.locationManager.delegate = self
         self.locationManager.requestAlwaysAuthorization()
         self.adressCompany.delegate = self
@@ -189,11 +196,71 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         println("finished rendering map")
     }
     
-    func textViewDidEndEditing(textView: UITextView) {
-        geolocalise(address: textView.text, account: self.account, mapView: self.mapAdressCompany)
-    }
-    
     @IBAction func finishedEditCompany(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
+    }
+    
+    func registerForKeyboardNotifications() {
+        let center = NSNotificationCenter.defaultCenter()
+        let queue = NSOperationQueue.mainQueue()
+//        center.addObserverForName(UIKeyboardDidShowNotification, object: self.adressCompany, queue: queue) { notification in
+//            var frame = self.adressCompany.frame
+//            var info = notification.userInfo
+//            var kbSize = info.
+//            println("je vois que le keyboard a apparu")
+//        }
+        center.addObserver(self,
+            selector: Selector("keyBoardWasShown:"),
+            name: UIKeyboardDidShowNotification,
+            object: nil
+        )
+//        NSNotificationCenter.defaultCenter().addObserver(self,
+//            selector: Selector("keyboardWillBeHidden:"),
+//            name: "UIKeyboardWillHideNotification",
+//            object: nil
+//        )
+        
+    }
+    
+    func keyBoardWasShown(aNotification: NSNotification) {
+        println("je vois que le keyboard est apparu")
+//        if let info: NSDictionary = aNotification.userInfo {
+//            if let kbSize = info.objectForKey(UIKeyboardFrameBeginUserInfoKey)?.CGRectValue().size {
+//                println(kbSize)
+//                let contentInset = UIEdgeInsetsMake(0, 0, kbSize.height, 0)
+//                let scrollView = self.view.superview as UIScrollView
+//                scrollView.contentInset = contentInset
+//                scrollView.scrollIndicatorInsets = contentInset
+//                
+//                var aRect = self.view.superview?.superview?.frame
+//                if let aRect = aRect {
+//                    
+//                    var rectToCheck = aRect
+//                    rectToCheck.size.height -= kbSize.height
+//                    let frameActiveField = activeField.convertRect(activeField.frame, toView: scrollView.superview)
+//                    println(frameActiveField)
+//                    println(rectToCheck)
+//                    if !CGRectContainsPoint(rectToCheck, frameActiveField.origin) {
+//                        println("trying to put the field up")
+//                        scrollView.scrollRectToVisible(activeField.frame, animated: true)
+//                    }
+//                }
+//            }
+//        }
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        self.activeField = textField
+        
+    }
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.activeField = nil
+    }
+    func textViewDidBeginEditing(textView: UITextView) {
+        self.activeField = textView
+    }
+    func textViewDidEndEditing(textView: UITextView) {
+        self.activeField = nil
+        //        geolocalise(address: textView.text, account: self.account, mapView: self.mapAdressCompany)
     }
 }
