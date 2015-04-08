@@ -26,6 +26,10 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     @IBOutlet weak var vueGauche: UIView!
     @IBOutlet weak var vueDroite: UIView!
     var account: AccountModel!
+    var locationManager = CLLocationManager()
+    let fileManager = NSFileManager.defaultManager()
+    var imageExists = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if account != nil {
@@ -59,7 +63,7 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             })
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -76,18 +80,114 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         vueGauche.clipsToBounds = true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        println(locations.last)
     }
-    */
-
+    
+    // rendering a picture for the mapview
+    func pictureForView(view: UIView) -> UIImage {
+        UIGraphicsBeginImageContext(view.frame.size)
+        var ctx: CGContextRef = UIGraphicsGetCurrentContext()
+        view.layer.renderInContext(ctx)
+        var image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+    // it will check if there's an image here so that we put it up
+    func mapViewWillStartRenderingMap(mapView: MKMapView!) {
+        if account != nil {
+            geolocaliseAvecImage(address: account.adressAccount, account: account, mapView: self.mapAdressCompany)
+        }
+    }
+    
+    func mapViewDidFinishRenderingMap(mapView: MKMapView!, fullyRendered: Bool) {
+        if account != nil && !self.imageExists {
+            var frame = mapView.frame
+            var mapImage: UIImage = self.pictureForView(mapView)
+            var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+            var dirPath = paths.stringByAppendingPathComponent("Maps/\(account.idAccount)/")
+            var imagePath = dirPath.stringByAppendingPathComponent("\(account.adressAccount).png")
+            if !fileManager.fileExistsAtPath(imagePath) {
+//                fileManager.createDirectoryAtPath(dirPath, withIntermediateDirectories: true, attributes: nil, error: nil)
+                UIImagePNGRepresentation(mapImage).writeToFile(imagePath, atomically: true)
+                
+            }
+            mapView.removeFromSuperview()
+            var image = UIImageView(image: UIImage(contentsOfFile: imagePath))
+            image.frame = frame
+            self.leftView.addSubview(image)
+            
+            println(imagePath)
+        }
+        println("finished rendering map")
+    }
+    
     @IBAction func finishedEditCompany(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
+    }
+    
+    func registerForKeyboardNotifications() {
+        let center = NSNotificationCenter.defaultCenter()
+        let queue = NSOperationQueue.mainQueue()
+//        center.addObserverForName(UIKeyboardDidShowNotification, object: self.adressCompany, queue: queue) { notification in
+//            var frame = self.adressCompany.frame
+//            var info = notification.userInfo
+//            var kbSize = info.
+//            println("je vois que le keyboard a apparu")
+//        }
+        center.addObserver(self,
+            selector: Selector("keyBoardWasShown:"),
+            name: UIKeyboardDidShowNotification,
+            object: nil
+        )
+//        NSNotificationCenter.defaultCenter().addObserver(self,
+//            selector: Selector("keyboardWillBeHidden:"),
+//            name: "UIKeyboardWillHideNotification",
+//            object: nil
+//        )
+        
+    }
+    
+    func keyBoardWasShown(aNotification: NSNotification) {
+        println("je vois que le keyboard est apparu")
+//        if let info: NSDictionary = aNotification.userInfo {
+//            if let kbSize = info.objectForKey(UIKeyboardFrameBeginUserInfoKey)?.CGRectValue().size {
+//                println(kbSize)
+//                let contentInset = UIEdgeInsetsMake(0, 0, kbSize.height, 0)
+//                let scrollView = self.view.superview as UIScrollView
+//                scrollView.contentInset = contentInset
+//                scrollView.scrollIndicatorInsets = contentInset
+//                
+//                var aRect = self.view.superview?.superview?.frame
+//                if let aRect = aRect {
+//                    
+//                    var rectToCheck = aRect
+//                    rectToCheck.size.height -= kbSize.height
+//                    let frameActiveField = activeField.convertRect(activeField.frame, toView: scrollView.superview)
+//                    println(frameActiveField)
+//                    println(rectToCheck)
+//                    if !CGRectContainsPoint(rectToCheck, frameActiveField.origin) {
+//                        println("trying to put the field up")
+//                        scrollView.scrollRectToVisible(activeField.frame, animated: true)
+//                    }
+//                }
+//            }
+//        }
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        self.activeField = textField
+        
+    }
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.activeField = nil
+    }
+    func textViewDidBeginEditing(textView: UITextView) {
+        self.activeField = textView
+    }
+    func textViewDidEndEditing(textView: UITextView) {
+        self.activeField = nil
+        //        geolocalise(address: textView.text, account: self.account, mapView: self.mapAdressCompany)
     }
 }

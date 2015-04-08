@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A7r-ge-PhP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A7r-ge-PhP">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -81,8 +81,8 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="par meetings"/>
-                                <segment title="A &gt; Z"/>
-                                <segment title="Z &gt; A"/>
+                                <segment title="A > Z"/>
+                                <segment title="Z > A"/>
                             </segments>
                             <connections>
                                 <action selector="changeAccountList:" destination="q1R-rD-kwE" eventType="valueChanged" id="zqm-96-k8P"/>
@@ -286,6 +286,7 @@
                         <constraints>
                             <constraint firstItem="ldl-y6-ggE" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="trailing" constant="8" id="0cO-cv-x0W"/>
                             <constraint firstItem="M7a-2y-arJ" firstAttribute="trailing" secondItem="jWX-WC-ARg" secondAttribute="trailingMargin" id="B02-Gg-AwU"/>
+                            <constraint firstItem="ldl-y6-ggE" firstAttribute="width" secondItem="Ip4-8f-yAA" secondAttribute="width" id="IvZ-y0-3l4"/>
                             <constraint firstItem="Rtx-uT-vWA" firstAttribute="top" secondItem="Ip4-8f-yAA" secondAttribute="bottom" constant="8" id="bBR-eC-OGz"/>
                             <constraint firstItem="Ip4-8f-yAA" firstAttribute="top" secondItem="M7a-2y-arJ" secondAttribute="bottom" constant="8" id="lQl-yN-RUM"/>
                             <constraint firstItem="ldl-y6-ggE" firstAttribute="trailing" secondItem="jWX-WC-ARg" secondAttribute="trailingMargin" id="lqY-e5-f8S"/>
@@ -356,7 +357,7 @@
                                     <outletCollection property="gestureRecognizers" destination="0AH-kX-UX1" appends="YES" id="bwb-HY-Obi"/>
                                 </connections>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zST-QS-V5W">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zST-QS-V5W">
                                 <rect key="frame" x="58" y="117" width="526" height="434"/>
                                 <connections>
                                     <outlet property="delegate" destination="jpl-la-HIO" id="Dqm-vm-cpc"/>
@@ -458,6 +459,6 @@
         <image name="fleche droite" width="50" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VMg-4x-Ova"/>
+        <segue reference="47i-YG-Ipk"/>
     </inferredMetricsTieBreakers>
 </document>
