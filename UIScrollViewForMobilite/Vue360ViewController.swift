@@ -9,22 +9,19 @@
 import UIKit
 import MapKit
 
-class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var nameCompany: UITextField!
-    @IBOutlet weak var shortNameCompany: UILabel!
-    @IBOutlet weak var leadCompany: UILabel!
-    @IBOutlet weak var industryCompany: UILabel!
-    @IBOutlet weak var phoneCompany: UILabel!
-    @IBOutlet weak var webSiteCompany: UILabel!
-    @IBOutlet weak var addressCompany: UILabel!
+    @IBOutlet weak var shortNameCompany: UITextField!
+    @IBOutlet weak var industryCompany: UITextField!
+    @IBOutlet weak var phoneCompany: UITextField!
+    @IBOutlet weak var mailCompany: UITextField!
+    @IBOutlet weak var webSite: UITextField!
+    @IBOutlet weak var adressCompany: UITextView!
+    @IBOutlet weak var mapAdressCompany: MKMapView!
+    @IBOutlet weak var leftView: UIView!
     
-    @IBOutlet weak var mapView: MKMapView!
-    var locationManager = CLLocationManager()
-    
-    @IBOutlet weak var statusCompany: UILabel!
-    @IBOutlet weak var vueGauche: UIView!
-    @IBOutlet weak var vueDroite: UIView!
+    var activeField: AnyObject!
     var account: AccountModel!
     var locationManager = CLLocationManager()
     let fileManager = NSFileManager.defaultManager()
@@ -32,52 +29,128 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.nameCompany.delegate = self
+        self.shortNameCompany.delegate = self
+        self.industryCompany.delegate = self
+        self.phoneCompany.delegate = self
+        self.mailCompany.delegate = self
+        self.webSite.delegate = self
+        registerForKeyboardNotifications()
+        self.locationManager.delegate = self
+        self.locationManager.requestAlwaysAuthorization()
+        self.adressCompany.delegate = self
+        self.mapAdressCompany.delegate = self
+        self.locationManager.startUpdatingLocation()
         if account != nil {
             self.nameCompany.text = account.nameAccount
             self.shortNameCompany.text = account.shortNameAccount
             self.industryCompany.text = account.industryAccount
-            self.webSiteCompany.text = account.websiteAccount
             self.phoneCompany.text = account.phoneAccount
-            
-            self.statusCompany.text = account.statusAccount
-            self.mapView.delegate = self
-            
-            // Do any additional setup after loading the view.
-            self.locationManager.delegate = self
-            self.locationManager.requestWhenInUseAuthorization()
-            self.locationManager.startUpdatingLocation()
-            
-            var address = "8 rue pierre-curie, Asnières sur seine, France"
-            var geocoder = CLGeocoder()
-            
-            geocoder.geocodeAddressString(address, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) -> Void in
-                if let placemark = placemarks?[0] as? CLPlacemark {
-                    let span = MKCoordinateSpanMake(0.01, 0.01)
-                    let region = MKCoordinateRegionMake(placemark.location.coordinate, span)
-                    self.mapView.setRegion(region, animated: false)
-                    let annotation = MKPointAnnotation()
-                    annotation.setCoordinate(placemark.location.coordinate)
-                    annotation.title = self.account.nameAccount
-                    self.mapView.addAnnotation(annotation)
-                }
-            })
+            self.webSite.text = account.websiteAccount
+            self.adressCompany.text = account.adressAccount
         }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    override func viewDidLayoutSubviews() {
-        var frame = nameCompany.frame
-        var frameDeGauche = vueGauche.frame
-        var frameDeDroite = vueDroite.frame
-        frameDeGauche.size.width = frame.size.width / 2 - 4
-        vueGauche.frame = frameDeGauche
-        frameDeDroite.origin.x = frame.origin.x + frame.size.width/2 + 4
-        frameDeDroite.size.width = frameDeGauche.size.width
-        vueDroite.frame = frameDeDroite
-        vueGauche.clipsToBounds = true
+    
+    func geolocaliseAvecImage(#address: String?, account: AccountModel, mapView: MKMapView) {
+        if let address = address {
+            // if the image exists put the image in place of the mapView
+            // else create the mapView then show the image in its place
+            if checkImageExist(address: address, account: account) {
+                var frame = mapView.frame
+                self.imageExists = true
+                mapView.removeFromSuperview()
+                self.mapAdressCompany = nil
+                var pathImage = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+                pathImage = pathImage.stringByAppendingPathComponent("Maps/\(account.idAccount)/\(account.adressAccount).png")
+                var image = UIImageView(image: UIImage(contentsOfFile: pathImage))
+                image.frame = frame
+                self.leftView.addSubview(image)
+            } else {
+                var geocoder = CLGeocoder()
+                geocoder.geocodeAddressString(address, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) -> Void in
+                    if let placemark = placemarks?[0] as? CLPlacemark {
+                        if placemark.location != nil {
+                            self.imageExists = false
+                            let span = MKCoordinateSpanMake(0.01, 0.01)
+                            let region = MKCoordinateRegionMake(placemark.location.coordinate, span)
+                            mapView.setRegion(region, animated: false)
+                            let annotation = MKPointAnnotation()
+                            print("les coordonnées sont : ")
+                            print(placemark.location.coordinate.latitude)
+                            print(", ")
+                            println(placemark.location.coordinate.longitude)
+                            annotation.setCoordinate(placemark.location.coordinate)
+                            annotation.title = account.nameAccount
+                            mapView.addAnnotation(annotation)
+                            mapView.selectAnnotation(annotation, animated: true)
+                        } else {
+                            println("the adress is not correct")
+                            mapView.removeFromSuperview()
+                        }
+                    }
+                })
+            }
+        }
+    }
+    
+    // check if there's an image in the repertory for the mapview
+    func checkImageExist(#address: String, account: AccountModel) -> Bool{
+        var error: NSError?
+        var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        var dirPath = paths.stringByAppendingPathComponent("Maps/\(account.idAccount)/")
+        if !fileManager.fileExistsAtPath(dirPath){
+            fileManager.createDirectoryAtPath(dirPath, withIntermediateDirectories: true, attributes: nil, error: &error)
+            return false
+        } else {
+            var filePath = dirPath.stringByAppendingPathComponent("\(account.adressAccount).png")
+            if !fileManager.fileExistsAtPath(filePath){
+                // deleting all files in the directory
+                var i = 0
+                var directoryFiles = fileManager.contentsOfDirectoryAtPath(dirPath, error: &error)
+                if let directoryFiles = directoryFiles {
+                    for file in directoryFiles {
+                        i++
+                        print("suppression \(i): ")
+                        let success = fileManager.removeItemAtPath("\(dirPath)/\(file)", error: &error)
+                        if (!success || error != nil) {
+                            println(error)
+                        }
+                    }
+                }
+                return false
+            }
+        }
+        return true
+    }
+    
+    // that's just to geolocalise an adress without creating an image
+    func geolocalise (#address: String?, account: AccountModel, mapView: MKMapView){
+        if address != nil {
+            var geocoder = CLGeocoder()
+        
+            geocoder.geocodeAddressString(address, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) -> Void in
+                if let placemark = placemarks?[0] as? CLPlacemark {
+                    let span = MKCoordinateSpanMake(0.01, 0.01)
+                    let region = MKCoordinateRegionMake(placemark.location.coordinate, span)
+                    mapView.setRegion(region, animated: false)
+                    let annotation = MKPointAnnotation()
+                    print("les coordonnées sont : ")
+                    print(placemark.location.coordinate.latitude)
+                    print(", ")
+                    println(placemark.location.coordinate.longitude)
+                    annotation.setCoordinate(placemark.location.coordinate)
+                    annotation.title = account.nameAccount
+                    annotation.subtitle = account.phoneAccount
+                    mapView.addAnnotation(annotation)
+                    mapView.selectAnnotation(annotation, animated: true)
+                }
+            })
+            
+        }
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -130,6 +203,12 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     func registerForKeyboardNotifications() {
         let center = NSNotificationCenter.defaultCenter()
         let queue = NSOperationQueue.mainQueue()
+//        center.addObserverForName(UIKeyboardDidShowNotification, object: self.adressCompany, queue: queue) { notification in
+//            var frame = self.adressCompany.frame
+//            var info = notification.userInfo
+//            var kbSize = info.
+//            println("je vois que le keyboard a apparu")
+//        }
         center.addObserver(self,
             selector: Selector("keyBoardWasShown:"),
             name: UIKeyboardDidShowNotification,
@@ -137,7 +216,7 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         )
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: Selector("keyboardWillBeHidden:"),
-            name: UIKeyboardWillHideNotification,
+            name: "UIKeyboardWillHideNotification",
             object: nil
         )
         
@@ -169,9 +248,11 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
 //            }
 //        }
     }
+    
     func keyboardWillBeHidden(aNotification: NSNotification) {
-        println("je vois que le keyboard a disparu")
+        println("le keyboard a disparu")
     }
+    
     func textFieldDidBeginEditing(textField: UITextField) {
         self.activeField = textField
         
