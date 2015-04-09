@@ -44,15 +44,15 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("meetingsAccount", forIndexPath: indexPath) as UITableViewCell
         
         let row = indexPath.row
-        
+        tableView.rowHeight = 72
         dateFormatter.timeStyle = .ShortStyle
         dateFormatter.dateStyle = .FullStyle
         
         var dateBeginMeeting = Dates().fromSQLiteDayToDate(meetings[row].dateBeginMeeting)
         if let dateBeginMeeting = dateBeginMeeting {
             let stringFromDateBeginMeeting = dateFormatter.stringFromDate(dateBeginMeeting)
-            
-            cell.textLabel?.text = stringFromDateBeginMeeting + " : " + meetings[row].subjectMeeting
+            cell.textLabel?.numberOfLines = 2
+            cell.textLabel?.text = stringFromDateBeginMeeting + " : \n" + meetings[row].subjectMeeting
         }
         return cell
     }
