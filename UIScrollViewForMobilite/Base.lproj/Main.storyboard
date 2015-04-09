@@ -98,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="1943" y="-94"/>
         </scene>
-        <!--Test1 View Controller-->
+        <!--Meetings Of Account View Controller-->
         <scene sceneID="cGz-u2-9qr">
             <objects>
-                <viewController storyboardIdentifier="Meetings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rYC-PH-qHZ" customClass="Test1ViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Meetings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rYC-PH-qHZ" customClass="MeetingsOfAccountViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y6j-cg-UIq"/>
                         <viewControllerLayoutGuide type="bottom" id="lSp-QK-izv"/>
@@ -110,30 +110,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ba3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3X-Hc-quh">
-                                <rect key="frame" x="16" y="28" width="29" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ba3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IsQ-lk-aQ3">
-                                <rect key="frame" x="555" y="28" width="29" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nfr-Ey-AmM">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="meetingsAccount" id="Yje-2n-GP4">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yje-2n-GP4" id="xqd-Ti-Vk0">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="rYC-PH-qHZ" id="YRk-SH-kON"/>
+                                    <outlet property="delegate" destination="rYC-PH-qHZ" id="SNR-AY-QBo"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IsQ-lk-aQ3" firstAttribute="trailing" secondItem="VsL-zf-aBl" secondAttribute="trailingMargin" id="8Ce-lX-ofy"/>
-                            <constraint firstItem="r3X-Hc-quh" firstAttribute="top" secondItem="Y6j-cg-UIq" secondAttribute="bottom" constant="8" id="8uD-va-AjR"/>
-                            <constraint firstItem="r3X-Hc-quh" firstAttribute="leading" secondItem="VsL-zf-aBl" secondAttribute="leadingMargin" id="cfa-dF-mWR"/>
-                            <constraint firstItem="IsQ-lk-aQ3" firstAttribute="top" secondItem="Y6j-cg-UIq" secondAttribute="bottom" constant="8" id="qHl-1l-80q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nfr-Ey-AmM" secondAttribute="trailing" constant="-16" id="3Ou-xL-4m0"/>
+                            <constraint firstItem="lSp-QK-izv" firstAttribute="top" secondItem="nfr-Ey-AmM" secondAttribute="bottom" id="61g-OJ-kdb"/>
+                            <constraint firstItem="nfr-Ey-AmM" firstAttribute="top" secondItem="VsL-zf-aBl" secondAttribute="topMargin" id="MxR-zV-GYX"/>
+                            <constraint firstItem="nfr-Ey-AmM" firstAttribute="leading" secondItem="VsL-zf-aBl" secondAttribute="leadingMargin" constant="-16" id="dLB-wa-gsg"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="leftLabel" destination="r3X-Hc-quh" id="aGe-wv-p3k"/>
-                        <outlet property="rightLabel" destination="IsQ-lk-aQ3" id="cnE-L4-xbV"/>
+                        <outlet property="meetingTableView" destination="nfr-Ey-AmM" id="yP9-Bm-nOU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oYA-at-Wlb" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -21,7 +21,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var navigationBar: UINavigationItem!
     
     var identifiers: [String] = ["Meetings", "Vue 360°", "bibi"]
-    var firstPageC: Test1ViewController = Test1ViewController()
+    var meetingsOfAccount: MeetingsOfAccountViewController = MeetingsOfAccountViewController()
     var vue360: Vue360ViewController = Vue360ViewController()
     var thirdPage: Test3ViewController = Test3ViewController()
     var pageControllers: [UIViewController] = []
@@ -76,9 +76,10 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     // get all the viewControllers that have identifiers defined in var identifiers
     func getViewControllers() -> [UIViewController]{
         var viewControllers: [UIViewController] = [UIViewController]()
-        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[0]) as? Test1ViewController {
+        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[0]) as? MeetingsOfAccountViewController {
             viewControllers.append(viewController)
-            self.firstPageC = viewController
+            self.meetingsOfAccount = viewController
+            self.meetingsOfAccount.account = self.account
             println("ajout de première page")
         }
         if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[1]) as? Vue360ViewController {
