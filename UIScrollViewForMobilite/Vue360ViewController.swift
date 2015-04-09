@@ -26,6 +26,8 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     @IBOutlet weak var coverageAccount: UITextField!
     @IBOutlet weak var mapAdressCompany: MKMapView!
     @IBOutlet weak var leftView: UIView!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var discardChangesButton: UIButton!
     
     var activeField: AnyObject!
     var account: AccountModel!
@@ -37,6 +39,8 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveButton.hidden = true
+        discardChangesButton.hidden = true
         setDelegates()
         registerForKeyboardNotifications()
         self.locationManager.requestAlwaysAuthorization()
@@ -56,19 +60,7 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             self.countryAccount.text = account.countryAccount
             self.coverageAccount.text = account.coverageAccount
         } else {
-            self.nameCompany.text = "Vous n'avez aucun compte d'enregistré ou aucun meeting de prévu avec des contacts appartenant à un compte"
-            self.shortNameCompany.text = ""
-            self.industryCompany.text = ""
-            self.phoneCompany.text = ""
-            self.webSite.text = ""
-            self.adressCompany.text = ""
-            self.leadSource.text = ""
-            self.statusAccount.text = ""
-            self.segmentAccount.text = ""
-            self.faxAccount.text = ""
-            self.regionAccount.text = ""
-            self.countryAccount.text = ""
-            self.coverageAccount.text = ""
+            disablefields()
         }
     }
     
@@ -92,6 +84,34 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         self.regionAccount.delegate = self
         self.countryAccount.delegate = self
         self.coverageAccount.delegate = self
+    }
+    func disablefields() {
+        self.nameCompany.text = "Vous n'avez aucun compte d'enregistré ou aucun meeting de prévu avec des contacts appartenant à un compte"
+        self.nameCompany.enabled = false
+        self.shortNameCompany.text = ""
+        self.shortNameCompany.enabled = false
+        self.industryCompany.text = ""
+        self.industryCompany.enabled = false
+        self.phoneCompany.text = ""
+        self.phoneCompany.enabled = false
+        self.webSite.text = ""
+        self.webSite.enabled = false
+        self.adressCompany.text = ""
+        self.adressCompany.editable = false
+        self.leadSource.text = ""
+        self.leadSource.enabled = false
+        self.statusAccount.text = ""
+        self.statusAccount.enabled = false
+        self.segmentAccount.text = ""
+        self.segmentAccount.enabled = false
+        self.faxAccount.text = ""
+        self.faxAccount.enabled = false
+        self.regionAccount.text = ""
+        self.regionAccount.enabled = false
+        self.countryAccount.text = ""
+        self.countryAccount.enabled = false
+        self.coverageAccount.text = ""
+        self.coverageAccount.enabled = false
     }
     
     func geolocaliseAvecImage(#address: String?, account: AccountModel, mapView: MKMapView) {
@@ -192,9 +212,6 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-//        println(locations.last)
-    }
     
     // rendering a picture for the mapview
     func pictureForView(view: UIView) -> UIImage {
@@ -237,15 +254,27 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     
     // Mark: - UITapGesture 
-    // taping on the
+    // taping on the controller's view to get the keyboard to not show anymore
     @IBAction func finishedEditCompany(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
-        if accountAfterUpdates != nil {
-            let accountToCompare = accountAfterUpdates.arrayOfStringsFromModel()
-            let accountToCompareTo = account.arrayOfStringsFromModel()
-            if !(accountToCompareTo == accountToCompare) {
-                modificationsHaveHappened = true
-            }
+    }
+    
+    @IBAction func changingFieldsOfAccount(sender: UITextField) {
+        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text)
+        
+        let accountToCompare = accountAfterUpdates.arrayOfStringsFromModel()
+        let accountToCompareTo = account.arrayOfStringsFromModel()
+        if !(accountToCompareTo == accountToCompare) {
+            modificationsHaveHappened = true
+            saveButton.hidden = false
+            discardChangesButton.hidden = false
+            println("same")
+        } else {
+            modificationsHaveHappened = false
+            saveButton.hidden = true
+            discardChangesButton.hidden = true
+            println("not the same")
+            
         }
     }
     
@@ -307,9 +336,6 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
     func textFieldDidEndEditing(textField: UITextField) {
         self.activeField = nil
-        
-        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text)
-        
     }
     
     // Mark: - TextView delegate methods
@@ -318,6 +344,44 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
     func textViewDidEndEditing(textView: UITextView) {
         self.activeField = nil
-        //        geolocalise(address: textView.text, account: self.account, mapView: self.mapAdressCompany)
+        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text)
+    }
+    
+    // Mark: - CLLocationManager delegate methods
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        //        println(locations.last)
+    }
+    
+    // Mark: - UIButton: saving and discarding changes
+    @IBAction func savingChanges(sender: UIButton) {
+        updateAccount()
+    }
+    @IBAction func discardingChanges(sender: UIButton) {
+        discardChanges()
+    }
+    
+    // Mark: - functions to save and discard changes
+    func updateAccount() {
+        println("update the account")
+        if modificationsHaveHappened {
+            AccountDataModel().updateAccount(account: accountAfterUpdates)
+        }
+        modificationsHaveHappened = false
+    }
+    
+    func discardChanges() {
+        self.nameCompany.text = account.nameAccount
+        self.shortNameCompany.text = account.shortNameAccount
+        self.industryCompany.text = account.industryAccount
+        self.phoneCompany.text = account.phoneAccount
+        self.webSite.text = account.websiteAccount
+        self.adressCompany.text = account.adressAccount
+        self.leadSource.text = account.leadSource
+        self.statusAccount.text = account.statusAccount
+        self.segmentAccount.text = account.segmentAccount
+        self.faxAccount.text = account.faxAccount
+        self.regionAccount.text = account.regionAccount
+        self.countryAccount.text = account.countryAccount
+        self.coverageAccount.text = account.coverageAccount
     }
 }

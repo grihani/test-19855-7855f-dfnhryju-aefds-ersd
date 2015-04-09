@@ -134,11 +134,24 @@ class AccountDataModel {
         }
         return accountOfNextMeeting
     }
+    
     // update the accounts
     func updateAccount(#account: AccountModel) {
+        var erreur = String()
         
+        var arrayAccount = account.arrayFromModel()
+        //the id of the account has to be added at the end
+        arrayAccount.append(account.idAccount)
+        let insertSQL = "Update Account SET nameAccount = ?, shortNameAccount = ?, leadSource = ?, statusAccount = ?, industryAccount = ?, segmentAccount = ?, websiteAccount = ?, phoneAccount = ?, faxAccount = ?, coverageAccount = ?, regionAccount = ?, adressAccount = ?, idAccount1 = ?, countryAccount = ? Where IdAccount= ?"
+        let result = contactDataBase.executeUpdate(insertSQL,
+            withArgumentsInArray: arrayAccount)
+        
+        if !result {
+            erreur = "Error: \(contactDataBase.lastErrorMessage())"
+        }
+        println(erreur)
     }
-    
+
     // insert a new Account (used only in the case of creation in the CRM)
     func insertAccount(account : AccountModel) -> String {
         println("inserting Into AccountModel")

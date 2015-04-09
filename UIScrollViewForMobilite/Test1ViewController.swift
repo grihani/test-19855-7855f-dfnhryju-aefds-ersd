@@ -33,9 +33,5 @@ class Test1ViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func setLabelText() {
-        self.leftLabel.text = "Wouhou"
-        self.rightLabel.text = "Waha"
-    }
-
+    
 }

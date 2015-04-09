@@ -190,6 +190,9 @@
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <action selector="changingFieldsOfAccount:" destination="H1v-Pv-r5V" eventType="editingDidEnd" id="E5y-nG-d23"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ip4-8f-yAA">
                                 <rect key="frame" x="16" y="45" width="280" height="547"/>
@@ -211,16 +214,25 @@
                                         <rect key="frame" x="0.0" y="29" width="280" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="changingFieldsOfAccount:" destination="H1v-Pv-r5V" eventType="editingChanged" id="Gbh-ke-YZs"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="industryCompany" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XLF-17-q6Y">
                                         <rect key="frame" x="0.0" y="54" width="280" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="changingFieldsOfAccount:" destination="H1v-Pv-r5V" eventType="editingDidEnd" id="TFn-td-10s"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="phoneCompany" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FOV-y6-AuT">
                                         <rect key="frame" x="0.0" y="79" width="280" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="changingFieldsOfAccount:" destination="H1v-Pv-r5V" eventType="editingDidEnd" id="N4O-GM-Yyj"/>
+                                        </connections>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="adressCompany" translatesAutoresizingMaskIntoConstraints="NO" id="emi-4o-wT5">
                                         <rect key="frame" x="0.0" y="279" width="280" height="60"/>
@@ -235,16 +247,25 @@
                                         <rect key="frame" x="0.0" y="104" width="280" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="changingFieldsOfAccount:" destination="H1v-Pv-r5V" eventType="editingDidEnd" id="tBx-Np-MEl"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="statusAccount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WA6-Xe-Eml">
                                         <rect key="frame" x="0.0" y="154" width="280" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="changingFieldsOfAccount:" destination="H1v-Pv-r5V" eventType="editingDidEnd" id="BvG-lb-dme"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="leadSource" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hok-11-vyB">
                                         <rect key="frame" x="0.0" y="129" width="280" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="changingFieldsOfAccount:" destination="H1v-Pv-r5V" eventType="editingDidEnd" id="Z6M-ZO-aFa"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -279,52 +300,86 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldl-y6-ggE">
                                 <rect key="frame" x="304" y="45" width="280" height="547"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbV-jq-hcL">
-                                        <rect key="frame" x="0.0" y="531" width="280" height="16"/>
-                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
-                                        <color key="textColor" red="0.7204269255050505" green="0.7204269255050505" blue="0.7204269255050505" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="segmentAccount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="40A-n3-eLL">
                                         <rect key="frame" x="0.0" y="8" width="280" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="changingFieldsOfAccount:" destination="H1v-Pv-r5V" eventType="editingDidEnd" id="5SS-C0-PEC"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="faxAccount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Lm-2B-d4t">
                                         <rect key="frame" x="0.0" y="33" width="280" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="changingFieldsOfAccount:" destination="H1v-Pv-r5V" eventType="editingDidEnd" id="X0a-FP-y1w"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="coverageAccount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kav-vH-vGR">
                                         <rect key="frame" x="0.0" y="58" width="280" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="changingFieldsOfAccount:" destination="H1v-Pv-r5V" eventType="editingDidEnd" id="DVA-Ic-Q50"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="regionAccount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ObX-o1-j7D">
                                         <rect key="frame" x="0.0" y="83" width="280" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="changingFieldsOfAccount:" destination="H1v-Pv-r5V" eventType="editingDidEnd" id="iPv-pM-3A8"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="countryAccount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xIb-uc-YgK">
                                         <rect key="frame" x="0.0" y="108" width="280" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="changingFieldsOfAccount:" destination="H1v-Pv-r5V" eventType="editingDidEnd" id="b0T-63-0nk"/>
+                                        </connections>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvI-Yb-3vo">
+                                        <rect key="frame" x="238" y="510" width="42" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="42" id="7xO-2W-8wF"/>
+                                            <constraint firstAttribute="height" constant="37" id="Alo-5a-kyS"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="SaveChanges"/>
+                                        <connections>
+                                            <action selector="savingChanges:" destination="H1v-Pv-r5V" eventType="touchUpInside" id="1G6-BS-FcE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uam-xq-neW">
+                                        <rect key="frame" x="188" y="510" width="42" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="Loc-Zr-K4S"/>
+                                            <constraint firstAttribute="width" constant="42" id="csh-Ds-qHk"/>
+                                        </constraints>
+                                        <state key="normal" image="DiscardChanges">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="discardingChanges:" destination="H1v-Pv-r5V" eventType="touchUpInside" id="LJC-HY-Hh9"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.77709027288187338" blue="0.61364311966120955" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Kav-vH-vGR" firstAttribute="leading" secondItem="ldl-y6-ggE" secondAttribute="leading" id="652-8Y-pvF"/>
                                     <constraint firstAttribute="trailing" secondItem="40A-n3-eLL" secondAttribute="trailing" id="8Yl-Ci-koi"/>
-                                    <constraint firstAttribute="bottom" secondItem="FbV-jq-hcL" secondAttribute="bottom" id="Iaj-u1-KZw"/>
-                                    <constraint firstItem="FbV-jq-hcL" firstAttribute="leading" secondItem="ldl-y6-ggE" secondAttribute="leading" id="K6c-R4-inL"/>
+                                    <constraint firstAttribute="bottom" secondItem="Uam-xq-neW" secondAttribute="bottom" id="AYf-fZ-2XF"/>
                                     <constraint firstAttribute="trailing" secondItem="Kav-vH-vGR" secondAttribute="trailing" id="N5q-31-ZVT"/>
                                     <constraint firstItem="xIb-uc-YgK" firstAttribute="top" secondItem="ObX-o1-j7D" secondAttribute="bottom" constant="8" id="QFx-iJ-ZR1"/>
-                                    <constraint firstAttribute="trailing" secondItem="FbV-jq-hcL" secondAttribute="trailing" id="RqI-Ax-9YK"/>
+                                    <constraint firstAttribute="trailing" secondItem="fvI-Yb-3vo" secondAttribute="trailing" id="RRZ-ac-q1r"/>
                                     <constraint firstItem="ObX-o1-j7D" firstAttribute="top" secondItem="Kav-vH-vGR" secondAttribute="bottom" constant="8" id="T8S-E2-8O5"/>
                                     <constraint firstAttribute="trailing" secondItem="8Lm-2B-d4t" secondAttribute="trailing" id="TCk-A0-Xjq"/>
                                     <constraint firstAttribute="trailing" secondItem="xIb-uc-YgK" secondAttribute="trailing" id="VNM-bV-Tpe"/>
                                     <constraint firstItem="ObX-o1-j7D" firstAttribute="leading" secondItem="ldl-y6-ggE" secondAttribute="leading" id="W6f-gp-OCw"/>
+                                    <constraint firstAttribute="bottom" secondItem="fvI-Yb-3vo" secondAttribute="bottom" id="XEz-EP-XGH"/>
                                     <constraint firstItem="8Lm-2B-d4t" firstAttribute="top" secondItem="40A-n3-eLL" secondAttribute="bottom" constant="8" id="YYT-7m-aGV"/>
+                                    <constraint firstItem="fvI-Yb-3vo" firstAttribute="leading" secondItem="Uam-xq-neW" secondAttribute="trailing" constant="8" id="ZAV-TO-DsZ"/>
                                     <constraint firstItem="xIb-uc-YgK" firstAttribute="leading" secondItem="ldl-y6-ggE" secondAttribute="leading" id="fTm-Ye-lck"/>
                                     <constraint firstItem="40A-n3-eLL" firstAttribute="top" secondItem="ldl-y6-ggE" secondAttribute="top" constant="8" id="g8j-db-Tmk"/>
                                     <constraint firstItem="8Lm-2B-d4t" firstAttribute="leading" secondItem="ldl-y6-ggE" secondAttribute="leading" id="gNM-y1-i6R"/>
@@ -358,6 +413,7 @@
                         <outlet property="adressCompany" destination="emi-4o-wT5" id="MBU-ta-kpk"/>
                         <outlet property="countryAccount" destination="xIb-uc-YgK" id="msj-GD-6Fm"/>
                         <outlet property="coverageAccount" destination="Kav-vH-vGR" id="XM6-Jb-hf6"/>
+                        <outlet property="discardChangesButton" destination="Uam-xq-neW" id="1Z4-b0-Fdy"/>
                         <outlet property="faxAccount" destination="8Lm-2B-d4t" id="MWN-5Z-Irm"/>
                         <outlet property="industryCompany" destination="XLF-17-q6Y" id="pmi-ov-Bd7"/>
                         <outlet property="leadSource" destination="hok-11-vyB" id="tzi-fv-UnV"/>
@@ -366,6 +422,7 @@
                         <outlet property="nameCompany" destination="M7a-2y-arJ" id="dZS-UZ-qzc"/>
                         <outlet property="phoneCompany" destination="FOV-y6-AuT" id="s5a-JK-ckD"/>
                         <outlet property="regionAccount" destination="ObX-o1-j7D" id="6yr-ue-ZDw"/>
+                        <outlet property="saveButton" destination="fvI-Yb-3vo" id="wtH-me-5CB"/>
                         <outlet property="segmentAccount" destination="40A-n3-eLL" id="STy-Fw-kPj"/>
                         <outlet property="shortNameCompany" destination="kqv-61-eh6" id="IPc-fr-tGz"/>
                         <outlet property="statusAccount" destination="WA6-Xe-Eml" id="k4J-Hd-Lv8"/>
@@ -650,6 +707,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DiscardChanges" width="204" height="204"/>
+        <image name="SaveChanges" width="256" height="256"/>
         <image name="fleche droite" width="50" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>

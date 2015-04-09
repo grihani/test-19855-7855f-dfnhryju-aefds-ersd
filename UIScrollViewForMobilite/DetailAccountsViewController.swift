@@ -142,6 +142,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         let page = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
         colorButtons(page)
         pageControl.currentPage = page
+        self.vue360.updateAccount()
         self.view.endEditing(true)
     }
     
