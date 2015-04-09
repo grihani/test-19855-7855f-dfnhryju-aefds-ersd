@@ -212,23 +212,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="industryCompany" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XLF-17-q6Y">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="industryCompany" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XLF-17-q6Y">
                                         <rect key="frame" x="0.0" y="54" width="280" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="phoneCompany" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FOV-y6-AuT">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="phoneCompany" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FOV-y6-AuT">
                                         <rect key="frame" x="0.0" y="79" width="280" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mailCompany" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bd7-o7-sM0">
-                                        <rect key="frame" x="0.0" y="104" width="280" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="webSite" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QXF-P6-sCc">
-                                        <rect key="frame" x="0.0" y="129" width="280" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -241,16 +231,46 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="webSite" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QXF-P6-sCc">
+                                        <rect key="frame" x="0.0" y="104" width="280" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="statusAccount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WA6-Xe-Eml">
+                                        <rect key="frame" x="0.0" y="154" width="280" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="leadSource" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hok-11-vyB">
+                                        <rect key="frame" x="0.0" y="129" width="280" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="QXF-P6-sCc" firstAttribute="top" secondItem="FOV-y6-AuT" secondAttribute="bottom" constant="8" id="4ah-SF-4zf"/>
+                                    <constraint firstAttribute="trailing" secondItem="QXF-P6-sCc" secondAttribute="trailing" id="B7Q-eG-kQI"/>
+                                    <constraint firstItem="XLF-17-q6Y" firstAttribute="top" secondItem="kqv-61-eh6" secondAttribute="bottom" constant="8" id="F61-WS-pCB"/>
+                                    <constraint firstAttribute="trailing" secondItem="hok-11-vyB" secondAttribute="trailing" id="HZK-yd-jdN"/>
                                     <constraint firstItem="emi-4o-wT5" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="leading" id="ILm-SA-GEJ"/>
                                     <constraint firstAttribute="trailing" secondItem="emi-4o-wT5" secondAttribute="trailing" id="INk-l6-8YM"/>
+                                    <constraint firstItem="WA6-Xe-Eml" firstAttribute="top" secondItem="hok-11-vyB" secondAttribute="bottom" constant="8" id="JbO-Oe-jyB"/>
                                     <constraint firstItem="snn-s4-FSf" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="leading" id="P2w-RM-Pps"/>
+                                    <constraint firstItem="FOV-y6-AuT" firstAttribute="top" secondItem="XLF-17-q6Y" secondAttribute="bottom" constant="8" id="ScC-dD-VaZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="FOV-y6-AuT" secondAttribute="trailing" id="UFE-mf-eqr"/>
+                                    <constraint firstItem="FOV-y6-AuT" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="leading" id="W4h-04-8RE"/>
                                     <constraint firstItem="JC4-bB-dt4" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="leading" id="W88-OZ-ser"/>
                                     <constraint firstItem="kqv-61-eh6" firstAttribute="top" secondItem="snn-s4-FSf" secondAttribute="bottom" constant="8" id="Wze-5H-PZk"/>
                                     <constraint firstItem="kqv-61-eh6" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="leading" id="cbL-4a-QFR"/>
                                     <constraint firstAttribute="trailing" secondItem="JC4-bB-dt4" secondAttribute="trailing" id="hNI-ct-Lx9"/>
+                                    <constraint firstItem="QXF-P6-sCc" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="leading" id="hjD-vW-WnS"/>
+                                    <constraint firstItem="WA6-Xe-Eml" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="leading" id="jpa-3L-3cQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="XLF-17-q6Y" secondAttribute="trailing" id="m8N-5l-Or2"/>
                                     <constraint firstAttribute="trailing" secondItem="kqv-61-eh6" secondAttribute="trailing" id="ph0-ha-syi"/>
+                                    <constraint firstItem="XLF-17-q6Y" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="leading" id="rUZ-J0-FVM"/>
+                                    <constraint firstAttribute="trailing" secondItem="WA6-Xe-Eml" secondAttribute="trailing" id="rz7-Rl-7hz"/>
+                                    <constraint firstItem="hok-11-vyB" firstAttribute="leading" secondItem="Ip4-8f-yAA" secondAttribute="leading" id="szc-C2-dGC"/>
+                                    <constraint firstItem="hok-11-vyB" firstAttribute="top" secondItem="QXF-P6-sCc" secondAttribute="bottom" constant="8" id="uJo-N6-YJb"/>
                                     <constraint firstAttribute="bottom" secondItem="JC4-bB-dt4" secondAttribute="bottom" id="vr8-aA-RvN"/>
                                     <constraint firstItem="snn-s4-FSf" firstAttribute="top" secondItem="Ip4-8f-yAA" secondAttribute="top" id="vrA-L2-xC8"/>
                                     <constraint firstAttribute="bottom" secondItem="emi-4o-wT5" secondAttribute="bottom" constant="208" id="xhD-sp-cpF"/>
@@ -265,12 +285,52 @@
                                         <color key="textColor" red="0.7204269255050505" green="0.7204269255050505" blue="0.7204269255050505" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="segmentAccount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="40A-n3-eLL">
+                                        <rect key="frame" x="0.0" y="8" width="280" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="faxAccount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Lm-2B-d4t">
+                                        <rect key="frame" x="0.0" y="33" width="280" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="coverageAccount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kav-vH-vGR">
+                                        <rect key="frame" x="0.0" y="58" width="280" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="regionAccount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ObX-o1-j7D">
+                                        <rect key="frame" x="0.0" y="83" width="280" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="countryAccount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xIb-uc-YgK">
+                                        <rect key="frame" x="0.0" y="108" width="280" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.77709027288187338" blue="0.61364311966120955" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="Kav-vH-vGR" firstAttribute="leading" secondItem="ldl-y6-ggE" secondAttribute="leading" id="652-8Y-pvF"/>
+                                    <constraint firstAttribute="trailing" secondItem="40A-n3-eLL" secondAttribute="trailing" id="8Yl-Ci-koi"/>
                                     <constraint firstAttribute="bottom" secondItem="FbV-jq-hcL" secondAttribute="bottom" id="Iaj-u1-KZw"/>
                                     <constraint firstItem="FbV-jq-hcL" firstAttribute="leading" secondItem="ldl-y6-ggE" secondAttribute="leading" id="K6c-R4-inL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kav-vH-vGR" secondAttribute="trailing" id="N5q-31-ZVT"/>
+                                    <constraint firstItem="xIb-uc-YgK" firstAttribute="top" secondItem="ObX-o1-j7D" secondAttribute="bottom" constant="8" id="QFx-iJ-ZR1"/>
                                     <constraint firstAttribute="trailing" secondItem="FbV-jq-hcL" secondAttribute="trailing" id="RqI-Ax-9YK"/>
+                                    <constraint firstItem="ObX-o1-j7D" firstAttribute="top" secondItem="Kav-vH-vGR" secondAttribute="bottom" constant="8" id="T8S-E2-8O5"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Lm-2B-d4t" secondAttribute="trailing" id="TCk-A0-Xjq"/>
+                                    <constraint firstAttribute="trailing" secondItem="xIb-uc-YgK" secondAttribute="trailing" id="VNM-bV-Tpe"/>
+                                    <constraint firstItem="ObX-o1-j7D" firstAttribute="leading" secondItem="ldl-y6-ggE" secondAttribute="leading" id="W6f-gp-OCw"/>
+                                    <constraint firstItem="8Lm-2B-d4t" firstAttribute="top" secondItem="40A-n3-eLL" secondAttribute="bottom" constant="8" id="YYT-7m-aGV"/>
+                                    <constraint firstItem="xIb-uc-YgK" firstAttribute="leading" secondItem="ldl-y6-ggE" secondAttribute="leading" id="fTm-Ye-lck"/>
+                                    <constraint firstItem="40A-n3-eLL" firstAttribute="top" secondItem="ldl-y6-ggE" secondAttribute="top" constant="8" id="g8j-db-Tmk"/>
+                                    <constraint firstItem="8Lm-2B-d4t" firstAttribute="leading" secondItem="ldl-y6-ggE" secondAttribute="leading" id="gNM-y1-i6R"/>
+                                    <constraint firstItem="40A-n3-eLL" firstAttribute="leading" secondItem="ldl-y6-ggE" secondAttribute="leading" id="hOP-5P-beN"/>
+                                    <constraint firstAttribute="trailing" secondItem="ObX-o1-j7D" secondAttribute="trailing" id="oaS-st-RH5"/>
+                                    <constraint firstItem="Kav-vH-vGR" firstAttribute="top" secondItem="8Lm-2B-d4t" secondAttribute="bottom" constant="8" id="pxi-7x-SCB"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -296,13 +356,19 @@
                     </view>
                     <connections>
                         <outlet property="adressCompany" destination="emi-4o-wT5" id="MBU-ta-kpk"/>
+                        <outlet property="countryAccount" destination="xIb-uc-YgK" id="msj-GD-6Fm"/>
+                        <outlet property="coverageAccount" destination="Kav-vH-vGR" id="XM6-Jb-hf6"/>
+                        <outlet property="faxAccount" destination="8Lm-2B-d4t" id="MWN-5Z-Irm"/>
                         <outlet property="industryCompany" destination="XLF-17-q6Y" id="pmi-ov-Bd7"/>
+                        <outlet property="leadSource" destination="hok-11-vyB" id="tzi-fv-UnV"/>
                         <outlet property="leftView" destination="Ip4-8f-yAA" id="I6N-7T-295"/>
-                        <outlet property="mailCompany" destination="bd7-o7-sM0" id="9Sc-dc-JDZ"/>
                         <outlet property="mapAdressCompany" destination="JC4-bB-dt4" id="kDd-lx-y1d"/>
                         <outlet property="nameCompany" destination="M7a-2y-arJ" id="dZS-UZ-qzc"/>
                         <outlet property="phoneCompany" destination="FOV-y6-AuT" id="s5a-JK-ckD"/>
+                        <outlet property="regionAccount" destination="ObX-o1-j7D" id="6yr-ue-ZDw"/>
+                        <outlet property="segmentAccount" destination="40A-n3-eLL" id="STy-Fw-kPj"/>
                         <outlet property="shortNameCompany" destination="kqv-61-eh6" id="IPc-fr-tGz"/>
+                        <outlet property="statusAccount" destination="WA6-Xe-Eml" id="k4J-Hd-Lv8"/>
                         <outlet property="webSite" destination="QXF-P6-sCc" id="5h3-8A-LRj"/>
                     </connections>
                 </viewController>

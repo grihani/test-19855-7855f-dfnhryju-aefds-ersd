@@ -15,31 +15,31 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     @IBOutlet weak var shortNameCompany: UITextField!
     @IBOutlet weak var industryCompany: UITextField!
     @IBOutlet weak var phoneCompany: UITextField!
-    @IBOutlet weak var mailCompany: UITextField!
     @IBOutlet weak var webSite: UITextField!
+    @IBOutlet weak var leadSource: UITextField!
+    @IBOutlet weak var statusAccount: UITextField!
+    @IBOutlet weak var segmentAccount: UITextField!
+    @IBOutlet weak var faxAccount: UITextField!
+    @IBOutlet weak var regionAccount: UITextField!
     @IBOutlet weak var adressCompany: UITextView!
+    @IBOutlet weak var countryAccount: UITextField!
+    @IBOutlet weak var coverageAccount: UITextField!
     @IBOutlet weak var mapAdressCompany: MKMapView!
     @IBOutlet weak var leftView: UIView!
     
     var activeField: AnyObject!
     var account: AccountModel!
+    var accountAfterUpdates: AccountModel!
     var locationManager = CLLocationManager()
     let fileManager = NSFileManager.defaultManager()
     var imageExists = true
+    var modificationsHaveHappened: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.nameCompany.delegate = self
-        self.shortNameCompany.delegate = self
-        self.industryCompany.delegate = self
-        self.phoneCompany.delegate = self
-        self.mailCompany.delegate = self
-        self.webSite.delegate = self
+        setDelegates()
         registerForKeyboardNotifications()
-        self.locationManager.delegate = self
         self.locationManager.requestAlwaysAuthorization()
-        self.adressCompany.delegate = self
-        self.mapAdressCompany.delegate = self
         self.locationManager.startUpdatingLocation()
         if account != nil {
             self.nameCompany.text = account.nameAccount
@@ -48,11 +48,50 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             self.phoneCompany.text = account.phoneAccount
             self.webSite.text = account.websiteAccount
             self.adressCompany.text = account.adressAccount
+            self.leadSource.text = account.leadSource
+            self.statusAccount.text = account.statusAccount
+            self.segmentAccount.text = account.segmentAccount
+            self.faxAccount.text = account.faxAccount
+            self.regionAccount.text = account.regionAccount
+            self.countryAccount.text = account.countryAccount
+            self.coverageAccount.text = account.coverageAccount
+        } else {
+            self.nameCompany.text = "Vous n'avez aucun compte d'enregistré ou aucun meeting de prévu avec des contacts appartenant à un compte"
+            self.shortNameCompany.text = ""
+            self.industryCompany.text = ""
+            self.phoneCompany.text = ""
+            self.webSite.text = ""
+            self.adressCompany.text = ""
+            self.leadSource.text = ""
+            self.statusAccount.text = ""
+            self.segmentAccount.text = ""
+            self.faxAccount.text = ""
+            self.regionAccount.text = ""
+            self.countryAccount.text = ""
+            self.coverageAccount.text = ""
         }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func setDelegates() {
+        self.nameCompany.delegate = self
+        self.shortNameCompany.delegate = self
+        self.industryCompany.delegate = self
+        self.phoneCompany.delegate = self
+        self.webSite.delegate = self
+        self.locationManager.delegate = self
+        self.adressCompany.delegate = self
+        self.mapAdressCompany.delegate = self
+        self.leadSource.delegate = self
+        self.statusAccount.delegate = self
+        self.segmentAccount.delegate = self
+        self.faxAccount.delegate = self
+        self.regionAccount.delegate = self
+        self.countryAccount.delegate = self
+        self.coverageAccount.delegate = self
     }
     
     func geolocaliseAvecImage(#address: String?, account: AccountModel, mapView: MKMapView) {
@@ -167,13 +206,13 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         return image
     }
     
+    // Mark: - MapView Delegate methods
     // it will check if there's an image here so that we put it up
     func mapViewWillStartRenderingMap(mapView: MKMapView!) {
         if account != nil {
             geolocaliseAvecImage(address: account.adressAccount, account: account, mapView: self.mapAdressCompany)
         }
     }
-    
     func mapViewDidFinishRenderingMap(mapView: MKMapView!, fullyRendered: Bool) {
         if account != nil && !self.imageExists {
             var frame = mapView.frame
@@ -196,10 +235,21 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         println("finished rendering map")
     }
     
+    
+    // Mark: - UITapGesture 
+    // taping on the
     @IBAction func finishedEditCompany(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
+        if accountAfterUpdates != nil {
+            let accountToCompare = accountAfterUpdates.arrayOfStringsFromModel()
+            let accountToCompareTo = account.arrayOfStringsFromModel()
+            if !(accountToCompareTo == accountToCompare) {
+                modificationsHaveHappened = true
+            }
+        }
     }
     
+    // Mark: - Notifications
     func registerForKeyboardNotifications() {
         let center = NSNotificationCenter.defaultCenter()
         let queue = NSOperationQueue.mainQueue()
@@ -221,7 +271,6 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         )
         
     }
-    
     func keyBoardWasShown(aNotification: NSNotification) {
         println("je vois que le keyboard est apparu")
 //        if let info: NSDictionary = aNotification.userInfo {
@@ -248,18 +297,22 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
 //            }
 //        }
     }
-    
     func keyboardWillBeHidden(aNotification: NSNotification) {
         println("le keyboard a disparu")
     }
     
+    // Mark: - TextField delegate methods
     func textFieldDidBeginEditing(textField: UITextField) {
         self.activeField = textField
-        
     }
     func textFieldDidEndEditing(textField: UITextField) {
         self.activeField = nil
+        
+        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text)
+        
     }
+    
+    // Mark: - TextView delegate methods
     func textViewDidBeginEditing(textView: UITextView) {
         self.activeField = textView
     }

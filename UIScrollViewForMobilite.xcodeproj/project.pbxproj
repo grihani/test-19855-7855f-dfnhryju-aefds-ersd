@@ -23,6 +23,7 @@
 		480DA23F1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA23E1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift */; };
 		481419D11AD58908009B38D6 /* ListMeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481419D01AD58908009B38D6 /* ListMeetingsViewController.swift */; };
 		481419D31AD58919009B38D6 /* DetailMeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481419D21AD58919009B38D6 /* DetailMeetingsViewController.swift */; };
+		485A23CA1AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A23C91AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift */; };
 		488186151AC94F6600923A18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488186141AC94F6600923A18 /* AppDelegate.swift */; };
 		488186181AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 488186161AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld */; };
 		4881861D1AC94F6600923A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4881861B1AC94F6600923A18 /* Main.storyboard */; };
@@ -86,6 +87,7 @@
 		480DA23E1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksMeetingsDataModel.swift; sourceTree = "<group>"; };
 		481419D01AD58908009B38D6 /* ListMeetingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMeetingsViewController.swift; sourceTree = "<group>"; };
 		481419D21AD58919009B38D6 /* DetailMeetingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMeetingsViewController.swift; sourceTree = "<group>"; };
+		485A23C91AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsBeforeKnowledge.swift; sourceTree = "<group>"; };
 		4881860F1AC94F6600923A18 /* UIScrollViewForMobilite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIScrollViewForMobilite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		488186131AC94F6600923A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		488186141AC94F6600923A18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,14 @@
 			name = Meetings;
 			sourceTree = "<group>";
 		};
+		485A23C81AD6B28C0074EDD1 /* FunctionsBeforeKnowledge */ = {
+			isa = PBXGroup;
+			children = (
+				485A23C91AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift */,
+			);
+			name = FunctionsBeforeKnowledge;
+			sourceTree = "<group>";
+		};
 		488186061AC94F6600923A18 = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +208,7 @@
 			children = (
 				48FCB1241ACAD73600A770B2 /* fmdb */,
 				489B315E1AC9520300C04732 /* SWRevealViewController */,
+				485A23C81AD6B28C0074EDD1 /* FunctionsBeforeKnowledge */,
 				488186161AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld */,
 				488186141AC94F6600923A18 /* AppDelegate.swift */,
 				489B31621AC9526100C04732 /* UIScrollViewForMobilite-Bridging-Header.h */,
@@ -490,6 +501,7 @@
 				48EA739A1AC9AF1D0067C417 /* Test3ViewController.swift in Sources */,
 				480DA23B1ACC2C1E00F43FA1 /* TasksAccountDataModel.swift in Sources */,
 				48FCB14C1ACAE61700A770B2 /* AccountContractsModel.swift in Sources */,
+				485A23CA1AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift in Sources */,
 				480DA22F1ACC2BA800F43FA1 /* ContractsDataModel.swift in Sources */,
 				480DA2291ACC2B7600F43FA1 /* OpportunityDataModel.swift in Sources */,
 				48FCB1461ACAE45300A770B2 /* MeetingContactModel.swift in Sources */,

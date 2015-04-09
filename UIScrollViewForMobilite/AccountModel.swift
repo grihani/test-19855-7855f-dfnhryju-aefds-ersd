@@ -67,8 +67,8 @@ class AccountModel {
     func arrayFromModel() -> [AnyObject] {
         return [self.nameAccount, self.shortNameAccount, self.leadSource, self.statusAccount, self.industryAccount, self.segmentAccount, self.websiteAccount, self.phoneAccount, self.faxAccount, self.coverageAccount, self.regionAccount, self.adressAccount, self.idAccount1, self.countryAccount]
     }
-    
-    func modelFromArray(arrayOfAccount: [AnyObject]) -> AccountModel {
-        return AccountModel()
+    // utilisée pour la comparaison seulement
+    func arrayOfStringsFromModel() -> [String] {
+        return [self.nameAccount, self.shortNameAccount, self.leadSource, self.statusAccount, self.industryAccount, self.segmentAccount, self.websiteAccount, self.phoneAccount, self.faxAccount, self.coverageAccount, self.regionAccount, self.adressAccount, String(self.idAccount1), self.countryAccount]
     }
 }
