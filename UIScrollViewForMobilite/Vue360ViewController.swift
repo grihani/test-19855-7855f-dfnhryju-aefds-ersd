@@ -259,6 +259,11 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         self.view.endEditing(true)
     }
     
+    @IBAction func changeFieldsOfAccount(sender: AnyObject) {
+        
+    }
+    
+    
     @IBAction func changingFieldsOfAccount(sender: UITextField) {
         self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text)
         
@@ -268,13 +273,12 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             modificationsHaveHappened = true
             saveButton.hidden = false
             discardChangesButton.hidden = false
-            println("same")
+            println("not the same")
         } else {
             modificationsHaveHappened = false
             saveButton.hidden = true
             discardChangesButton.hidden = true
             println("not the same")
-            
         }
     }
     
@@ -362,14 +366,16 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     // Mark: - functions to save and discard changes
     func updateAccount() {
-        println("update the account")
+        
         if modificationsHaveHappened {
             AccountDataModel().updateAccount(account: accountAfterUpdates)
+            saveButton.hidden = true
         }
         modificationsHaveHappened = false
     }
     
     func discardChanges() {
+        self.accountAfterUpdates = self.account
         self.nameCompany.text = account.nameAccount
         self.shortNameCompany.text = account.shortNameAccount
         self.industryCompany.text = account.industryAccount
@@ -383,5 +389,6 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         self.regionAccount.text = account.regionAccount
         self.countryAccount.text = account.countryAccount
         self.coverageAccount.text = account.coverageAccount
+        updateAccount()
     }
 }

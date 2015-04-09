@@ -20,7 +20,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var listeButtonsForPages: UIView!
     @IBOutlet weak var navigationBar: UINavigationItem!
     
-    var identifiers: [String] = ["baba", "Vue 360°", "bibi"]
+    var identifiers: [String] = ["Meetings", "Vue 360°", "bibi"]
     var firstPageC: Test1ViewController = Test1ViewController()
     var vue360: Vue360ViewController = Vue360ViewController()
     var thirdPage: Test3ViewController = Test3ViewController()
@@ -149,9 +149,11 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     // action to show the list of accounts
     @IBAction func showList(sender: UIBarButtonItem) {
         self.revealViewController().revealToggle(sender)
+        vue360.updateAccount()
     }
     @IBAction func showList(sender: UITapGestureRecognizer) {
         self.revealViewController().revealToggle(sender)
+        vue360.updateAccount()
     }
     
     // creates the button to add to the view

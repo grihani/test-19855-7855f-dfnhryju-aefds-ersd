@@ -25,6 +25,12 @@ class ListAccountsViewController: UIViewController, UITableViewDataSource, UITab
         listAccounts.delegate = self
         allAccounts = AccountDataModel().accountsPerMeeting()
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        allAccounts = AccountDataModel().accountsPerMeeting()
+        self.listAccounts.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
