@@ -154,7 +154,7 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        println(locations.last)
+//        println(locations.last)
     }
     
     // rendering a picture for the mapview

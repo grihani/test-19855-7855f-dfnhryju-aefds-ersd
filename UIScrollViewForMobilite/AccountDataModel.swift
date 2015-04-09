@@ -11,7 +11,7 @@ import Foundation
 class AccountDataModel {
     
     //ASC for ascendant, DESC for descendant
-    func allAccountsAToZ(order: String) -> [AccountModel] {
+    func allAccountsAToZ(#order: String) -> [AccountModel] {
         println("getting All Accounts")
         var allAccounts: [AccountModel] = []
         
@@ -43,6 +43,7 @@ class AccountDataModel {
         return allAccounts
     }
     
+    // Order the accounts by dates of meetings
     func accountsPerMeeting() -> [AccountModel] {
         var accountsPerMeeting: [AccountModel] = []
         
@@ -101,8 +102,44 @@ class AccountDataModel {
         return accountsPerMeeting
     }
     
+    func accountOfNextMeeting() -> AccountModel? {
+        var accountOfNextMeeting: AccountModel?
+        
+        DataBase().createViewForAccountsThatHaveMeetings()
+        println("getting the Account to first show")
+        var querySQL = "SELECT DISTINCT idAccount, nameAccount, shortNameAccount, leadSource, statusAccount, industryAccount, segmentAccount, websiteAccount, phoneAccount, faxAccount, coverageAccount, regionAccount, adressAccount, idAccount1, countryAccount FROM Account_Contact_Meeting LIMIT 1"
+        var results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let results = results {
+            while results.next() == true {
+                var idAccount: Int = Int(results.intForColumn("idAccount"))
+                var nameAccount: String = results.stringForColumn("nameAccount")
+                var shortNameAccount: String = results.stringForColumn("shortNameAccount")
+                var leadSource: String = results.stringForColumn("leadSource")
+                var statusAccount: String = results.stringForColumn("statusAccount")
+                var industryAccount: String = results.stringForColumn("industryAccount")
+                var segmentAccount: String = results.stringForColumn("segmentAccount")
+                var websiteAccount: String = results.stringForColumn("websiteAccount")
+                var phoneAccount: String = results.stringForColumn("phoneAccount")
+                var faxAccount: String = results.stringForColumn("faxAccount")
+                var coverageAccount: String = results.stringForColumn("coverageAccount")
+                var regionAccount: String = results.stringForColumn("regionAccount")
+                var adressAccount: String = results.stringForColumn("adressAccount")
+                var idAccount1: Int = Int(results.intForColumn("idAccount1"))
+                var countryAccount: String = results.stringForColumn("countryAccount")
+                accountOfNextMeeting = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount)
+            }
+            println("got the account to first show")
+        } else {
+            return nil
+        }
+        return accountOfNextMeeting
+    }
+    // update the accounts
+    func updateAccount(#account: AccountModel) {
+        
+    }
     
-    
+    // insert a new Account (used only in the case of creation in the CRM)
     func insertAccount(account : AccountModel) -> String {
         println("inserting Into AccountModel")
         var erreur = String()

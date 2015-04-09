@@ -48,9 +48,9 @@ class ListAccountsViewController: UIViewController, UITableViewDataSource, UITab
         case 0:
           allAccounts = AccountDataModel().accountsPerMeeting()
         case 1:
-            allAccounts = AccountDataModel().allAccountsAToZ("ASC")
+            allAccounts = AccountDataModel().allAccountsAToZ(order: "ASC")
         case 2:
-            allAccounts = AccountDataModel().allAccountsAToZ("DESC")
+            allAccounts = AccountDataModel().allAccountsAToZ(order: "DESC")
         default: break
         }
         listAccounts.reloadData()

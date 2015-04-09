@@ -28,15 +28,19 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     var pageViews: [UIView] = []
     var firstPage = 1
     var account: AccountModel!
+    var viewDidItsLayout: Bool = false
     
     @IBOutlet var buttonPages: [UIButton] = []
     
     // here we define the buttons in the top menu, add the pan gesture to show our list
     override func viewDidLoad() {
         super.viewDidLoad()
+        println("view did load")
 //        self.showList.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-//        self.showList.addGestureRecognizer()
         buttonForPages(listeButtonsForPages)
+        if account == nil {
+            account = AccountDataModel().accountOfNextMeeting()
+        }
         if account != nil {
             self.navigationBar.title = account.nameAccount
         }
@@ -47,20 +51,22 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     // every action that has relation to the layout of the view has to be put in here
     // here we get the viewControllers, their views, define which page we want first shown and define their content size
     override func viewDidLayoutSubviews() {
-               
-        pageControllers = getViewControllers()
-        pageViews = getViews(pageControllers)
-        
-        
-        let pageCount = pageControllers.count
-        loadVisiblePages(pageCount)
-        pageControl.numberOfPages = pageCount
-        
-        showPage(firstPage)
-
-        let pageScrollViewSize = containerView.frame.size
-        containerView.contentSize = CGSize(width: pageScrollViewSize.width * CGFloat(pageCount), height: pageScrollViewSize.height)
-    
+        if !viewDidItsLayout {
+            println("viewDidLayoutSubviews")
+            pageControllers = getViewControllers()
+            pageViews = getViews(pageControllers)
+            
+            
+            let pageCount = pageControllers.count
+            loadVisiblePages(pageCount)
+            pageControl.numberOfPages = pageCount
+            
+            showPage(firstPage)
+            
+            let pageScrollViewSize = containerView.frame.size
+            containerView.contentSize = CGSize(width: pageScrollViewSize.width * CGFloat(pageCount), height: pageScrollViewSize.height)
+            viewDidItsLayout = true
+        }
     }
 
     override func didReceiveMemoryWarning() {
