@@ -9,10 +9,6 @@
 import UIKit
 
 class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
-
-    let whiteColor: UIColor = UIColor.whiteColor()
-    let blueCheckedColor: UIColor = UIColor(red: 155/255, green: 250/255, blue: 255/255, alpha: 1)
-    let blueUncheckedColor: UIColor = UIColor(red: 143/255, green: 157/255, blue: 255/255, alpha: 1)
     
     @IBOutlet weak var showList: UIView!
     @IBOutlet weak var containerView: UIScrollView!
