@@ -26,6 +26,7 @@
 		485A23CA1AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A23C91AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift */; };
 		485A23CC1AD6E1880074EDD1 /* MeetingsOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A23CB1AD6E1880074EDD1 /* MeetingsOfAccountViewController.swift */; };
 		485A23CE1AD6EA1F0074EDD1 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A23CD1AD6EA1F0074EDD1 /* Dates.swift */; };
+		486AE4711AD81ABD00E701AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE4701AD81ABD00E701AF /* Constants.swift */; };
 		488186151AC94F6600923A18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488186141AC94F6600923A18 /* AppDelegate.swift */; };
 		488186181AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 488186161AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld */; };
 		4881861D1AC94F6600923A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4881861B1AC94F6600923A18 /* Main.storyboard */; };
@@ -91,6 +92,7 @@
 		485A23C91AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsBeforeKnowledge.swift; sourceTree = "<group>"; };
 		485A23CB1AD6E1880074EDD1 /* MeetingsOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsOfAccountViewController.swift; sourceTree = "<group>"; };
 		485A23CD1AD6EA1F0074EDD1 /* Dates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
+		486AE4701AD81ABD00E701AF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4881860F1AC94F6600923A18 /* UIScrollViewForMobilite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIScrollViewForMobilite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		488186131AC94F6600923A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		488186141AC94F6600923A18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				4881861B1AC94F6600923A18 /* Main.storyboard */,
+				486AE4701AD81ABD00E701AF /* Constants.swift */,
 				48FCB11F1ACAD52600A770B2 /* dataBase */,
 				48FCB11E1ACAD50500A770B2 /* Accounts */,
 				481419CF1AD588D0009B38D6 /* Meetings */,
@@ -486,6 +489,7 @@
 				489B31661AC952DB00C04732 /* DetailAccountsViewController.swift in Sources */,
 				48FCB1331ACAD73600A770B2 /* FMDatabaseQueue.m in Sources */,
 				48FCB1301ACAD73600A770B2 /* FMDatabase.m in Sources */,
+				486AE4711AD81ABD00E701AF /* Constants.swift in Sources */,
 				480DA22D1ACC2B9800F43FA1 /* TaskDataModel.swift in Sources */,
 				48FCB1501ACAE80300A770B2 /* TasksAccountModel.swift in Sources */,
 				480DA23D1ACC2C3A00F43FA1 /* TasksContactsDataModel.swift in Sources */,

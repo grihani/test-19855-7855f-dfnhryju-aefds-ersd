@@ -47,7 +47,7 @@ class MeetingDataModel {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let dateFromString = dateFormatter.stringFromDate(fromDate)
         let dateToString = dateFormatter.stringFromDate(toDate)
-        var querySQL = "SELECT * FROM Meetings date(dateBeginMeeting) BETWEEN date(\(dateFromString)) AND date(\(dateToString)) ORDER BY datetime(dateBeginMeeting)"
+        var querySQL = "SELECT * FROM Meetings WHERE date(dateBeginMeeting) BETWEEN date('\(dateFromString)') AND date('\(dateToString)') ORDER BY datetime(dateBeginMeeting)"
         println(querySQL)
         let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
         if let results = results {
@@ -116,6 +116,21 @@ class MeetingDataModel {
             erreur += "\n Error: \(contactDataBase.lastErrorMessage())"
         }
         return erreur
+    }
+    
+    func numberOfMeetingsInDay(date:NSDate) -> (Int, Int) {
+        var numberOfMeetingsInDay = (0,0)
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let stringFromDate = dateFormatter.stringFromDate(date)
+        var querySQL = "SELECT count(*) as countOfMeetings, allDayMeeting FROM Meetings WHERE date(dateBeginMeeting) = date('\(stringFromDate)')"
+        println(querySQL)
+        let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let results = results {
+            if results.next() == true {
+                numberOfMeetingsInDay = (Int(results.intForColumn("countOfMeetings")),Int(results.intForColumn("allDayMeeting")))
+            }
+        }
+        return numberOfMeetingsInDay
     }
     
     func checkEmptyMeeting() -> Bool {
