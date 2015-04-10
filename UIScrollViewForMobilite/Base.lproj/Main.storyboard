@@ -111,8 +111,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nfr-Ey-AmM">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="UU1-PE-jUO"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="meetingsAccount" id="Yje-2n-GP4">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -129,7 +132,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="nfr-Ey-AmM" secondAttribute="trailing" constant="-16" id="3Ou-xL-4m0"/>
                             <constraint firstItem="lSp-QK-izv" firstAttribute="top" secondItem="nfr-Ey-AmM" secondAttribute="bottom" id="61g-OJ-kdb"/>
                             <constraint firstItem="nfr-Ey-AmM" firstAttribute="top" secondItem="VsL-zf-aBl" secondAttribute="topMargin" id="MxR-zV-GYX"/>
                             <constraint firstItem="nfr-Ey-AmM" firstAttribute="leading" secondItem="VsL-zf-aBl" secondAttribute="leadingMargin" constant="-16" id="dLB-wa-gsg"/>
