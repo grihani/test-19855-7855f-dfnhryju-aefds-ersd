@@ -139,7 +139,7 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
         } else {
             for button in self.addMeetingDateButtons {
                 button.enabled = true
-                button.tintColor = blueCheckedColor
+                button.tintColor = blueButtonColor
             }
         }
     }
