@@ -10,11 +10,10 @@ import Foundation
 class OpportunityDataModel {
     
     func allOpportunities() {
-        println("getting All opportunities")
+        
     }
     
     func insertOpportunity(opportunity: OpportunityModel) -> String {
-        println("inserting Into OpportunityModel")
         var erreur = String()
         let insertSQL = "INSERT INTO Opportunites (nomOpportunite,contractValueOpportunite,closeDateOpportunity,statusOpportunity) VALUES ( ?, ?, ?, ?)"
         let result = contactDataBase.executeUpdate(insertSQL, withArgumentsInArray: opportunity.arrayFromModel())

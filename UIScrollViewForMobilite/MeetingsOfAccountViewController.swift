@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet weak var meetingTableView: UITableView!
     @IBOutlet weak var calendarContainer: UIView!
@@ -30,7 +30,7 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("view meetings did load")
+        
         if account != nil {
             meetings = MeetingDataModel().meetingsOfAccount(account: account)
         }
@@ -42,7 +42,6 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
     override func viewDidLayoutSubviews() {
         if !viewDidItsLayout {
             self.daysOfCalendar = arrayOfDates()
-            println("viewDidLayoutSubviews")
             viewDidItsLayout = true
             colorButtons(NSDate())
             checkForNumberOfMeetings(date: NSDate())
@@ -72,10 +71,31 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
     }
     
     @IBAction func addANewMeetingOnDate(sender: UIButton) {
-        println("button is enabled")
+        let storyboard : UIStoryboard = UIStoryboard(
+            name: "Main",
+            bundle: nil)
+        var addMeetingWithDateViewController: AddMeetingWithDateViewController = storyboard.instantiateViewControllerWithIdentifier("AddMeetingWithDate") as AddMeetingWithDateViewController
+        addMeetingWithDateViewController.modalPresentationStyle = .Popover
+        addMeetingWithDateViewController.preferredContentSize = CGSizeMake(200, 200)
+        let popoverAddMeetingWithDateViewController = addMeetingWithDateViewController.popoverPresentationController
+        popoverAddMeetingWithDateViewController?.permittedArrowDirections = .allZeros
+        popoverAddMeetingWithDateViewController?.delegate = self
+        popoverAddMeetingWithDateViewController?.sourceView = self.view
+        self.view.window?.rootViewController?.presentViewController(addMeetingWithDateViewController, animated: true, completion: nil)
     }
     
     @IBAction func addANewMeetingWithoutDate(sender: UIButton) {
+        let storyboard : UIStoryboard = UIStoryboard(
+            name: "Main",
+            bundle: nil)
+        var addMeetingWithDateViewController: AddMeetingWithoutDateViewController = storyboard.instantiateViewControllerWithIdentifier("AddMeetingWithoutDate") as AddMeetingWithoutDateViewController
+        addMeetingWithDateViewController.modalPresentationStyle = .Popover
+        addMeetingWithDateViewController.preferredContentSize = CGSizeMake(200, 800)
+        let popoverAddMeetingWithDateViewController = addMeetingWithDateViewController.popoverPresentationController
+        popoverAddMeetingWithDateViewController?.permittedArrowDirections = .allZeros
+        popoverAddMeetingWithDateViewController?.delegate = self
+        popoverAddMeetingWithDateViewController?.sourceView = self.view
+        self.view.window?.rootViewController?.presentViewController(addMeetingWithDateViewController, animated: true, completion: nil)
         
     }
     
@@ -99,7 +119,6 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
             button.setTitle(stringFromDate, forState: UIControlState.Normal)
             if let dayToShow = dayToShow {
                 dates.append(dayToShow)
-                println(dayToShow)
             }
             checkForNumberOfMeetings(date: dayToShow!, button: button)
         }

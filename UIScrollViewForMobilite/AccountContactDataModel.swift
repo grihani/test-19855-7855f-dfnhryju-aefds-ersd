@@ -11,7 +11,6 @@ import Foundation
 class AccountContactDataModel {
     
     func insertAccountContact(accountContact: AccountContactModel) -> String {
-        println("inserting Into AccountContactModel")
         var erreur = String()
         let insertSQL = "INSERT INTO Account_Contacts (idAccount,idContact,roleContact) VALUES (?, ?, ?)"
         let result = contactDataBase.executeUpdate(insertSQL, withArgumentsInArray: accountContact.arrayFromModel())

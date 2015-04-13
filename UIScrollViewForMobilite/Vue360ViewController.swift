@@ -138,17 +138,12 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                             let region = MKCoordinateRegionMake(placemark.location.coordinate, span)
                             mapView.setRegion(region, animated: false)
                             let annotation = MKPointAnnotation()
-                            print("les coordonnées sont : ")
-                            print(placemark.location.coordinate.latitude)
-                            print(", ")
-                            println(placemark.location.coordinate.longitude)
                             annotation.setCoordinate(placemark.location.coordinate)
                             annotation.title = account.nameAccount
                             mapView.addAnnotation(annotation)
                             mapView.selectAnnotation(annotation, animated: true)
                         } else {
-                            println("the adress is not correct")
-                            mapView.removeFromSuperview()
+                        
                         }
                     }
                 })
@@ -197,10 +192,7 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                     let region = MKCoordinateRegionMake(placemark.location.coordinate, span)
                     mapView.setRegion(region, animated: false)
                     let annotation = MKPointAnnotation()
-                    print("les coordonnées sont : ")
-                    print(placemark.location.coordinate.latitude)
-                    print(", ")
-                    println(placemark.location.coordinate.longitude)
+                    
                     annotation.setCoordinate(placemark.location.coordinate)
                     annotation.title = account.nameAccount
                     annotation.subtitle = account.phoneAccount
@@ -249,7 +241,6 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             
             println(imagePath)
         }
-        println("finished rendering map")
     }
     
     
@@ -273,12 +264,10 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             modificationsHaveHappened = true
             saveButton.hidden = false
             discardChangesButton.hidden = false
-            println("not the same")
         } else {
             modificationsHaveHappened = false
             saveButton.hidden = true
             discardChangesButton.hidden = true
-            println("not the same")
         }
     }
     
@@ -286,12 +275,6 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     func registerForKeyboardNotifications() {
         let center = NSNotificationCenter.defaultCenter()
         let queue = NSOperationQueue.mainQueue()
-//        center.addObserverForName(UIKeyboardDidShowNotification, object: self.adressCompany, queue: queue) { notification in
-//            var frame = self.adressCompany.frame
-//            var info = notification.userInfo
-//            var kbSize = info.
-//            println("je vois que le keyboard a apparu")
-//        }
         center.addObserver(self,
             selector: Selector("keyBoardWasShown:"),
             name: UIKeyboardDidShowNotification,

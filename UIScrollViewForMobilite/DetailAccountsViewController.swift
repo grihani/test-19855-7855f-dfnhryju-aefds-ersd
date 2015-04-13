@@ -31,7 +31,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     // here we define the buttons in the top menu, add the pan gesture to show our list
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("view did load")
+        
 //        self.showList.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         buttonForPages(listeButtonsForPages)
         if account == nil {
@@ -48,7 +48,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     // here we get the viewControllers, their views, define which page we want first shown and define their content size
     override func viewDidLayoutSubviews() {
         if !viewDidItsLayout {
-            println("viewDidLayoutSubviews")
+            
             pageControllers = getViewControllers()
             pageViews = getViews(pageControllers)
             
@@ -76,13 +76,11 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             viewControllers.append(viewController)
             self.meetingsOfAccount = viewController
             self.meetingsOfAccount.account = self.account
-            println("ajout de première page")
         }
         if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[1]) as? Vue360ViewController {
             viewControllers.append(viewController)
             self.vue360 = viewController
             vue360.account = self.account
-            println("ajout de vue 360 page")
         }
         if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[2]) as? Test3ViewController {
             viewControllers.append(viewController)

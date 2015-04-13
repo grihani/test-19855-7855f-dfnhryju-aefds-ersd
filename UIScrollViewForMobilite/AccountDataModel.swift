@@ -12,7 +12,6 @@ class AccountDataModel {
     
     //ASC for ascendant, DESC for descendant
     func allAccountsAToZ(#order: String) -> [AccountModel] {
-        println("getting All Accounts")
         var allAccounts: [AccountModel] = []
         
         var querySQL = "SELECT * FROM Account  ORDER BY nameAccount "
@@ -48,7 +47,7 @@ class AccountDataModel {
         var accountsPerMeeting: [AccountModel] = []
         
         DataBase().createViewForAccountsThatHaveMeetings()
-        println("getting the Accounts who do have meetings")
+        
         var querySQL = "SELECT DISTINCT idAccount, nameAccount, shortNameAccount, leadSource, statusAccount, industryAccount, segmentAccount, websiteAccount, phoneAccount, faxAccount, coverageAccount, regionAccount, adressAccount, idAccount1, countryAccount FROM Account_Contact_Meeting"
         var results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
         if let results = results {
@@ -72,7 +71,6 @@ class AccountDataModel {
                 
                 accountsPerMeeting.append(account)
             }
-            println("got the accounts that have meetings, now to the rest of them")
         }
         querySQL = "SELECT * FROM Account WHERE idAccount NOT IN (SELECT idAccount FROM Account_Contact_Meeting) ORDER BY nameAccount"
         results = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
@@ -97,7 +95,7 @@ class AccountDataModel {
                 
                 accountsPerMeeting.append(account)
             }
-            println("got the accounts that don't have meetings")
+            
         }
         return accountsPerMeeting
     }
@@ -106,7 +104,6 @@ class AccountDataModel {
         var accountOfNextMeeting: AccountModel?
         
         DataBase().createViewForAccountsThatHaveMeetings()
-        println("getting the Account to first show")
         var querySQL = "SELECT DISTINCT idAccount, nameAccount, shortNameAccount, leadSource, statusAccount, industryAccount, segmentAccount, websiteAccount, phoneAccount, faxAccount, coverageAccount, regionAccount, adressAccount, idAccount1, countryAccount FROM Account_Contact_Meeting LIMIT 1"
         var results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
         if let results = results {
@@ -128,7 +125,7 @@ class AccountDataModel {
                 var countryAccount: String = results.stringForColumn("countryAccount")
                 accountOfNextMeeting = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount)
             }
-            println("got the account to first show")
+            
         } else {
             return nil
         }
@@ -154,7 +151,6 @@ class AccountDataModel {
 
     // insert a new Account (used only in the case of creation in the CRM)
     func insertAccount(account : AccountModel) -> String {
-        println("inserting Into AccountModel")
         var erreur = String()
         let insertSQL = "INSERT INTO Account (nameAccount,shortNameAccount,leadSource,statusAccount,industryAccount,segmentAccount,websiteAccount,phoneAccount,faxAccount,coverageAccount,regionAccount,adressAccount,idAccount1,countryAccount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             

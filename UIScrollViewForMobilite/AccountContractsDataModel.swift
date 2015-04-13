@@ -10,7 +10,6 @@ import Foundation
 class AccountContractsDataModel {
     
     func insertAccountContracts(accountContract: AccountContractsModel) -> String {
-        println("inserting Into AccountContractsModel")
         var erreur = String()
         let insertSQL = "INSERT INTO Account_Contracts (idAccount,idContract) VALUES ( ?, ?)"
         let result = contactDataBase.executeUpdate(insertSQL, withArgumentsInArray: accountContract.arrayFromModel())
