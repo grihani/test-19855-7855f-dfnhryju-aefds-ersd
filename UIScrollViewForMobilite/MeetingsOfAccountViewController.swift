@@ -26,7 +26,8 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
     var viewDidItsLayout = false
     var meetingsState: [(Int,Int)] = []
     
-    
+    let widthPopover = CGFloat(800)
+    let heightPopover = CGFloat(500)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,14 +89,16 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
         let storyboard : UIStoryboard = UIStoryboard(
             name: "Main",
             bundle: nil)
-        var addMeetingWithDateViewController: AddMeetingWithoutDateViewController = storyboard.instantiateViewControllerWithIdentifier("AddMeetingWithoutDate") as AddMeetingWithoutDateViewController
-        addMeetingWithDateViewController.modalPresentationStyle = .Popover
-        addMeetingWithDateViewController.preferredContentSize = CGSizeMake(200, 800)
-        let popoverAddMeetingWithDateViewController = addMeetingWithDateViewController.popoverPresentationController
-        popoverAddMeetingWithDateViewController?.permittedArrowDirections = .allZeros
-        popoverAddMeetingWithDateViewController?.delegate = self
-        popoverAddMeetingWithDateViewController?.sourceView = self.view
-        self.view.window?.rootViewController?.presentViewController(addMeetingWithDateViewController, animated: true, completion: nil)
+        var addMeetingWithoutDateViewController: AddMeetingWithoutDateViewController = storyboard.instantiateViewControllerWithIdentifier("AddMeetingWithoutDate") as AddMeetingWithoutDateViewController
+        addMeetingWithoutDateViewController.account = self.account
+        addMeetingWithoutDateViewController.modalPresentationStyle = .Popover
+        addMeetingWithoutDateViewController.preferredContentSize = CGSizeMake(widthPopover, heightPopover)
+        let popoverAddMeetingWithoutDateViewController = addMeetingWithoutDateViewController.popoverPresentationController
+        popoverAddMeetingWithoutDateViewController?.permittedArrowDirections = .allZeros
+        popoverAddMeetingWithoutDateViewController?.delegate = self
+        popoverAddMeetingWithoutDateViewController?.sourceView = self.view
+        popoverAddMeetingWithoutDateViewController?.sourceRect = CGRectMake(100/2, 100/2, 1, 1)
+        self.view.window?.rootViewController?.presentViewController(addMeetingWithoutDateViewController, animated: true, completion: nil)
         
     }
     

@@ -111,22 +111,92 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="Q6U-Qa-P6Y">
-                                <rect key="frame" x="0.0" y="20" width="600" height="162"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="450605697.74264997">
                                     <!--2015-04-13 08:14:57 +0000-->
                                 </date>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
-                                    <!--1970-01-01 11:00:00 +0000-->
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-94654800">
+                                    <!--1998-01-01 11:00:00 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="dateChanged:" destination="Nvk-lJ-6zS" eventType="valueChanged" id="dBc-UM-ra2"/>
+                                </connections>
                             </datePicker>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="l9y-Xe-BsM">
+                                <rect key="frame" x="328" y="20" width="256" height="560"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f73-nS-twu">
+                                <rect key="frame" x="0.0" y="182" width="320" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject of the meeting" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRz-zD-vtU">
+                                <rect key="frame" x="0.0" y="211" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="5eM-m0-R4Q">
+                                <rect key="frame" x="0.0" y="249" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="450605697.74264997">
+                                    <!--2015-04-13 08:14:57 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-94654800">
+                                    <!--1998-01-01 11:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateChanged:" destination="Nvk-lJ-6zS" eventType="valueChanged" id="wBe-nG-Z1l"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJR-ui-rud">
+                                <rect key="frame" x="0.0" y="411" width="320" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Adress" translatesAutoresizingMaskIntoConstraints="NO" id="KgF-Hk-ifd">
+                                <rect key="frame" x="0.0" y="440" width="320" height="59"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="QjX-h4-x83"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="top" secondItem="adl-mK-DfF" secondAttribute="bottom" id="64B-uE-vXK"/>
+                            <constraint firstItem="YJR-ui-rud" firstAttribute="top" secondItem="5eM-m0-R4Q" secondAttribute="bottom" id="8bH-Qi-Yze"/>
+                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="leading" secondItem="YJR-ui-rud" secondAttribute="trailing" constant="8" id="9Gt-sq-0m8"/>
+                            <constraint firstItem="5eM-m0-R4Q" firstAttribute="top" secondItem="gRz-zD-vtU" secondAttribute="bottom" constant="8" id="Dp3-Md-48j"/>
+                            <constraint firstItem="5eM-m0-R4Q" firstAttribute="leading" secondItem="7Pk-2p-DTd" secondAttribute="leadingMargin" constant="-16" id="EZw-8P-rLs"/>
+                            <constraint firstItem="KgF-Hk-ifd" firstAttribute="leading" secondItem="7Pk-2p-DTd" secondAttribute="leadingMargin" constant="-16" id="FTc-tR-zO1"/>
+                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="trailing" secondItem="7Pk-2p-DTd" secondAttribute="trailingMargin" id="IoD-F9-C2U"/>
                             <constraint firstItem="Q6U-Qa-P6Y" firstAttribute="leading" secondItem="7Pk-2p-DTd" secondAttribute="leadingMargin" constant="-16" id="JaX-j0-wlx"/>
+                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="leading" secondItem="f73-nS-twu" secondAttribute="trailing" constant="8" id="OcN-8P-fTi"/>
+                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="leading" secondItem="gRz-zD-vtU" secondAttribute="trailing" constant="8" id="VeN-I0-Dkq"/>
+                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="leading" secondItem="5eM-m0-R4Q" secondAttribute="trailing" constant="8" id="WVI-87-VRd"/>
+                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="leading" secondItem="Q6U-Qa-P6Y" secondAttribute="trailing" constant="8" id="Wi9-LR-vWa"/>
                             <constraint firstItem="Q6U-Qa-P6Y" firstAttribute="top" secondItem="adl-mK-DfF" secondAttribute="bottom" id="YKs-1x-aAa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Q6U-Qa-P6Y" secondAttribute="trailing" constant="-16" id="nIy-4D-hOO"/>
+                            <constraint firstItem="KgF-Hk-ifd" firstAttribute="top" secondItem="YJR-ui-rud" secondAttribute="bottom" constant="8" id="eP9-oX-aM7"/>
+                            <constraint firstItem="gRz-zD-vtU" firstAttribute="top" secondItem="f73-nS-twu" secondAttribute="bottom" constant="8" id="iDA-56-jSe"/>
+                            <constraint firstItem="Rl5-wd-jim" firstAttribute="top" secondItem="l9y-Xe-BsM" secondAttribute="bottom" constant="20" id="jHW-Lb-79y"/>
+                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="leading" secondItem="KgF-Hk-ifd" secondAttribute="trailing" constant="8" id="mPT-Hh-CHF"/>
+                            <constraint firstItem="YJR-ui-rud" firstAttribute="leading" secondItem="7Pk-2p-DTd" secondAttribute="leadingMargin" constant="-16" id="oeS-wn-tTK"/>
+                            <constraint firstItem="f73-nS-twu" firstAttribute="top" secondItem="Q6U-Qa-P6Y" secondAttribute="bottom" id="q8P-dB-Q5q"/>
+                            <constraint firstItem="f73-nS-twu" firstAttribute="leading" secondItem="7Pk-2p-DTd" secondAttribute="leadingMargin" constant="-16" id="uIC-SG-LL3"/>
+                            <constraint firstItem="gRz-zD-vtU" firstAttribute="leading" secondItem="7Pk-2p-DTd" secondAttribute="leadingMargin" constant="-16" id="ymH-l0-mQz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="adressMeeting" destination="KgF-Hk-ifd" id="yVh-Cp-QKO"/>
+                        <outlet property="dateBeginMeeting" destination="Q6U-Qa-P6Y" id="KSX-LF-rvW"/>
+                        <outlet property="dateEndMeeting" destination="5eM-m0-R4Q" id="mev-wb-s8l"/>
+                        <outlet property="labelBeginMeeting" destination="f73-nS-twu" id="Uot-SA-B9e"/>
+                        <outlet property="labelEndMeeting" destination="YJR-ui-rud" id="fNT-uo-rYm"/>
+                        <outlet property="mapView" destination="l9y-Xe-BsM" id="nkY-e5-8Ht"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYi-HF-wHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
