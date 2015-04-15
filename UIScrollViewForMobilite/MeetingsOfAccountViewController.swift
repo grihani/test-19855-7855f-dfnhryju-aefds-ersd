@@ -26,6 +26,8 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
     var viewDidItsLayout = false
     var meetingsState: [(Int,Int)] = []
     
+    var datePicked = NSDate()
+    
     let widthPopover = CGFloat(800)
     let heightPopover = CGFloat(500)
     
@@ -58,6 +60,7 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
         dateFormatter.timeStyle = .NoStyle
         dateFormatter.dateStyle = .FullStyle
         let chosenDate = dateFormatter.stringFromDate(daysOfCalendar[indexOfDate!])
+        self.datePicked = daysOfCalendar[indexOfDate!]
         self.chosenDate.text = chosenDate
         colorButtons(daysOfCalendar[indexOfDate!])
         checkForNumberOfMeetings(date: daysOfCalendar[indexOfDate!])
@@ -91,6 +94,7 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
             bundle: nil)
         var addMeetingWithoutDateViewController: AddMeetingWithoutDateViewController = storyboard.instantiateViewControllerWithIdentifier("AddMeetingWithoutDate") as AddMeetingWithoutDateViewController
         addMeetingWithoutDateViewController.account = self.account
+        addMeetingWithoutDateViewController.date = self.datePicked
         addMeetingWithoutDateViewController.modalPresentationStyle = .Popover
         addMeetingWithoutDateViewController.preferredContentSize = CGSizeMake(widthPopover, heightPopover)
         let popoverAddMeetingWithoutDateViewController = addMeetingWithoutDateViewController.popoverPresentationController

@@ -24,10 +24,14 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var dictionaryOfAddresses: [String] = ["8 rue pierre curie, 92600, Asnieres sur seine", "10 place des vosges, 92400, Courbevoie"]
-        for address in dictionaryOfAddresses {
+        var searchForMeetingsInDay = MeetingDataModel().allMeetings(fromDate: date, toDate: date)
+        var accountsForMeetingsInDay = AccountDataModel().accountsMetOnDate(date: date)
+        
+//        var dictionaryOfAddresses: [String] = ["8 rue pierre curie, 92600, Asnieres sur seine", "10 place des vosges, 92400, Courbevoie"]
+        var i = 0
+        for address in searchForMeetingsInDay {
             var geocoder = CLGeocoder()
-            geocoder.geocodeAddressString(address, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) -> Void in
+            geocoder.geocodeAddressString(address.adressMeeting, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) -> Void in
                 if let placemark = placemarks?[0] as? CLPlacemark {
                     if placemark.location != nil {
                         let span = MKCoordinateSpanMake(0.01, 0.01)
@@ -35,12 +39,14 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
                         self.mapView.setRegion(region, animated: false)
                         let annotation = MKPointAnnotation()
                         annotation.setCoordinate(placemark.location.coordinate)
-                        annotation.title = self.account.nameAccount
+                        annotation.title = accountsForMeetingsInDay[i].nameAccount
+                        annotation.subtitle = "From " + address.dateBeginMeeting + " To " + address.dateEndMeeting
                         self.mapView.addAnnotation(annotation)
                         self.mapView.selectAnnotation(annotation, animated: true)
                     }
                 }
             })
+            i++
         }
     }
 

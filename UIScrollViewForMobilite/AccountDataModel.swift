@@ -10,6 +10,8 @@ import Foundation
 
 class AccountDataModel {
     
+    let dateFormatter = NSDateFormatter()
+    
     //ASC for ascendant, DESC for descendant
     func allAccountsAToZ(#order: String) -> [AccountModel] {
         var allAccounts: [AccountModel] = []
@@ -132,6 +134,38 @@ class AccountDataModel {
         return accountOfNextMeeting
     }
     
+    func accountsMetOnDate(#date: NSDate) -> [AccountModel] {
+        var accountsMetOnDate: [AccountModel] = []
+        
+        DataBase().createViewForAccountsThatHaveMeetings()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        var querySQL = "SELECT idAccount, nameAccount, shortNameAccount, leadSource, statusAccount, industryAccount, segmentAccount, websiteAccount, phoneAccount, faxAccount, coverageAccount, regionAccount, adressAccount, idAccount1, countryAccount FROM Account_Contact_Meeting WHERE date('dateBeginMeeting') = date('\(dateFormatter.stringFromDate(date))')"
+        var results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let results = results {
+            while results.next() == true {
+                var idAccount: Int = Int(results.intForColumn("idAccount"))
+                var nameAccount: String = results.stringForColumn("nameAccount")
+                var shortNameAccount: String = results.stringForColumn("shortNameAccount")
+                var leadSource: String = results.stringForColumn("leadSource")
+                var statusAccount: String = results.stringForColumn("statusAccount")
+                var industryAccount: String = results.stringForColumn("industryAccount")
+                var segmentAccount: String = results.stringForColumn("segmentAccount")
+                var websiteAccount: String = results.stringForColumn("websiteAccount")
+                var phoneAccount: String = results.stringForColumn("phoneAccount")
+                var faxAccount: String = results.stringForColumn("faxAccount")
+                var coverageAccount: String = results.stringForColumn("coverageAccount")
+                var regionAccount: String = results.stringForColumn("regionAccount")
+                var adressAccount: String = results.stringForColumn("adressAccount")
+                var idAccount1: Int = Int(results.intForColumn("idAccount1"))
+                var countryAccount: String = results.stringForColumn("countryAccount")
+                let account = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount)
+                
+                accountsMetOnDate.append(account)
+            }
+        }
+        return accountsMetOnDate
+    }
     // update the accounts
     func updateAccount(#account: AccountModel) {
         var erreur = String()
