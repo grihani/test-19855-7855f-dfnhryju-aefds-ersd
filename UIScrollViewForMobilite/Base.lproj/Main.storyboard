@@ -110,97 +110,229 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="Q6U-Qa-P6Y">
-                                <rect key="frame" x="0.0" y="20" width="320" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="450605697.74264997">
-                                    <!--2015-04-13 08:14:57 +0000-->
-                                </date>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="-94654800">
-                                    <!--1998-01-01 11:00:00 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="dateChanged:" destination="Nvk-lJ-6zS" eventType="valueChanged" id="dBc-UM-ra2"/>
-                                </connections>
-                            </datePicker>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="l9y-Xe-BsM">
-                                <rect key="frame" x="328" y="20" width="256" height="560"/>
-                            </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f73-nS-twu">
-                                <rect key="frame" x="0.0" y="182" width="320" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject of the meeting" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRz-zD-vtU">
-                                <rect key="frame" x="0.0" y="211" width="320" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="5eM-m0-R4Q">
-                                <rect key="frame" x="0.0" y="249" width="320" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="450605697.74264997">
-                                    <!--2015-04-13 08:14:57 +0000-->
-                                </date>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="-94654800">
-                                    <!--1998-01-01 11:00:00 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="dateChanged:" destination="Nvk-lJ-6zS" eventType="valueChanged" id="wBe-nG-Z1l"/>
-                                </connections>
-                            </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJR-ui-rud">
-                                <rect key="frame" x="0.0" y="411" width="320" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Adress" translatesAutoresizingMaskIntoConstraints="NO" id="KgF-Hk-ifd">
-                                <rect key="frame" x="0.0" y="440" width="320" height="59"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rDo-BN-NJw">
+                                <rect key="frame" x="16" y="28" width="320" height="564"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="59" id="QjX-h4-x83"/>
+                                    <constraint firstAttribute="width" constant="320" id="Bgf-zv-Wav"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <prototypes>
+                                    <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subject" id="bUE-kW-0z5" customClass="CellWithTextField" customModule="UIScrollViewForMobilite" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bUE-kW-0z5" id="m9n-Gc-BU8">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject of the meeting" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ue8-Gc-Rfs">
+                                                    <rect key="frame" x="8" y="7" width="304" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ue8-Gc-Rfs" secondAttribute="trailing" id="3jK-ui-18q"/>
+                                                <constraint firstItem="ue8-Gc-Rfs" firstAttribute="leading" secondItem="m9n-Gc-BU8" secondAttribute="leadingMargin" id="Jxy-hN-MHA"/>
+                                                <constraint firstAttribute="centerY" secondItem="ue8-Gc-Rfs" secondAttribute="centerY" id="hwh-3a-mLt"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="subjectMeeting" destination="ue8-Gc-Rfs" id="A8q-Xl-oV6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Address" id="fzR-ge-SvQ" customClass="CellWithTextView" customModule="UIScrollViewForMobilite" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fzR-ge-SvQ" id="48h-Lh-dKg">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Address Meeting" translatesAutoresizingMaskIntoConstraints="NO" id="T3h-DJ-ZVv">
+                                                    <rect key="frame" x="8" y="0.0" width="304" height="43"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="T3h-DJ-ZVv" firstAttribute="top" secondItem="48h-Lh-dKg" secondAttribute="topMargin" constant="-8" id="5K9-Y2-Wlq"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="T3h-DJ-ZVv" secondAttribute="bottom" constant="-8" id="C1t-sf-V0H"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="T3h-DJ-ZVv" secondAttribute="trailing" id="XVe-BK-bH5"/>
+                                                <constraint firstItem="T3h-DJ-ZVv" firstAttribute="leading" secondItem="48h-Lh-dKg" secondAttribute="leadingMargin" id="weH-HR-Pk5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addressMeeting" destination="T3h-DJ-ZVv" id="dPE-mt-ZSu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dateBeginMeeting" id="oUa-Gg-bwl" customClass="CellForEnteringDateBeginMeeting" customModule="UIScrollViewForMobilite" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oUa-Gg-bwl" id="fNn-UD-XbO">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date begin meeting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVN-Cq-mPa">
+                                                    <rect key="frame" x="164" y="11" width="148" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="VVN-Cq-mPa" secondAttribute="centerY" id="RFH-PQ-PfV"/>
+                                                <constraint firstItem="VVN-Cq-mPa" firstAttribute="trailing" secondItem="fNn-UD-XbO" secondAttribute="trailingMargin" id="WfN-Pg-7SG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateBeginMeeting" destination="VVN-Cq-mPa" id="tyH-FE-FtP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pickerMeeting" rowHeight="162" id="bQc-86-AGZ" customClass="CellForDateBeginMeetingPicker" customModule="UIScrollViewForMobilite" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bQc-86-AGZ" id="7e7-bb-dC4">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="16T-6I-cjw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="450799628.618348">
+                                                        <!--2015-04-15 14:07:08 +0000-->
+                                                    </date>
+                                                    <connections>
+                                                        <action selector="changeDate:" destination="bQc-86-AGZ" eventType="valueChanged" id="lSa-kI-SW5"/>
+                                                    </connections>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="16T-6I-cjw" secondAttribute="bottom" constant="-8" id="GRN-hH-MRv"/>
+                                                <constraint firstItem="16T-6I-cjw" firstAttribute="top" secondItem="7e7-bb-dC4" secondAttribute="topMargin" constant="-8" id="NY8-UL-P8p"/>
+                                                <constraint firstItem="16T-6I-cjw" firstAttribute="leading" secondItem="7e7-bb-dC4" secondAttribute="leadingMargin" constant="-8" id="ZcN-2b-a7j"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="16T-6I-cjw" secondAttribute="trailing" constant="-8" id="j5H-sf-Xix"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="datePickerBeginMeeting" destination="16T-6I-cjw" id="R93-dE-egH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="wholeDay" rowHeight="44" id="3Cn-Pn-EYs" customClass="CellForWholeDayMeeting" customModule="UIScrollViewForMobilite" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Cn-Pn-EYs" id="DJc-gU-cAl">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="I9W-6d-vgj">
+                                                    <rect key="frame" x="263" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="wholeDayToggled:" destination="Nvk-lJ-6zS" eventType="valueChanged" id="e4e-Vb-E5C"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="whole day meeting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j32-jX-6pm">
+                                                    <rect key="frame" x="8" y="11" width="247" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="j32-jX-6pm" firstAttribute="leading" secondItem="DJc-gU-cAl" secondAttribute="leadingMargin" id="2lk-BY-EPs"/>
+                                                <constraint firstItem="I9W-6d-vgj" firstAttribute="trailing" secondItem="DJc-gU-cAl" secondAttribute="trailingMargin" id="OPY-TP-kxL"/>
+                                                <constraint firstAttribute="centerY" secondItem="I9W-6d-vgj" secondAttribute="centerY" id="eYI-Gb-RRg"/>
+                                                <constraint firstItem="I9W-6d-vgj" firstAttribute="leading" secondItem="j32-jX-6pm" secondAttribute="trailing" constant="8" id="lqA-DJ-SnW"/>
+                                                <constraint firstAttribute="centerY" secondItem="j32-jX-6pm" secondAttribute="centerY" id="yef-Mc-TgE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="wholeDaySwitch" destination="I9W-6d-vgj" id="fTJ-So-Aa3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="durationMeeting" id="d3f-NS-afj" customClass="CellForDurationOfTheMeeting" customModule="UIScrollViewForMobilite" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d3f-NS-afj" id="iJ0-3Z-TQC">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration of the meeting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JkX-58-Kxr">
+                                                    <rect key="frame" x="131" y="11" width="181" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="JkX-58-Kxr" secondAttribute="centerY" id="A5y-v5-DNH"/>
+                                                <constraint firstItem="JkX-58-Kxr" firstAttribute="trailing" secondItem="iJ0-3Z-TQC" secondAttribute="trailingMargin" id="Xyx-WS-cuE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="durationOfTheMeeting" destination="JkX-58-Kxr" id="yRk-rv-DCp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pickerForDuration" rowHeight="163" id="TWi-ds-k0P" customClass="CellForPickerForDuration" customModule="UIScrollViewForMobilite" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TWi-ds-k0P" id="Z59-GL-7E1">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W9U-NA-g03">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="162" id="cQ3-CY-Vco"/>
+                                                    </constraints>
+                                                </pickerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="W9U-NA-g03" secondAttribute="trailing" constant="-8" id="H5f-ze-Kad"/>
+                                                <constraint firstItem="W9U-NA-g03" firstAttribute="leading" secondItem="Z59-GL-7E1" secondAttribute="leadingMargin" constant="-8" id="t33-5A-TdV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="W9U-NA-g03" secondAttribute="bottom" constant="-8" id="x4d-2H-3kf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="pickerForDuration" destination="W9U-NA-g03" id="peH-PW-XAz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="save" rowHeight="162" id="OYq-5A-aNv" customClass="CellForDateBeginMeetingPicker" customModule="UIScrollViewForMobilite" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OYq-5A-aNv" id="rzA-4m-EBl">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbo-Z5-Go6">
+                                                    <rect key="frame" x="143" y="66" width="34" height="30"/>
+                                                    <state key="normal" title="Save">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="save:" destination="Nvk-lJ-6zS" eventType="touchUpInside" id="YI0-pt-EBE"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerX" secondItem="fbo-Z5-Go6" secondAttribute="centerX" id="Pa0-Fc-g5D"/>
+                                                <constraint firstAttribute="centerY" secondItem="fbo-Z5-Go6" secondAttribute="centerY" id="Qdt-nv-dcZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Nvk-lJ-6zS" id="COG-JS-ToU"/>
+                                    <outlet property="delegate" destination="Nvk-lJ-6zS" id="uKK-eR-aae"/>
+                                </connections>
+                            </tableView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="l9y-Xe-BsM">
+                                <rect key="frame" x="344" y="28" width="240" height="564"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="top" secondItem="adl-mK-DfF" secondAttribute="bottom" id="64B-uE-vXK"/>
-                            <constraint firstItem="YJR-ui-rud" firstAttribute="top" secondItem="5eM-m0-R4Q" secondAttribute="bottom" id="8bH-Qi-Yze"/>
-                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="leading" secondItem="YJR-ui-rud" secondAttribute="trailing" constant="8" id="9Gt-sq-0m8"/>
-                            <constraint firstItem="5eM-m0-R4Q" firstAttribute="top" secondItem="gRz-zD-vtU" secondAttribute="bottom" constant="8" id="Dp3-Md-48j"/>
-                            <constraint firstItem="5eM-m0-R4Q" firstAttribute="leading" secondItem="7Pk-2p-DTd" secondAttribute="leadingMargin" constant="-16" id="EZw-8P-rLs"/>
-                            <constraint firstItem="KgF-Hk-ifd" firstAttribute="leading" secondItem="7Pk-2p-DTd" secondAttribute="leadingMargin" constant="-16" id="FTc-tR-zO1"/>
+                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="top" secondItem="adl-mK-DfF" secondAttribute="bottom" constant="8" symbolic="YES" id="64B-uE-vXK"/>
                             <constraint firstItem="l9y-Xe-BsM" firstAttribute="trailing" secondItem="7Pk-2p-DTd" secondAttribute="trailingMargin" id="IoD-F9-C2U"/>
-                            <constraint firstItem="Q6U-Qa-P6Y" firstAttribute="leading" secondItem="7Pk-2p-DTd" secondAttribute="leadingMargin" constant="-16" id="JaX-j0-wlx"/>
-                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="leading" secondItem="f73-nS-twu" secondAttribute="trailing" constant="8" id="OcN-8P-fTi"/>
-                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="leading" secondItem="gRz-zD-vtU" secondAttribute="trailing" constant="8" id="VeN-I0-Dkq"/>
-                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="leading" secondItem="5eM-m0-R4Q" secondAttribute="trailing" constant="8" id="WVI-87-VRd"/>
-                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="leading" secondItem="Q6U-Qa-P6Y" secondAttribute="trailing" constant="8" id="Wi9-LR-vWa"/>
-                            <constraint firstItem="Q6U-Qa-P6Y" firstAttribute="top" secondItem="adl-mK-DfF" secondAttribute="bottom" id="YKs-1x-aAa"/>
-                            <constraint firstItem="KgF-Hk-ifd" firstAttribute="top" secondItem="YJR-ui-rud" secondAttribute="bottom" constant="8" id="eP9-oX-aM7"/>
-                            <constraint firstItem="gRz-zD-vtU" firstAttribute="top" secondItem="f73-nS-twu" secondAttribute="bottom" constant="8" id="iDA-56-jSe"/>
-                            <constraint firstItem="Rl5-wd-jim" firstAttribute="top" secondItem="l9y-Xe-BsM" secondAttribute="bottom" constant="20" id="jHW-Lb-79y"/>
-                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="leading" secondItem="KgF-Hk-ifd" secondAttribute="trailing" constant="8" id="mPT-Hh-CHF"/>
-                            <constraint firstItem="YJR-ui-rud" firstAttribute="leading" secondItem="7Pk-2p-DTd" secondAttribute="leadingMargin" constant="-16" id="oeS-wn-tTK"/>
-                            <constraint firstItem="f73-nS-twu" firstAttribute="top" secondItem="Q6U-Qa-P6Y" secondAttribute="bottom" id="q8P-dB-Q5q"/>
-                            <constraint firstItem="f73-nS-twu" firstAttribute="leading" secondItem="7Pk-2p-DTd" secondAttribute="leadingMargin" constant="-16" id="uIC-SG-LL3"/>
-                            <constraint firstItem="gRz-zD-vtU" firstAttribute="leading" secondItem="7Pk-2p-DTd" secondAttribute="leadingMargin" constant="-16" id="ymH-l0-mQz"/>
+                            <constraint firstItem="Rl5-wd-jim" firstAttribute="top" secondItem="rDo-BN-NJw" secondAttribute="bottom" constant="8" id="NNk-qv-WD5"/>
+                            <constraint firstItem="rDo-BN-NJw" firstAttribute="top" secondItem="adl-mK-DfF" secondAttribute="bottom" constant="8" id="VtM-Ss-Yam"/>
+                            <constraint firstItem="rDo-BN-NJw" firstAttribute="leading" secondItem="7Pk-2p-DTd" secondAttribute="leadingMargin" id="gDh-Dg-43q"/>
+                            <constraint firstItem="Rl5-wd-jim" firstAttribute="top" secondItem="l9y-Xe-BsM" secondAttribute="bottom" constant="8" symbolic="YES" id="jHW-Lb-79y"/>
+                            <constraint firstItem="l9y-Xe-BsM" firstAttribute="leading" secondItem="rDo-BN-NJw" secondAttribute="trailing" constant="8" id="n71-ob-1KY"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
-                        <outlet property="adressMeeting" destination="KgF-Hk-ifd" id="yVh-Cp-QKO"/>
-                        <outlet property="dateBeginMeeting" destination="Q6U-Qa-P6Y" id="KSX-LF-rvW"/>
-                        <outlet property="dateEndMeeting" destination="5eM-m0-R4Q" id="mev-wb-s8l"/>
-                        <outlet property="labelBeginMeeting" destination="f73-nS-twu" id="Uot-SA-B9e"/>
-                        <outlet property="labelEndMeeting" destination="YJR-ui-rud" id="fNT-uo-rYm"/>
                         <outlet property="mapView" destination="l9y-Xe-BsM" id="nkY-e5-8Ht"/>
+                        <outlet property="tableViewForAddingAMeeting" destination="rDo-BN-NJw" id="b9d-KK-0Ma"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYi-HF-wHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2589" y="103"/>
+            <point key="canvasLocation" x="2589" y="98"/>
         </scene>
         <!--Add Meeting With Date View Controller-->
         <scene sceneID="yXP-fv-3nE">
@@ -1561,6 +1693,6 @@
         <image name="fleche droite" width="50" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="47i-YG-Ipk"/>
+        <segue reference="VMg-4x-Ova"/>
     </inferredMetricsTieBreakers>
 </document>
