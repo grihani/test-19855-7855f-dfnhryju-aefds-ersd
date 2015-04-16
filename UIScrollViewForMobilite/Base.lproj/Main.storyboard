@@ -111,10 +111,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rDo-BN-NJw">
-                                <rect key="frame" x="16" y="28" width="320" height="564"/>
+                                <rect key="frame" x="16" y="28" width="400" height="564"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="Bgf-zv-Wav"/>
+                                    <constraint firstAttribute="width" constant="400" id="Bgf-zv-Wav"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subject" id="bUE-kW-0z5" customClass="CellWithTextField" customModule="UIScrollViewForMobilite" customModuleProvider="target">
@@ -123,7 +123,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject of the meeting" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ue8-Gc-Rfs">
-                                                    <rect key="frame" x="8" y="7" width="304" height="30"/>
+                                                    <rect key="frame" x="8" y="7" width="384" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -144,7 +144,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Address Meeting" translatesAutoresizingMaskIntoConstraints="NO" id="T3h-DJ-ZVv">
-                                                    <rect key="frame" x="8" y="0.0" width="304" height="43"/>
+                                                    <rect key="frame" x="8" y="0.0" width="384" height="43"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -167,7 +167,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date begin meeting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVN-Cq-mPa">
-                                                    <rect key="frame" x="164" y="11" width="148" height="21"/>
+                                                    <rect key="frame" x="244" y="11" width="148" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -187,8 +187,10 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bQc-86-AGZ" id="7e7-bb-dC4">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="16T-6I-cjw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                                                <datePicker clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="16T-6I-cjw">
+                                                    <rect key="frame" x="40" y="-1" width="320" height="162"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="450799628.618348">
                                                         <!--2015-04-15 14:07:08 +0000-->
                                                     </date>
@@ -200,8 +202,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="16T-6I-cjw" secondAttribute="bottom" constant="-8" id="GRN-hH-MRv"/>
                                                 <constraint firstItem="16T-6I-cjw" firstAttribute="top" secondItem="7e7-bb-dC4" secondAttribute="topMargin" constant="-8" id="NY8-UL-P8p"/>
-                                                <constraint firstItem="16T-6I-cjw" firstAttribute="leading" secondItem="7e7-bb-dC4" secondAttribute="leadingMargin" constant="-8" id="ZcN-2b-a7j"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="16T-6I-cjw" secondAttribute="trailing" constant="-8" id="j5H-sf-Xix"/>
+                                                <constraint firstAttribute="centerX" secondItem="16T-6I-cjw" secondAttribute="centerX" id="Pm5-2O-ZYd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -214,13 +215,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="I9W-6d-vgj">
-                                                    <rect key="frame" x="263" y="6" width="51" height="31"/>
+                                                    <rect key="frame" x="343" y="6" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="wholeDayToggled:" destination="Nvk-lJ-6zS" eventType="valueChanged" id="e4e-Vb-E5C"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="whole day meeting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j32-jX-6pm">
-                                                    <rect key="frame" x="8" y="11" width="247" height="21"/>
+                                                    <rect key="frame" x="8" y="11" width="327" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -244,7 +245,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration of the meeting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JkX-58-Kxr">
-                                                    <rect key="frame" x="131" y="11" width="181" height="21"/>
+                                                    <rect key="frame" x="211" y="11" width="181" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -265,7 +266,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W9U-NA-g03">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="162"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="162" id="cQ3-CY-Vco"/>
                                                     </constraints>
@@ -281,24 +282,55 @@
                                             <outlet property="pickerForDuration" destination="W9U-NA-g03" id="peH-PW-XAz"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="save" rowHeight="162" id="OYq-5A-aNv" customClass="CellForDateBeginMeetingPicker" customModule="UIScrollViewForMobilite" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Contacts" rowHeight="205" id="OYq-5A-aNv" customClass="CellForContacts" customModule="UIScrollViewForMobilite" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OYq-5A-aNv" id="rzA-4m-EBl">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbo-Z5-Go6">
-                                                    <rect key="frame" x="143" y="66" width="34" height="30"/>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bmN-0L-PGn">
+                                                    <rect key="frame" x="40" y="0.0" width="320" height="204"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="320" id="d4s-tY-TpQ"/>
+                                                    </constraints>
+                                                    <prototypes>
+                                                        <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contactNames" id="SOA-ZT-lwx">
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SOA-ZT-lwx" id="JAm-ET-lHs">
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </tableViewCellContentView>
+                                                        </tableViewCell>
+                                                    </prototypes>
+                                                </tableView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bmN-0L-PGn" firstAttribute="top" secondItem="rzA-4m-EBl" secondAttribute="topMargin" constant="-8" id="CRS-ji-D63"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="bmN-0L-PGn" secondAttribute="bottom" constant="-8" id="CdO-UP-AqS"/>
+                                                <constraint firstAttribute="centerX" secondItem="bmN-0L-PGn" secondAttribute="centerX" id="yaz-Hd-4XJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="tableViewForContacts" destination="bmN-0L-PGn" id="dVh-5K-buv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="save" rowHeight="64" id="jnP-oC-Tnq" customClass="CellForDateBeginMeetingPicker" customModule="UIScrollViewForMobilite" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jnP-oC-Tnq" id="WBV-C3-RqD">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5q-h4-9nP">
+                                                    <rect key="frame" x="183" y="17" width="34" height="30"/>
                                                     <state key="normal" title="Save">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="save:" destination="Nvk-lJ-6zS" eventType="touchUpInside" id="YI0-pt-EBE"/>
+                                                        <action selector="save:" destination="Nvk-lJ-6zS" eventType="touchUpInside" id="gQg-8e-j51"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="centerX" secondItem="fbo-Z5-Go6" secondAttribute="centerX" id="Pa0-Fc-g5D"/>
-                                                <constraint firstAttribute="centerY" secondItem="fbo-Z5-Go6" secondAttribute="centerY" id="Qdt-nv-dcZ"/>
+                                                <constraint firstAttribute="centerX" secondItem="D5q-h4-9nP" secondAttribute="centerX" id="UlQ-6H-8dz"/>
+                                                <constraint firstAttribute="centerY" secondItem="D5q-h4-9nP" secondAttribute="centerY" id="XLm-bR-cfE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -309,7 +341,7 @@
                                 </connections>
                             </tableView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="l9y-Xe-BsM">
-                                <rect key="frame" x="344" y="28" width="240" height="564"/>
+                                <rect key="frame" x="424" y="28" width="160" height="564"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -332,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYi-HF-wHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2589" y="98"/>
+            <point key="canvasLocation" x="2589" y="-19"/>
         </scene>
         <!--Add Meeting With Date View Controller-->
         <scene sceneID="yXP-fv-3nE">
@@ -1121,10 +1153,10 @@
             </objects>
             <point key="canvasLocation" x="2589" y="816"/>
         </scene>
-        <!--Test3 View Controller-->
+        <!--Contacts Of Account View Controller-->
         <scene sceneID="aFB-8B-4vk">
             <objects>
-                <viewController storyboardIdentifier="bibi" useStoryboardIdentifierAsRestorationIdentifier="YES" id="F5n-YZ-Azl" customClass="Test3ViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Contacts" useStoryboardIdentifierAsRestorationIdentifier="YES" id="F5n-YZ-Azl" customClass="ContactsOfAccountViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="suE-fp-uT0"/>
                         <viewControllerLayoutGuide type="bottom" id="7I4-YJ-PZn"/>
@@ -1132,23 +1164,8 @@
                     <view key="view" contentMode="scaleToFill" id="tiF-j0-bEb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bibi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4PY-GV-Skl">
-                                <rect key="frame" x="16" y="28" width="28" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="4PY-GV-Skl" firstAttribute="leading" secondItem="tiF-j0-bEb" secondAttribute="leadingMargin" id="Cvy-cf-MiQ"/>
-                            <constraint firstItem="4PY-GV-Skl" firstAttribute="top" secondItem="suE-fp-uT0" secondAttribute="bottom" constant="8" id="tbM-Yt-d6t"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="leftLabel" destination="4PY-GV-Skl" id="rPI-oR-zhX"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6x-wW-Oxe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

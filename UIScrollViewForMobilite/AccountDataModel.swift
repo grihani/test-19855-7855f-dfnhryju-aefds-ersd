@@ -140,7 +140,7 @@ class AccountDataModel {
         DataBase().createViewForAccountsThatHaveMeetings()
         
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        var querySQL = "SELECT idAccount, nameAccount, shortNameAccount, leadSource, statusAccount, industryAccount, segmentAccount, websiteAccount, phoneAccount, faxAccount, coverageAccount, regionAccount, adressAccount, idAccount1, countryAccount FROM Account_Contact_Meeting WHERE date('dateBeginMeeting') = date('\(dateFormatter.stringFromDate(date))')"
+        var querySQL = "SELECT idAccount, nameAccount, shortNameAccount, leadSource, statusAccount, industryAccount, segmentAccount, websiteAccount, phoneAccount, faxAccount, coverageAccount, regionAccount, adressAccount, idAccount1, countryAccount FROM Account_Contact_Meeting WHERE date(dateBeginMeeting) = date('\(dateFormatter.stringFromDate(date))')"
         var results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
         if let results = results {
             while results.next() == true {

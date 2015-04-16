@@ -34,7 +34,7 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
             geocoder.geocodeAddressString(address.adressMeeting, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) -> Void in
                 if let placemark = placemarks?[0] as? CLPlacemark {
                     if placemark.location != nil {
-                        let span = MKCoordinateSpanMake(0.01, 0.01)
+                        let span = MKCoordinateSpanMake(0.1, 0.1)
                         let region = MKCoordinateRegionMake(placemark.location.coordinate, span)
                         self.mapView.setRegion(region, animated: false)
                         let annotation = MKPointAnnotation()
@@ -60,7 +60,7 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
 
     // Mark : - Table view data source
     
-    let identifiersForTableView = ["subject", "Address", "dateBeginMeeting", "pickerMeeting", "wholeDay", "durationMeeting", "pickerForDuration", "save"]
+    let identifiersForTableView = ["subject", "Address", "dateBeginMeeting", "pickerMeeting", "wholeDay", "durationMeeting", "pickerForDuration", "Contacts", "save"]
     var pickerForDateBeginIsShown = false
     var cellSubject = CellWithTextField()
     var cellAdress = CellWithTextView()
@@ -69,7 +69,7 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
     var cellForWholeDayMeeting = CellForWholeDayMeeting()
     var cellForDurationOfMeeting = CellForDurationOfTheMeeting()
     var cellForDurationPicker = CellForPickerForDuration()
-    
+    var cellForContacts = CellForContacts()
     var switchIsOn = false
     var pickerForDurationIsShown = false
     
@@ -82,20 +82,23 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell  {
         let row = indexPath.row
         let identifier = identifiersForTableView[row]
-        switch row {
-        case 0:
+        if row == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellWithTextField
             self.cellSubject = cell
             return cell
-        case 1:
+        }
+        else if row == 1 {
             let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellWithTextView
             cellAdress = cell
             return cell
-        case 2:
+        }
+        else if row == 2 {
             let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellForEnteringDateBeginMeeting
+            cell.setDateBeginMeeting(self.date)
             cellForEnteringDateBeginMeeting = cell
             return cell
-        case 3:
+        }
+        else if row == 3 {
             let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellForDateBeginMeetingPicker
             if !pickerForDateBeginIsShown{
                 cell.datePickerBeginMeeting.alpha = 0
@@ -105,11 +108,13 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
             cell.cellForEnteringDateBeginMeeting = self.cellForEnteringDateBeginMeeting
             cellForDateBeginMeetingPicker = cell
             return cell
-        case 4:
+        }
+        else if row == 4 {
             let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellForWholeDayMeeting
             self.cellForWholeDayMeeting = cell
             return cell
-        case 5:
+        }
+        else  if row == 5 {
             let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellForDurationOfTheMeeting
             if !switchIsOn {
                 cell.durationOfTheMeeting.alpha = 1
@@ -118,14 +123,24 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
             }
             cellForDurationOfMeeting = cell
             return cell
-        case 6:
+        }
+        else if row == 6 {
             let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellForPickerForDuration
             cell.cellForDurationOfMeeting = cellForDurationOfMeeting
             cell.pickerForDuration.dataSource = cell
             cell.pickerForDuration.delegate = cell
             cellForDurationPicker = cell
             return cell
-        default:
+        }
+        else if row == 7 {
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellForContacts
+            cell.tableViewForContacts.dataSource = cell
+            cell.tableViewForContacts.delegate = cell
+            cell.tableViewForContacts.editing = true
+            cell.contacts = ContactDataModel().contactsOfAccount(account: self.account)
+            return cell
+        }
+        else {
             let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as UITableViewCell
             return cell
         }
@@ -175,6 +190,8 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
             } else {
                 height = 162
             }
+        case 7:
+            height = 152
         default:
             height = 44
         }
@@ -288,5 +305,21 @@ class CellForPickerForDuration: UITableViewCell, UIPickerViewDataSource, UIPicke
         let rowMinutes = pickerView.selectedRowInComponent(1)
         let duration = String(hours[rowHour]) + " hours and " + String(minutes[rowMinutes]) + " minutes "
         cellForDurationOfMeeting.durationOfTheMeeting.text = duration
+    }
+}
+
+class CellForContacts: UITableViewCell, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var tableViewForContacts: UITableView!
+    var contacts: [ContactModel] = []
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return contacts.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("contactNames") as UITableViewCell
+        let row = indexPath.row
+        let contactsOfAccount = contacts[row]
+        cell.textLabel?.text = contactsOfAccount.firstNameContact + " " + contactsOfAccount.lastNameContact
+        return cell
     }
 }

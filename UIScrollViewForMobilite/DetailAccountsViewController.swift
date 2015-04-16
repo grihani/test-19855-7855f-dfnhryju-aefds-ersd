@@ -16,10 +16,10 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var listeButtonsForPages: UIView!
     @IBOutlet weak var navigationBar: UINavigationItem!
     
-    var identifiers: [String] = ["Meetings", "Vue 360°", "bibi"]
+    var identifiers: [String] = ["Meetings", "Vue 360°", "Contacts"]
     var meetingsOfAccount: MeetingsOfAccountViewController = MeetingsOfAccountViewController()
     var vue360: Vue360ViewController = Vue360ViewController()
-    var thirdPage: Test3ViewController = Test3ViewController()
+    var contactsOfAccount: ContactsOfAccountViewController = ContactsOfAccountViewController()
     var pageControllers: [UIViewController] = []
     var pageViews: [UIView] = []
     var firstPage = 1
@@ -82,10 +82,10 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             self.vue360 = viewController
             vue360.account = self.account
         }
-        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[2]) as? Test3ViewController {
+        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[2]) as? ContactsOfAccountViewController {
             viewControllers.append(viewController)
-            self.thirdPage = viewController
-            println("ajout de troisième page")
+            self.contactsOfAccount = viewController
+            self.contactsOfAccount.account = self.account
         }
         return viewControllers
     }
