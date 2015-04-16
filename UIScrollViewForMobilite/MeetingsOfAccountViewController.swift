@@ -75,17 +75,7 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
     }
     
     @IBAction func addANewMeetingOnDate(sender: UIButton) {
-        let storyboard : UIStoryboard = UIStoryboard(
-            name: "Main",
-            bundle: nil)
-        var addMeetingWithDateViewController: AddMeetingWithDateViewController = storyboard.instantiateViewControllerWithIdentifier("AddMeetingWithDate") as AddMeetingWithDateViewController
-        addMeetingWithDateViewController.modalPresentationStyle = .Popover
-        addMeetingWithDateViewController.preferredContentSize = CGSizeMake(200, 200)
-        let popoverAddMeetingWithDateViewController = addMeetingWithDateViewController.popoverPresentationController
-        popoverAddMeetingWithDateViewController?.permittedArrowDirections = .allZeros
-        popoverAddMeetingWithDateViewController?.delegate = self
-        popoverAddMeetingWithDateViewController?.sourceView = self.view
-        self.view.window?.rootViewController?.presentViewController(addMeetingWithDateViewController, animated: true, completion: nil)
+        
     }
     
     @IBAction func addANewMeetingWithoutDate(sender: UIButton) {
