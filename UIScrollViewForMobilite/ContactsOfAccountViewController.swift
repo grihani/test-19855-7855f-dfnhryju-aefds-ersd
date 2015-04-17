@@ -116,19 +116,36 @@ class ContactsOfAccountViewController: UIViewController, UITableViewDataSource, 
     @IBAction func addAContact(sender: UIBarButtonItem) {
         self.actionOnContacts = "Create"
         self.civilityContact.text = ""
+        self.civilityContact.borderStyle = UITextBorderStyle.RoundedRect
         self.firstAndLastNameContact.text = ""
+        self.firstAndLastNameContact.borderStyle = UITextBorderStyle.RoundedRect
         self.firstNameContact.text = ""
+        self.firstNameContact.borderStyle = UITextBorderStyle.RoundedRect
         self.lastNameContact.text = ""
+        self.lastNameContact.borderStyle = UITextBorderStyle.RoundedRect
         self.jobTitleContact.text = ""
+        self.jobTitleContact.borderStyle = UITextBorderStyle.RoundedRect
         self.countryContact.text = ""
+        self.countryContact.borderStyle = UITextBorderStyle.RoundedRect
         self.typeContact.text = ""
+        self.typeContact.borderStyle = UITextBorderStyle.RoundedRect
         self.birthdateContact.text = ""
+        self.birthdateContact.borderStyle = UITextBorderStyle.RoundedRect
         self.phoneBusinessContact.text = ""
+        self.phoneBusinessContact.borderStyle = UITextBorderStyle.RoundedRect
         self.phoneMobileContact.text = ""
+        self.phoneMobileContact.borderStyle = UITextBorderStyle.RoundedRect
         self.emailContact.text = ""
+        self.emailContact.borderStyle = UITextBorderStyle.RoundedRect
         self.preferredLanguageContact.text = ""
+        self.preferredLanguageContact.borderStyle = UITextBorderStyle.RoundedRect
         self.workingAdressContact.text = ""
+        self.workingAdressContact.layer.cornerRadius = 4
+        self.workingAdressContact.layer.borderWidth = 1
+        self.workingAdressContact.layer.borderColor = UIColor.grayColor().CGColor
         self.linkedinProfileContact.text = ""
+        self.linkedinProfileContact.borderStyle = UITextBorderStyle.RoundedRect
+        self.idContact1.text = ""
         self.idContact1.text = ""
     }
     
