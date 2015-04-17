@@ -18,6 +18,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var navigationBar: UINavigationItem!
     
     var identifiers: [String] = ["Meetings", "Vue 360°", "Contacts"]
+    // Manque 'Next actions', 'Account Details', 'Pipe', 'Relation Activity'
     var meetingsOfAccount: MeetingsOfAccountViewController = MeetingsOfAccountViewController()
     var vue360: Vue360ViewController = Vue360ViewController()
     var contactsOfAccount: ContactsOfAccountViewController = ContactsOfAccountViewController()
