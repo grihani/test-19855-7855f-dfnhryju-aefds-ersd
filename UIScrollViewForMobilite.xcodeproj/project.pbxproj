@@ -23,6 +23,8 @@
 		480DA23F1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA23E1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift */; };
 		481419D11AD58908009B38D6 /* ListMeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481419D01AD58908009B38D6 /* ListMeetingsViewController.swift */; };
 		481419D31AD58919009B38D6 /* DetailMeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481419D21AD58919009B38D6 /* DetailMeetingsViewController.swift */; };
+		484CDC321AE0E275001E09F8 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CDC311AE0E275001E09F8 /* LoadingIndicator.swift */; };
+		484CDC341AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CDC331AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift */; };
 		485A23CA1AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A23C91AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift */; };
 		485A23CC1AD6E1880074EDD1 /* MeetingsOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A23CB1AD6E1880074EDD1 /* MeetingsOfAccountViewController.swift */; };
 		485A23CE1AD6EA1F0074EDD1 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A23CD1AD6EA1F0074EDD1 /* Dates.swift */; };
@@ -37,6 +39,7 @@
 		489B31611AC9520300C04732 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489B31601AC9520300C04732 /* SWRevealViewController.m */; };
 		489B31641AC952C800C04732 /* ListAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B31631AC952C800C04732 /* ListAccountsViewController.swift */; };
 		489B31661AC952DB00C04732 /* DetailAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */; };
+		489FC9261AE01CA700C04814 /* LinkedinContactOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FC9251AE01CA700C04814 /* LinkedinContactOfAccountViewController.swift */; };
 		48C22FD61ADFE5F200DE3F5F /* ContactsOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C22FD51ADFE5F200DE3F5F /* ContactsOfAccountViewController.swift */; };
 		48EA739A1AC9AF1D0067C417 /* Test3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA73991AC9AF1D0067C417 /* Test3ViewController.swift */; };
 		48FCB1231ACAD55500A770B2 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1221ACAD55500A770B2 /* DataBase.swift */; };
@@ -91,6 +94,8 @@
 		480DA23E1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksMeetingsDataModel.swift; sourceTree = "<group>"; };
 		481419D01AD58908009B38D6 /* ListMeetingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMeetingsViewController.swift; sourceTree = "<group>"; };
 		481419D21AD58919009B38D6 /* DetailMeetingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMeetingsViewController.swift; sourceTree = "<group>"; };
+		484CDC311AE0E275001E09F8 /* LoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		484CDC331AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactOfAccountViewController.swift; sourceTree = "<group>"; };
 		485A23C91AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsBeforeKnowledge.swift; sourceTree = "<group>"; };
 		485A23CB1AD6E1880074EDD1 /* MeetingsOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsOfAccountViewController.swift; sourceTree = "<group>"; };
 		485A23CD1AD6EA1F0074EDD1 /* Dates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
@@ -111,6 +116,7 @@
 		489B31621AC9526100C04732 /* UIScrollViewForMobilite-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollViewForMobilite-Bridging-Header.h"; sourceTree = "<group>"; };
 		489B31631AC952C800C04732 /* ListAccountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAccountsViewController.swift; sourceTree = "<group>"; };
 		489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailAccountsViewController.swift; sourceTree = "<group>"; };
+		489FC9251AE01CA700C04814 /* LinkedinContactOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedinContactOfAccountViewController.swift; sourceTree = "<group>"; };
 		48C22FD51ADFE5F200DE3F5F /* ContactsOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsOfAccountViewController.swift; sourceTree = "<group>"; };
 		48EA73991AC9AF1D0067C417 /* Test3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test3ViewController.swift; sourceTree = "<group>"; };
 		48FCB1221ACAD55500A770B2 /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
@@ -172,6 +178,14 @@
 			name = Meetings;
 			sourceTree = "<group>";
 		};
+		484CDC301AE0E256001E09F8 /* Functionalities */ = {
+			isa = PBXGroup;
+			children = (
+				484CDC311AE0E275001E09F8 /* LoadingIndicator.swift */,
+			);
+			name = Functionalities;
+			sourceTree = "<group>";
+		};
 		485A23C81AD6B28C0074EDD1 /* FunctionsBeforeKnowledge */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +228,7 @@
 			children = (
 				4881861B1AC94F6600923A18 /* Main.storyboard */,
 				486AE4701AD81ABD00E701AF /* Constants.swift */,
+				484CDC301AE0E256001E09F8 /* Functionalities */,
 				48FCB11F1ACAD52600A770B2 /* dataBase */,
 				48FCB11E1ACAD50500A770B2 /* Accounts */,
 				481419CF1AD588D0009B38D6 /* Meetings */,
@@ -268,6 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				48C22FD51ADFE5F200DE3F5F /* ContactsOfAccountViewController.swift */,
+				489FC9251AE01CA700C04814 /* LinkedinContactOfAccountViewController.swift */,
+				484CDC331AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift */,
 			);
 			name = ContactsOfAccount;
 			sourceTree = "<group>";
@@ -438,6 +455,20 @@
 					4881860E1AC94F6600923A18 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 4K75J482AW;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+							com.apple.OMC = {
+								enabled = 0;
+							};
+							com.apple.Passbook = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					488186261AC94F6700923A18 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -503,6 +534,7 @@
 				48FCB13A1ACADE0A00A770B2 /* OpportunityModel.swift in Sources */,
 				480DA2391ACC2C0D00F43FA1 /* AccountContractsDataModel.swift in Sources */,
 				48FCB1401ACAE09E00A770B2 /* AccountContactModel.swift in Sources */,
+				484CDC341AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift in Sources */,
 				485A23CE1AD6EA1F0074EDD1 /* Dates.swift in Sources */,
 				4809A8BA1ACD4F3A001FEC98 /* Vue360ViewController.swift in Sources */,
 				48FCB1421ACAE1F500A770B2 /* OpportunitiesContactsModel.swift in Sources */,
@@ -514,6 +546,7 @@
 				48FCB1331ACAD73600A770B2 /* FMDatabaseQueue.m in Sources */,
 				48FCB1301ACAD73600A770B2 /* FMDatabase.m in Sources */,
 				486AE4711AD81ABD00E701AF /* Constants.swift in Sources */,
+				489FC9261AE01CA700C04814 /* LinkedinContactOfAccountViewController.swift in Sources */,
 				480DA22D1ACC2B9800F43FA1 /* TaskDataModel.swift in Sources */,
 				48FCB1501ACAE80300A770B2 /* TasksAccountModel.swift in Sources */,
 				480DA23D1ACC2C3A00F43FA1 /* TasksContactsDataModel.swift in Sources */,
@@ -532,6 +565,7 @@
 				488186151AC94F6600923A18 /* AppDelegate.swift in Sources */,
 				480DA2371ACC2BFC00F43FA1 /* MeetingContactDataModel.swift in Sources */,
 				48EA739A1AC9AF1D0067C417 /* Test3ViewController.swift in Sources */,
+				484CDC321AE0E275001E09F8 /* LoadingIndicator.swift in Sources */,
 				480DA23B1ACC2C1E00F43FA1 /* TasksAccountDataModel.swift in Sources */,
 				48FCB14C1ACAE61700A770B2 /* AccountContractsModel.swift in Sources */,
 				485A23CA1AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift in Sources */,
@@ -663,6 +697,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = UIScrollViewForMobilite/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -675,6 +710,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = UIScrollViewForMobilite/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

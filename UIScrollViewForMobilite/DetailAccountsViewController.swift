@@ -10,6 +10,7 @@ import UIKit
 
 class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     
+    
     @IBOutlet weak var showList: UIView!
     @IBOutlet weak var containerView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -41,7 +42,6 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             self.navigationBar.title = account.nameAccount
         }
         colorButtons(firstPage)
-        
     }
     
     // every action that has relation to the layout of the view has to be put in here
