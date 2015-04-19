@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A7r-ge-PhP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A7r-ge-PhP">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -1419,6 +1419,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="accessLinkedinProfile" destination="Esy-L5-0tJ" id="Tw9-y0-MdQ"/>
                         <outlet property="birthdateContact" destination="uph-wA-fIr" id="icj-be-NEP"/>
                         <outlet property="civilityContact" destination="P4p-kw-iU3" id="LvY-QS-1DV"/>
                         <outlet property="countryContact" destination="6BM-WJ-Y96" id="CqX-hh-SZD"/>
@@ -1626,7 +1627,7 @@
                                             <constraint firstAttribute="height" constant="37" id="Loc-Zr-K4S"/>
                                             <constraint firstAttribute="width" constant="42" id="csh-Ds-qHk"/>
                                         </constraints>
-                                        <state key="normal" image="DiscardChanges">
+                                        <state key="normal" image="discardChanges">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1976,8 +1977,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DiscardChanges" width="204" height="204"/>
         <image name="SaveChanges" width="256" height="256"/>
+        <image name="discardChanges" width="204" height="204"/>
         <image name="fleche droite" width="50" height="200"/>
         <image name="linkedin" width="132" height="32"/>
     </resources>

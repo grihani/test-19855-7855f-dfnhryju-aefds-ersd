@@ -33,7 +33,6 @@
 		488186151AC94F6600923A18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488186141AC94F6600923A18 /* AppDelegate.swift */; };
 		488186181AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 488186161AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld */; };
 		4881861D1AC94F6600923A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4881861B1AC94F6600923A18 /* Main.storyboard */; };
-		4881861F1AC94F6600923A18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4881861E1AC94F6600923A18 /* Images.xcassets */; };
 		488186221AC94F6600923A18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488186201AC94F6600923A18 /* LaunchScreen.xib */; };
 		4881862E1AC94F6700923A18 /* UIScrollViewForMobiliteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4881862D1AC94F6700923A18 /* UIScrollViewForMobiliteTests.swift */; };
 		489B31611AC9520300C04732 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489B31601AC9520300C04732 /* SWRevealViewController.m */; };
@@ -64,6 +63,7 @@
 		48FCB1541ACAE97E00A770B2 /* TasksMeetingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1531ACAE97E00A770B2 /* TasksMeetingsModel.swift */; };
 		48FCB1571ACAED6A00A770B2 /* AccountDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */; };
 		48FCB1591ACAF47200A770B2 /* Bouchonnage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1581ACAF47200A770B2 /* Bouchonnage.swift */; };
+		9F2A4AF81AE309ED007359DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4881861E1AC94F6600923A18 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -497,9 +497,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F2A4AF81AE309ED007359DD /* Images.xcassets in Resources */,
 				4881861D1AC94F6600923A18 /* Main.storyboard in Resources */,
 				488186221AC94F6600923A18 /* LaunchScreen.xib in Resources */,
-				4881861F1AC94F6600923A18 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

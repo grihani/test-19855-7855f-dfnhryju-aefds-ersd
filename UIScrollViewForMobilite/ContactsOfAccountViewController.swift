@@ -31,6 +31,7 @@ class ContactsOfAccountViewController: UIViewController, UITableViewDataSource, 
     @IBOutlet weak var linkedinProfileContact: UITextField!
     @IBOutlet weak var idContact1: UITextField!
     
+    @IBOutlet weak var accessLinkedinProfile: UIButton!
     
     
     
@@ -146,7 +147,12 @@ class ContactsOfAccountViewController: UIViewController, UITableViewDataSource, 
         self.linkedinProfileContact.text = ""
         self.linkedinProfileContact.borderStyle = UITextBorderStyle.RoundedRect
         self.idContact1.text = ""
-        self.idContact1.text = ""
+        self.idContact1.borderStyle = UITextBorderStyle.RoundedRect
+        
+        self.accessLinkedinProfile.hidden = true
+        
+        heightBeforeBottom.constant = heightBeforeBottom.constant - 100
+        self.view.setNeedsUpdateConstraints()
     }
     
 }

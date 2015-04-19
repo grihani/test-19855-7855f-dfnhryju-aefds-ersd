@@ -27,7 +27,7 @@ class ListAccountsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewDidAppear(animated)
         allAccounts = AccountDataModel().accountsPerMeeting()
         self.listAccounts.reloadData()
     }
