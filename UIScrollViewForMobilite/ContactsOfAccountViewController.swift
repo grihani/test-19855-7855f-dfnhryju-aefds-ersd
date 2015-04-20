@@ -56,14 +56,6 @@ class ContactsOfAccountViewController: UIViewController, UITableViewDataSource, 
     
     override func viewDidLayoutSubviews() {
         if !viewDidItsLayouts {
-            let screen = UIScreen.mainScreen().bounds
-            let widthScreen = screen.size.width
-            println(screen)
-            let widthBetweenLeftRightComponents = widthScreen - 750
-            let heightScreen = screen.size.height
-            widthBetweenComponents.constant = widthBetweenLeftRightComponents
-            heightBeforeBottom.constant = heightScreen - 400
-            self.view.setNeedsUpdateConstraints()
             viewDidItsLayouts = true
         }
     }
@@ -95,23 +87,6 @@ class ContactsOfAccountViewController: UIViewController, UITableViewDataSource, 
         self.workingAdressContact.text = contactSelected.workingAdressContact
         self.linkedinProfileContact.text = contactSelected.linkedinProfileContact
         self.idContact1.text = String(contactSelected.idContact1)
-    }
-    //linkedingContactOfAccount
-    
-    @IBAction func linkedinAccess(sender: UIButton) {
-        let storyboard : UIStoryboard = UIStoryboard(
-            name: "Main",
-            bundle: nil)
-        var linkedinAccess: LinkedinContactOfAccountViewController = storyboard.instantiateViewControllerWithIdentifier("linkedingContactOfAccount") as LinkedinContactOfAccountViewController
-        linkedinAccess.linkedinAccount = self.contactSelected.linkedinProfileContact
-        linkedinAccess.modalPresentationStyle = .Popover
-        linkedinAccess.preferredContentSize = CGSizeMake(widthPopover, heightPopover)
-        let popoverAddMeetingWithoutDateViewController = linkedinAccess.popoverPresentationController
-        popoverAddMeetingWithoutDateViewController?.permittedArrowDirections = .allZeros
-        popoverAddMeetingWithoutDateViewController?.delegate = self
-        popoverAddMeetingWithoutDateViewController?.sourceView = self.view
-        popoverAddMeetingWithoutDateViewController?.sourceRect = CGRectMake(200/2, 100/2, 1, 1)
-        self.view.window?.rootViewController?.presentViewController(linkedinAccess, animated: true, completion: nil)
     }
     
     @IBAction func addAContact(sender: UIBarButtonItem) {
@@ -150,9 +125,21 @@ class ContactsOfAccountViewController: UIViewController, UITableViewDataSource, 
         self.idContact1.borderStyle = UITextBorderStyle.RoundedRect
         
         self.accessLinkedinProfile.hidden = true
-        
-        heightBeforeBottom.constant = heightBeforeBottom.constant - 100
-        self.view.setNeedsUpdateConstraints()
+       
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "show linkedin account of contact" {
+            if let linkedinView = segue.destinationViewController as? LinkedinContactOfAccountViewController {
+                var minimumSize = UIScreen.mainScreen().bounds
+                minimumSize = minimumSize.rectByInsetting(dx: 100, dy: 0)
+                linkedinView.linkedinAccount = self.contactSelected.linkedinProfileContact
+                linkedinView.preferredContentSize = minimumSize.size
+            }
+        }
     }
     
 }

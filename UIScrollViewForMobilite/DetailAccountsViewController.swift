@@ -17,11 +17,12 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var listeButtonsForPages: UIView!
     @IBOutlet weak var navigationBar: UINavigationItem!
     
-    var identifiers: [String] = ["Meetings", "Vue 360°", "Contacts"]
+    var identifiers: [String] = ["Meetings", "Vue 360°", "Contacts", "Next Actions"]
     // Manque 'Next actions', 'Account Details', 'Pipe', 'Relation Activity'
     var meetingsOfAccount: MeetingsOfAccountViewController = MeetingsOfAccountViewController()
     var vue360: Vue360ViewController = Vue360ViewController()
     var contactsOfAccount: ContactsOfAccountViewController = ContactsOfAccountViewController()
+    var tasksOfAccount: TasksOfAccountViewController = TasksOfAccountViewController()
     var pageControllers: [UIViewController] = []
     var pageViews: [UIView] = []
     var firstPage = 1
@@ -87,6 +88,11 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             viewControllers.append(viewController)
             self.contactsOfAccount = viewController
             self.contactsOfAccount.account = self.account
+        }
+        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[3]) as? TasksOfAccountViewController {
+            viewControllers.append(viewController)
+            self.tasksOfAccount = viewController
+            self.tasksOfAccount.account = self.account
         }
         return viewControllers
     }
@@ -158,11 +164,13 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         var i = 0
         let width = CGFloat(100)
         for identifier in identifiers {
+            
             let button = UIButton(frame: CGRect(x: CGFloat(i) * width, y: 0, width: 92, height: 37))
             button.setTitle(identifier, forState: UIControlState.Normal)
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             button.addTarget(self, action: Selector("goPage:"), forControlEvents: UIControlEvents.TouchUpInside)
             button.layer.cornerRadius = 8
+            button.sizeToFit()
             view.addSubview(button)
             buttonPages.append(button)
             
