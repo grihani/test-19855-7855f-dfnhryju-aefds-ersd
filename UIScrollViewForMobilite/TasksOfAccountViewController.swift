@@ -208,17 +208,27 @@ class TasksOfMeetings: UITableViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        var keyAsString = ""
-        if let dictionary: NSDictionary = collectionOfTasks.objectAtIndex(section) as? NSDictionary {
-            
-            for key in dictionary.allKeys as [String] {
-                keyAsString = key
-            }
-        }
-        return keyAsString
-    }
+//    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        var meeting = MeetingModel()
+//        var keyAsString = ""
+//        if let dictionary: NSDictionary = collectionOfTasks.objectAtIndex(section) as? NSDictionary {
+//            
+//            for key in dictionary.allKeys as [String] {
+//                keyAsString = key
+//            }
+//        }
+//        if let idMeeting = keyAsString.toInt() {
+//            meeting = MeetingDataModel().meetingFromIdMeeting(idMeeting: idMeeting)
+//        }
+//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+//        let dateMeeting = dateFormatter.dateFromString(meeting.dateBeginMeeting)
+//        dateFormatter.dateStyle = .MediumStyle
+//        dateFormatter.timeStyle = .ShortStyle
+//        let stringFromDateMeeting = dateFormatter.stringFromDate(dateMeeting!)
+//        var stringFromMeeting = stringFromDateMeeting + " : "
+//        stringFromMeeting += meeting.subjectMeeting
+//        return stringFromMeeting
+//    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var keyAsString = ""
@@ -263,6 +273,37 @@ class TasksOfMeetings: UITableViewController, UITableViewDataSource, UITableView
     
     override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 1
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(44)
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var meeting = MeetingModel()
+        var keyAsString = ""
+        if let dictionary: NSDictionary = collectionOfTasks.objectAtIndex(section) as? NSDictionary {
+            
+            for key in dictionary.allKeys as [String] {
+                keyAsString = key
+            }
+        }
+        if let idMeeting = keyAsString.toInt() {
+            meeting = MeetingDataModel().meetingFromIdMeeting(idMeeting: idMeeting)
+        }
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let dateMeeting = dateFormatter.dateFromString(meeting.dateBeginMeeting)
+        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.timeStyle = .ShortStyle
+        let stringFromDateMeeting = dateFormatter.stringFromDate(dateMeeting!)
+        var stringFromMeeting = stringFromDateMeeting + " :\n "
+        stringFromMeeting += meeting.subjectMeeting
+        
+        var label = UILabel()
+        label.numberOfLines = 2
+        label.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
+        label.text = stringFromMeeting
+        return label
     }
     
     

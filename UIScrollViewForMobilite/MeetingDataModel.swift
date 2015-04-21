@@ -102,6 +102,33 @@ class MeetingDataModel {
         return meetingsOfAccount
     }
     
+    func meetingFromIdMeeting(#idMeeting: Int) -> MeetingModel {
+        var meeting: MeetingModel = MeetingModel()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        var querySQL = "SELECT * FROM Meetings WHERE idMeeting = \(idMeeting)"
+        let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let results = results {
+            if results.next() == true {
+                var idMeeting: Int = Int(results.intForColumn("idMeeting"))
+                var subjectMeeting: String = results.stringForColumn("subjectMeeting")
+                var dateBeginMeeting: String = results.stringForColumn("dateBeginMeeting")
+                var adressMeeting: String = results.stringForColumn("adressMeeting")
+                var dateEndMeeting: String = results.stringForColumn("dateEndMeeting")
+                var allDayMeeting: Int = Int(results.intForColumn("allDayMeeting"))
+                var priorityMeeting: String = results.stringForColumn("priorityMeeting")
+                var descriptionMeeting: String = results.stringForColumn("descriptionMeeting")
+                var regardingMeeting: String = results.stringForColumn("regardingMeeting")
+                var reportMeeting: String = results.stringForColumn("reportMeeting")
+                
+                meeting = MeetingModel(idMeeting: idMeeting, subjectMeeting: subjectMeeting, dateBeginMeeting: dateBeginMeeting, adressMeeting: adressMeeting, dateEndMeeting: dateEndMeeting, allDayMeeting: allDayMeeting, priorityMeeting: priorityMeeting, descriptionMeeting: descriptionMeeting, regardingMeeting: regardingMeeting, reportMeeting: reportMeeting)
+            }
+        }
+        
+        return meeting
+    }
+
+    
     func insertMeeting(meeting: MeetingModel) -> String {
         var erreur = String()
         let insertSQL = "INSERT INTO Meetings (subjectMeeting,dateBeginMeeting,adressMeeting,dateEndMeeting,allDayMeeting,priorityMeeting,descriptionMeeting,regardingMeeting,reportMeeting) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
