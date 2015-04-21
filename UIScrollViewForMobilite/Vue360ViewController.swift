@@ -329,9 +329,22 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     func textViewDidBeginEditing(textView: UITextView) {
         self.activeField = textView
     }
+    func textViewDidChange(textView: UITextView) {
+        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text)
+        let accountToCompare = accountAfterUpdates.arrayOfStringsFromModel()
+        let accountToCompareTo = account.arrayOfStringsFromModel()
+        if !(accountToCompareTo == accountToCompare) {
+            modificationsHaveHappened = true
+            saveButton.hidden = false
+            discardChangesButton.hidden = false
+        } else {
+            modificationsHaveHappened = false
+            saveButton.hidden = true
+            discardChangesButton.hidden = true
+        }
+    }
     func textViewDidEndEditing(textView: UITextView) {
         self.activeField = nil
-        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text)
     }
     
     // Mark: - CLLocationManager delegate methods
@@ -358,7 +371,10 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
     
     func discardChanges() {
-        self.accountAfterUpdates = self.account
+        var accountIntermediaire = self.account
+        self.account = self.accountAfterUpdates
+        self.accountAfterUpdates = accountIntermediaire
+        
         self.nameCompany.text = account.nameAccount
         self.shortNameCompany.text = account.shortNameAccount
         self.industryCompany.text = account.industryAccount
@@ -372,6 +388,8 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         self.regionAccount.text = account.regionAccount
         self.countryAccount.text = account.countryAccount
         self.coverageAccount.text = account.coverageAccount
+        modificationsHaveHappened = true
         updateAccount()
+        self.account = accountIntermediaire
     }
 }

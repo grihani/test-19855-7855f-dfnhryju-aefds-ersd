@@ -156,7 +156,7 @@ class DataBase {
     }
     
     func checkEmptyTable(table: String) -> Bool {
-        println("checking if \(table) is empty")
+//        println("checking if \(table) is empty")
         var querySQL = "SELECT count(*) as COUNT FROM \(table)"
         let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
         if let results = results {
@@ -168,7 +168,7 @@ class DataBase {
                 }
             }
         }
-        println("\(table) n'est pas vide")
+//        println("\(table) n'est pas vide")
         return false
     }
     
@@ -182,11 +182,13 @@ class DataBase {
     
     func createViewForAccountsThatHaveMeetings() {
         
-        var querySQL = "CREATE TEMPORARY VIEW IF NOT EXISTS Account_Contact_Meeting AS SELECT * FROM Account INNER JOIN Account_Contacts ON account.idAccount = account_contacts.idAccount INNER JOIN Contacts ON account_contacts.idcontact = Contacts.idContact INNER JOIN Meetings_contacts ON contacts.idcontact = Meetings_contacts.idContact INNER JOIN Meetings ON Meetings_contacts.idMeeting = Meetings.idMeeting WHERE datetime(dateBeginMeeting) >= datetime('now') order by dateBeginMeeting"
+        var querySQL = "CREATE TEMPORARY VIEW IF NOT EXISTS Account_Contact_Meeting AS SELECT * FROM Account INNER JOIN Account_Contacts ON account.idAccount = account_contacts.idAccount INNER JOIN Contacts ON account_contacts.idcontact = Contacts.idContact INNER JOIN Meetings_contacts ON contacts.idcontact = Meetings_contacts.idContact INNER JOIN Meetings ON Meetings_contacts.idMeeting = Meetings.idMeeting WHERE datetime(dateBeginMeeting) >= datetime('now') order by date(dateBeginMeeting) ASC"
         if !contactDataBase.executeStatements(querySQL) {
-            println("the view Account_Contacts_Meetings can't be created")
+            
+            
         } else {
-            println("the view Account_Contacts_Meetings was created")
+            
+            
         }
     }
 }

@@ -18,7 +18,7 @@ class MeetingDataModel {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = NSDate()
         let dateFromString = dateFormatter.stringFromDate(date)
-        var querySQL = "SELECT * FROM Meetings WHERE (datetime(dateBeginMeeting) >= datetime('\(dateFromString)')) ORDER BY datetime(dateBeginMeeting)"
+        var querySQL = "SELECT * FROM Meetings WHERE (datetime(dateBeginMeeting) >= datetime('\(dateFromString)')) ORDER BY datetime(dateBeginMeeting) ASC"
         let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
         if let results = results {
             while results.next() == true {
@@ -46,7 +46,7 @@ class MeetingDataModel {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let dateFromString = dateFormatter.stringFromDate(fromDate)
         let dateToString = dateFormatter.stringFromDate(toDate)
-        var querySQL = "SELECT * FROM Meetings WHERE date(dateBeginMeeting) BETWEEN date('\(dateFromString)') AND date('\(dateToString)') ORDER BY datetime(dateBeginMeeting)"
+        var querySQL = "SELECT * FROM Meetings WHERE date(dateBeginMeeting) BETWEEN date('\(dateFromString)') AND date('\(dateToString)') ORDER BY datetime(dateBeginMeeting) ASC"
         let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
         if let results = results {
             while results.next() == true {
@@ -76,7 +76,7 @@ class MeetingDataModel {
         DataBase().createViewForAccountsThatHaveMeetings()
         
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        var querySQL = "SELECT idMeeting, subjectMeeting, dateBeginMeeting, adressMeeting, dateEndMeeting, allDayMeeting, priorityMeeting, descriptionMeeting, regardingMeeting, reportMeeting FROM Account_Contact_Meeting WHERE idAccount = \(account.idAccount) ORDER BY datetime(dateBeginMeeting)"
+        var querySQL = "SELECT idMeeting, subjectMeeting, dateBeginMeeting, adressMeeting, dateEndMeeting, allDayMeeting, priorityMeeting, descriptionMeeting, regardingMeeting, reportMeeting FROM Account_Contact_Meeting WHERE idAccount = \(account.idAccount) ORDER BY datetime(dateBeginMeeting) ASC"
         let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
         if let results = results {
             while results.next() == true {

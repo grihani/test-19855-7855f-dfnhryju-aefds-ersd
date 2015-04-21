@@ -1455,6 +1455,24 @@
             </objects>
             <point key="canvasLocation" x="4079" y="816"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="DWy-XN-fWd">
+            <objects>
+                <viewController id="AqP-Fl-y4c" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eLm-9e-UkM"/>
+                        <viewControllerLayoutGuide type="bottom" id="hkv-e5-JR8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a2O-IL-sv8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YVZ-hR-2L6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4812" y="130"/>
+        </scene>
         <!--Tasks Of Account View Controller-->
         <scene sceneID="3Pq-76-Ery">
             <objects>
@@ -1466,8 +1484,149 @@
                     <view key="view" contentMode="scaleToFill" id="XBs-0J-asA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7gK-An-ukq">
+                                <rect key="frame" x="208" y="64" width="184" height="528"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tasks of contacts" id="5Mk-dW-Vj9">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Mk-dW-Vj9" id="p7B-d4-A7U">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <tableView clipsSubviews="YES" tag="3" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ktd-5Z-D8A">
+                                <rect key="frame" x="400" y="64" width="184" height="528"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tasks of meetings" id="PDk-Zx-XMi">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PDk-Zx-XMi" id="zBD-zy-B1r">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dao-B9-bMd">
+                                <rect key="frame" x="16" y="20" width="184" height="44"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2na-Df-nCD">
+                                        <rect key="frame" x="0.0" y="0.0" width="184" height="44"/>
+                                        <items>
+                                            <barButtonItem title="Tasks of Accounts" style="plain" id="zr1-lF-dcP">
+                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="TCm-fo-mGt"/>
+                                            <barButtonItem systemItem="add" id="zbG-hD-aFX"/>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="2na-Df-nCD" firstAttribute="top" secondItem="dao-B9-bMd" secondAttribute="top" id="Og1-MX-8Yc"/>
+                                    <constraint firstItem="2na-Df-nCD" firstAttribute="leading" secondItem="dao-B9-bMd" secondAttribute="leading" id="Osw-6F-gW6"/>
+                                    <constraint firstAttribute="bottom" secondItem="2na-Df-nCD" secondAttribute="bottom" id="S2t-4H-r3Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="2na-Df-nCD" secondAttribute="trailing" id="qld-RB-A9t"/>
+                                    <constraint firstAttribute="width" secondItem="2na-Df-nCD" secondAttribute="width" id="tds-32-wyb"/>
+                                    <constraint firstAttribute="height" secondItem="2na-Df-nCD" secondAttribute="height" id="ugh-4D-cIT"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzx-C1-dpE">
+                                <rect key="frame" x="208" y="20" width="184" height="44"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWd-dp-li0">
+                                        <rect key="frame" x="0.0" y="0.0" width="184" height="44"/>
+                                        <items>
+                                            <barButtonItem title="Tasks Of Contacts" style="plain" id="qiD-th-qiD">
+                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="u23-BD-Ili"/>
+                                            <barButtonItem systemItem="add" id="MRW-sO-dLZ"/>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="cWd-dp-li0" secondAttribute="trailing" id="AIf-An-Umw"/>
+                                    <constraint firstItem="cWd-dp-li0" firstAttribute="top" secondItem="tzx-C1-dpE" secondAttribute="top" id="Nrl-5e-Bky"/>
+                                    <constraint firstAttribute="width" secondItem="cWd-dp-li0" secondAttribute="width" id="VUZ-XB-eIY"/>
+                                    <constraint firstItem="cWd-dp-li0" firstAttribute="leading" secondItem="tzx-C1-dpE" secondAttribute="leading" id="aUq-sD-90P"/>
+                                    <constraint firstAttribute="height" secondItem="cWd-dp-li0" secondAttribute="height" id="et7-Xy-bN1"/>
+                                    <constraint firstAttribute="bottom" secondItem="cWd-dp-li0" secondAttribute="bottom" id="mGh-c4-uEa"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S52-Hl-N7C">
+                                <rect key="frame" x="400" y="20" width="184" height="44"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fc9-Bv-rfc">
+                                        <rect key="frame" x="0.0" y="0.0" width="184" height="44"/>
+                                        <items>
+                                            <barButtonItem title="Tasks Of Meetings" style="plain" id="8bE-JJ-4SG">
+                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="HSI-eb-TVL"/>
+                                            <barButtonItem systemItem="add" id="Jii-TG-Pkf"/>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fc9-Bv-rfc" secondAttribute="trailing" id="59q-xs-I0h"/>
+                                    <constraint firstItem="fc9-Bv-rfc" firstAttribute="leading" secondItem="S52-Hl-N7C" secondAttribute="leading" id="IVY-fk-Nti"/>
+                                    <constraint firstAttribute="height" secondItem="fc9-Bv-rfc" secondAttribute="height" id="J26-Wm-ytA"/>
+                                    <constraint firstAttribute="width" secondItem="fc9-Bv-rfc" secondAttribute="width" id="Kct-cQ-TQe"/>
+                                    <constraint firstAttribute="bottom" secondItem="fc9-Bv-rfc" secondAttribute="bottom" id="a1m-Ao-BoK"/>
+                                    <constraint firstItem="fc9-Bv-rfc" firstAttribute="top" secondItem="S52-Hl-N7C" secondAttribute="top" id="idJ-xr-anB"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OBF-gL-Mwz">
+                                <rect key="frame" x="16" y="64" width="184" height="528"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tasks of accounts" id="T2d-KX-pnV">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T2d-KX-pnV" id="Ovi-H2-EmZ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="S52-Hl-N7C" firstAttribute="leading" secondItem="tzx-C1-dpE" secondAttribute="trailing" constant="8" id="1tr-YQ-4I8"/>
+                            <constraint firstItem="OBF-gL-Mwz" firstAttribute="width" secondItem="dao-B9-bMd" secondAttribute="width" id="388-5j-3Dt"/>
+                            <constraint firstItem="OBF-gL-Mwz" firstAttribute="leading" secondItem="XBs-0J-asA" secondAttribute="leadingMargin" id="3Mk-5a-5Kf"/>
+                            <constraint firstItem="OBF-gL-Mwz" firstAttribute="top" secondItem="dao-B9-bMd" secondAttribute="bottom" id="4of-MF-ubv"/>
+                            <constraint firstItem="7gK-An-ukq" firstAttribute="top" secondItem="tzx-C1-dpE" secondAttribute="bottom" id="5iR-zf-EjG"/>
+                            <constraint firstItem="tzx-C1-dpE" firstAttribute="top" secondItem="PKE-Bd-qhD" secondAttribute="bottom" id="6KD-bR-9yA"/>
+                            <constraint firstItem="dao-B9-bMd" firstAttribute="leading" secondItem="XBs-0J-asA" secondAttribute="leadingMargin" id="6aV-E2-BHl"/>
+                            <constraint firstItem="PSA-m1-wDT" firstAttribute="top" secondItem="ktd-5Z-D8A" secondAttribute="bottom" constant="8" id="CHs-83-hZ1"/>
+                            <constraint firstItem="ktd-5Z-D8A" firstAttribute="trailing" secondItem="XBs-0J-asA" secondAttribute="trailingMargin" id="InA-mb-qKA"/>
+                            <constraint firstItem="tzx-C1-dpE" firstAttribute="leading" secondItem="dao-B9-bMd" secondAttribute="trailing" constant="8" id="KDO-0x-JCi"/>
+                            <constraint firstItem="PSA-m1-wDT" firstAttribute="top" secondItem="7gK-An-ukq" secondAttribute="bottom" constant="8" id="OoW-wR-3H9"/>
+                            <constraint firstItem="7gK-An-ukq" firstAttribute="width" secondItem="tzx-C1-dpE" secondAttribute="width" id="Tdl-Ec-NHg"/>
+                            <constraint firstItem="ktd-5Z-D8A" firstAttribute="top" secondItem="S52-Hl-N7C" secondAttribute="bottom" id="VWV-G3-eDX"/>
+                            <constraint firstItem="7gK-An-ukq" firstAttribute="width" secondItem="OBF-gL-Mwz" secondAttribute="width" id="Xbf-MR-xJK"/>
+                            <constraint firstItem="ktd-5Z-D8A" firstAttribute="width" secondItem="OBF-gL-Mwz" secondAttribute="width" id="aja-aR-pRx"/>
+                            <constraint firstItem="7gK-An-ukq" firstAttribute="leading" secondItem="OBF-gL-Mwz" secondAttribute="trailing" constant="8" id="anb-qG-8e0"/>
+                            <constraint firstItem="PSA-m1-wDT" firstAttribute="top" secondItem="OBF-gL-Mwz" secondAttribute="bottom" constant="8" id="c6P-Dy-PYo"/>
+                            <constraint firstItem="dao-B9-bMd" firstAttribute="top" secondItem="PKE-Bd-qhD" secondAttribute="bottom" id="gxs-j5-9Ra"/>
+                            <constraint firstItem="ktd-5Z-D8A" firstAttribute="leading" secondItem="7gK-An-ukq" secondAttribute="trailing" constant="8" id="ijX-gS-mn2"/>
+                            <constraint firstItem="S52-Hl-N7C" firstAttribute="trailing" secondItem="XBs-0J-asA" secondAttribute="trailingMargin" id="mV0-rz-F4C"/>
+                            <constraint firstItem="S52-Hl-N7C" firstAttribute="top" secondItem="PKE-Bd-qhD" secondAttribute="bottom" id="s5t-fD-Zqu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tasksOfAccountsTableView" destination="OBF-gL-Mwz" id="itX-we-68W"/>
+                        <outlet property="tasksOfContactsTableView" destination="7gK-An-ukq" id="MZU-B6-2qv"/>
+                        <outlet property="tasksOfMeetingsTableView" destination="ktd-5Z-D8A" id="uNZ-uh-iyb"/>
+                        <segue destination="AqP-Fl-y4c" kind="popoverPresentation" identifier="Add a task" popoverAnchorView="XBs-0J-asA" id="nbc-vE-DSx">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nP-Lo-WdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
