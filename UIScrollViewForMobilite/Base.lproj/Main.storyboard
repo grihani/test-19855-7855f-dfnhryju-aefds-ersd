@@ -1455,10 +1455,10 @@
             </objects>
             <point key="canvasLocation" x="4079" y="816"/>
         </scene>
-        <!--View Controller-->
+        <!--Task Details Of Account View Controller-->
         <scene sceneID="DWy-XN-fWd">
             <objects>
-                <viewController id="AqP-Fl-y4c" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="popoverTasksOfAccountViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AqP-Fl-y4c" customClass="TaskDetailsOfAccountViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eLm-9e-UkM"/>
                         <viewControllerLayoutGuide type="bottom" id="hkv-e5-JR8"/>
@@ -1466,8 +1466,55 @@
                     <view key="view" contentMode="scaleToFill" id="a2O-IL-sv8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject Task" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PkH-V9-c36">
+                                <rect key="frame" x="16" y="28" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-R0-tFG">
+                                <rect key="frame" x="16" y="66" width="568" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="451387935.75945699">
+                                    <!--2015-04-22 09:32:15 +0000-->
+                                </date>
+                            </datePicker>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BFZ-Js-Tsx">
+                                <rect key="frame" x="16" y="236" width="568" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="AqP-Fl-y4c" id="ZZT-IQ-dMg"/>
+                                    <outlet property="delegate" destination="AqP-Fl-y4c" id="JgV-eN-SrU"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMB-jC-HfR">
+                                <rect key="frame" x="544" y="406" width="40" height="30"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closePopover:" destination="AqP-Fl-y4c" eventType="touchUpInside" id="kYx-5K-IwV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="PkH-V9-c36" firstAttribute="top" secondItem="eLm-9e-UkM" secondAttribute="bottom" constant="8" symbolic="YES" id="0gk-Vn-QdD"/>
+                            <constraint firstItem="Kzh-R0-tFG" firstAttribute="leading" secondItem="a2O-IL-sv8" secondAttribute="leadingMargin" id="0n7-jJ-mIl"/>
+                            <constraint firstItem="Kzh-R0-tFG" firstAttribute="top" secondItem="PkH-V9-c36" secondAttribute="bottom" constant="8" id="DdW-ef-SQ6"/>
+                            <constraint firstItem="BFZ-Js-Tsx" firstAttribute="leading" secondItem="a2O-IL-sv8" secondAttribute="leadingMargin" id="GaD-Wq-wfg"/>
+                            <constraint firstItem="PkH-V9-c36" firstAttribute="leading" secondItem="a2O-IL-sv8" secondAttribute="leadingMargin" id="VIA-kz-eQc"/>
+                            <constraint firstItem="bMB-jC-HfR" firstAttribute="top" secondItem="BFZ-Js-Tsx" secondAttribute="bottom" constant="8" id="WC4-tb-XHk"/>
+                            <constraint firstItem="BFZ-Js-Tsx" firstAttribute="top" secondItem="Kzh-R0-tFG" secondAttribute="bottom" constant="8" id="ZGM-Rg-C6B"/>
+                            <constraint firstItem="hkv-e5-JR8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bMB-jC-HfR" secondAttribute="bottom" constant="8" symbolic="YES" id="cpo-1U-hw3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bMB-jC-HfR" secondAttribute="trailing" id="dzd-mL-gG4"/>
+                            <constraint firstItem="BFZ-Js-Tsx" firstAttribute="trailing" secondItem="a2O-IL-sv8" secondAttribute="trailingMargin" id="pIL-Os-5T1"/>
+                            <constraint firstItem="PkH-V9-c36" firstAttribute="trailing" secondItem="a2O-IL-sv8" secondAttribute="trailingMargin" id="rc4-ev-1LE"/>
+                            <constraint firstItem="Kzh-R0-tFG" firstAttribute="trailing" secondItem="a2O-IL-sv8" secondAttribute="trailingMargin" id="xfO-AA-ZP2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateTask" destination="Kzh-R0-tFG" id="Vxh-zq-9s1"/>
+                        <outlet property="statusTask" destination="BFZ-Js-Tsx" id="WRq-hz-vuB"/>
+                        <outlet property="subjectTask" destination="PkH-V9-c36" id="hbZ-0x-SHy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YVZ-hR-2L6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1623,14 +1670,66 @@
                         <outlet property="tasksOfAccountsTableView" destination="OBF-gL-Mwz" id="itX-we-68W"/>
                         <outlet property="tasksOfContactsTableView" destination="7gK-An-ukq" id="MZU-B6-2qv"/>
                         <outlet property="tasksOfMeetingsTableView" destination="ktd-5Z-D8A" id="uNZ-uh-iyb"/>
-                        <segue destination="AqP-Fl-y4c" kind="popoverPresentation" identifier="Add a task" popoverAnchorView="XBs-0J-asA" id="nbc-vE-DSx">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        <segue destination="AqP-Fl-y4c" kind="popoverPresentation" identifier="trialPopoverFromOtherClass" popoverAnchorView="XBs-0J-asA" id="zbP-yT-U5k">
+                            <popoverArrowDirection key="popoverArrowDirection"/>
                         </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nP-Lo-WdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4812" y="816"/>
+        </scene>
+        <!--Opportunities Of Account View Controller-->
+        <scene sceneID="25q-NW-hBS">
+            <objects>
+                <viewController storyboardIdentifier="Pipeline" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hzp-5p-0f1" customClass="OpportunitiesOfAccountViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KZb-HA-01Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="wkx-yy-6aI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I2l-ir-mWZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YRR-pW-7km">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="opportunityOfAccount" id="Y4Q-Q8-YHh">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y4Q-Q8-YHh" id="tBE-kM-jNZ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="hzp-5p-0f1" id="J5W-Ms-whI"/>
+                                    <outlet property="delegate" destination="hzp-5p-0f1" id="cMK-oJ-XT0"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nb-D6-sts">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hIm-Un-bld"/>
+                                    <barButtonItem systemItem="add" id="2B1-vo-DW8"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wkx-yy-6aI" firstAttribute="top" secondItem="YRR-pW-7km" secondAttribute="bottom" id="3Sq-C3-TE4"/>
+                            <constraint firstItem="YRR-pW-7km" firstAttribute="top" secondItem="6nb-D6-sts" secondAttribute="bottom" id="IKg-TL-1BC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YRR-pW-7km" secondAttribute="trailing" constant="-16" id="MO0-fI-BK0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6nb-D6-sts" secondAttribute="trailing" constant="-16" id="PnR-qh-VIr"/>
+                            <constraint firstItem="6nb-D6-sts" firstAttribute="leading" secondItem="I2l-ir-mWZ" secondAttribute="leadingMargin" constant="-16" id="ZLi-9o-WI4"/>
+                            <constraint firstItem="YRR-pW-7km" firstAttribute="leading" secondItem="I2l-ir-mWZ" secondAttribute="leadingMargin" constant="-16" id="yal-Yu-8wV"/>
+                            <constraint firstItem="6nb-D6-sts" firstAttribute="top" secondItem="I2l-ir-mWZ" secondAttribute="topMargin" id="yfz-ke-rUi"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sim-hs-ER7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5515" y="816"/>
         </scene>
         <!--Vue360 View Controller-->
         <scene sceneID="NzU-Tc-oFT">

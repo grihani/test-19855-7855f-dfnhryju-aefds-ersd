@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TasksOfAccountViewController: UIViewController {
+class TasksOfAccountViewController: UIViewController, UITableViewDelegate, UIPopoverPresentationControllerDelegate {
 
     var account: AccountModel!
     var tasksOfAccounts = TasksOfAccounts()
@@ -31,8 +31,9 @@ class TasksOfAccountViewController: UIViewController {
                 }
             }
         }
+//        tasksOfAccounts.container = self
         tasksOfAccountsTableView.dataSource = tasksOfAccounts
-        tasksOfAccountsTableView.delegate = tasksOfAccounts
+        tasksOfAccountsTableView.delegate = self
         
         
         tasksOfContacts.contacts = ContactDataModel().contactsOfAccount(account: self.account)
@@ -51,14 +52,29 @@ class TasksOfAccountViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if tableView == tasksOfAccountsTableView {
+            let row = indexPath.row
+            let section = indexPath.section
+            if let dictionary = tasksOfAccounts.collectionOfTasks.objectAtIndex(section) as? NSDictionary {
+                let key = tasksOfAccounts.statusTasks[section]
+                if let tasksOfSection = dictionary.objectForKey(key) as? [TaskModel] {
+                    tasksOfAccounts.chosenTask = tasksOfSection[row]
+                    println(tasksOfSection[row].arrayFromModel())
+                                    self.performSegueWithIdentifier("trialPopoverFromOtherClass", sender: self)
+                }
+            }
+        }
+    }
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "trialPopoverFromOtherClass" {
+            if let ppc = segue.destinationViewController as? TaskDetailsOfAccountViewController {
+                ppc.task = tasksOfAccounts.chosenTask
+            }
+        }
     }
 
 }
@@ -68,6 +84,8 @@ class TasksOfAccounts: UITableViewController, UITableViewDataSource, UITableView
     var account: AccountModel = AccountModel()
     var collectionOfTasks: NSMutableArray = NSMutableArray()
     var statusTasks: [String] = []
+    var chosenTask: TaskModel = TaskModel()
+//    var container: TasksOfAccountViewController = TasksOfAccountViewController()
     
     let dateFormatter =  NSDateFormatter()
     
@@ -118,7 +136,27 @@ class TasksOfAccounts: UITableViewController, UITableViewDataSource, UITableView
         return 1
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let row = indexPath.row
+        let section = indexPath.section
+        if let dictionary = collectionOfTasks.objectAtIndex(section) as? NSDictionary {
+            let key = statusTasks[section]
+            if let tasksOfSection = dictionary.objectForKey(key) as? [TaskModel] {
+                self.chosenTask = tasksOfSection[row]
+                println(tasksOfSection[row].arrayFromModel())
+//                self.container.performSegueWithIdentifier("trialPopoverFromOtherClass", sender: self)
+            }
+        }
+    }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "trialPopoverFromOtherClass" {
+            if let ppc = segue.destinationViewController as? TaskDetailsOfAccountViewController                                                                                                                                                                            {
+                println("trying to pass a segue")
+            }
+            
+        }
+    }
 }
 
 class TasksOfContacts: UITableViewController, UITableViewDataSource, UITableViewDelegate {
@@ -192,6 +230,10 @@ class TasksOfContacts: UITableViewController, UITableViewDataSource, UITableView
     
     override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 1
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
     }
     
     
@@ -304,6 +346,10 @@ class TasksOfMeetings: UITableViewController, UITableViewDataSource, UITableView
         label.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
         label.text = stringFromMeeting
         return label
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
     }
     
     

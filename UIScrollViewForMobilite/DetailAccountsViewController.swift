@@ -17,12 +17,13 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var listeButtonsForPages: UIView!
     @IBOutlet weak var navigationBar: UINavigationItem!
     
-    var identifiers: [String] = ["Meetings", "Vue 360°", "Contacts", "Next Actions"]
+    var identifiers: [String] = ["Meetings", "Vue 360°", "Contacts", "Next Actions", "Pipeline"]
     // Manque 'Next actions', 'Account Details', 'Pipe', 'Relation Activity'
     var meetingsOfAccount: MeetingsOfAccountViewController = MeetingsOfAccountViewController()
     var vue360: Vue360ViewController = Vue360ViewController()
     var contactsOfAccount: ContactsOfAccountViewController = ContactsOfAccountViewController()
     var tasksOfAccount: TasksOfAccountViewController = TasksOfAccountViewController()
+    var opportunitiesOfAccount: OpportunitiesOfAccountViewController = OpportunitiesOfAccountViewController()
     var pageControllers: [UIViewController] = []
     var pageViews: [UIView] = []
     var firstPage = 1
@@ -36,7 +37,8 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
 //        self.showList.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-        buttonForPages(listeButtonsForPages)
+//        buttonForPages(listeButtonsForPages)
+        createMenuButtons(identifiers, lastCreatedFrame: CGRectZero, view: listeButtonsForPages)
         if account == nil {
             account = AccountDataModel().accountOfNextMeeting()
         }
@@ -93,6 +95,11 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             viewControllers.append(viewController)
             self.tasksOfAccount = viewController
             self.tasksOfAccount.account = self.account
+        }
+        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[4]) as? OpportunitiesOfAccountViewController {
+            viewControllers.append(viewController)
+            self.opportunitiesOfAccount = viewController
+            self.opportunitiesOfAccount.account = self.account
         }
         return viewControllers
     }
@@ -184,5 +191,25 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             button.backgroundColor = blueUncheckedColor
         }
         buttonPages[page].backgroundColor = blueCheckedColor
+    }
+    
+    func createMenuButtons(menuTitles: [String], lastCreatedFrame: CGRect, view:UIView) {
+        if menuTitles != [] {
+            var menu = menuTitles
+            var frame = lastCreatedFrame
+            frame.origin.x = frame.origin.x + 8 + frame.size.width
+            frame.size.height = 37
+            let button = UIButton(frame: frame)
+            let firstItemOfMenuTitles = menu.removeAtIndex(0)
+            button.setTitle(firstItemOfMenuTitles, forState: .Normal)
+            
+            button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+            button.addTarget(self, action: Selector("goPage:"), forControlEvents: UIControlEvents.TouchUpInside)
+            button.layer.cornerRadius = 8
+            button.sizeToFit()
+            view.addSubview(button)
+            buttonPages.append(button)
+            createMenuButtons(menu, lastCreatedFrame: button.frame, view: view)
+        }
     }
 }
