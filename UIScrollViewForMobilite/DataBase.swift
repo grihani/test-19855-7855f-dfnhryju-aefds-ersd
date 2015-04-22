@@ -102,6 +102,10 @@ class DataBase {
         // TasksMeetingsModel
         var tasksMeetingsModel = TasksMeetingsModel()
         sqlStatement += tasksMeetingsModel.tasksMeetingsCreateSQL
+        
+        // UserModel
+        var userModel = UserModel()
+        sqlStatement += userModel.userCreateSQL
 
 
         println(sqlStatement)
@@ -153,6 +157,9 @@ class DataBase {
         if checkEmptyTable("Tasks_Meetings"){
             Bouchonnage().insertingTaskMeetings()
         }
+        if checkEmptyTable("User") {
+            Bouchonnage().insertingUser()
+        }
     }
     
     func checkEmptyTable(table: String) -> Bool {
@@ -188,6 +195,16 @@ class DataBase {
         } else {
             println("the view Account_Contacts_Meetings was created")
         }
+    }
+    
+    func checkIfTableExist(table: String) -> Bool {
+        println("checking if \(table) exist")
+        var querySQL = "IF EXISTS (SELECT top 1 FROM \(table))"
+        let result: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let result = result {
+            return true
+        }
+        return false
     }
 }
 

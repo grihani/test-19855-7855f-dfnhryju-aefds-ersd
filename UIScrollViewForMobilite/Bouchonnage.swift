@@ -1197,5 +1197,45 @@ class Bouchonnage {
         }
         println(successful)
     }
+    
+    var users = [[ "1", "test", "test", "toto@toto.com", "test", "test", "Salesforce", "Quel est le nom de votre premier annimal de compagnie", "chien" ]]
+    func remplirUser() {
+        self.users.append([ "2", "truc", "truc", "tata@tata.com", "truc", "truc", "Salesforce", "Quel est le nom de votre premier annimal de compagnie", "chat" ])
+    }
+    
+    func viderUser() {
+        self.users = [[ "1", "test", "test", "toto@toto.com", "test", "test", "Salesforce", "Quel est le nom de votre premier annimal de compagnie", "chien" ]]
+    }
+    
+    func remplirTableauUser() -> [UserModel] {
+        remplirUser()
+        var usersARendre = [UserModel]()
+        var usersModel: UserModel
+        for user in self.users {
+            var idUser: Int = user[0].toInt()!
+            var username: String = user[01]
+            var password: String = user[02]
+            var mail: String = user[03]
+            var usernameCRM: String = user[04]
+            var passwordCRM: String = user[05]
+            var pickerCRM: String = user[06]
+            var questionSecrete: String = user[07]
+            var reponseSecrete: String = user[08]
+            usersModel = UserModel(idUser: idUser, username: username, password: password, mail: mail, usernameCRM: usernameCRM, passwordCRM: passwordCRM, pickerCRM: pickerCRM, questionSecrete: questionSecrete, reponseSecrete: reponseSecrete)
+            usersARendre.append(usersModel)
+        }
+        viderUser()
+        return usersARendre
+    }
+    
+    func insertingUser() {
+        var successful = ""
+        let usersToInsert = remplirTableauUser()
+        for userToInsert in usersToInsert {
+            successful += UserDataModel().inserUser(userToInsert)
+            successful += "\n"
+        }
+        println(successful)
+    }
 
 }
