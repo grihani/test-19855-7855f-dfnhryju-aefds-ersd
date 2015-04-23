@@ -9,11 +9,16 @@
 import UIKit
 
 class HomepageUserViewController: UIViewController {
+    
+    var idUser: Int = 0
+    @IBOutlet weak var labelBienvenue: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        var userModel = UserDataModel().getUserWithIdUser(idUser)
+        labelBienvenue.text = "Bonjour, \(userModel.username)"
     }
 
     override func didReceiveMemoryWarning() {

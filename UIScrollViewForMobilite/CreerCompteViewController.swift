@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreerCompteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CreerCompteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
 
     
     @IBOutlet weak var username: UITextField!
@@ -21,7 +21,7 @@ class CreerCompteViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var reponseSecrete: UITextField!
     
     private var crm = ["Choississez un CRM", "Salesforce", "Microsoft Dynamics"]
-    private var questionSecrete = ["Choississez une question secrète.", "Quel est le nom de votre ville natale ?", "Quel est le nom de votre premier annimal de compagnie ?"]
+    private var questionSecrete = ["Choississez une question secrète.", "Quel est le nom de votre ville natale ?", "Quel est le nom de votre premier animal de compagnie ?"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,5 +85,14 @@ class CreerCompteViewController: UIViewController, UIPickerViewDelegate, UIPicke
         } else {
             return questionSecrete[row]
         }
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        username.endEditing(true)
+        password.endEditing(true)
+        mail.endEditing(true)
+        usernameCRM.endEditing(true)
+        passwordCRM.endEditing(true)
+        reponseSecrete.endEditing(true)
     }
 }

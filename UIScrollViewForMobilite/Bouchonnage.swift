@@ -1198,13 +1198,13 @@ class Bouchonnage {
         println(successful)
     }
     
-    var users = [[ "1", "test", "test", "toto@toto.com", "test", "test", "Salesforce", "Quel est le nom de votre premier annimal de compagnie", "chien" ]]
+    var users = [[ "1", "test", "test", "toto@toto.com", "test", "test", "Salesforce", "Quel est le nom de votre premier animal de compagnie", "chien" ]]
     func remplirUser() {
-        self.users.append([ "2", "truc", "truc", "tata@tata.com", "truc", "truc", "Salesforce", "Quel est le nom de votre premier annimal de compagnie", "chat" ])
+        self.users.append([ "2", "truc", "truc", "tata@tata.com", "truc", "truc", "Salesforce", "Quel est le nom de votre premier animal de compagnie", "chat" ])
     }
     
     func viderUser() {
-        self.users = [[ "1", "test", "test", "toto@toto.com", "test", "test", "Salesforce", "Quel est le nom de votre premier annimal de compagnie", "chien" ]]
+        self.users = [[ "1", "test", "test", "toto@toto.com", "test", "test", "Salesforce", "Quel est le nom de votre premier animal de compagnie", "chien" ]]
     }
     
     func remplirTableauUser() -> [UserModel] {

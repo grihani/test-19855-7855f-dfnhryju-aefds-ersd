@@ -12,6 +12,7 @@ class HomepageLoginViewController: UIViewController {
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    var idUser = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +30,10 @@ class HomepageLoginViewController: UIViewController {
         // Vérification du nom d'utilisateur
         var (userExiste, userId) = UserDataModel().isTrueUserWithUsernameAndPassword(username.text, password: password.text)
         if (userExiste) {
+            let userModel = UserDataModel().getUserWithIdUser(userId)
+            self.idUser = userId
             // Afficher la page d'accueil de l'utilisateur.
             performSegueWithIdentifier("logIn", sender: self)
-            println("Bonjour, \(username.text)")
         } else {
             let msgUserExiste = "Le nom d'utilisateur ou le mot de passe n'est pas correct."
             let alert = UIAlertController(title: "ATTENTION", message: msgUserExiste, preferredStyle: .Alert)
@@ -41,15 +43,23 @@ class HomepageLoginViewController: UIViewController {
         }
     }
     
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        username.endEditing(true)
+        password.endEditing(true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "logIn" {
+            if let destinationVC = (segue.destinationViewController as UINavigationController).topViewController as? HomepageUserViewController {
+                destinationVC.idUser = self.idUser
+            }
+        }
+    }
+    
     @IBAction func backButton(segue: UIStoryboardSegue) {
         
     }
     
-
-    /*@IBAction func backgroundTap(sender: AnyObject) {
-        username.resignFirstResponder()
-        password.resignFirstResponder()
-    }*/
     /*
     // MARK: - Navigation
 
