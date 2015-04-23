@@ -54,7 +54,7 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
                 if let ppc = civilityView.popoverPresentationController {
                     let minimumSize = civilityView.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
                     civilityView.preferredContentSize = minimumSize
-//                    self.cellContact.civilityContact.setTitle(civilityView, forState: <#UIControlState#>)
+                    civilityView.civilityButton = cellContact.civilityContact
                 }
             }
         }
@@ -63,6 +63,7 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
                 if let ppc = birthdayView.popoverPresentationController {
                     let minimumSize = birthdayView.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
                     birthdayView.preferredContentSize = minimumSize
+                    birthdayView.date = cellContact.birthdateContact
                 }
             }
         }
@@ -86,11 +87,11 @@ class ContactCell: UITableViewCell {
     
     
     
-    @IBOutlet weak var civilityContact: UIButton!
+    @IBOutlet weak var civilityContact: UIButton! {didSet { civilityContact.setTitle("Mr", forState: .Normal) }}
     @IBOutlet weak var firstNameContact: UITextField!
     @IBOutlet weak var lastNameContact: UITextField!
     @IBOutlet weak var jobTitleContact: UITextField!
-    @IBOutlet weak var birthdateContact: UIButton!
+    @IBOutlet weak var birthdateContact: UIButton! {didSet { setTodayDate() } }
     @IBOutlet weak var phoneBusinessContact: UITextField!
     @IBOutlet weak var countryContact: UIButton!
     @IBOutlet weak var phoneMobileContact: UITextField!
@@ -104,5 +105,11 @@ class ContactCell: UITableViewCell {
     @IBOutlet weak var typeContact: UIButton!
     @IBOutlet weak var idContact1: UIButton!
     
-    
+    func setTodayDate() {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.timeStyle = .NoStyle
+        let todayDate = dateFormatter.stringFromDate(NSDate())
+        birthdateContact.setTitle(todayDate, forState: .Normal)
+    }
 }

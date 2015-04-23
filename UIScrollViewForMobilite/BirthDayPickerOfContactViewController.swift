@@ -10,6 +10,7 @@ import UIKit
 
 class BirthDayPickerOfContactViewController: UIViewController {
 
+    var date = UIButton()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +22,13 @@ class BirthDayPickerOfContactViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func dateChanged(sender: UIDatePicker) {
+        let dateOfPicker = sender.date
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.timeStyle = .NoStyle
+        date.setTitle(dateFormatter.stringFromDate(dateOfPicker), forState: .Normal)
+    }
 
     /*
     // MARK: - Navigation

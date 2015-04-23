@@ -8,19 +8,19 @@
 
 import UIKit
 
-class CivilityPickerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class CivilityPickerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverPresentationControllerDelegate {
     
     var civility = ["Mr","Mrs","Miss"]
+    @IBOutlet weak var civilityPicker: UIPickerView!
+    var civilityButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        civilityButton.setTitle(civility[0], forState: .Normal)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -35,14 +35,8 @@ class CivilityPickerViewController: UIViewController, UIPickerViewDataSource, UI
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return civility[row]
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        civilityButton.setTitle(civility[row], forState: .Normal)
     }
-    */
-
 }
