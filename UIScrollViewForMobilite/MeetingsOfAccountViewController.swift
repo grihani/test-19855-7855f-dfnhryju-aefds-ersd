@@ -15,7 +15,6 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var chosenDate: UILabel!
     @IBOutlet var buttonsForDays: [UIButton]!
     @IBOutlet var addMeetingDateButtons: [UIButton]!
-    @IBOutlet weak var addDateMeeting: UIButton!
     @IBOutlet weak var accountsIHaveMeetingsWithOnDay: UITextView!
     
     var meetings: [MeetingModel] = []
@@ -64,7 +63,6 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
         self.chosenDate.text = chosenDate
         colorButtons(daysOfCalendar[indexOfDate!])
         checkForNumberOfMeetings(date: daysOfCalendar[indexOfDate!])
-        self.addDateMeeting.setTitle(chosenDate, forState: .Normal)
         if self.meetingsState[indexOfDate!].0 == 0 {
             accountsIHaveMeetingsWithOnDay.text = "You have no meeting on this day"
         } else if self.meetingsState[indexOfDate!].1 == 1 {
@@ -72,28 +70,6 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
         } else {
             accountsIHaveMeetingsWithOnDay.text = "You have " + String(self.meetingsState[indexOfDate!].0) + " meetings during this day"
         }
-    }
-    
-    @IBAction func addANewMeetingOnDate(sender: UIButton) {
-        
-    }
-    
-    @IBAction func addANewMeetingWithoutDate(sender: UIButton) {
-        let storyboard : UIStoryboard = UIStoryboard(
-            name: "Main",
-            bundle: nil)
-        var addMeetingWithoutDateViewController: AddMeetingWithoutDateViewController = storyboard.instantiateViewControllerWithIdentifier("AddMeetingWithoutDate") as AddMeetingWithoutDateViewController
-        addMeetingWithoutDateViewController.account = self.account
-        addMeetingWithoutDateViewController.date = self.datePicked
-        addMeetingWithoutDateViewController.modalPresentationStyle = .Popover
-        addMeetingWithoutDateViewController.preferredContentSize = CGSizeMake(widthPopover, heightPopover)
-        let popoverAddMeetingWithoutDateViewController = addMeetingWithoutDateViewController.popoverPresentationController
-        popoverAddMeetingWithoutDateViewController?.permittedArrowDirections = .allZeros
-        popoverAddMeetingWithoutDateViewController?.delegate = self
-        popoverAddMeetingWithoutDateViewController?.sourceView = self.view
-        popoverAddMeetingWithoutDateViewController?.sourceRect = CGRectMake(100/2, 100/2, 1, 1)
-        self.view.window?.rootViewController?.presentViewController(addMeetingWithoutDateViewController, animated: true, completion: nil)
-        
     }
     
     func arrayOfDates() -> [NSDate]  {
@@ -202,5 +178,17 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
             cell.textLabel?.text = stringFromDateBeginMeeting + " : \n" + meetings[row].subjectMeeting
         }
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "addMeeting" {
+            if let meetingsOfAccounts = segue.sourceViewController as? MeetingsOfAccountViewController {
+                if let addMeetingWithoutDateViewController = segue.destinationViewController as? AddMeetingWithoutDateViewController {
+                    addMeetingWithoutDateViewController.account = self.account
+                    addMeetingWithoutDateViewController.date = self.datePicked
+                    addMeetingWithoutDateViewController.preferredContentSize = CGSizeMake(widthPopover, heightPopover)
+                }
+            }
+        }
     }
 }

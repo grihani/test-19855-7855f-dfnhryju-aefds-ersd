@@ -36,6 +36,9 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        self.view.window?.rootViewController = self
+        
 //        self.showList.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
 //        buttonForPages(listeButtonsForPages)
         createMenuButtons(identifiers, lastCreatedFrame: CGRectZero, view: listeButtonsForPages)

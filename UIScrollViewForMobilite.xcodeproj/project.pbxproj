@@ -28,6 +28,10 @@
 		4849836E1AE5519A00972133 /* TasksOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4849836D1AE5519A00972133 /* TasksOfAccountViewController.swift */; };
 		484CDC321AE0E275001E09F8 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CDC311AE0E275001E09F8 /* LoadingIndicator.swift */; };
 		484CDC341AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CDC331AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift */; };
+		4851F8BE1AE8CCB900F1BE9B /* ContactListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4851F8BD1AE8CCB900F1BE9B /* ContactListTableViewController.swift */; };
+		4851F8C11AE9183C00F1BE9B /* CivilityPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4851F8C01AE9183C00F1BE9B /* CivilityPickerViewController.swift */; };
+		4851F8C31AE91DC200F1BE9B /* BirthDayPickerOfContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4851F8C21AE91DC200F1BE9B /* BirthDayPickerOfContactViewController.swift */; };
+		4851F8C51AE91F5100F1BE9B /* CountryPickerOfContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4851F8C41AE91F5100F1BE9B /* CountryPickerOfContactViewController.swift */; };
 		485A23CA1AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A23C91AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift */; };
 		485A23CC1AD6E1880074EDD1 /* MeetingsOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A23CB1AD6E1880074EDD1 /* MeetingsOfAccountViewController.swift */; };
 		485A23CE1AD6EA1F0074EDD1 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A23CD1AD6EA1F0074EDD1 /* Dates.swift */; };
@@ -43,6 +47,7 @@
 		489B31661AC952DB00C04732 /* DetailAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */; };
 		489FC9261AE01CA700C04814 /* LinkedinContactOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FC9251AE01CA700C04814 /* LinkedinContactOfAccountViewController.swift */; };
 		48C22FD61ADFE5F200DE3F5F /* ContactsOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C22FD51ADFE5F200DE3F5F /* ContactsOfAccountViewController.swift */; };
+		48CFE28A1AE7FCFC00FFDFE8 /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CFE2891AE7FCFC00FFDFE8 /* ContactDetailsViewController.swift */; };
 		48FCB1231ACAD55500A770B2 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1221ACAD55500A770B2 /* DataBase.swift */; };
 		48FCB1301ACAD73600A770B2 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1261ACAD73600A770B2 /* FMDatabase.m */; };
 		48FCB1311ACAD73600A770B2 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1281ACAD73600A770B2 /* FMDatabaseAdditions.m */; };
@@ -101,6 +106,10 @@
 		4849836D1AE5519A00972133 /* TasksOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksOfAccountViewController.swift; sourceTree = "<group>"; };
 		484CDC311AE0E275001E09F8 /* LoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		484CDC331AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactOfAccountViewController.swift; sourceTree = "<group>"; };
+		4851F8BD1AE8CCB900F1BE9B /* ContactListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListTableViewController.swift; sourceTree = "<group>"; };
+		4851F8C01AE9183C00F1BE9B /* CivilityPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilityPickerViewController.swift; sourceTree = "<group>"; };
+		4851F8C21AE91DC200F1BE9B /* BirthDayPickerOfContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthDayPickerOfContactViewController.swift; sourceTree = "<group>"; };
+		4851F8C41AE91F5100F1BE9B /* CountryPickerOfContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryPickerOfContactViewController.swift; sourceTree = "<group>"; };
 		485A23C91AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsBeforeKnowledge.swift; sourceTree = "<group>"; };
 		485A23CB1AD6E1880074EDD1 /* MeetingsOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsOfAccountViewController.swift; sourceTree = "<group>"; };
 		485A23CD1AD6EA1F0074EDD1 /* Dates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
@@ -123,6 +132,7 @@
 		489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailAccountsViewController.swift; sourceTree = "<group>"; };
 		489FC9251AE01CA700C04814 /* LinkedinContactOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedinContactOfAccountViewController.swift; sourceTree = "<group>"; };
 		48C22FD51ADFE5F200DE3F5F /* ContactsOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsOfAccountViewController.swift; sourceTree = "<group>"; };
+		48CFE2891AE7FCFC00FFDFE8 /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
 		48FCB1221ACAD55500A770B2 /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		48FCB1251ACAD73600A770B2 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		48FCB1261ACAD73600A770B2 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
@@ -207,6 +217,16 @@
 			name = Functionalities;
 			sourceTree = "<group>";
 		};
+		4851F8BF1AE917F200F1BE9B /* PopoverViewsInContacts */ = {
+			isa = PBXGroup;
+			children = (
+				4851F8C01AE9183C00F1BE9B /* CivilityPickerViewController.swift */,
+				4851F8C21AE91DC200F1BE9B /* BirthDayPickerOfContactViewController.swift */,
+				4851F8C41AE91F5100F1BE9B /* CountryPickerOfContactViewController.swift */,
+			);
+			name = PopoverViewsInContacts;
+			sourceTree = "<group>";
+		};
 		485A23C81AD6B28C0074EDD1 /* FunctionsBeforeKnowledge */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +273,7 @@
 				48FCB11F1ACAD52600A770B2 /* dataBase */,
 				48FCB11E1ACAD50500A770B2 /* Accounts */,
 				481419CF1AD588D0009B38D6 /* Meetings */,
+				48CFE2881AE7FCE400FFDFE8 /* Contacts */,
 				488186121AC94F6600923A18 /* Supporting Files */,
 			);
 			path = UIScrollViewForMobilite;
@@ -308,6 +329,16 @@
 				484CDC331AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift */,
 			);
 			name = ContactsOfAccount;
+			sourceTree = "<group>";
+		};
+		48CFE2881AE7FCE400FFDFE8 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				48CFE2891AE7FCFC00FFDFE8 /* ContactDetailsViewController.swift */,
+				4851F8BD1AE8CCB900F1BE9B /* ContactListTableViewController.swift */,
+				4851F8BF1AE917F200F1BE9B /* PopoverViewsInContacts */,
+			);
+			name = Contacts;
 			sourceTree = "<group>";
 		};
 		48ECE1CD1ACC41FC004D2003 /* Models */ = {
@@ -555,6 +586,7 @@
 				48C22FD61ADFE5F200DE3F5F /* ContactsOfAccountViewController.swift in Sources */,
 				48FCB1341ACAD73600A770B2 /* FMResultSet.m in Sources */,
 				48FCB13A1ACADE0A00A770B2 /* OpportunityModel.swift in Sources */,
+				4851F8C11AE9183C00F1BE9B /* CivilityPickerViewController.swift in Sources */,
 				480DA2391ACC2C0D00F43FA1 /* AccountContractsDataModel.swift in Sources */,
 				48FCB1401ACAE09E00A770B2 /* AccountContactModel.swift in Sources */,
 				484CDC341AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift in Sources */,
@@ -564,12 +596,14 @@
 				480DA2351ACC2BDC00F43FA1 /* AccountOpportunitiesDataModel.swift in Sources */,
 				480DA2271ACBD68E00F43FA1 /* MeetingDataModel.swift in Sources */,
 				480DA23F1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift in Sources */,
+				48CFE28A1AE7FCFC00FFDFE8 /* ContactDetailsViewController.swift in Sources */,
 				48FCB1541ACAE97E00A770B2 /* TasksMeetingsModel.swift in Sources */,
 				489B31661AC952DB00C04732 /* DetailAccountsViewController.swift in Sources */,
 				48FCB1331ACAD73600A770B2 /* FMDatabaseQueue.m in Sources */,
 				48FCB1301ACAD73600A770B2 /* FMDatabase.m in Sources */,
 				486AE4711AD81ABD00E701AF /* Constants.swift in Sources */,
 				489FC9261AE01CA700C04814 /* LinkedinContactOfAccountViewController.swift in Sources */,
+				4851F8BE1AE8CCB900F1BE9B /* ContactListTableViewController.swift in Sources */,
 				4849836E1AE5519A00972133 /* TasksOfAccountViewController.swift in Sources */,
 				480DA22D1ACC2B9800F43FA1 /* TaskDataModel.swift in Sources */,
 				48FCB1501ACAE80300A770B2 /* TasksAccountModel.swift in Sources */,
@@ -593,6 +627,8 @@
 				48FCB14C1ACAE61700A770B2 /* AccountContractsModel.swift in Sources */,
 				485A23CA1AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift in Sources */,
 				480DA22F1ACC2BA800F43FA1 /* ContractsDataModel.swift in Sources */,
+				4851F8C31AE91DC200F1BE9B /* BirthDayPickerOfContactViewController.swift in Sources */,
+				4851F8C51AE91F5100F1BE9B /* CountryPickerOfContactViewController.swift in Sources */,
 				480DA2291ACC2B7600F43FA1 /* OpportunityDataModel.swift in Sources */,
 				481876D31AE78535005BF26F /* TaskDetailsOfAccountViewController.swift in Sources */,
 				48FCB1461ACAE45300A770B2 /* MeetingContactModel.swift in Sources */,
