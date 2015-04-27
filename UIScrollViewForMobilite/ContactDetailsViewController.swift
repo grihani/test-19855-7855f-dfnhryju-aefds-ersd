@@ -12,10 +12,20 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
 
     
     
-    @IBOutlet weak var accountDetails: UILabel!
-    var account: AccountModel! {
+    @IBOutlet weak var accountDetails: UILabel! {
         didSet {
-            accountDetails.text = account.industryAccount + "\n" + account.phoneAccount + "\n" + account.adressAccount
+            if let account = account {
+                accountDetails.text = account.industryAccount + "\n" + account.phoneAccount + "\n" + account.adressAccount
+            }
+        }
+    }
+    var account: AccountModel? {
+        didSet {
+            if let account = account {
+                accountDetails?.text = account.industryAccount + "\n" + account.phoneAccount + "\n" + account.adressAccount
+                accountOfContact?.setTitle(account.nameAccount, forState: .Normal)
+            }
+            
         }
     }
     
@@ -35,21 +45,46 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     var linkedinProfileContact: String = ""
     var idContact1: Int = 0
     
-    var cellContact : ContactCell! {
+    var cellContact : ContactCell!
+    @IBOutlet weak var accountOfContact: UIButton! {
         didSet {
-            updateUI()
+            if let account = account {
+                accountOfContact.setTitle(account.nameAccount, forState: .Normal)
+            }
         }
     }
-    @IBOutlet weak var accountOfContact: UIButton!
+    @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var statusSave: UILabel!
     
 //    @IBOutlet weak var contactCell: ContactCell!
-    var contact: ContactModel!
+    var contact: ContactModel! {
+        didSet {
+            idContact = contact.idContact
+            jobTitleContact = contact.jobTitleContact
+            countryContact = contact.countryContact
+            civilityContact = contact.civilityContact
+            firstNameContact = contact.firstNameContact
+            lastNameContact = contact.lastNameContact
+            typeContact = contact.typeContact
+            birthdateContact = contact.birthdateContact
+            phoneBusinessContact = contact.phoneBusinessContact
+            phoneMobileContact = contact.phoneMobileContact
+            emailContact = contact.emailContact
+            preferredLanguageContact = contact.preferredLanguageContact
+            workingAdressContact = contact.workingAdressContact
+            linkedinProfileContact = contact.linkedinProfileContact
+            idContact1 = contact.idContact1
+            
+            account = AccountDataModel().accountOfContact(contact: contact)
+            navigationBar?.title = contact.lastNameContact
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        checkStatusOfCreationOfContact()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,10 +92,6 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         // Dispose of any resources that can be recreated.
     }
     
-    func updateUI() {
-        println("contact was set")
-        cellContact.contact = self.contact
-    }
     
     // Mark: - tableview data source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -150,11 +181,46 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
                 }
             }
         }
+        else if segue.identifier == "typology of contact" {
+            if let typologyOfContact = segue.destinationViewController as? TypologyOfContactViewController {
+                typologyOfContact.typologyOfContact = cellContact.typeContact
+                typologyOfContact.chosenTypology = self.typeContact
+                if let ppc = typologyOfContact.popoverPresentationController {
+                    let minimumSize = typologyOfContact.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+                    typologyOfContact.preferredContentSize = minimumSize
+                }
+            }
+        }
     }
     
     @IBAction func showList(sender: UIBarButtonItem) {
         self.revealViewController().revealToggle(sender)
     }
+    
+    func checkStatusOfCreationOfContact() {
+        var stringStatus = ""
+        if account == nil {
+            stringStatus += "- Manque le compte auquel est rattaché le contact\n"
+        }
+        if firstNameContact == "" && lastNameContact == "" {
+            stringStatus += "- Manque les nom et prénom du contact \n"
+        } else if firstNameContact == "" {
+            stringStatus += "- Manque le nom du contact \n"
+        } else if lastNameContact == "" {
+            stringStatus += "- Manque le prénom du contact\n"
+        }
+        if emailContact == "" || phoneMobileContact == "" || phoneBusinessContact == "" {
+            stringStatus += "- Rajoutez au moins un E-mail ou un téléphone au contact"
+        }
+        
+        if stringStatus != "" {
+            statusSave.text = stringStatus
+        } else {
+            statusSave.text = "Il est possible d'enregistrer le contact"
+        }
+        
+    }
+    
     @IBAction func showContact(sender: UIButton) {
         println("idContact: \(idContact)")
         println("jobTitleContact: \(jobTitleContact)")
@@ -171,6 +237,7 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         println("workingAdressContact: \(workingAdressContact)")
         println("linkedinProfileContact: \(linkedinProfileContact)")
         println("idContact1: \(idContact1)")
+        checkStatusOfCreationOfContact()
     }
 
 }

@@ -2430,6 +2430,11 @@
                                                     <state key="normal" title="Typology">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <segue destination="sdT-sm-Hyo" kind="popoverPresentation" identifier="typology of contact" popoverAnchorView="Ye4-p9-jb1" id="bQq-6j-wka">
+                                                            <popoverArrowDirection key="popoverArrowDirection"/>
+                                                        </segue>
+                                                    </connections>
                                                 </button>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="INw-Yh-5QE">
                                                     <rect key="frame" x="267" y="122" width="251" height="30"/>
@@ -2552,21 +2557,26 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdA-Pw-WzM">
-                                <rect key="frame" x="58" y="72" width="50" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status d'enregistrement :" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdA-Pw-WzM">
+                                <rect key="frame" x="58" y="72" width="399" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="399" id="0g7-Or-ya5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="74g-dI-TVI" firstAttribute="leading" secondItem="kdA-Pw-WzM" secondAttribute="trailing" constant="8" id="0Al-jT-FZo"/>
                             <constraint firstItem="Fae-Jm-tQK" firstAttribute="trailing" secondItem="Ye4-p9-jb1" secondAttribute="trailingMargin" id="0DJ-7v-I2x"/>
                             <constraint firstItem="74g-dI-TVI" firstAttribute="trailing" secondItem="Ye4-p9-jb1" secondAttribute="trailingMargin" id="0w6-0a-bde"/>
                             <constraint firstItem="GgA-pp-cm4" firstAttribute="trailing" secondItem="Ye4-p9-jb1" secondAttribute="trailingMargin" id="3ek-at-6Jk"/>
                             <constraint firstItem="yZM-z2-8sb" firstAttribute="top" secondItem="gv0-Sa-Yy8" secondAttribute="bottom" id="6Jm-fv-g5p"/>
                             <constraint firstItem="81w-fr-1oc" firstAttribute="top" secondItem="GgA-pp-cm4" secondAttribute="bottom" constant="8" id="HHl-mK-PTD"/>
                             <constraint firstItem="yZM-z2-8sb" firstAttribute="leading" secondItem="Ye4-p9-jb1" secondAttribute="leadingMargin" constant="-16" id="I14-vF-UVc"/>
+                            <constraint firstItem="GgA-pp-cm4" firstAttribute="top" secondItem="kdA-Pw-WzM" secondAttribute="bottom" constant="8" id="Jza-G6-fHo"/>
                             <constraint firstItem="Fae-Jm-tQK" firstAttribute="top" secondItem="gv0-Sa-Yy8" secondAttribute="bottom" constant="8" id="KfS-G2-soR"/>
                             <constraint firstItem="74g-dI-TVI" firstAttribute="top" secondItem="Fae-Jm-tQK" secondAttribute="bottom" constant="8" id="Qdd-nN-rov"/>
                             <constraint firstItem="GgA-pp-cm4" firstAttribute="top" secondItem="74g-dI-TVI" secondAttribute="bottom" constant="8" id="VNM-zU-ht9"/>
@@ -2586,12 +2596,46 @@
                     <connections>
                         <outlet property="accountDetails" destination="74g-dI-TVI" id="jOm-dH-QBI"/>
                         <outlet property="accountOfContact" destination="Fae-Jm-tQK" id="ZjU-sK-9zh"/>
+                        <outlet property="navigationBar" destination="Oc0-no-j6q" id="onC-bu-RKP"/>
                         <outlet property="statusSave" destination="kdA-Pw-WzM" id="dGg-Bn-zGJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKI-hC-bxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1943" y="3925"/>
+        </scene>
+        <!--Typology Of Contact View Controller-->
+        <scene sceneID="tr1-zP-1ih">
+            <objects>
+                <viewController id="sdT-sm-Hyo" customClass="TypologyOfContactViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X20-25-LxY"/>
+                        <viewControllerLayoutGuide type="bottom" id="nfe-01-QRC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0YE-QE-zua">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maV-X7-mSi">
+                                <rect key="frame" x="16" y="28" width="568" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="sdT-sm-Hyo" id="MUc-Et-Vjp"/>
+                                    <outlet property="delegate" destination="sdT-sm-Hyo" id="pzq-h3-9fP"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="maV-X7-mSi" firstAttribute="top" secondItem="X20-25-LxY" secondAttribute="bottom" constant="8" id="G7w-NE-Ulu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="maV-X7-mSi" secondAttribute="trailing" id="I9o-lC-Dsw"/>
+                            <constraint firstItem="maV-X7-mSi" firstAttribute="leading" secondItem="0YE-QE-zua" secondAttribute="leadingMargin" id="kaP-06-DO3"/>
+                            <constraint firstItem="nfe-01-QRC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="maV-X7-mSi" secondAttribute="bottom" constant="8" symbolic="YES" id="sMN-yp-JPU"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zzQ-vg-hSy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2736" y="3927"/>
         </scene>
         <!--Account Of Contact View Controller-->
         <scene sceneID="ZEE-Gf-Jie">
@@ -2650,7 +2694,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q15-lt-SnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2651" y="3925"/>
+            <point key="canvasLocation" x="2217" y="4692"/>
         </scene>
         <!--Preferred Language Of Contact View Controller-->
         <scene sceneID="cg8-dQ-bRr">
