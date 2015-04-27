@@ -102,6 +102,36 @@ class AccountDataModel {
         return accountsPerMeeting
     }
     
+    func searchForAccountsOnNameOrSmallName(#dataSearch: String) -> [AccountModel] {
+        var searchedAccount: [AccountModel] = []
+        
+        var querySQL = "SELECT * FROM Account WHERE nameAccount LIKE '%\(dataSearch)%' OR shortNameAccount LIKE '%\(dataSearch)%' ORDER BY nameAccount "
+        let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let results = results {
+            while results.next() == true {
+                var idAccount: Int = Int(results.intForColumn("idAccount"))
+                var nameAccount: String = results.stringForColumn("nameAccount")
+                var shortNameAccount: String = results.stringForColumn("shortNameAccount")
+                var leadSource: String = results.stringForColumn("leadSource")
+                var statusAccount: String = results.stringForColumn("statusAccount")
+                var industryAccount: String = results.stringForColumn("industryAccount")
+                var segmentAccount: String = results.stringForColumn("segmentAccount")
+                var websiteAccount: String = results.stringForColumn("websiteAccount")
+                var phoneAccount: String = results.stringForColumn("phoneAccount")
+                var faxAccount: String = results.stringForColumn("faxAccount")
+                var coverageAccount: String = results.stringForColumn("coverageAccount")
+                var regionAccount: String = results.stringForColumn("regionAccount")
+                var adressAccount: String = results.stringForColumn("adressAccount")
+                var idAccount1: Int = Int(results.intForColumn("idAccount1"))
+                var countryAccount: String = results.stringForColumn("countryAccount")
+                let account = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount)
+                println(account.arrayOfStringsFromModel())
+                searchedAccount.append(account)
+            }
+        }
+        return searchedAccount
+    }
+    
     func accountOfNextMeeting() -> AccountModel? {
         var accountOfNextMeeting: AccountModel?
         

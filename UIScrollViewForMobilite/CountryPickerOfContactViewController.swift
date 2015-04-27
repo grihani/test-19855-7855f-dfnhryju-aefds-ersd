@@ -12,14 +12,16 @@ class CountryPickerOfContactViewController: UIViewController, UIPickerViewDelega
     
     var countries = ["Morocco", "France", "Spain", "Germany", "Great Britain", "Portugal"]
     var chosenCountry = [String]()
-    @IBOutlet weak var chosenCountryLabel: UILabel!
+    var chosenCountryButton = UIButton()
+    var countryContact: String = ""
     
     @IBOutlet weak var countryPicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         chosenCountry = countries
-        chosenCountryLabel.text = chosenCountry[0]
+        countryContact = chosenCountry[0]
+        chosenCountryButton.setTitle(countries[0], forState: .Normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +48,6 @@ class CountryPickerOfContactViewController: UIViewController, UIPickerViewDelega
             enteredText = enteredText.uppercaseString
             var indexesOfChoice = []
             for country in countries {
-                println(country)
                 if (country.uppercaseString.rangeOfString(enteredText) != nil) {
                     chosenCountry.append(country)
                 }
@@ -54,12 +55,24 @@ class CountryPickerOfContactViewController: UIViewController, UIPickerViewDelega
         } else {
             chosenCountry = countries
         }
-        chosenCountryLabel.text = chosenCountry[0]
         countryPicker.reloadAllComponents()
+        if chosenCountry != [] {
+            chosenCountryButton.setTitle(chosenCountry[0], forState: .Normal)
+            countryContact = chosenCountry[0]
+        }
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        chosenCountryLabel.text = chosenCountry[row]
+        countryContact = chosenCountry[row]
+        chosenCountryButton.setTitle(chosenCountry[row], forState: .Normal)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let presentingViewController = self.presentingViewController?.presenterViewController as? ContactDetailsViewController {
+            presentingViewController.countryContact = self.countryContact
+            presentingViewController.cellContact.countryContact.setTitle(self.countryContact, forState: .Normal)
+        }
     }
     
     /*

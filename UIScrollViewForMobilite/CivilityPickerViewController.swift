@@ -11,12 +11,19 @@ import UIKit
 class CivilityPickerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverPresentationControllerDelegate {
     
     var civility = ["Mr","Mrs","Miss"]
+    var civilityContact: String = "Mr"
     @IBOutlet weak var civilityPicker: UIPickerView!
     var civilityButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        civilityButton.setTitle(civility[0], forState: .Normal)
+        if civilityContact == "" {
+            civilityContact = "Mr"
+        }
+        var index = find(civility, civilityContact)
+        civilityButton.setTitle(civility[index!], forState: .Normal)
+        civilityContact = civility[index!]
+        civilityPicker.selectRow(index!, inComponent: 0, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,5 +45,9 @@ class CivilityPickerViewController: UIViewController, UIPickerViewDataSource, UI
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         civilityButton.setTitle(civility[row], forState: .Normal)
+        civilityContact = civility[row]
+        if let presentingViewController = self.presentingViewController?.presenterViewController as? ContactDetailsViewController {
+            presentingViewController.civilityContact = self.civilityContact
+        }
     }
 }

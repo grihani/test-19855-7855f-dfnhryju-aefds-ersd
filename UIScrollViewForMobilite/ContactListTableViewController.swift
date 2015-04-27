@@ -40,7 +40,14 @@ class ContactListTableViewController: UITableViewController {
         return cell
     }
     
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "chosenContact" {
+            if let indexPath = self.tableView.indexPathForSelectedRow() {
+                let controller = segue.destinationViewController.contentViewController as ContactDetailsViewController
+                controller.contact = contact[indexPath.row]
+            }
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
