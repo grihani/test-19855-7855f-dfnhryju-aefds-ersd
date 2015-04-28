@@ -10,53 +10,68 @@ import UIKit
 
 class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
-    
-    
-    @IBOutlet weak var accountDetails: UILabel! {
+    var read: Bool = false {
         didSet {
-            if let account = account {
-                accountDetails.text = account.industryAccount + "\n" + account.phoneAccount + "\n" + account.adressAccount
+            if read {
+                updateUIForReading()
+                cellContact?.read = true
+                cellContact?.update = false
+                cellContact?.delete = false
+                cellContact?.create = false
             }
         }
     }
-    var account: AccountModel? {
+    var update: Bool = false {
         didSet {
-            if let account = account {
-                accountDetails?.text = account.industryAccount + "\n" + account.phoneAccount + "\n" + account.adressAccount
-                accountOfContact?.setTitle(account.nameAccount, forState: .Normal)
-            }
-            
-        }
-    }
-    
-    var idContact: Int = 0
-    var jobTitleContact: String = ""
-    var countryContact: String = ""
-    var civilityContact: String = ""
-    var firstNameContact: String = ""
-    var lastNameContact: String = ""
-    var typeContact: String = ""
-    var birthdateContact: String = ""
-    var phoneBusinessContact: String = ""
-    var phoneMobileContact: String = ""
-    var emailContact: String = ""
-    var preferredLanguageContact: String = ""
-    var workingAdressContact: String = ""
-    var linkedinProfileContact: String = ""
-    var idContact1: Int = 0
-    
-    var cellContact : ContactCell!
-    @IBOutlet weak var accountOfContact: UIButton! {
-        didSet {
-            if let account = account {
-                accountOfContact.setTitle(account.nameAccount, forState: .Normal)
+            if update {
+                navigationBar.title = "Update contact : " + contact.lastNameContact
+                updateUIForUpdating()
+                cellContact?.read = false
+                cellContact?.update = true
+                cellContact?.delete = false
+                cellContact?.create = false
             }
         }
     }
-    @IBOutlet weak var navigationBar: UINavigationItem!
-    @IBOutlet weak var statusSave: UILabel!
+    var delete: Bool = false
+    var create: Bool = false
     
-//    @IBOutlet weak var contactCell: ContactCell!
+    
+    func updateUIForReading() {
+        statusSave?.text = ""
+        if let account = account {
+            accountOfContact?.setTitle(account.nameAccount, forState: .Normal)
+            accountDetails?.text = account.industryAccount + "\n" + account.phoneAccount + "\n" + account.adressAccount
+        }
+        accountOfContact?.enabled = false
+        let updateButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "updateContact")
+        self.navigationBar.rightBarButtonItems = [updateButton]
+    }
+    
+    func updateUIForUpdating() {
+        if let account = account {
+            accountOfContact?.setTitle(account.nameAccount, forState: .Normal)
+            accountDetails?.text = account.industryAccount + "\n" + account.phoneAccount + "\n" + account.adressAccount
+        }
+        accountOfContact?.enabled = true
+        let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveContact")
+        self.navigationBar.rightBarButtonItems = [saveButton]
+    }
+    
+    func updateContact() {
+        self.update = true
+        self.read = false
+        self.delete = false
+        self.create = false
+    }
+    
+    func saveContact() {
+        self.update = false
+        self.read = true
+        self.delete = false
+        self.create = false
+    }
+    
     var contact: ContactModel! {
         didSet {
             idContact = contact.idContact
@@ -80,18 +95,73 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    @IBOutlet weak var accountDetails: UILabel! {
+        didSet {
+            if let account = account {
+                accountDetails.text = account.industryAccount + "\n" + account.phoneAccount + "\n" + account.adressAccount
+            }
+        }
+    }
+    
+    var account: AccountModel? {
+        didSet {
+            if let account = account {
+                accountDetails?.text = account.industryAccount + "\n" + account.phoneAccount + "\n" + account.adressAccount
+                accountOfContact?.setTitle(account.nameAccount, forState: .Normal)
+            }
+            
+        }
+    }
+    
+    var cellContact : ContactCell! {
+        didSet {
+            cellContact.contact = self.contact
+        }
+    }
+    
+    @IBOutlet weak var accountOfContact: UIButton! {
+        didSet {
+            accountOfContact.setTitleColor(UIColor.blackColor(), forState: .Disabled)
+            if let account = account {
+                accountOfContact.setTitle(account.nameAccount, forState: .Normal)
+            }
+            if read {
+                accountOfContact.enabled = false
+            }
+        }
+    }
+    @IBOutlet weak var navigationBar: UINavigationItem!
+    @IBOutlet weak var statusSave: UILabel!
+    
+//    @IBOutlet weak var contactCell: ContactCell!
+    var idContact: Int = 0
+    var jobTitleContact: String = ""
+    var countryContact: String = ""
+    var civilityContact: String = ""
+    var firstNameContact: String = ""
+    var lastNameContact: String = ""
+    var typeContact: String = ""
+    var birthdateContact: String = ""
+    var phoneBusinessContact: String = ""
+    var phoneMobileContact: String = ""
+    var emailContact: String = ""
+    var preferredLanguageContact: String = ""
+    var workingAdressContact: String = ""
+    var linkedinProfileContact: String = ""
+    var idContact1: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         checkStatusOfCreationOfContact()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        println("hello World")
+    }
     
     // Mark: - tableview data source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -102,18 +172,19 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         println("cellForRowAtIndexPath")
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         let cell = tableView.dequeueReusableCellWithIdentifier("cellForShowingcontact") as ContactCell
-        cell.contact = contact
+        cell.contact = self.contact
+        cell.read = self.read
+        cell.update = self.update
+        cell.delete = self.delete
+        cell.create = self.create
         cellContact = cell
         return cell
         
     }
 
-    func textFieldDidBeginEditing(textField: UITextField) {
-        println("hello World")
-    }
+    
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "civility of contact" {
             if let civilityView = segue.destinationViewController as? CivilityPickerViewController {
@@ -243,6 +314,138 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
 }
 
 class ContactCell: UITableViewCell {
+    let dateFormatter = NSDateFormatter()
+    let disabledColor = UIColor.blackColor()
+    
+    var first = true
+    var read: Bool = false {
+        didSet {
+            if read {
+                updateCellUIForReading()
+                
+            }
+        }
+    }
+    var update: Bool = false {
+        didSet {
+            if update {
+                updateCellUIForUpdating()
+            }
+        }
+    }
+    var delete = false
+    var create = false
+    
+    func updateCellUIForReading() {
+        if !self.first {
+            UIView.animateWithDuration(0.5,
+                animations: { () -> Void in
+                    self.civilityContact.alpha = 0
+                    self.firstNameContact.alpha = 0
+                    self.lastNameContact.alpha = 0
+                    self.jobTitleContact.alpha = 0
+                    self.birthdateContact.alpha = 0
+                    self.phoneBusinessContact.alpha = 0
+                    self.countryContact.alpha = 0
+                    self.phoneMobileContact.alpha = 0
+                    self.emailContact.alpha = 0
+                    self.workingAdressContact.alpha = 0
+                    self.linkedinProfileContact.alpha = 0
+                    self.preferredLanguageContact.alpha = 0
+                    self.typeContact.alpha = 0
+                    self.idContact1.alpha = 0
+                }) { animation in
+                    self.civilityContact.alpha = 01
+                    self.firstNameContact.alpha = 01
+                    self.lastNameContact.alpha = 01
+                    self.jobTitleContact.alpha = 01
+                    self.birthdateContact.alpha = 01
+                    self.phoneBusinessContact.alpha = 01
+                    self.countryContact.alpha = 01
+                    self.phoneMobileContact.alpha = 01
+                    self.emailContact.alpha = 01
+                    self.workingAdressContact.alpha = 01
+                    self.linkedinProfileContact.alpha = 01
+                    self.preferredLanguageContact.alpha = 01
+                    self.typeContact.alpha = 01
+                    self.idContact1.alpha = 01
+                    self.appearAfterEndAnimation()
+            }
+        } else {
+            self.appearAfterEndAnimation()
+            self.first = false
+        }
+        
+        
+    }
+    
+    func appearAfterEndAnimation() {
+        self.civilityContact.enabled = false
+        self.firstNameContact.borderStyle = .None
+        self.firstNameContact.textAlignment = NSTextAlignment.Right
+        self.firstNameContact.enabled = false
+        self.lastNameContact.borderStyle = UITextBorderStyle.None
+        self.lastNameContact.enabled = false
+        self.jobTitleContact.borderStyle = .None
+        self.jobTitleContact.enabled = false
+        self.birthdateContact.enabled = false
+        self.birthdateContact.contentHorizontalAlignment = .Left
+        self.phoneBusinessContact.enabled = false
+        self.phoneBusinessContact.borderStyle = .None
+        self.countryContact.enabled = false
+        self.countryContact.contentHorizontalAlignment = .Left
+        self.phoneMobileContact.enabled = false
+        self.phoneMobileContact.borderStyle = .None
+        self.emailContact.enabled = false
+        self.emailContact.borderStyle = .None
+        self.workingAdressContact.editable = false
+        self.workingAdressContact.layer.borderWidth = 0
+        self.linkedinProfileContact.enabled = false
+        self.linkedinProfileContact.contentHorizontalAlignment = .Left
+        self.preferredLanguageContact.enabled = false
+        self.preferredLanguageContact.contentHorizontalAlignment = .Left
+        self.typeContact.enabled = false
+        self.typeContact.contentHorizontalAlignment = .Left
+        self.idContact1.enabled = false
+        self.idContact1.contentHorizontalAlignment = .Left
+        
+    }
+    
+    func updateCellUIForUpdating() {
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+        self.civilityContact.enabled = true
+        self.firstNameContact.borderStyle = UITextBorderStyle.RoundedRect
+        self.firstNameContact.textAlignment = NSTextAlignment.Left
+        self.firstNameContact.enabled = true
+        self.lastNameContact.borderStyle = UITextBorderStyle.RoundedRect
+        self.lastNameContact.enabled = true
+        self.jobTitleContact.borderStyle = .RoundedRect
+        self.jobTitleContact.enabled = true
+        self.birthdateContact.enabled = true
+        self.birthdateContact.contentHorizontalAlignment = .Center
+        self.phoneBusinessContact.enabled = true
+        self.phoneBusinessContact.borderStyle = .RoundedRect
+        self.countryContact.enabled = true
+        self.countryContact.contentHorizontalAlignment = .Center
+        self.phoneMobileContact.enabled = true
+        self.phoneMobileContact.borderStyle = .RoundedRect
+        self.emailContact.enabled = true
+        self.emailContact.borderStyle = .RoundedRect
+        self.workingAdressContact.editable = true
+        self.workingAdressContact.layer.borderWidth = 1
+        self.workingAdressContact.layer.borderColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1).CGColor
+
+        self.linkedinProfileContact.enabled = true
+        self.linkedinProfileContact.contentHorizontalAlignment = .Center
+        self.preferredLanguageContact.enabled = true
+        self.preferredLanguageContact.contentHorizontalAlignment = .Center
+        self.typeContact.enabled = true
+        self.typeContact.contentHorizontalAlignment = .Center
+        self.idContact1.enabled = true
+        self.idContact1.contentHorizontalAlignment = .Center
+        })
+    }
+    
     var contact: ContactModel! {
         didSet {
             if contact != nil {
@@ -250,7 +453,6 @@ class ContactCell: UITableViewCell {
                 self.lastNameContact.text = contact.lastNameContact
                 self.firstNameContact.text = contact.firstNameContact
                 self.jobTitleContact.text = contact.jobTitleContact
-                let dateFormatter = NSDateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
                 let birthdate = dateFormatter.dateFromString(contact.birthdateContact)
                 dateFormatter.dateStyle = .MediumStyle
@@ -260,6 +462,7 @@ class ContactCell: UITableViewCell {
                 self.phoneBusinessContact.text = contact.phoneBusinessContact
                 self.phoneMobileContact.text = contact.phoneMobileContact
                 self.workingAdressContact.text = contact.workingAdressContact
+                self.emailContact.text = contact.emailContact
                 self.linkedinProfileContact.setTitle(contact.linkedinProfileContact, forState: .Normal)
                 self.countryContact.setTitle(contact.countryContact, forState: .Normal)
                 self.preferredLanguageContact.setTitle(contact.preferredLanguageContact, forState: .Normal)
@@ -269,29 +472,68 @@ class ContactCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var civilityContact: UIButton! {didSet { civilityContact.setTitle("Mr", forState: .Normal) }}
+    @IBOutlet weak var civilityContact: UIButton! {
+        didSet {
+            civilityContact.setTitleColor(disabledColor, forState: .Disabled)
+            civilityContact.setTitle("Mr", forState: .Normal)
+        }
+    }
     @IBOutlet weak var firstNameContact: UITextField!
     @IBOutlet weak var lastNameContact: UITextField!
     @IBOutlet weak var jobTitleContact: UITextField!
-    @IBOutlet weak var birthdateContact: UIButton! {didSet { setTodayDate() } }
+    @IBOutlet weak var birthdateContact: UIButton! {
+        didSet {
+            birthdateContact.setTitleColor(disabledColor, forState: .Disabled)
+            let chosenDate = dateToString(NSDate())
+            birthdateContact.setTitle(chosenDate, forState: .Normal)
+        }
+    }
     @IBOutlet weak var phoneBusinessContact: UITextField!
-    @IBOutlet weak var countryContact: UIButton! {didSet { countryContact.setTitle("France", forState: .Normal) } }
+    @IBOutlet weak var countryContact: UIButton! {didSet {
+        countryContact.setTitleColor(disabledColor, forState: .Disabled)
+        countryContact.setTitle("France", forState: .Normal) } }
     @IBOutlet weak var phoneMobileContact: UITextField!
     @IBOutlet weak var emailContact: UITextField!
     @IBOutlet weak var workingAdressContact: UITextView! {didSet { workingAdressContact.layer.cornerRadius = 8
         workingAdressContact.layer.borderColor = UIColor.grayColor().CGColor
         workingAdressContact.layer.borderWidth = 1
         } }
-    @IBOutlet weak var linkedinProfileContact: UIButton!
-    @IBOutlet weak var preferredLanguageContact: UIButton!
-    @IBOutlet weak var typeContact: UIButton!
-    @IBOutlet weak var idContact1: UIButton!
+    @IBOutlet weak var linkedinProfileContact: UIButton! {
+        didSet {
+            linkedinProfileContact.setTitleColor(disabledColor, forState: .Disabled)
+        }
+    }
+    @IBOutlet weak var preferredLanguageContact: UIButton! {
+        didSet {
+            preferredLanguageContact.setTitleColor(disabledColor, forState: .Disabled)
+        }
+    }
+    @IBOutlet weak var typeContact: UIButton!{
+        didSet {
+            typeContact.setTitleColor(disabledColor, forState: .Disabled)
+        }
+    }
+    @IBOutlet weak var idContact1: UIButton!{
+        didSet {
+            idContact1.setTitleColor(disabledColor, forState: .Disabled)
+        }
+    }
     
-    func setTodayDate() {
-        let dateFormatter = NSDateFormatter()
+    func dateToString(date: NSDate) -> String {
         dateFormatter.dateStyle = .MediumStyle
         dateFormatter.timeStyle = .NoStyle
-        let todayDate = dateFormatter.stringFromDate(NSDate())
-        birthdateContact.setTitle(todayDate, forState: .Normal)
+        let chosenDate = dateFormatter.stringFromDate(date)
+        return chosenDate
+    }
+    
+    func rearrangedStringFromDate(dateInDB: String) -> String {
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let birthdate = dateFormatter.dateFromString(dateInDB) {
+            dateFormatter.dateStyle = .MediumStyle
+            dateFormatter.timeStyle = .NoStyle
+            let chosenDate = dateFormatter.stringFromDate(birthdate)
+            return chosenDate
+        }
+        return "Non procured"
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RzH-17-3Vt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TUO-PP-UTG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -1708,6 +1708,54 @@
             </objects>
             <point key="canvasLocation" x="5515" y="816"/>
         </scene>
+        <!--Detail AccountsV2 View Controller-->
+        <scene sceneID="QJH-Jx-hMr">
+            <objects>
+                <viewController id="TUO-PP-UTG" customClass="DetailAccountsV2ViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ke3-Bg-yTB"/>
+                        <viewControllerLayoutGuide type="bottom" id="TwJ-Im-MXa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qc2-Xf-KMT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XD7-HX-Pdh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uYp-yC-a9y">
+                                        <rect key="frame" x="266" y="0.0" width="334" height="600"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d53-m4-MMJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="258" height="600"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="d53-m4-MMJ" firstAttribute="height" secondItem="uYp-yC-a9y" secondAttribute="height" id="DTb-fa-SZj"/>
+                                    <constraint firstItem="uYp-yC-a9y" firstAttribute="top" secondItem="XD7-HX-Pdh" secondAttribute="top" id="Hfe-Lq-1ix"/>
+                                    <constraint firstItem="uYp-yC-a9y" firstAttribute="leading" secondItem="d53-m4-MMJ" secondAttribute="trailing" constant="8" id="ImP-rv-z8X"/>
+                                    <constraint firstItem="d53-m4-MMJ" firstAttribute="top" secondItem="XD7-HX-Pdh" secondAttribute="top" id="RvJ-mf-6s4"/>
+                                    <constraint firstItem="d53-m4-MMJ" firstAttribute="width" secondItem="uYp-yC-a9y" secondAttribute="width" id="abl-Fy-LUt"/>
+                                    <constraint firstAttribute="trailing" secondItem="uYp-yC-a9y" secondAttribute="trailing" id="lgI-tz-CNX"/>
+                                    <constraint firstItem="d53-m4-MMJ" firstAttribute="leading" secondItem="XD7-HX-Pdh" secondAttribute="leading" id="xtb-Gh-AHR"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XD7-HX-Pdh" firstAttribute="leading" secondItem="Qc2-Xf-KMT" secondAttribute="leading" id="7zN-cQ-DLd"/>
+                            <constraint firstItem="XD7-HX-Pdh" firstAttribute="bottom" secondItem="TwJ-Im-MXa" secondAttribute="top" id="SE1-fz-n3t"/>
+                            <constraint firstAttribute="trailing" secondItem="XD7-HX-Pdh" secondAttribute="trailing" id="YsC-5A-gNx"/>
+                            <constraint firstItem="XD7-HX-Pdh" firstAttribute="top" secondItem="Qc2-Xf-KMT" secondAttribute="top" id="hvT-vb-Gfv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qRD-t3-7qF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6336" y="816"/>
+        </scene>
         <!--Vue360 View Controller-->
         <scene sceneID="NzU-Tc-oFT">
             <objects>
@@ -2250,7 +2298,13 @@
                             <outlet property="delegate" destination="2Jr-9H-Mo9" id="7gn-Md-Q4Y"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="HAu-DM-4le"/>
+                    <navigationItem key="navigationItem" id="HAu-DM-4le">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="f1K-RL-JnG">
+                            <connections>
+                                <segue destination="sp7-Fw-CRP" kind="custom" identifier="createContact" customClass="SWRevealViewControllerSeguePushController" id="qlf-EX-5Vo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mj6-Kw-r8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2542,6 +2596,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fae-Jm-tQK">
                                 <rect key="frame" x="527" y="72" width="57" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Account">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2635,7 +2690,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zzQ-vg-hSy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2736" y="3927"/>
+            <point key="canvasLocation" x="2726" y="4017"/>
         </scene>
         <!--Account Of Contact View Controller-->
         <scene sceneID="ZEE-Gf-Jie">
@@ -2694,7 +2749,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q15-lt-SnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2217" y="4692"/>
+            <point key="canvasLocation" x="4062" y="4017"/>
         </scene>
         <!--Preferred Language Of Contact View Controller-->
         <scene sceneID="cg8-dQ-bRr">
@@ -2741,7 +2796,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7cV-I1-rtw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2472" y="4665"/>
+            <point key="canvasLocation" x="4727" y="4017"/>
         </scene>
         <!--Country Picker Of Contact View Controller-->
         <scene sceneID="Hiy-Q9-rjX">
@@ -2788,7 +2843,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hNL-rK-jYQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1458" y="4953"/>
+            <point key="canvasLocation" x="6727" y="4017"/>
         </scene>
         <!--Civility Picker View Controller-->
         <scene sceneID="f4f-Ky-WDv">
@@ -2824,7 +2879,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ls9-N4-BjL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1672" y="4703"/>
+            <point key="canvasLocation" x="6045" y="4017"/>
         </scene>
         <!--Linkedin Of Contact View Controller-->
         <scene sceneID="won-Sj-Hrw">
@@ -2894,7 +2949,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SPZ-kL-OYI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2496" y="4727"/>
+            <point key="canvasLocation" x="5388" y="4017"/>
         </scene>
         <!--Birth Day Picker Of Contact View Controller-->
         <scene sceneID="iTp-sf-iMn">
@@ -2932,7 +2987,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MPP-XI-EPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2706" y="4665"/>
+            <point key="canvasLocation" x="3388" y="4017"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7l0-sx-tCp">
@@ -2978,7 +3033,7 @@
         <image name="linkedin" width="132" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="z0s-AV-P8O"/>
         <segue reference="47i-YG-Ipk"/>
+        <segue reference="qlf-EX-5Vo"/>
     </inferredMetricsTieBreakers>
 </document>

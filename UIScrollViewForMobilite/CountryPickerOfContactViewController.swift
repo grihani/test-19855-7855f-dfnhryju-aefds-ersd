@@ -74,15 +74,5 @@ class CountryPickerOfContactViewController: UIViewController, UIPickerViewDelega
             presentingViewController.cellContact.countryContact.setTitle(self.countryContact, forState: .Normal)
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

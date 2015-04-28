@@ -43,8 +43,21 @@ class ContactListTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "chosenContact" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let controller = segue.destinationViewController.contentViewController as ContactDetailsViewController
-                controller.contact = contact[indexPath.row]
+                if let controller = segue.destinationViewController.contentViewController as? ContactDetailsViewController {
+                    controller.read = true
+                    controller.update = false
+                    controller.create = false
+                    controller.delete = false
+                    controller.contact = contact[indexPath.row]
+                }
+            }
+        }
+        else if segue.identifier == "createContact" {
+            if let controller = segue.destinationViewController.contentViewController as? ContactDetailsViewController {
+                controller.read = false
+                controller.update = false
+                controller.create = true
+                controller.delete = false
             }
         }
     }
