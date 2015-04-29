@@ -39,7 +39,7 @@
 		486AE4711AD81ABD00E701AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE4701AD81ABD00E701AF /* Constants.swift */; };
 		488186151AC94F6600923A18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488186141AC94F6600923A18 /* AppDelegate.swift */; };
 		488186181AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 488186161AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld */; };
-		4881861D1AC94F6600923A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4881861B1AC94F6600923A18 /* Main.storyboard */; };
+		4881861D1AC94F6600923A18 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4881861B1AC94F6600923A18 /* Main2.storyboard */; };
 		488186221AC94F6600923A18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488186201AC94F6600923A18 /* LaunchScreen.xib */; };
 		4881862E1AC94F6700923A18 /* UIScrollViewForMobiliteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4881862D1AC94F6700923A18 /* UIScrollViewForMobiliteTests.swift */; };
 		488B68B51AEFD4AD00D7652B /* DetailAccountsV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488B68B41AEFD4AD00D7652B /* DetailAccountsV2ViewController.swift */; };
@@ -126,7 +126,7 @@
 		488186131AC94F6600923A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		488186141AC94F6600923A18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		488186171AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UIScrollViewForMobilite.xcdatamodel; sourceTree = "<group>"; };
-		4881861C1AC94F6600923A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4881861C1AC94F6600923A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main2.storyboard; sourceTree = "<group>"; };
 		4881861E1AC94F6600923A18 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		488186211AC94F6600923A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		488186271AC94F6700923A18 /* UIScrollViewForMobiliteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIScrollViewForMobiliteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -286,7 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				4856DB261AEE257E00A61515 /* UIScrollViewForMobilite.entitlements */,
-				4881861B1AC94F6600923A18 /* Main.storyboard */,
+				4881861B1AC94F6600923A18 /* Main2.storyboard */,
 				486AE4701AD81ABD00E701AF /* Constants.swift */,
 				484CDC301AE0E256001E09F8 /* Functionalities */,
 				48FCB11F1ACAD52600A770B2 /* dataBase */,
@@ -574,7 +574,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F2A4AF81AE309ED007359DD /* Images.xcassets in Resources */,
-				4881861D1AC94F6600923A18 /* Main.storyboard in Resources */,
+				4881861D1AC94F6600923A18 /* Main2.storyboard in Resources */,
 				488186221AC94F6600923A18 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -681,12 +681,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4881861B1AC94F6600923A18 /* Main.storyboard */ = {
+		4881861B1AC94F6600923A18 /* Main2.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4881861C1AC94F6600923A18 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Main2.storyboard;
 			sourceTree = "<group>";
 		};
 		488186201AC94F6600923A18 /* LaunchScreen.xib */ = {
