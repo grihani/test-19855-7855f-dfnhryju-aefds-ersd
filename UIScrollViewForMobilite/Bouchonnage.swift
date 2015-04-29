@@ -1198,13 +1198,13 @@ class Bouchonnage {
         println(successful)
     }
     
-    var users = [[ "1", "test", "test", "toto@toto.com", "test", "test", "Salesforce", "Quel est le nom de votre premier animal de compagnie", "chien" ]]
+    var users = [[ "1", "test", "test", "ddelfosse@csc.com", "test", "test", "Salesforce", "Quel est le nom de votre premier animal de compagnie", "chien" ]]
     func remplirUser() {
-        self.users.append([ "2", "truc", "truc", "tata@tata.com", "truc", "truc", "Salesforce", "Quel est le nom de votre premier animal de compagnie", "chat" ])
+        self.users.append([ "2", "truc", "truc", "mobiliteb2b.gmail.com", "truc", "truc", "Salesforce", "Quel est le nom de votre premier animal de compagnie", "chat" ])
     }
     
     func viderUser() {
-        self.users = [[ "1", "test", "test", "toto@toto.com", "test", "test", "Salesforce", "Quel est le nom de votre premier animal de compagnie", "chien" ]]
+        self.users = [[ "1", "test", "test", "ddelfosse@csc.com", "test", "test", "Salesforce", "Quel est le nom de votre premier animal de compagnie", "chien" ]]
     }
     
     func remplirTableauUser() -> [UserModel] {
@@ -1232,7 +1232,75 @@ class Bouchonnage {
         var successful = ""
         let usersToInsert = remplirTableauUser()
         for userToInsert in usersToInsert {
-            successful += UserDataModel().inserUser(userToInsert)
+            successful += UserDataModel().insertUser(userToInsert)
+            successful += "\n"
+        }
+        println(successful)
+    }
+    
+    var usersContacts = [[ "1", "1" ]]
+    func remplirUserContact() {
+        self.usersContacts.append([ "1", "2" ])
+        self.usersContacts.append([ "1", "3" ])
+        self.usersContacts.append([ "1", "4" ])
+        self.usersContacts.append([ "1", "5" ])
+        self.usersContacts.append([ "1", "6" ])
+        self.usersContacts.append([ "1", "7" ])
+        self.usersContacts.append([ "1", "8" ])
+        self.usersContacts.append([ "1", "9" ])
+        self.usersContacts.append([ "1", "10" ])
+        self.usersContacts.append([ "1", "11" ])
+        self.usersContacts.append([ "1", "12" ])
+        self.usersContacts.append([ "1", "13" ])
+        self.usersContacts.append([ "1", "14" ])
+        self.usersContacts.append([ "1", "15" ])
+        self.usersContacts.append([ "1", "16" ])
+        self.usersContacts.append([ "1", "17" ])
+        self.usersContacts.append([ "1", "18" ])
+        self.usersContacts.append([ "1", "19" ])
+        self.usersContacts.append([ "1", "20" ])
+        self.usersContacts.append([ "1", "21" ])
+        self.usersContacts.append([ "1", "22" ])
+        self.usersContacts.append([ "1", "23" ])
+        self.usersContacts.append([ "1", "24" ])
+        self.usersContacts.append([ "1", "25" ])
+        self.usersContacts.append([ "1", "26" ])
+        self.usersContacts.append([ "1", "27" ])
+        self.usersContacts.append([ "1", "28" ])
+        self.usersContacts.append([ "1", "29" ])
+        self.usersContacts.append([ "1", "30" ])
+        self.usersContacts.append([ "1", "31" ])
+        self.usersContacts.append([ "1", "32" ])
+        self.usersContacts.append([ "1", "33" ])
+        self.usersContacts.append([ "1", "34" ])
+        self.usersContacts.append([ "1", "35" ])
+        self.usersContacts.append([ "1", "36" ])
+        self.usersContacts.append([ "1", "37" ])
+    }
+    
+    func viderUserContact() {
+        self.usersContacts = [[ "1", "1" ]]
+    }
+    
+    func remplirTableauUserContact() -> [UserContactModel] {
+        remplirUserContact()
+        var usersContactARendre = [UserContactModel]()
+        var usersContactModel: UserContactModel
+        for usersContacts in self.usersContacts {
+            var idUser: Int = usersContacts[0].toInt()!
+            var idContact: Int = usersContacts[01].toInt()!
+            usersContactModel = UserContactModel(idUser: idUser, idContact: idContact)
+            usersContactARendre.append(usersContactModel)
+        }
+        viderUserContact()
+        return usersContactARendre
+    }
+    
+    func insertingUserContact() {
+        var successful = ""
+        let usersContactToInsert = remplirTableauUserContact()
+        for userContactToInsert in usersContactToInsert {
+            successful += UserContactDataModel().insertUserContact(userContactToInsert)
             successful += "\n"
         }
         println(successful)

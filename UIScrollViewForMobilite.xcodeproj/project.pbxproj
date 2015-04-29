@@ -32,7 +32,6 @@
 		486AE4711AD81ABD00E701AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE4701AD81ABD00E701AF /* Constants.swift */; };
 		488186151AC94F6600923A18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488186141AC94F6600923A18 /* AppDelegate.swift */; };
 		488186181AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 488186161AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld */; };
-		4881861D1AC94F6600923A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4881861B1AC94F6600923A18 /* Main.storyboard */; };
 		488186221AC94F6600923A18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488186201AC94F6600923A18 /* LaunchScreen.xib */; };
 		4881862E1AC94F6700923A18 /* UIScrollViewForMobiliteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4881862D1AC94F6700923A18 /* UIScrollViewForMobiliteTests.swift */; };
 		489B31611AC9520300C04732 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489B31601AC9520300C04732 /* SWRevealViewController.m */; };
@@ -64,12 +63,17 @@
 		48FCB1571ACAED6A00A770B2 /* AccountDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */; };
 		48FCB1591ACAF47200A770B2 /* Bouchonnage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1581ACAF47200A770B2 /* Bouchonnage.swift */; };
 		9F2A4AF81AE309ED007359DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4881861E1AC94F6600923A18 /* Images.xcassets */; };
+		EF06A7C51AEF6B8600D66B3F /* UserContactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF06A7C41AEF6B8600D66B3F /* UserContactDataModel.swift */; };
 		EF25F9811AE7A70C00D06E45 /* HomepageUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25F9801AE7A70C00D06E45 /* HomepageUserViewController.swift */; };
+		EF32397B1AEE807B00845611 /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF32397A1AEE807B00845611 /* AgendaViewController.swift */; };
+		EF32397D1AEE831400845611 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF32397C1AEE831400845611 /* ContactViewController.swift */; };
+		EF32397F1AEE875100845611 /* UserContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF32397E1AEE875100845611 /* UserContactModel.swift */; };
 		EF863D381AE5284A00947380 /* HomepageLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF863D371AE5284A00947380 /* HomepageLoginViewController.swift */; };
 		EF863D3A1AE52C5A00947380 /* CreerCompteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF863D391AE52C5A00947380 /* CreerCompteViewController.swift */; };
 		EF863D3C1AE5315B00947380 /* MotDePasseOublieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF863D3B1AE5315B00947380 /* MotDePasseOublieViewController.swift */; };
 		EF863D3E1AE5402B00947380 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF863D3D1AE5402B00947380 /* UserModel.swift */; };
 		EF863D401AE543C300947380 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF863D3F1AE543C300947380 /* UserDataModel.swift */; };
+		EFF9056D1AEA382200687DA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFF9056B1AEA382200687DA7 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,7 +114,6 @@
 		488186131AC94F6600923A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		488186141AC94F6600923A18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		488186171AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UIScrollViewForMobilite.xcdatamodel; sourceTree = "<group>"; };
-		4881861C1AC94F6600923A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4881861E1AC94F6600923A18 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		488186211AC94F6600923A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		488186271AC94F6700923A18 /* UIScrollViewForMobiliteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIScrollViewForMobiliteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,12 +155,18 @@
 		48FCB1531ACAE97E00A770B2 /* TasksMeetingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksMeetingsModel.swift; sourceTree = "<group>"; };
 		48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDataModel.swift; sourceTree = "<group>"; };
 		48FCB1581ACAF47200A770B2 /* Bouchonnage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bouchonnage.swift; sourceTree = "<group>"; };
+		EF02E7A41AEE25AA0030E1A5 /* UIScrollViewForMobilite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = UIScrollViewForMobilite.entitlements; sourceTree = "<group>"; };
+		EF06A7C41AEF6B8600D66B3F /* UserContactDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContactDataModel.swift; sourceTree = "<group>"; };
 		EF25F9801AE7A70C00D06E45 /* HomepageUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageUserViewController.swift; sourceTree = "<group>"; };
+		EF32397A1AEE807B00845611 /* AgendaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
+		EF32397C1AEE831400845611 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		EF32397E1AEE875100845611 /* UserContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContactModel.swift; sourceTree = "<group>"; };
 		EF863D371AE5284A00947380 /* HomepageLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageLoginViewController.swift; sourceTree = "<group>"; };
 		EF863D391AE52C5A00947380 /* CreerCompteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreerCompteViewController.swift; sourceTree = "<group>"; };
 		EF863D3B1AE5315B00947380 /* MotDePasseOublieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotDePasseOublieViewController.swift; sourceTree = "<group>"; };
 		EF863D3D1AE5402B00947380 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		EF863D3F1AE543C300947380 /* UserDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
+		EFF9056C1AEA382200687DA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,8 +245,9 @@
 		488186111AC94F6600923A18 /* UIScrollViewForMobilite */ = {
 			isa = PBXGroup;
 			children = (
-				4881861B1AC94F6600923A18 /* Main.storyboard */,
+				EF02E7A41AEE25AA0030E1A5 /* UIScrollViewForMobilite.entitlements */,
 				486AE4701AD81ABD00E701AF /* Constants.swift */,
+				EFF9056B1AEA382200687DA7 /* Main.storyboard */,
 				484CDC301AE0E256001E09F8 /* Functionalities */,
 				48FCB11F1ACAD52600A770B2 /* dataBase */,
 				48FCB11E1ACAD50500A770B2 /* Accounts */,
@@ -334,6 +344,7 @@
 				480DA23A1ACC2C1E00F43FA1 /* TasksAccountDataModel.swift */,
 				480DA23C1ACC2C3A00F43FA1 /* TasksContactsDataModel.swift */,
 				480DA23E1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift */,
+				EF06A7C41AEF6B8600D66B3F /* UserContactDataModel.swift */,
 			);
 			name = secondaires;
 			sourceTree = "<group>";
@@ -404,6 +415,7 @@
 				48FCB14F1ACAE80300A770B2 /* TasksAccountModel.swift */,
 				48FCB1511ACAE8DB00A770B2 /* TasksContactsModel.swift */,
 				48FCB1531ACAE97E00A770B2 /* TasksMeetingsModel.swift */,
+				EF32397E1AEE875100845611 /* UserContactModel.swift */,
 			);
 			name = TransitionModels;
 			sourceTree = "<group>";
@@ -424,6 +436,8 @@
 				EF863D391AE52C5A00947380 /* CreerCompteViewController.swift */,
 				EF863D3B1AE5315B00947380 /* MotDePasseOublieViewController.swift */,
 				EF25F9801AE7A70C00D06E45 /* HomepageUserViewController.swift */,
+				EF32397A1AEE807B00845611 /* AgendaViewController.swift */,
+				EF32397C1AEE831400845611 /* ContactViewController.swift */,
 			);
 			name = Homepage;
 			sourceTree = "<group>";
@@ -489,7 +503,7 @@
 								enabled = 0;
 							};
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -523,8 +537,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFF9056D1AEA382200687DA7 /* Main.storyboard in Resources */,
 				9F2A4AF81AE309ED007359DD /* Images.xcassets in Resources */,
-				4881861D1AC94F6600923A18 /* Main.storyboard in Resources */,
 				488186221AC94F6600923A18 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,6 +563,7 @@
 				48FCB1591ACAF47200A770B2 /* Bouchonnage.swift in Sources */,
 				EF863D3A1AE52C5A00947380 /* CreerCompteViewController.swift in Sources */,
 				48FCB1321ACAD73600A770B2 /* FMDatabasePool.m in Sources */,
+				EF32397B1AEE807B00845611 /* AgendaViewController.swift in Sources */,
 				480DA22B1ACC2B8B00F43FA1 /* ContactDataModel.swift in Sources */,
 				48FCB13C1ACADED000A770B2 /* ContactModel.swift in Sources */,
 				481419D11AD58908009B38D6 /* ListMeetingsViewController.swift in Sources */,
@@ -571,6 +586,7 @@
 				EF863D401AE543C300947380 /* UserDataModel.swift in Sources */,
 				48FCB1331ACAD73600A770B2 /* FMDatabaseQueue.m in Sources */,
 				48FCB1301ACAD73600A770B2 /* FMDatabase.m in Sources */,
+				EF32397D1AEE831400845611 /* ContactViewController.swift in Sources */,
 				486AE4711AD81ABD00E701AF /* Constants.swift in Sources */,
 				489FC9261AE01CA700C04814 /* LinkedinContactOfAccountViewController.swift in Sources */,
 				480DA22D1ACC2B9800F43FA1 /* TaskDataModel.swift in Sources */,
@@ -581,6 +597,7 @@
 				48FCB1231ACAD55500A770B2 /* DataBase.swift in Sources */,
 				485A23CC1AD6E1880074EDD1 /* MeetingsOfAccountViewController.swift in Sources */,
 				488186181AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld in Sources */,
+				EF32397F1AEE875100845611 /* UserContactModel.swift in Sources */,
 				EF863D3C1AE5315B00947380 /* MotDePasseOublieViewController.swift in Sources */,
 				48FCB1361ACADBAC00A770B2 /* AccountModel.swift in Sources */,
 				48FCB14E1ACAE77C00A770B2 /* TaskModel.swift in Sources */,
@@ -597,6 +614,7 @@
 				48FCB14C1ACAE61700A770B2 /* AccountContractsModel.swift in Sources */,
 				EF863D3E1AE5402B00947380 /* UserModel.swift in Sources */,
 				485A23CA1AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift in Sources */,
+				EF06A7C51AEF6B8600D66B3F /* UserContactDataModel.swift in Sources */,
 				480DA22F1ACC2BA800F43FA1 /* ContractsDataModel.swift in Sources */,
 				480DA2291ACC2B7600F43FA1 /* OpportunityDataModel.swift in Sources */,
 				48FCB1461ACAE45300A770B2 /* MeetingContactModel.swift in Sources */,
@@ -623,20 +641,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4881861B1AC94F6600923A18 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4881861C1AC94F6600923A18 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		488186201AC94F6600923A18 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				488186211AC94F6600923A18 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		EFF9056B1AEA382200687DA7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFF9056C1AEA382200687DA7 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -725,7 +743,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = UIScrollViewForMobilite/UIScrollViewForMobilite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = UIScrollViewForMobilite/Info.plist;
@@ -740,7 +758,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = UIScrollViewForMobilite/UIScrollViewForMobilite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = UIScrollViewForMobilite/Info.plist;

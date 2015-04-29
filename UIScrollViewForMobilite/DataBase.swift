@@ -106,6 +106,10 @@ class DataBase {
         // UserModel
         var userModel = UserModel()
         sqlStatement += userModel.userCreateSQL
+        
+        //UserContactModel
+        var userContactModel = UserContactModel()
+        sqlStatement += userContactModel.userContactCreateSQL
 
 
         println(sqlStatement)
@@ -159,6 +163,9 @@ class DataBase {
         }
         if checkEmptyTable("User") {
             Bouchonnage().insertingUser()
+        }
+        if checkEmptyTable("Users_Contacts") {
+            Bouchonnage().insertingUserContact()
         }
     }
     

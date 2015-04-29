@@ -53,7 +53,7 @@ class CreerCompteViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     presentViewController(alert, animated: true, completion: nil)
                 } else {
                     var userModel = UserModel(idUser: UserModel().getMaxIdUser(), username: username.text, password: password.text, mail: mail.text, usernameCRM: usernameCRM.text, passwordCRM: passwordCRM.text, pickerCRM: crm[indexRowCRM], questionSecrete: questionSecrete[indexRowQS], reponseSecrete: reponseSecrete.text)
-                    UserDataModel().inserUser(userModel)
+                    UserDataModel().insertUser(userModel)
                 }
             }
         }

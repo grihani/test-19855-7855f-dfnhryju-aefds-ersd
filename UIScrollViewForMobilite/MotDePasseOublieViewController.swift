@@ -14,6 +14,9 @@ class MotDePasseOublieViewController: UIViewController, MFMailComposeViewControl
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var reponseSecrete: UITextField!
     @IBOutlet weak var questionSecrete: UILabel!
+    @IBOutlet weak var labelQuestion: UILabel!
+    @IBOutlet weak var labelReponse: UILabel!
+    @IBOutlet weak var buttonVerifier: UIButton!
     var email: String = ""
     
     override func viewDidLoad() {
@@ -34,7 +37,11 @@ class MotDePasseOublieViewController: UIViewController, MFMailComposeViewControl
 
     @IBAction func editingUsernameTextField(sender: AnyObject) {
         let userModel = UserDataModel().getUserWithUsername(username.text)
+        labelQuestion.hidden = false
+        reponseSecrete.hidden = false
         questionSecrete.text = userModel.questionSecrete
+        labelReponse.hidden = false
+        buttonVerifier.hidden = false
     }
     
     @IBAction func verifReponseButtonPressed(sender: AnyObject) {

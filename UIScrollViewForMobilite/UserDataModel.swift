@@ -10,7 +10,7 @@ import Foundation
 
 class UserDataModel {
     
-    func inserUser(user: UserModel) -> String {
+    func insertUser(user: UserModel) -> String {
         var erreur = String()
         let insertSQL = "INSERT INTO User (username, password, mail, usernameCRM, passwordCRM, pickerCRM, questionSecrete, reponseSecrete) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)"
         let result = contactDataBase.executeUpdate(insertSQL, withArgumentsInArray: user.arrayFromModel())
