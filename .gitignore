@@ -1,5 +1,4 @@
-UserInterfaceState.xcuserstate
-build
+build/
 *.pbxuser
 *.perspectivev3
 *.mode1v3
@@ -8,3 +7,10 @@ build
 *~.xib 
 .DS_Store 
 xcuserdata/
+*.xccheckout
+*.moved-aside
+
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
