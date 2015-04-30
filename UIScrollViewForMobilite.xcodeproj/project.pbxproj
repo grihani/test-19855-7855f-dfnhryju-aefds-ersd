@@ -25,6 +25,12 @@
 		481419D31AD58919009B38D6 /* DetailMeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481419D21AD58919009B38D6 /* DetailMeetingsViewController.swift */; };
 		481876D31AE78535005BF26F /* TaskDetailsOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481876D21AE78535005BF26F /* TaskDetailsOfAccountViewController.swift */; };
 		481876D61AE7ACA1005BF26F /* OpportunitiesOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481876D51AE7ACA1005BF26F /* OpportunitiesOfAccountViewController.swift */; };
+		4824EEB01AF25295004F0283 /* HomepageLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824EEAF1AF25295004F0283 /* HomepageLoginViewController.swift */; };
+		4824EEB21AF2533F004F0283 /* HomepageUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824EEB11AF2533F004F0283 /* HomepageUserViewController.swift */; };
+		4824EEB41AF25390004F0283 /* CreerCompteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824EEB31AF25390004F0283 /* CreerCompteViewController.swift */; };
+		4824EEB61AF25CDA004F0283 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824EEB51AF25CDA004F0283 /* UserModel.swift */; };
+		4824EEB81AF25CEE004F0283 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824EEB71AF25CEE004F0283 /* UserDataModel.swift */; };
+		4824EEBA1AF26617004F0283 /* MotDePasseOublieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824EEB91AF26617004F0283 /* MotDePasseOublieViewController.swift */; };
 		4849836E1AE5519A00972133 /* TasksOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4849836D1AE5519A00972133 /* TasksOfAccountViewController.swift */; };
 		484CDC321AE0E275001E09F8 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CDC311AE0E275001E09F8 /* LoadingIndicator.swift */; };
 		484CDC341AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CDC331AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift */; };
@@ -109,6 +115,12 @@
 		481419D21AD58919009B38D6 /* DetailMeetingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMeetingsViewController.swift; sourceTree = "<group>"; };
 		481876D21AE78535005BF26F /* TaskDetailsOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailsOfAccountViewController.swift; sourceTree = "<group>"; };
 		481876D51AE7ACA1005BF26F /* OpportunitiesOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunitiesOfAccountViewController.swift; sourceTree = "<group>"; };
+		4824EEAF1AF25295004F0283 /* HomepageLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageLoginViewController.swift; sourceTree = "<group>"; };
+		4824EEB11AF2533F004F0283 /* HomepageUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageUserViewController.swift; sourceTree = "<group>"; };
+		4824EEB31AF25390004F0283 /* CreerCompteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreerCompteViewController.swift; sourceTree = "<group>"; };
+		4824EEB51AF25CDA004F0283 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		4824EEB71AF25CEE004F0283 /* UserDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
+		4824EEB91AF26617004F0283 /* MotDePasseOublieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotDePasseOublieViewController.swift; sourceTree = "<group>"; };
 		4849836D1AE5519A00972133 /* TasksOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksOfAccountViewController.swift; sourceTree = "<group>"; };
 		484CDC311AE0E275001E09F8 /* LoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		484CDC331AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactOfAccountViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +225,17 @@
 			name = PipesOfAccounts;
 			sourceTree = "<group>";
 		};
+		4824EEAE1AF251AF004F0283 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				4824EEAF1AF25295004F0283 /* HomepageLoginViewController.swift */,
+				4824EEB91AF26617004F0283 /* MotDePasseOublieViewController.swift */,
+				4824EEB11AF2533F004F0283 /* HomepageUserViewController.swift */,
+				4824EEB31AF25390004F0283 /* CreerCompteViewController.swift */,
+			);
+			name = HomePage;
+			sourceTree = "<group>";
+		};
 		4849836C1AE5517F00972133 /* TasksOfAccounts */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +311,7 @@
 				4856DB261AEE257E00A61515 /* UIScrollViewForMobilite.entitlements */,
 				4881861B1AC94F6600923A18 /* Main.storyboard */,
 				486AE4701AD81ABD00E701AF /* Constants.swift */,
+				4824EEAE1AF251AF004F0283 /* HomePage */,
 				484CDC301AE0E256001E09F8 /* Functionalities */,
 				48FCB11F1ACAD52600A770B2 /* dataBase */,
 				48FCB11E1ACAD50500A770B2 /* Accounts */,
@@ -378,6 +402,7 @@
 				480DA22C1ACC2B9800F43FA1 /* TaskDataModel.swift */,
 				480DA22A1ACC2B8B00F43FA1 /* ContactDataModel.swift */,
 				480DA22E1ACC2BA800F43FA1 /* ContractsDataModel.swift */,
+				4824EEB71AF25CEE004F0283 /* UserDataModel.swift */,
 			);
 			name = Principales;
 			sourceTree = "<group>";
@@ -450,6 +475,7 @@
 				48FCB13B1ACADED000A770B2 /* ContactModel.swift */,
 				48FCB14D1ACAE77C00A770B2 /* TaskModel.swift */,
 				48FCB1471ACAE50000A770B2 /* ContractsModel.swift */,
+				4824EEB51AF25CDA004F0283 /* UserModel.swift */,
 			);
 			name = PriorityModels;
 			sourceTree = "<group>";
@@ -593,6 +619,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4824EEB81AF25CEE004F0283 /* UserDataModel.swift in Sources */,
 				480DA2331ACC2BCA00F43FA1 /* OpportunitiesContactsDataModel.swift in Sources */,
 				48FCB1571ACAED6A00A770B2 /* AccountDataModel.swift in Sources */,
 				48FCB1441ACAE31300A770B2 /* AccountOpportunitiesModel.swift in Sources */,
@@ -601,6 +628,7 @@
 				480DA22B1ACC2B8B00F43FA1 /* ContactDataModel.swift in Sources */,
 				48FCB13C1ACADED000A770B2 /* ContactModel.swift in Sources */,
 				481419D11AD58908009B38D6 /* ListMeetingsViewController.swift in Sources */,
+				4824EEB61AF25CDA004F0283 /* UserModel.swift in Sources */,
 				481876D61AE7ACA1005BF26F /* OpportunitiesOfAccountViewController.swift in Sources */,
 				48FCB1521ACAE8DB00A770B2 /* TasksContactsModel.swift in Sources */,
 				48C22FD61ADFE5F200DE3F5F /* ContactsOfAccountViewController.swift in Sources */,
@@ -615,6 +643,7 @@
 				48FCB1421ACAE1F500A770B2 /* OpportunitiesContactsModel.swift in Sources */,
 				480DA2351ACC2BDC00F43FA1 /* AccountOpportunitiesDataModel.swift in Sources */,
 				480DA2271ACBD68E00F43FA1 /* MeetingDataModel.swift in Sources */,
+				4824EEB41AF25390004F0283 /* CreerCompteViewController.swift in Sources */,
 				480DA23F1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift in Sources */,
 				48D62EEB1AEA6FD100FEEA5A /* TypologyOfContactViewController.swift in Sources */,
 				48CFE28A1AE7FCFC00FFDFE8 /* ContactDetailsViewController.swift in Sources */,
@@ -640,6 +669,8 @@
 				48FCB14E1ACAE77C00A770B2 /* TaskModel.swift in Sources */,
 				48FCB1311ACAD73600A770B2 /* FMDatabaseAdditions.m in Sources */,
 				485DE0981ADBB1E900E95DD8 /* AddMeetingWithoutDateViewController.swift in Sources */,
+				4824EEB01AF25295004F0283 /* HomepageLoginViewController.swift in Sources */,
+				4824EEBA1AF26617004F0283 /* MotDePasseOublieViewController.swift in Sources */,
 				481419D31AD58919009B38D6 /* DetailMeetingsViewController.swift in Sources */,
 				48FCB1481ACAE50000A770B2 /* ContractsModel.swift in Sources */,
 				480DA2311ACC2BB900F43FA1 /* AccountContactDataModel.swift in Sources */,
@@ -650,6 +681,7 @@
 				48FCB14C1ACAE61700A770B2 /* AccountContractsModel.swift in Sources */,
 				485A23CA1AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift in Sources */,
 				48D62EEF1AEA701300FEEA5A /* AccountOfContactViewController.swift in Sources */,
+				4824EEB21AF2533F004F0283 /* HomepageUserViewController.swift in Sources */,
 				480DA22F1ACC2BA800F43FA1 /* ContractsDataModel.swift in Sources */,
 				4851F8C31AE91DC200F1BE9B /* BirthDayPickerOfContactViewController.swift in Sources */,
 				4851F8C51AE91F5100F1BE9B /* CountryPickerOfContactViewController.swift in Sources */,
