@@ -17,7 +17,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var listeButtonsForPages: UIView!
     @IBOutlet weak var navigationBar: UINavigationItem!
     
-    var identifiers: [String] = ["Meetings", "Vue 360°", "Contacts", "Next Actions", "Pipeline"]
+    var identifiers: [String] = ["Meetings", "Vue 360°", "Contacts", "Next Actions", "Pipeline", "vue360Bis" ]
     // Manque 'Next actions', 'Account Details', 'Pipe', 'Relation Activity'
     var meetingsOfAccount: MeetingsOfAccountViewController = MeetingsOfAccountViewController()
     var vue360: Vue360ViewController = Vue360ViewController()
@@ -103,6 +103,9 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             viewControllers.append(viewController)
             self.opportunitiesOfAccount = viewController
             self.opportunitiesOfAccount.account = self.account
+        }
+        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[5]) as? DetailAccountsV2ViewController {
+            viewControllers.append(viewController)
         }
         return viewControllers
     }

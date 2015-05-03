@@ -273,18 +273,18 @@ class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     // Mark: - Notifications
     func registerForKeyboardNotifications() {
-        let center = NSNotificationCenter.defaultCenter()
-        let queue = NSOperationQueue.mainQueue()
-        center.addObserver(self,
-            selector: Selector("keyBoardWasShown:"),
-            name: UIKeyboardDidShowNotification,
-            object: nil
-        )
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: Selector("keyboardWillBeHidden:"),
-            name: "UIKeyboardWillHideNotification",
-            object: nil
-        )
+//        let center = NSNotificationCenter.defaultCenter()
+//        let queue = NSOperationQueue.mainQueue()
+//        center.addObserver(self,
+//            selector: Selector("keyBoardWasShown:"),
+//            name: UIKeyboardDidShowNotification,
+//            object: nil
+//        )
+//        NSNotificationCenter.defaultCenter().addObserver(self,
+//            selector: Selector("keyboardWillBeHidden:"),
+//            name: "UIKeyboardWillHideNotification",
+//            object: nil
+//        )
         
     }
     func keyBoardWasShown(aNotification: NSNotification) {

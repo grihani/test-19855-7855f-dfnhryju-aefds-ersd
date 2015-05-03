@@ -102,6 +102,9 @@ class DataBase {
         // TasksMeetingsModel
         var tasksMeetingsModel = TasksMeetingsModel()
         sqlStatement += tasksMeetingsModel.tasksMeetingsCreateSQL
+        
+        var userModel = UserModel()
+        sqlStatement += userModel.userCreateSQL
 
 
         println(sqlStatement)
@@ -152,6 +155,9 @@ class DataBase {
         }
         if checkEmptyTable("Tasks_Meetings"){
             Bouchonnage().insertingTaskMeetings()
+        }
+        if checkEmptyTable("User") {
+            Bouchonnage().insertingUser()
         }
     }
     

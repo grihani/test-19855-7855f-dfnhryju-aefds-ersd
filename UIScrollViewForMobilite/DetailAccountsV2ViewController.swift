@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailAccountsV2ViewController: UIViewController, UIScrollViewDelegate {
+class DetailAccountsV2ViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate {
 
     var account: AccountModel! {
         didSet {
@@ -18,31 +18,45 @@ class DetailAccountsV2ViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    // MARK: - view life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerForKeyboardNotifications()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.registerForKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let observer = cookieForKeyboardAppears {
+            center.removeObserver(observer)
+        }
+        if let observer = cookieForKeyboardDisappears {
+            center.removeObserver(observer)
+        }
+    }
+    
+    // MARK: - keyboard notifications
+    
+    var cookieForKeyboardAppears: NSObjectProtocol!
+    var cookieForKeyboardDisappears: NSObjectProtocol!
+    let center = NSNotificationCenter.defaultCenter()
+    let queue = NSOperationQueue.mainQueue()
     
     func registerForKeyboardNotifications() {
-        let center = NSNotificationCenter.defaultCenter()
-        let queue = NSOperationQueue.mainQueue()
-        center.addObserver(self,
-            selector: Selector("keyBoardWasShown:"),
-            name: UIKeyboardDidShowNotification,
-            object: nil
-        )
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: Selector("keyboardWillBeHidden:"),
-            name: UIKeyboardWillHideNotification,
-            object: nil
-        )
-        
+        cookieForKeyboardAppears = center.addObserverForName(UIKeyboardDidShowNotification, object: nil, queue: queue, usingBlock: { notification in
+            self.keyBoardWasShown(notification)
+        })
+        cookieForKeyboardDisappears = center.addObserverForName(UIKeyboardDidHideNotification, object: nil, queue: queue, usingBlock: { notification in
+            self.keyboardWillBeHidden(notification)
+        })
     }
     func keyBoardWasShown(aNotification: NSNotification) {
         println("je vois que le keyboard est apparu")
@@ -53,22 +67,7 @@ class DetailAccountsV2ViewController: UIViewController, UIScrollViewDelegate {
                 let scrollView = self.scrollView
                 println(scrollView.contentInset)
                 scrollView.contentInset = contentInset
-                println(scrollView.contentInset)
                 scrollView.scrollIndicatorInsets = contentInset
-        
-//                        var aRect = self.view.superview?.superview?.frame
-//                        if let aRect = aRect {
-//        
-//                            var rectToCheck = aRect
-//                            rectToCheck.size.height -= kbSize.height
-//                            let frameActiveField = activeField.convertRect(activeField.frame, toView: scrollView.superview)
-//                            println(frameActiveField)
-//                            println(rectToCheck)
-//                            if !CGRectContainsPoint(rectToCheck, frameActiveField.origin) {
-//                                println("trying to put the field up")
-//                                scrollView.scrollRectToVisible(activeField.frame, animated: true)
-//                            }
-//                        }
             }
         }
     }
@@ -78,4 +77,32 @@ class DetailAccountsV2ViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
+    
+    // MARK: - tableViewDataSource
+    
+    @IBOutlet weak var keyContacts: UITableView!
+    @IBOutlet weak var topDeals: UITableView!
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == keyContacts {
+            return 3
+        }
+        else if tableView == topDeals {
+            return 5
+        }
+        return 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellContact") as UITableViewCell
+        cell.textLabel?.text = String(indexPath.row)
+        cell.detailTextLabel?.text = String(indexPath.section)
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 40
+    }
+    
+    
 }
