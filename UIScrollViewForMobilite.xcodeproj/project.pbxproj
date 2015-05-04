@@ -60,6 +60,8 @@
 		48D62EEB1AEA6FD100FEEA5A /* TypologyOfContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D62EEA1AEA6FD100FEEA5A /* TypologyOfContactViewController.swift */; };
 		48D62EED1AEA6FFE00FEEA5A /* AssistantOfContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D62EEC1AEA6FFE00FEEA5A /* AssistantOfContactViewController.swift */; };
 		48D62EEF1AEA701300FEEA5A /* AccountOfContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D62EEE1AEA701300FEEA5A /* AccountOfContactViewController.swift */; };
+		48ECA65F1AF7CDA1000B0A55 /* MeetingsOfAccountV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ECA65E1AF7CDA1000B0A55 /* MeetingsOfAccountV2ViewController.swift */; };
+		48ECA6611AF7CDBC000B0A55 /* MeetingsOfAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ECA6601AF7CDBC000B0A55 /* MeetingsOfAccountTableViewController.swift */; };
 		48FCB1231ACAD55500A770B2 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1221ACAD55500A770B2 /* DataBase.swift */; };
 		48FCB1301ACAD73600A770B2 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1261ACAD73600A770B2 /* FMDatabase.m */; };
 		48FCB1311ACAD73600A770B2 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1281ACAD73600A770B2 /* FMDatabaseAdditions.m */; };
@@ -158,6 +160,8 @@
 		48D62EEA1AEA6FD100FEEA5A /* TypologyOfContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypologyOfContactViewController.swift; sourceTree = "<group>"; };
 		48D62EEC1AEA6FFE00FEEA5A /* AssistantOfContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssistantOfContactViewController.swift; sourceTree = "<group>"; };
 		48D62EEE1AEA701300FEEA5A /* AccountOfContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountOfContactViewController.swift; sourceTree = "<group>"; };
+		48ECA65E1AF7CDA1000B0A55 /* MeetingsOfAccountV2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsOfAccountV2ViewController.swift; sourceTree = "<group>"; };
+		48ECA6601AF7CDBC000B0A55 /* MeetingsOfAccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsOfAccountTableViewController.swift; sourceTree = "<group>"; };
 		48FCB1221ACAD55500A770B2 /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		48FCB1251ACAD73600A770B2 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		48FCB1261ACAD73600A770B2 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
@@ -281,6 +285,8 @@
 			isa = PBXGroup;
 			children = (
 				485A23CB1AD6E1880074EDD1 /* MeetingsOfAccountViewController.swift */,
+				48ECA65E1AF7CDA1000B0A55 /* MeetingsOfAccountV2ViewController.swift */,
+				48ECA6601AF7CDBC000B0A55 /* MeetingsOfAccountTableViewController.swift */,
 				485DE0971ADBB1E900E95DD8 /* AddMeetingWithoutDateViewController.swift */,
 			);
 			name = MeetingsOfAccount;
@@ -655,6 +661,8 @@
 				489FC9261AE01CA700C04814 /* LinkedinContactOfAccountViewController.swift in Sources */,
 				48D62EE71AEA307200FEEA5A /* LinkedinOfContactViewController.swift in Sources */,
 				4851F8BE1AE8CCB900F1BE9B /* ContactListTableViewController.swift in Sources */,
+				48ECA6611AF7CDBC000B0A55 /* MeetingsOfAccountTableViewController.swift in Sources */,
+				48ECA65F1AF7CDA1000B0A55 /* MeetingsOfAccountV2ViewController.swift in Sources */,
 				4849836E1AE5519A00972133 /* TasksOfAccountViewController.swift in Sources */,
 				480DA22D1ACC2B9800F43FA1 /* TaskDataModel.swift in Sources */,
 				48FCB1501ACAE80300A770B2 /* TasksAccountModel.swift in Sources */,
