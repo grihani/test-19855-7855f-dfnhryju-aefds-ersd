@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9ev-Tc-CoB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9ev-Tc-CoB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -5639,7 +5639,7 @@ France</string>
             </objects>
             <point key="canvasLocation" x="-2031" y="512"/>
         </scene>
-        <!--Meetings Of Account Table View Controller-->
+        <!--List of meetings-->
         <scene sceneID="QKg-rN-Ret">
             <objects>
                 <tableViewController id="ShJ-y6-WZD" customClass="MeetingsOfAccountTableViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
@@ -5648,20 +5648,20 @@ France</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="meetings of Account" textLabel="Ur6-ce-np5" detailTextLabel="wUx-YN-5gX" style="IBUITableViewCellStyleValue2" id="KLC-M2-nfz">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="meetings of Account" textLabel="Ur6-ce-np5" detailTextLabel="wUx-YN-5gX" style="IBUITableViewCellStyleSubtitle" id="KLC-M2-nfz">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KLC-M2-nfz" id="shA-1a-5so">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ur6-ce-np5">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ur6-ce-np5">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wUx-YN-5gX">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -5677,13 +5677,13 @@ France</string>
                             <outlet property="delegate" destination="ShJ-y6-WZD" id="snJ-UA-kWp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="7Yt-PB-tql"/>
+                    <navigationItem key="navigationItem" title="List of meetings" id="7Yt-PB-tql"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fmn-F7-7Ew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1788" y="3515.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Meeting details-->
         <scene sceneID="RxP-Rd-9eO">
             <objects>
                 <viewController id="S4i-a8-40Y" sceneMemberID="viewController">
@@ -5696,7 +5696,7 @@ France</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TVC-Z1-xbx"/>
+                    <navigationItem key="navigationItem" title="Meeting details" id="TVC-Z1-xbx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNY-mh-YZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
