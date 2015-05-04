@@ -147,7 +147,6 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println(indexPath.row)
         switch indexPath.row {
         case 2:
             if !pickerForDateBeginIsShown {

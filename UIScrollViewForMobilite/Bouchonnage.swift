@@ -9,64 +9,64 @@
 import Foundation
 
 class Bouchonnage {
-    var accounts = [[ "1" , "test 1 SA" , "test 1" , "aa 1" , "bb 1" , "cc 1" , "dd 1" , "www.quelquechose1.com" , "0699048436" , "0603403171" , "quelquechose1" , "quelquepart1" , "10 place de quelquepart1" , "1" , "Belgium" ]]
+    var accounts = [[ "1" , "test 1 SA" , "test 1" , "aa 1" , "bb 1" , "cc 1" , "dd 1" , "www.quelquechose1.com" , "0699048436" , "0603403171" , "quelquechose1" , "quelquepart1" , "10 place de quelquepart1" , "1" , "Belgium" , "customer" ]]
     func remplirAccounts() {
-        self.accounts.append([ "2" , "test 2 SA" , "test 2" , "aa 2" , "bb 2" , "cc 2" , "dd 2" , "www.quelquechose2.com" , "0609361823" , "0668713654" , "quelquechose2" , "quelquepart2" , "10 place de quelquepart2" , "1" , "Spain" ])
-        self.accounts.append([ "3" , "test 3 SA" , "test 3" , "aa 3" , "bb 3" , "cc 3" , "dd 3" , "www.quelquechose3.com" , "0679371100" , "0686356394" , "quelquechose3" , "quelquepart3" , "10 place de quelquepart3" , "1" , "Spain" ])
-        self.accounts.append([ "4" , "test 4 SA" , "test 4" , "aa 4" , "bb 4" , "cc 4" , "dd 4" , "www.quelquechose4.com" , "0633179545" , "0607333916" , "quelquechose4" , "quelquepart4" , "10 place de quelquepart4" , "1" , "Spain" ])
-        self.accounts.append([ "5" , "test 5 SA" , "test 5" , "aa 5" , "bb 5" , "cc 5" , "dd 5" , "www.quelquechose5.com" , "0624483268" , "0600862008" , "quelquechose5" , "quelquepart5" , "10 place de quelquepart5" , "1" , "france" ])
-        self.accounts.append([ "6" , "test 6 SA" , "test 6" , "aa 6" , "bb 6" , "cc 6" , "dd 6" , "www.quelquechose6.com" , "0608552874" , "0684792529" , "quelquechose6" , "quelquepart6" , "10 place de quelquepart6" , "1" , "Belgium" ])
-        self.accounts.append([ "7" , "test 7 SA" , "test 7" , "aa 7" , "bb 7" , "cc 7" , "dd 7" , "www.quelquechose7.com" , "0637049276" , "0615188025" , "quelquechose7" , "quelquepart7" , "10 place de quelquepart7" , "1" , "Belgium" ])
-        self.accounts.append([ "8" , "test 8 SA" , "test 8" , "aa 8" , "bb 8" , "cc 8" , "dd 8" , "www.quelquechose8.com" , "0690976146" , "0684653193" , "quelquechose8" , "quelquepart8" , "10 place de quelquepart8" , "2" , "Spain" ])
-        self.accounts.append([ "9" , "test 9 SA" , "test 9" , "aa 9" , "bb 9" , "cc 9" , "dd 9" , "www.quelquechose9.com" , "0693695904" , "0634966259" , "quelquechose9" , "quelquepart9" , "10 place de quelquepart9" , "2" , "Spain" ])
-        self.accounts.append([ "10" , "test 10 SA" , "test 10" , "aa 10" , "bb 10" , "cc 10" , "dd 10" , "www.quelquechose10.com" , "0687240184" , "0650658062" , "quelquechose10" , "quelquepart10" , "10 place de quelquepart10" , "2" , "Spain" ])
-        self.accounts.append([ "11" , "test 11 SA" , "test 11" , "aa 11" , "bb 11" , "cc 11" , "dd 11" , "www.quelquechose11.com" , "0671717123" , "0659391887" , "quelquechose11" , "quelquepart11" , "10 place de quelquepart11" , "2" , "Belgium" ])
-        self.accounts.append([ "12" , "test 12 SA" , "test 12" , "aa 12" , "bb 12" , "cc 12" , "dd 12" , "www.quelquechose12.com" , "0607804612" , "0693518703" , "quelquechose12" , "quelquepart12" , "10 place de quelquepart12" , "2" , "Belgium" ])
-        self.accounts.append([ "13" , "test 13 SA" , "test 13" , "aa 13" , "bb 13" , "cc 13" , "dd 13" , "www.quelquechose13.com" , "0619417028" , "0627337645" , "quelquechose13" , "quelquepart13" , "10 place de quelquepart13" , "10" , "france" ])
-        self.accounts.append([ "14" , "test 14 SA" , "test 14" , "aa 14" , "bb 14" , "cc 14" , "dd 14" , "www.quelquechose14.com" , "0685931371" , "0687037314" , "quelquechose14" , "quelquepart14" , "10 place de quelquepart14" , "10" , "Belgium" ])
-        self.accounts.append([ "15" , "test 15 SA" , "test 15" , "aa 15" , "bb 15" , "cc 15" , "dd 15" , "www.quelquechose15.com" , "0692382455" , "0645870247" , "quelquechose15" , "quelquepart15" , "10 place de quelquepart15" , "10" , "Belgium" ])
-        self.accounts.append([ "16" , "test 16 SA" , "test 16" , "aa 16" , "bb 16" , "cc 16" , "dd 16" , "www.quelquechose16.com" , "0671841939" , "0630812645" , "quelquechose16" , "quelquepart16" , "10 place de quelquepart16" , "10" , "Spain" ])
-        self.accounts.append([ "17" , "test 17 SA" , "test 17" , "aa 17" , "bb 17" , "cc 17" , "dd 17" , "www.quelquechose17.com" , "0669835481" , "0698275385" , "quelquechose17" , "quelquepart17" , "10 place de quelquepart17" , "10" , "Spain" ])
-        self.accounts.append([ "18" , "test 18 SA" , "test 18" , "aa 18" , "bb 18" , "cc 18" , "dd 18" , "www.quelquechose18.com" , "0621502205" , "0600152571" , "quelquechose18" , "quelquepart18" , "10 place de quelquepart18" , "10" , "france" ])
-        self.accounts.append([ "19" , "test 19 SA" , "test 19" , "aa 19" , "bb 19" , "cc 19" , "dd 19" , "www.quelquechose19.com" , "0644763771" , "0625007638" , "quelquechose19" , "quelquepart19" , "10 place de quelquepart19" , "10" , "france" ])
-        self.accounts.append([ "20" , "test 20 SA" , "test 20" , "aa 20" , "bb 20" , "cc 20" , "dd 20" , "www.quelquechose20.com" , "0601445659" , "0689888827" , "quelquechose20" , "quelquepart20" , "10 place de quelquepart20" , "8" , "france" ])
-        self.accounts.append([ "21" , "test 21 SA" , "test 21" , "aa 21" , "bb 21" , "cc 21" , "dd 21" , "www.quelquechose21.com" , "0615945512" , "0676350351" , "quelquechose21" , "quelquepart21" , "10 place de quelquepart21" , "8" , "Spain" ])
-        self.accounts.append([ "22" , "test 22 SA" , "test 22" , "aa 22" , "bb 22" , "cc 22" , "dd 22" , "www.quelquechose22.com" , "0672764438" , "0630817988" , "quelquechose22" , "quelquepart22" , "10 place de quelquepart22" , "8" , "france" ])
-        self.accounts.append([ "23" , "test 23 SA" , "test 23" , "aa 23" , "bb 23" , "cc 23" , "dd 23" , "www.quelquechose23.com" , "0691872088" , "0671745537" , "quelquechose23" , "quelquepart23" , "10 place de quelquepart23" , "8" , "france" ])
-        self.accounts.append([ "24" , "test 24 SA" , "test 24" , "aa 24" , "bb 24" , "cc 24" , "dd 24" , "www.quelquechose24.com" , "0613784691" , "0662345883" , "quelquechose24" , "quelquepart24" , "10 place de quelquepart24" , "8" , "Spain" ])
-        self.accounts.append([ "25" , "test 25 SA" , "test 25" , "aa 25" , "bb 25" , "cc 25" , "dd 25" , "www.quelquechose25.com" , "0671449132" , "0600130900" , "quelquechose25" , "quelquepart25" , "10 place de quelquepart25" , "0" , "france" ])
-        self.accounts.append([ "26" , "test 26 SA" , "test 26" , "aa 26" , "bb 26" , "cc 26" , "dd 26" , "www.quelquechose26.com" , "0692917165" , "0608285652" , "quelquechose26" , "quelquepart26" , "10 place de quelquepart26" , "0" , "france" ])
-        self.accounts.append([ "27" , "test 27 SA" , "test 27" , "aa 27" , "bb 27" , "cc 27" , "dd 27" , "www.quelquechose27.com" , "0625622342" , "0681854347" , "quelquechose27" , "quelquepart27" , "10 place de quelquepart27" , "0" , "france" ])
-        self.accounts.append([ "28" , "test 28 SA" , "test 28" , "aa 28" , "bb 28" , "cc 28" , "dd 28" , "www.quelquechose28.com" , "0651612613" , "0659849221" , "quelquechose28" , "quelquepart28" , "10 place de quelquepart28" , "0" , "france" ])
-        self.accounts.append([ "29" , "test 29 SA" , "test 29" , "aa 29" , "bb 29" , "cc 29" , "dd 29" , "www.quelquechose29.com" , "0677981017" , "0667140620" , "quelquechose29" , "quelquepart29" , "10 place de quelquepart29" , "0" , "france" ])
-        self.accounts.append([ "30" , "test 30 SA" , "test 30" , "aa 30" , "bb 30" , "cc 30" , "dd 30" , "www.quelquechose30.com" , "0674149639" , "0615779217" , "quelquechose30" , "quelquepart30" , "10 place de quelquepart30" , "0" , "france" ])
-        self.accounts.append([ "31" , "test 31 SA" , "test 31" , "aa 31" , "bb 31" , "cc 31" , "dd 31" , "www.quelquechose31.com" , "0695264007" , "0602910100" , "quelquechose31" , "quelquepart31" , "10 place de quelquepart31" , "0" , "france" ])
-        self.accounts.append([ "32" , "test 32 SA" , "test 32" , "aa 32" , "bb 32" , "cc 32" , "dd 32" , "www.quelquechose32.com" , "0655354640" , "0655804073" , "quelquechose32" , "quelquepart32" , "10 place de quelquepart32" , "0" , "france" ])
-        self.accounts.append([ "33" , "test 33 SA" , "test 33" , "aa 33" , "bb 33" , "cc 33" , "dd 33" , "www.quelquechose33.com" , "0616359443" , "0615257942" , "quelquechose33" , "quelquepart33" , "10 place de quelquepart33" , "0" , "Spain" ])
-        self.accounts.append([ "34" , "test 34 SA" , "test 34" , "aa 34" , "bb 34" , "cc 34" , "dd 34" , "www.quelquechose34.com" , "0660166834" , "0697122217" , "quelquechose34" , "quelquepart34" , "10 place de quelquepart34" , "0" , "Belgium" ])
-        self.accounts.append([ "35" , "test 35 SA" , "test 35" , "aa 35" , "bb 35" , "cc 35" , "dd 35" , "www.quelquechose35.com" , "0684737817" , "0619481994" , "quelquechose35" , "quelquepart35" , "10 place de quelquepart35" , "0" , "france" ])
-        self.accounts.append([ "36" , "test 36 SA" , "test 36" , "aa 36" , "bb 36" , "cc 36" , "dd 36" , "www.quelquechose36.com" , "0696465016" , "0607967779" , "quelquechose36" , "quelquepart36" , "10 place de quelquepart36" , "0" , "Belgium" ])
-        self.accounts.append([ "37" , "test 37 SA" , "test 37" , "aa 37" , "bb 37" , "cc 37" , "dd 37" , "www.quelquechose37.com" , "0635511165" , "0688745886" , "quelquechose37" , "quelquepart37" , "10 place de quelquepart37" , "0" , "Belgium" ])
-        self.accounts.append([ "38" , "test 38 SA" , "test 38" , "aa 38" , "bb 38" , "cc 38" , "dd 38" , "www.quelquechose38.com" , "0601839135" , "0659373123" , "quelquechose38" , "quelquepart38" , "10 place de quelquepart38" , "0" , "Spain" ])
-        self.accounts.append([ "39" , "test 39 SA" , "test 39" , "aa 39" , "bb 39" , "cc 39" , "dd 39" , "www.quelquechose39.com" , "0646144724" , "0666074826" , "quelquechose39" , "quelquepart39" , "10 place de quelquepart39" , "0" , "france" ])
-        self.accounts.append([ "40" , "test 40 SA" , "test 40" , "aa 40" , "bb 40" , "cc 40" , "dd 40" , "www.quelquechose40.com" , "0609529849" , "0630429737" , "quelquechose40" , "quelquepart40" , "10 place de quelquepart40" , "0" , "Spain" ])
-        self.accounts.append([ "41" , "test 41 SA" , "test 41" , "aa 41" , "bb 41" , "cc 41" , "dd 41" , "www.quelquechose41.com" , "0634218527" , "0619093255" , "quelquechose41" , "quelquepart41" , "10 place de quelquepart41" , "0" , "france" ])
-        self.accounts.append([ "42" , "test 42 SA" , "test 42" , "aa 42" , "bb 42" , "cc 42" , "dd 42" , "www.quelquechose42.com" , "0640532116" , "0649626675" , "quelquechose42" , "quelquepart42" , "10 place de quelquepart42" , "0" , "france" ])
-        self.accounts.append([ "43" , "test 43 SA" , "test 43" , "aa 43" , "bb 43" , "cc 43" , "dd 43" , "www.quelquechose43.com" , "0613026847" , "0603724240" , "quelquechose43" , "quelquepart43" , "10 place de quelquepart43" , "0" , "france" ])
-        self.accounts.append([ "44" , "test 44 SA" , "test 44" , "aa 44" , "bb 44" , "cc 44" , "dd 44" , "www.quelquechose44.com" , "0683331747" , "0675546770" , "quelquechose44" , "quelquepart44" , "10 place de quelquepart44" , "0" , "Belgium" ])
-        self.accounts.append([ "45" , "test 45 SA" , "test 45" , "aa 45" , "bb 45" , "cc 45" , "dd 45" , "www.quelquechose45.com" , "0628847870" , "0697263729" , "quelquechose45" , "quelquepart45" , "10 place de quelquepart45" , "0" , "Spain" ])
-        self.accounts.append([ "46" , "test 46 SA" , "test 46" , "aa 46" , "bb 46" , "cc 46" , "dd 46" , "www.quelquechose46.com" , "0658497205" , "0609480380" , "quelquechose46" , "quelquepart46" , "10 place de quelquepart46" , "0" , "Spain" ])
-        self.accounts.append([ "47" , "test 47 SA" , "test 47" , "aa 47" , "bb 47" , "cc 47" , "dd 47" , "www.quelquechose47.com" , "0650188000" , "0646979446" , "quelquechose47" , "quelquepart47" , "10 place de quelquepart47" , "0" , "france" ])
-        self.accounts.append([ "48" , "test 48 SA" , "test 48" , "aa 48" , "bb 48" , "cc 48" , "dd 48" , "www.quelquechose48.com" , "0618066387" , "0692980412" , "quelquechose48" , "quelquepart48" , "10 place de quelquepart48" , "0" , "Spain" ])
-        self.accounts.append([ "49" , "test 49 SA" , "test 49" , "aa 49" , "bb 49" , "cc 49" , "dd 49" , "www.quelquechose49.com" , "0612339199" , "0638830063" , "quelquechose49" , "quelquepart49" , "10 place de quelquepart49" , "0" , "Belgium" ])
-        self.accounts.append([ "50" , "test 50 SA" , "test 50" , "aa 50" , "bb 50" , "cc 50" , "dd 50" , "www.quelquechose50.com" , "0621440940" , "0638889615" , "quelquechose50" , "quelquepart50" , "10 place de quelquepart50" , "0" , "Spain" ])
-        self.accounts.append([ "51" , "test 51 SA" , "test 51" , "aa 51" , "bb 51" , "cc 51" , "dd 51" , "www.quelquechose51.com" , "0684981131" , "0666442077" , "quelquechose51" , "quelquepart51" , "10 place de quelquepart51" , "0" , "Spain" ])
-        self.accounts.append([ "52" , "test 52 SA" , "test 52" , "aa 52" , "bb 52" , "cc 52" , "dd 52" , "www.quelquechose52.com" , "0690377293" , "0678368502" , "quelquechose52" , "quelquepart52" , "10 place de quelquepart52" , "0" , "Belgium" ])
-        self.accounts.append([ "53" , "test 53 SA" , "test 53" , "aa 53" , "bb 53" , "cc 53" , "dd 53" , "www.quelquechose53.com" , "0601983197" , "0672632915" , "quelquechose53" , "quelquepart53" , "10 place de quelquepart53" , "0" , "france" ])
-        self.accounts.append([ "54" , "test 54 SA" , "test 54" , "aa" , "bb 54" , "cc 54" , "dd 54" , "www.quelquechose54.com" , "0618052139" , "0686838807" , "quelquechose54" , "quelquepart54" , "10 place de quelquepart54" , "0" , "Belgium" ])
+        self.accounts.append([ "2" , "test 2 SA" , "test 2" , "aa 2" , "bb 2" , "cc 2" , "dd 2" , "www.quelquechose2.com" , "0609361823" , "0668713654" , "quelquechose2" , "quelquepart2" , "10 place de quelquepart2" , "1" , "Spain" , "customer" ])
+        self.accounts.append([ "3" , "test 3 SA" , "test 3" , "aa 3" , "bb 3" , "cc 3" , "dd 3" , "www.quelquechose3.com" , "0679371100" , "0686356394" , "quelquechose3" , "quelquepart3" , "10 place de quelquepart3" , "1" , "Spain" , "customer" ])
+        self.accounts.append([ "4" , "test 4 SA" , "test 4" , "aa 4" , "bb 4" , "cc 4" , "dd 4" , "www.quelquechose4.com" , "0633179545" , "0607333916" , "quelquechose4" , "quelquepart4" , "10 place de quelquepart4" , "1" , "Spain" , "customer" ])
+        self.accounts.append([ "5" , "test 5 SA" , "test 5" , "aa 5" , "bb 5" , "cc 5" , "dd 5" , "www.quelquechose5.com" , "0624483268" , "0600862008" , "quelquechose5" , "quelquepart5" , "10 place de quelquepart5" , "1" , "france" , "customer" ])
+        self.accounts.append([ "6" , "test 6 SA" , "test 6" , "aa 6" , "bb 6" , "cc 6" , "dd 6" , "www.quelquechose6.com" , "0608552874" , "0684792529" , "quelquechose6" , "quelquepart6" , "10 place de quelquepart6" , "1" , "Belgium" , "customer" ])
+        self.accounts.append([ "7" , "test 7 SA" , "test 7" , "aa 7" , "bb 7" , "cc 7" , "dd 7" , "www.quelquechose7.com" , "0637049276" , "0615188025" , "quelquechose7" , "quelquepart7" , "10 place de quelquepart7" , "1" , "Belgium" , "customer" ])
+        self.accounts.append([ "8" , "test 8 SA" , "test 8" , "aa 8" , "bb 8" , "cc 8" , "dd 8" , "www.quelquechose8.com" , "0690976146" , "0684653193" , "quelquechose8" , "quelquepart8" , "10 place de quelquepart8" , "2" , "Spain" , "customer" ])
+        self.accounts.append([ "9" , "test 9 SA" , "test 9" , "aa 9" , "bb 9" , "cc 9" , "dd 9" , "www.quelquechose9.com" , "0693695904" , "0634966259" , "quelquechose9" , "quelquepart9" , "10 place de quelquepart9" , "2" , "Spain" , "customer" ])
+        self.accounts.append([ "10" , "test 10 SA" , "test 10" , "aa 10" , "bb 10" , "cc 10" , "dd 10" , "www.quelquechose10.com" , "0687240184" , "0650658062" , "quelquechose10" , "quelquepart10" , "10 place de quelquepart10" , "2" , "Spain" , "customer" ])
+        self.accounts.append([ "11" , "test 11 SA" , "test 11" , "aa 11" , "bb 11" , "cc 11" , "dd 11" , "www.quelquechose11.com" , "0671717123" , "0659391887" , "quelquechose11" , "quelquepart11" , "10 place de quelquepart11" , "2" , "Belgium" , "customer" ])
+        self.accounts.append([ "12" , "test 12 SA" , "test 12" , "aa 12" , "bb 12" , "cc 12" , "dd 12" , "www.quelquechose12.com" , "0607804612" , "0693518703" , "quelquechose12" , "quelquepart12" , "10 place de quelquepart12" , "2" , "Belgium" , "customer" ])
+        self.accounts.append([ "13" , "test 13 SA" , "test 13" , "aa 13" , "bb 13" , "cc 13" , "dd 13" , "www.quelquechose13.com" , "0619417028" , "0627337645" , "quelquechose13" , "quelquepart13" , "10 place de quelquepart13" , "10" , "france" , "customer" ])
+        self.accounts.append([ "14" , "test 14 SA" , "test 14" , "aa 14" , "bb 14" , "cc 14" , "dd 14" , "www.quelquechose14.com" , "0685931371" , "0687037314" , "quelquechose14" , "quelquepart14" , "10 place de quelquepart14" , "10" , "Belgium" , "customer" ])
+        self.accounts.append([ "15" , "test 15 SA" , "test 15" , "aa 15" , "bb 15" , "cc 15" , "dd 15" , "www.quelquechose15.com" , "0692382455" , "0645870247" , "quelquechose15" , "quelquepart15" , "10 place de quelquepart15" , "10" , "Belgium" , "customer" ])
+        self.accounts.append([ "16" , "test 16 SA" , "test 16" , "aa 16" , "bb 16" , "cc 16" , "dd 16" , "www.quelquechose16.com" , "0671841939" , "0630812645" , "quelquechose16" , "quelquepart16" , "10 place de quelquepart16" , "10" , "Spain" , "customer" ])
+        self.accounts.append([ "17" , "test 17 SA" , "test 17" , "aa 17" , "bb 17" , "cc 17" , "dd 17" , "www.quelquechose17.com" , "0669835481" , "0698275385" , "quelquechose17" , "quelquepart17" , "10 place de quelquepart17" , "10" , "Spain" , "customer" ])
+        self.accounts.append([ "18" , "test 18 SA" , "test 18" , "aa 18" , "bb 18" , "cc 18" , "dd 18" , "www.quelquechose18.com" , "0621502205" , "0600152571" , "quelquechose18" , "quelquepart18" , "10 place de quelquepart18" , "10" , "france" , "customer" ])
+        self.accounts.append([ "19" , "test 19 SA" , "test 19" , "aa 19" , "bb 19" , "cc 19" , "dd 19" , "www.quelquechose19.com" , "0644763771" , "0625007638" , "quelquechose19" , "quelquepart19" , "10 place de quelquepart19" , "10" , "france" , "customer" ])
+        self.accounts.append([ "20" , "test 20 SA" , "test 20" , "aa 20" , "bb 20" , "cc 20" , "dd 20" , "www.quelquechose20.com" , "0601445659" , "0689888827" , "quelquechose20" , "quelquepart20" , "10 place de quelquepart20" , "8" , "france" , "customer" ])
+        self.accounts.append([ "21" , "test 21 SA" , "test 21" , "aa 21" , "bb 21" , "cc 21" , "dd 21" , "www.quelquechose21.com" , "0615945512" , "0676350351" , "quelquechose21" , "quelquepart21" , "10 place de quelquepart21" , "8" , "Spain" , "customer" ])
+        self.accounts.append([ "22" , "test 22 SA" , "test 22" , "aa 22" , "bb 22" , "cc 22" , "dd 22" , "www.quelquechose22.com" , "0672764438" , "0630817988" , "quelquechose22" , "quelquepart22" , "10 place de quelquepart22" , "8" , "france" , "customer" ])
+        self.accounts.append([ "23" , "test 23 SA" , "test 23" , "aa 23" , "bb 23" , "cc 23" , "dd 23" , "www.quelquechose23.com" , "0691872088" , "0671745537" , "quelquechose23" , "quelquepart23" , "10 place de quelquepart23" , "8" , "france" , "customer" ])
+        self.accounts.append([ "24" , "test 24 SA" , "test 24" , "aa 24" , "bb 24" , "cc 24" , "dd 24" , "www.quelquechose24.com" , "0613784691" , "0662345883" , "quelquechose24" , "quelquepart24" , "10 place de quelquepart24" , "8" , "Spain" , "customer" ])
+        self.accounts.append([ "25" , "test 25 SA" , "test 25" , "aa 25" , "bb 25" , "cc 25" , "dd 25" , "www.quelquechose25.com" , "0671449132" , "0600130900" , "quelquechose25" , "quelquepart25" , "10 place de quelquepart25" , "0" , "france" , "customer" ])
+        self.accounts.append([ "26" , "test 26 SA" , "test 26" , "aa 26" , "bb 26" , "cc 26" , "dd 26" , "www.quelquechose26.com" , "0692917165" , "0608285652" , "quelquechose26" , "quelquepart26" , "10 place de quelquepart26" , "0" , "france" , "customer" ])
+        self.accounts.append([ "27" , "test 27 SA" , "test 27" , "aa 27" , "bb 27" , "cc 27" , "dd 27" , "www.quelquechose27.com" , "0625622342" , "0681854347" , "quelquechose27" , "quelquepart27" , "10 place de quelquepart27" , "0" , "france" , "customer" ])
+        self.accounts.append([ "28" , "test 28 SA" , "test 28" , "aa 28" , "bb 28" , "cc 28" , "dd 28" , "www.quelquechose28.com" , "0651612613" , "0659849221" , "quelquechose28" , "quelquepart28" , "10 place de quelquepart28" , "0" , "france" , "customer" ])
+        self.accounts.append([ "29" , "test 29 SA" , "test 29" , "aa 29" , "bb 29" , "cc 29" , "dd 29" , "www.quelquechose29.com" , "0677981017" , "0667140620" , "quelquechose29" , "quelquepart29" , "10 place de quelquepart29" , "0" , "france" , "customer" ])
+        self.accounts.append([ "30" , "test 30 SA" , "test 30" , "aa 30" , "bb 30" , "cc 30" , "dd 30" , "www.quelquechose30.com" , "0674149639" , "0615779217" , "quelquechose30" , "quelquepart30" , "10 place de quelquepart30" , "0" , "france" , "customer" ])
+        self.accounts.append([ "31" , "test 31 SA" , "test 31" , "aa 31" , "bb 31" , "cc 31" , "dd 31" , "www.quelquechose31.com" , "0695264007" , "0602910100" , "quelquechose31" , "quelquepart31" , "10 place de quelquepart31" , "0" , "france" , "customer" ])
+        self.accounts.append([ "32" , "test 32 SA" , "test 32" , "aa 32" , "bb 32" , "cc 32" , "dd 32" , "www.quelquechose32.com" , "0655354640" , "0655804073" , "quelquechose32" , "quelquepart32" , "10 place de quelquepart32" , "0" , "france" , "customer" ])
+        self.accounts.append([ "33" , "test 33 SA" , "test 33" , "aa 33" , "bb 33" , "cc 33" , "dd 33" , "www.quelquechose33.com" , "0616359443" , "0615257942" , "quelquechose33" , "quelquepart33" , "10 place de quelquepart33" , "0" , "Spain" , "customer" ])
+        self.accounts.append([ "34" , "test 34 SA" , "test 34" , "aa 34" , "bb 34" , "cc 34" , "dd 34" , "www.quelquechose34.com" , "0660166834" , "0697122217" , "quelquechose34" , "quelquepart34" , "10 place de quelquepart34" , "0" , "Belgium" , "customer" ])
+        self.accounts.append([ "35" , "test 35 SA" , "test 35" , "aa 35" , "bb 35" , "cc 35" , "dd 35" , "www.quelquechose35.com" , "0684737817" , "0619481994" , "quelquechose35" , "quelquepart35" , "10 place de quelquepart35" , "0" , "france" , "customer" ])
+        self.accounts.append([ "36" , "test 36 SA" , "test 36" , "aa 36" , "bb 36" , "cc 36" , "dd 36" , "www.quelquechose36.com" , "0696465016" , "0607967779" , "quelquechose36" , "quelquepart36" , "10 place de quelquepart36" , "0" , "Belgium" , "customer" ])
+        self.accounts.append([ "37" , "test 37 SA" , "test 37" , "aa 37" , "bb 37" , "cc 37" , "dd 37" , "www.quelquechose37.com" , "0635511165" , "0688745886" , "quelquechose37" , "quelquepart37" , "10 place de quelquepart37" , "0" , "Belgium" , "customer" ])
+        self.accounts.append([ "38" , "test 38 SA" , "test 38" , "aa 38" , "bb 38" , "cc 38" , "dd 38" , "www.quelquechose38.com" , "0601839135" , "0659373123" , "quelquechose38" , "quelquepart38" , "10 place de quelquepart38" , "0" , "Spain" , "customer" ])
+        self.accounts.append([ "39" , "test 39 SA" , "test 39" , "aa 39" , "bb 39" , "cc 39" , "dd 39" , "www.quelquechose39.com" , "0646144724" , "0666074826" , "quelquechose39" , "quelquepart39" , "10 place de quelquepart39" , "0" , "france" , "customer" ])
+        self.accounts.append([ "40" , "test 40 SA" , "test 40" , "aa 40" , "bb 40" , "cc 40" , "dd 40" , "www.quelquechose40.com" , "0609529849" , "0630429737" , "quelquechose40" , "quelquepart40" , "10 place de quelquepart40" , "0" , "Spain" , "customer" ])
+        self.accounts.append([ "41" , "test 41 SA" , "test 41" , "aa 41" , "bb 41" , "cc 41" , "dd 41" , "www.quelquechose41.com" , "0634218527" , "0619093255" , "quelquechose41" , "quelquepart41" , "10 place de quelquepart41" , "0" , "france" , "customer" ])
+        self.accounts.append([ "42" , "test 42 SA" , "test 42" , "aa 42" , "bb 42" , "cc 42" , "dd 42" , "www.quelquechose42.com" , "0640532116" , "0649626675" , "quelquechose42" , "quelquepart42" , "10 place de quelquepart42" , "0" , "france" , "customer" ])
+        self.accounts.append([ "43" , "test 43 SA" , "test 43" , "aa 43" , "bb 43" , "cc 43" , "dd 43" , "www.quelquechose43.com" , "0613026847" , "0603724240" , "quelquechose43" , "quelquepart43" , "10 place de quelquepart43" , "0" , "france" , "customer" ])
+        self.accounts.append([ "44" , "test 44 SA" , "test 44" , "aa 44" , "bb 44" , "cc 44" , "dd 44" , "www.quelquechose44.com" , "0683331747" , "0675546770" , "quelquechose44" , "quelquepart44" , "10 place de quelquepart44" , "0" , "Belgium" , "customer" ])
+        self.accounts.append([ "45" , "test 45 SA" , "test 45" , "aa 45" , "bb 45" , "cc 45" , "dd 45" , "www.quelquechose45.com" , "0628847870" , "0697263729" , "quelquechose45" , "quelquepart45" , "10 place de quelquepart45" , "0" , "Spain" , "customer" ])
+        self.accounts.append([ "46" , "test 46 SA" , "test 46" , "aa 46" , "bb 46" , "cc 46" , "dd 46" , "www.quelquechose46.com" , "0658497205" , "0609480380" , "quelquechose46" , "quelquepart46" , "10 place de quelquepart46" , "0" , "Spain" , "customer" ])
+        self.accounts.append([ "47" , "test 47 SA" , "test 47" , "aa 47" , "bb 47" , "cc 47" , "dd 47" , "www.quelquechose47.com" , "0650188000" , "0646979446" , "quelquechose47" , "quelquepart47" , "10 place de quelquepart47" , "0" , "france" , "customer" ])
+        self.accounts.append([ "48" , "test 48 SA" , "test 48" , "aa 48" , "bb 48" , "cc 48" , "dd 48" , "www.quelquechose48.com" , "0618066387" , "0692980412" , "quelquechose48" , "quelquepart48" , "10 place de quelquepart48" , "0" , "Spain" , "customer" ])
+        self.accounts.append([ "49" , "test 49 SA" , "test 49" , "aa 49" , "bb 49" , "cc 49" , "dd 49" , "www.quelquechose49.com" , "0612339199" , "0638830063" , "quelquechose49" , "quelquepart49" , "10 place de quelquepart49" , "0" , "Belgium" , "customer" ])
+        self.accounts.append([ "50" , "test 50 SA" , "test 50" , "aa 50" , "bb 50" , "cc 50" , "dd 50" , "www.quelquechose50.com" , "0621440940" , "0638889615" , "quelquechose50" , "quelquepart50" , "10 place de quelquepart50" , "0" , "Spain" , "customer" ])
+        self.accounts.append([ "51" , "test 51 SA" , "test 51" , "aa 51" , "bb 51" , "cc 51" , "dd 51" , "www.quelquechose51.com" , "0684981131" , "0666442077" , "quelquechose51" , "quelquepart51" , "10 place de quelquepart51" , "0" , "Spain" , "customer" ])
+        self.accounts.append([ "52" , "test 52 SA" , "test 52" , "aa 52" , "bb 52" , "cc 52" , "dd 52" , "www.quelquechose52.com" , "0690377293" , "0678368502" , "quelquechose52" , "quelquepart52" , "10 place de quelquepart52" , "0" , "Belgium" , "customer" ])
+        self.accounts.append([ "53" , "test 53 SA" , "test 53" , "aa 53" , "bb 53" , "cc 53" , "dd 53" , "www.quelquechose53.com" , "0601983197" , "0672632915" , "quelquechose53" , "quelquepart53" , "10 place de quelquepart53" , "0" , "france" , "customer" ])
+        self.accounts.append([ "54" , "test 54 SA" , "test 54" , "aa" , "bb 54" , "cc 54" , "dd 54" , "www.quelquechose54.com" , "0618052139" , "0686838807" , "quelquechose54" , "quelquepart54" , "10 place de quelquepart54" , "0" , "Belgium" , "customer" ])
     }
     func viderAccounts(){
-        self.accounts = [[ "1" , "test 1 SA" , "test 1" , "aa 1" , "bb 1" , "cc 1" , "dd 1" , "www.quelquechose1.com" , "0699048436" , "0603403171" , "quelquechose1" , "quelquepart1" , "10 place de quelquepart1" , "1" , "Belgium" ]]
+        self.accounts = [[ "1" , "test 1 SA" , "test 1" , "aa 1" , "bb 1" , "cc 1" , "dd 1" , "www.quelquechose1.com" , "0699048436" , "0603403171" , "quelquechose1" , "quelquepart1" , "10 place de quelquepart1" , "1" , "Belgium" , "customer" ]]
     }
     func remplirTableauAccount() -> [AccountModel]{
         remplirAccounts()
@@ -88,7 +88,9 @@ class Bouchonnage {
             var adressAccount: String = oneAccount[12]
             var idAccount1: Int = oneAccount[13].toInt()!
             var countryAccount: String = oneAccount[14]
-            account = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount)
+            var typeAccount: String = oneAccount[15]
+            println(typeAccount)
+            account = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount,typeAccount: typeAccount)
             allAccounts.append(account)
         }
         viderAccounts()
@@ -101,7 +103,6 @@ class Bouchonnage {
             successful += AccountDataModel().insertAccount(accountToInsert)
             successful += "\n"
         }
-        println(successful)
     }
     
     var meetings = [[ "1" , "Subject 1" , "2015-03-22 11:13" , "QuelquePart 1" , "2015-03-22 11:43" , "1" , "Medium" , "description 1" , "regarding 1" , "report 1" ]]
@@ -186,7 +187,6 @@ class Bouchonnage {
             successful += MeetingDataModel().insertMeeting(meetingToInsert)
             successful += "\n"
         }
-        println(successful)
     }
     
     var opportunities = [[ "1" , "test nom 1" , "3216489" , "2015-12-17" , "Got it" , "70" ]]
@@ -272,67 +272,66 @@ class Bouchonnage {
             successful += OpportunityDataModel().insertOpportunity(opportunityToInsert)
             successful += "\n"
         }
-        println(successful)
     }
     
-    var contacts = [[ "1" , "Job Title 1" , "Belgium" , "Mr" , "Prénom 1" , "Nom 1" , "Commercial" , "1940-09-22" , "0667207781" , "0639660225" , "nom.prenom1@account1.com" , "Flamand" , "adress1" , "www.linkedin.com/profile/nom1" , "2" ]]
+    var contacts = [[ "1" , "Job Title 1" , "France" , "Mrs" , "Prénom 1" , "Nom 1" , "Commercial" , "1940-10-13" , "0654390191" , "0646873762" , "nom.prenom1@account1.com" , "Français" , "adress1" , "www.linkedin.com/profile/nom1" , "2" , "0" , "1" ]]
     func remplirContacts() {
-        self.contacts.append([ "2" , "Job Title 2" , "France" , "Mr" , "Prénom 2" , "Nom 2" , "Commercial" , "1981-10-17" , "0607796473" , "0641328654" , "nom.prenom2@account2.com" , "Flamand" , "adress2" , "www.linkedin.com/profile/nom2" , "0" ])
-        self.contacts.append([ "3" , "Job Title 3" , "Spain" , "Mme" , "Prénom 3" , "Nom 3" , "Autre" , "1960-01-23" , "0697151402" , "0645056299" , "nom.prenom3@account3.com" , "Français" , "adress3" , "www.linkedin.com/profile/nom3" , "2" ])
-        self.contacts.append([ "4" , "Job Title 4" , "Belgium" , "Mrs" , "Prénom 4" , "Nom 4" , "Manager" , "1966-05-18" , "0652708335" , "0622479259" , "nom.prenom4@account4.com" , "Français" , "adress4" , "www.linkedin.com/profile/nom4" , "2" ])
-        self.contacts.append([ "5" , "Job Title 5" , "France" , "Mme" , "Prénom 5" , "Nom 5" , "Commercial" , "1971-01-03" , "0644056015" , "0656164428" , "nom.prenom5@account5.com" , "Flamand" , "adress5" , "www.linkedin.com/profile/nom5" , "2" ])
-        self.contacts.append([ "6" , "Job Title 6" , "Belgium" , "Mr" , "Prénom 6" , "Nom 6" , "Manager" , "1988-01-02" , "0631853574" , "0675820230" , "nom.prenom6@account6.com" , "Espagnol" , "adress6" , "www.linkedin.com/profile/nom6" , "2" ])
-        self.contacts.append([ "7" , "Job Title 7" , "France" , "Mme" , "Prénom 7" , "Nom 7" , "Autre" , "1967-10-18" , "0641394992" , "0692013825" , "nom.prenom7@account7.com" , "Espagnol" , "adress7" , "www.linkedin.com/profile/nom7" , "2" ])
-        self.contacts.append([ "8" , "Job Title 8" , "Spain" , "Mr" , "Prénom 8" , "Nom 8" , "Manager" , "1970-03-25" , "0689828779" , "0644043395" , "nom.prenom8@account8.com" , "Espagnol" , "adress8" , "www.linkedin.com/profile/nom8" , "2" ])
-        self.contacts.append([ "9" , "Job Title 9" , "Belgium" , "Mme" , "Prénom 9" , "Nom 9" , "Commercial" , "1956-05-07" , "0650522927" , "0672907037" , "nom.prenom9@account9.com" , "Espagnol" , "adress9" , "www.linkedin.com/profile/nom9" , "2" ])
-        self.contacts.append([ "10" , "Job Title 10" , "Spain" , "Mr" , "Prénom 10" , "Nom 10" , "Commercial" , "1956-09-09" , "0602592650" , "0692215192" , "nom.prenom10@account10.com" , "Français" , "adress10" , "www.linkedin.com/profile/nom10" , "2" ])
-        self.contacts.append([ "11" , "Job Title 11" , "France" , "Mrs" , "Prénom 11" , "Nom 11" , "Manager" , "1952-06-28" , "0681179434" , "0692862479" , "nom.prenom11@account11.com" , "Français" , "adress11" , "www.linkedin.com/profile/nom11" , "2" ])
-        self.contacts.append([ "12" , "Job Title 12" , "Belgium" , "Mme" , "Prénom 12" , "Nom 12" , "Autre" , "1980-06-17" , "0690578715" , "0626810355" , "nom.prenom12@account12.com" , "Espagnol" , "adress12" , "www.linkedin.com/profile/nom12" , "2" ])
-        self.contacts.append([ "13" , "Job Title 13" , "France" , "Mme" , "Prénom 13" , "Nom 13" , "Autre" , "1990-03-17" , "0691180966" , "0691068737" , "nom.prenom13@account13.com" , "Français" , "adress13" , "www.linkedin.com/profile/nom13" , "2" ])
-        self.contacts.append([ "14" , "Job Title 14" , "Belgium" , "Mme" , "Prénom 14" , "Nom 14" , "Autre" , "1978-07-28" , "0634300005" , "0647800978" , "nom.prenom14@account14.com" , "Flamand" , "adress14" , "www.linkedin.com/profile/nom14" , "2" ])
-        self.contacts.append([ "15" , "Job Title 15" , "Belgium" , "Mrs" , "Prénom 15" , "Nom 15" , "Autre" , "1980-09-14" , "0691404658" , "0681005097" , "nom.prenom15@account15.com" , "Flamand" , "adress15" , "www.linkedin.com/profile/nom15" , "2" ])
-        self.contacts.append([ "16" , "Job Title 16" , "Belgium" , "Mr" , "Prénom 16" , "Nom 16" , "Manager" , "1982-11-25" , "0644759051" , "0654849099" , "nom.prenom16@account16.com" , "Français" , "adress16" , "www.linkedin.com/profile/nom16" , "2" ])
-        self.contacts.append([ "17" , "Job Title 17" , "Spain" , "Mrs" , "Prénom 17" , "Nom 17" , "Commercial" , "1942-09-22" , "0612339033" , "0631220781" , "nom.prenom17@account17.com" , "Français" , "adress17" , "www.linkedin.com/profile/nom17" , "2" ])
-        self.contacts.append([ "18" , "Job Title 18" , "Spain" , "Mrs" , "Prénom 18" , "Nom 18" , "Autre" , "1955-06-02" , "0629275816" , "0630349383" , "nom.prenom18@account18.com" , "Français" , "adress18" , "www.linkedin.com/profile/nom18" , "2" ])
-        self.contacts.append([ "19" , "Job Title 19" , "Belgium" , "Mr" , "Prénom 19" , "Nom 19" , "Commercial" , "1989-09-03" , "0648371332" , "0662222493" , "nom.prenom19@account19.com" , "Espagnol" , "adress19" , "www.linkedin.com/profile/nom19" , "0" ])
-        self.contacts.append([ "20" , "Job Title 20" , "Belgium" , "Mr" , "Prénom 20" , "Nom 20" , "Commercial" , "1948-12-01" , "0641053183" , "0634356998" , "nom.prenom20@account20.com" , "Flamand" , "adress20" , "www.linkedin.com/profile/nom20" , "0" ])
-        self.contacts.append([ "21" , "Job Title 21" , "France" , "Mme" , "Prénom 21" , "Nom 21" , "Commercial" , "1980-11-10" , "0610327169" , "0670453137" , "nom.prenom21@account21.com" , "Espagnol" , "adress21" , "www.linkedin.com/profile/nom21" , "0" ])
-        self.contacts.append([ "22" , "Job Title 22" , "Spain" , "Mrs" , "Prénom 22" , "Nom 22" , "Autre" , "1989-05-01" , "0605992547" , "0673497466" , "nom.prenom22@account22.com" , "Français" , "adress22" , "www.linkedin.com/profile/nom22" , "0" ])
-        self.contacts.append([ "23" , "Job Title 23" , "France" , "Mme" , "Prénom 23" , "Nom 23" , "Commercial" , "1975-07-15" , "0628658627" , "0638534652" , "nom.prenom23@account23.com" , "Espagnol" , "adress23" , "www.linkedin.com/profile/nom23" , "5" ])
-        self.contacts.append([ "24" , "Job Title 24" , "Belgium" , "Mme" , "Prénom 24" , "Nom 24" , "Manager" , "1953-12-15" , "0623406203" , "0633740381" , "nom.prenom24@account24.com" , "Français" , "adress24" , "www.linkedin.com/profile/nom24" , "5" ])
-        self.contacts.append([ "25" , "Job Title 25" , "Belgium" , "Mrs" , "Prénom 25" , "Nom 25" , "Autre" , "1982-12-22" , "0692768991" , "0612636751" , "nom.prenom25@account25.com" , "Flamand" , "adress25" , "www.linkedin.com/profile/nom25" , "5" ])
-        self.contacts.append([ "26" , "Job Title 26" , "France" , "Mrs" , "Prénom 26" , "Nom 26" , "Commercial" , "1983-03-07" , "0631174577" , "0694834789" , "nom.prenom26@account26.com" , "Français" , "adress26" , "www.linkedin.com/profile/nom26" , "5" ])
-        self.contacts.append([ "27" , "Job Title 27" , "Spain" , "Mrs" , "Prénom 27" , "Nom 27" , "Commercial" , "1979-08-20" , "0686090312" , "0664360846" , "nom.prenom27@account27.com" , "Flamand" , "adress27" , "www.linkedin.com/profile/nom27" , "5" ])
-        self.contacts.append([ "28" , "Job Title 28" , "Belgium" , "Mrs" , "Prénom 28" , "Nom 28" , "Commercial" , "1954-02-27" , "0650076251" , "0601194968" , "nom.prenom28@account28.com" , "Flamand" , "adress28" , "www.linkedin.com/profile/nom28" , "5" ])
-        self.contacts.append([ "29" , "Job Title 29" , "France" , "Mr" , "Prénom 29" , "Nom 29" , "Commercial" , "1964-02-23" , "0678970664" , "0644222651" , "nom.prenom29@account29.com" , "Espagnol" , "adress29" , "www.linkedin.com/profile/nom29" , "0" ])
-        self.contacts.append([ "30" , "Job Title 30" , "Spain" , "Mr" , "Prénom 30" , "Nom 30" , "Commercial" , "1954-01-12" , "0628026919" , "0692147362" , "nom.prenom30@account30.com" , "Espagnol" , "adress30" , "www.linkedin.com/profile/nom30" , "0" ])
-        self.contacts.append([ "31" , "Job Title 31" , "Belgium" , "Mrs" , "Prénom 31" , "Nom 31" , "Manager" , "1962-03-01" , "0621147842" , "0618209541" , "nom.prenom31@account31.com" , "Français" , "adress31" , "www.linkedin.com/profile/nom31" , "0" ])
-        self.contacts.append([ "32" , "Job Title 32" , "Spain" , "Mrs" , "Prénom 32" , "Nom 32" , "Autre" , "1990-09-20" , "0637476585" , "0640176516" , "nom.prenom32@account32.com" , "Français" , "adress32" , "www.linkedin.com/profile/nom32" , "0" ])
-        self.contacts.append([ "33" , "Job Title 33" , "Belgium" , "Mrs" , "Prénom 33" , "Nom 33" , "Commercial" , "1971-05-26" , "0683101418" , "0686790017" , "nom.prenom33@account33.com" , "Français" , "adress33" , "www.linkedin.com/profile/nom33" , "18" ])
-        self.contacts.append([ "34" , "Job Title 34" , "Belgium" , "Mme" , "Prénom 34" , "Nom 34" , "Autre" , "1945-05-05" , "0636487068" , "0650405820" , "nom.prenom34@account34.com" , "Français" , "adress34" , "www.linkedin.com/profile/nom34" , "18" ])
-        self.contacts.append([ "35" , "Job Title 35" , "France" , "Mrs" , "Prénom 35" , "Nom 35" , "Manager" , "1953-03-11" , "0682665692" , "0613316568" , "nom.prenom35@account35.com" , "Flamand" , "adress35" , "www.linkedin.com/profile/nom35" , "18" ])
-        self.contacts.append([ "36" , "Job Title 36" , "Belgium" , "Mme" , "Prénom 36" , "Nom 36" , "Commercial" , "1953-12-25" , "0639973978" , "0661930839" , "nom.prenom36@account36.com" , "Espagnol" , "adress36" , "www.linkedin.com/profile/nom36" , "18" ])
-        self.contacts.append([ "37" , "Job Title 37" , "Belgium" , "Mme" , "Prénom 37" , "Nom 37" , "Commercial" , "1981-03-07" , "0682373925" , "0672558195" , "nom.prenom37@account37.com" , "Français" , "adress37" , "www.linkedin.com/profile/nom37" , "18" ])
-        self.contacts.append([ "38" , "Job Title 38" , "Belgium" , "Mrs" , "Prénom 38" , "Nom 38" , "Autre" , "1965-05-01" , "0676731527" , "0601607188" , "nom.prenom38@account38.com" , "Flamand" , "adress38" , "www.linkedin.com/profile/nom38" , "18" ])
-        self.contacts.append([ "39" , "Job Title 39" , "France" , "Mr" , "Prénom 39" , "Nom 39" , "Autre" , "1947-10-22" , "0641059038" , "0666300509" , "nom.prenom39@account39.com" , "Flamand" , "adress39" , "www.linkedin.com/profile/nom39" , "18" ])
-        self.contacts.append([ "40" , "Job Title 40" , "France" , "Mrs" , "Prénom 40" , "Nom 40" , "Autre" , "1963-04-02" , "0617577910" , "0654032283" , "nom.prenom40@account40.com" , "Flamand" , "adress40" , "www.linkedin.com/profile/nom40" , "18" ])
-        self.contacts.append([ "41" , "Job Title 41" , "Spain" , "Mrs" , "Prénom 41" , "Nom 41" , "Manager" , "1982-10-09" , "0609922974" , "0632330582" , "nom.prenom41@account41.com" , "Flamand" , "adress41" , "www.linkedin.com/profile/nom41" , "18" ])
-        self.contacts.append([ "42" , "Job Title 42" , "Spain" , "Mme" , "Prénom 42" , "Nom 42" , "Autre" , "1975-05-02" , "0605699661" , "0693378610" , "nom.prenom42@account42.com" , "Flamand" , "adress42" , "www.linkedin.com/profile/nom42" , "18" ])
-        self.contacts.append([ "43" , "Job Title 43" , "France" , "Mme" , "Prénom 43" , "Nom 43" , "Commercial" , "1989-03-02" , "0660137196" , "0618617372" , "nom.prenom43@account43.com" , "Espagnol" , "adress43" , "www.linkedin.com/profile/nom43" , "18" ])
-        self.contacts.append([ "44" , "Job Title 44" , "France" , "Mr" , "Prénom 44" , "Nom 44" , "Manager" , "1941-11-18" , "0665085008" , "0654448349" , "nom.prenom44@account44.com" , "Français" , "adress44" , "www.linkedin.com/profile/nom44" , "18" ])
-        self.contacts.append([ "45" , "Job Title 45" , "Belgium" , "Mme" , "Prénom 45" , "Nom 45" , "Commercial" , "1942-08-09" , "0694989481" , "0607268837" , "nom.prenom45@account45.com" , "Espagnol" , "adress45" , "www.linkedin.com/profile/nom45" , "18" ])
-        self.contacts.append([ "46" , "Job Title 46" , "France" , "Mr" , "Prénom 46" , "Nom 46" , "Manager" , "1986-11-20" , "0611438749" , "0619581915" , "nom.prenom46@account46.com" , "Espagnol" , "adress46" , "www.linkedin.com/profile/nom46" , "18" ])
-        self.contacts.append([ "47" , "Job Title 47" , "France" , "Mrs" , "Prénom 47" , "Nom 47" , "Manager" , "1976-06-04" , "0637364909" , "0696838390" , "nom.prenom47@account47.com" , "Français" , "adress47" , "www.linkedin.com/profile/nom47" , "18" ])
-        self.contacts.append([ "48" , "Job Title 48" , "France" , "Mme" , "Prénom 48" , "Nom 48" , "Autre" , "1941-12-19" , "0681118241" , "0671771618" , "nom.prenom48@account48.com" , "Espagnol" , "adress48" , "www.linkedin.com/profile/nom48" , "18" ])
-        self.contacts.append([ "49" , "Job Title 49" , "Spain" , "Mr" , "Prénom 49" , "Nom 49" , "Commercial" , "1985-02-20" , "0641449620" , "0658487042" , "nom.prenom49@account49.com" , "Espagnol" , "adress49" , "www.linkedin.com/profile/nom49" , "18" ])
-        self.contacts.append([ "50" , "Job Title 50" , "Belgium" , "Mrs" , "Prénom 50" , "Nom 50" , "Manager" , "1964-10-02" , "0642680552" , "0663112915" , "nom.prenom50@account50.com" , "Espagnol" , "adress50" , "www.linkedin.com/profile/nom50" , "18" ])
-        self.contacts.append([ "51" , "Job Title 51" , "Spain" , "Mr" , "Prénom 51" , "Nom 51" , "Autre" , "1966-12-20" , "0689569699" , "0646460428" , "nom.prenom51@account51.com" , "Flamand" , "adress51" , "www.linkedin.com/profile/nom51" , "18" ])
-        self.contacts.append([ "52" , "Job Title 52" , "France" , "Mme" , "Prénom 52" , "Nom 52" , "Manager" , "1983-06-02" , "0640057590" , "0601951662" , "nom.prenom52@account52.com" , "Français" , "adress52" , "www.linkedin.com/profile/nom52" , "18" ])
-        self.contacts.append([ "53" , "Job Title 53" , "Belgium" , "Mr" , "Prénom 53" , "Nom 53" , "Manager" , "1983-08-10" , "0690261682" , "0686990599" , "nom.prenom53@account53.com" , "Français" , "adress53" , "www.linkedin.com/profile/nom53" , "18" ])
-        self.contacts.append([ "54" , "Job Title 54" , "France" , "Mr" , "Prénom 54" , "Nom 54" , "Autre" , "1966-03-04" , "0688970338" , "0697403018" , "nom.prenom54@account54.com" , "Français" , "adress54" , "www.linkedin.com/profile/nom54" , "18" ])
+        self.contacts.append([ "2" , "Job Title 2" , "France" , "Mr" , "Prénom 2" , "Nom 2" , "Commercial" , "1958-10-17" , "0607796473" , "0641328654" , "nom.prenom2@account2.com" , "Flamand" , "adress2" , "www.linkedin.com/profile/nom2" , "0" , "0" , "1" ])
+        self.contacts.append([ "3" , "Job Title 3" , "Spain" , "Mme" , "Prénom 3" , "Nom 3" , "Autre" , "1946-01-23" , "0697151402" , "0645056299" , "nom.prenom3@account3.com" , "Français" , "adress3" , "www.linkedin.com/profile/nom3" , "2" , "0" , "0" ])
+        self.contacts.append([ "4" , "Job Title 4" , "Belgium" , "Mrs" , "Prénom 4" , "Nom 4" , "Manager" , "1984-05-18" , "0652708335" , "0622479259" , "nom.prenom4@account4.com" , "Français" , "adress4" , "www.linkedin.com/profile/nom4" , "2" , "0" , "0" ])
+        self.contacts.append([ "5" , "Job Title 5" , "France" , "Mme" , "Prénom 5" , "Nom 5" , "Commercial" , "1971-01-03" , "0644056015" , "0656164428" , "nom.prenom5@account5.com" , "Flamand" , "adress5" , "www.linkedin.com/profile/nom5" , "2" , "0" , "0" ])
+        self.contacts.append([ "6" , "Job Title 6" , "Belgium" , "Mr" , "Prénom 6" , "Nom 6" , "Manager" , "1941-01-02" , "0631853574" , "0675820230" , "nom.prenom6@account6.com" , "Espagnol" , "adress6" , "www.linkedin.com/profile/nom6" , "2" , "0" , "0" ])
+        self.contacts.append([ "7" , "Job Title 7" , "France" , "Mme" , "Prénom 7" , "Nom 7" , "Autre" , "1975-10-18" , "0641394992" , "0692013825" , "nom.prenom7@account7.com" , "Espagnol" , "adress7" , "www.linkedin.com/profile/nom7" , "2" , "0" , "1" ])
+        self.contacts.append([ "8" , "Job Title 8" , "Spain" , "Mr" , "Prénom 8" , "Nom 8" , "Manager" , "1948-03-25" , "0689828779" , "0644043395" , "nom.prenom8@account8.com" , "Espagnol" , "adress8" , "www.linkedin.com/profile/nom8" , "2" , "0" , "1" ])
+        self.contacts.append([ "9" , "Job Title 9" , "Belgium" , "Mme" , "Prénom 9" , "Nom 9" , "Commercial" , "1952-05-07" , "0650522927" , "0672907037" , "nom.prenom9@account9.com" , "Espagnol" , "adress9" , "www.linkedin.com/profile/nom9" , "2" , "0" , "0" ])
+        self.contacts.append([ "10" , "Job Title 10" , "Spain" , "Mr" , "Prénom 10" , "Nom 10" , "Commercial" , "1968-09-09" , "0602592650" , "0692215192" , "nom.prenom10@account10.com" , "Français" , "adress10" , "www.linkedin.com/profile/nom10" , "2" , "0" , "1" ])
+        self.contacts.append([ "11" , "Job Title 11" , "France" , "Mrs" , "Prénom 11" , "Nom 11" , "Manager" , "1954-06-28" , "0681179434" , "0692862479" , "nom.prenom11@account11.com" , "Français" , "adress11" , "www.linkedin.com/profile/nom11" , "2" , "0" , "1" ])
+        self.contacts.append([ "12" , "Job Title 12" , "Belgium" , "Mme" , "Prénom 12" , "Nom 12" , "Autre" , "1960-06-17" , "0690578715" , "0626810355" , "nom.prenom12@account12.com" , "Espagnol" , "adress12" , "www.linkedin.com/profile/nom12" , "2" , "0" , "1" ])
+        self.contacts.append([ "13" , "Job Title 13" , "France" , "Mme" , "Prénom 13" , "Nom 13" , "Autre" , "1949-03-17" , "0691180966" , "0691068737" , "nom.prenom13@account13.com" , "Français" , "adress13" , "www.linkedin.com/profile/nom13" , "2" , "0" , "1" ])
+        self.contacts.append([ "14" , "Job Title 14" , "Belgium" , "Mme" , "Prénom 14" , "Nom 14" , "Autre" , "1983-07-28" , "0634300005" , "0647800978" , "nom.prenom14@account14.com" , "Flamand" , "adress14" , "www.linkedin.com/profile/nom14" , "2" , "0" , "1" ])
+        self.contacts.append([ "15" , "Job Title 15" , "Belgium" , "Mrs" , "Prénom 15" , "Nom 15" , "Autre" , "1972-09-14" , "0691404658" , "0681005097" , "nom.prenom15@account15.com" , "Flamand" , "adress15" , "www.linkedin.com/profile/nom15" , "2" , "0" , "1" ])
+        self.contacts.append([ "16" , "Job Title 16" , "Belgium" , "Mr" , "Prénom 16" , "Nom 16" , "Manager" , "1966-11-25" , "0644759051" , "0654849099" , "nom.prenom16@account16.com" , "Français" , "adress16" , "www.linkedin.com/profile/nom16" , "2" , "0" , "0" ])
+        self.contacts.append([ "17" , "Job Title 17" , "Spain" , "Mrs" , "Prénom 17" , "Nom 17" , "Commercial" , "1947-09-22" , "0612339033" , "0631220781" , "nom.prenom17@account17.com" , "Français" , "adress17" , "www.linkedin.com/profile/nom17" , "2" , "0" , "0" ])
+        self.contacts.append([ "18" , "Job Title 18" , "Spain" , "Mrs" , "Prénom 18" , "Nom 18" , "Autre" , "1942-06-02" , "0629275816" , "0630349383" , "nom.prenom18@account18.com" , "Français" , "adress18" , "www.linkedin.com/profile/nom18" , "2" , "0" , "0" ])
+        self.contacts.append([ "19" , "Job Title 19" , "Belgium" , "Mr" , "Prénom 19" , "Nom 19" , "Commercial" , "1957-09-03" , "0648371332" , "0662222493" , "nom.prenom19@account19.com" , "Espagnol" , "adress19" , "www.linkedin.com/profile/nom19" , "0" , "0" , "1" ])
+        self.contacts.append([ "20" , "Job Title 20" , "Belgium" , "Mr" , "Prénom 20" , "Nom 20" , "Commercial" , "1950-12-01" , "0641053183" , "0634356998" , "nom.prenom20@account20.com" , "Flamand" , "adress20" , "www.linkedin.com/profile/nom20" , "0" , "0" , "0" ])
+        self.contacts.append([ "21" , "Job Title 21" , "France" , "Mme" , "Prénom 21" , "Nom 21" , "Commercial" , "1951-11-10" , "0610327169" , "0670453137" , "nom.prenom21@account21.com" , "Espagnol" , "adress21" , "www.linkedin.com/profile/nom21" , "0" , "0" , "0" ])
+        self.contacts.append([ "22" , "Job Title 22" , "Spain" , "Mrs" , "Prénom 22" , "Nom 22" , "Autre" , "1955-05-01" , "0605992547" , "0673497466" , "nom.prenom22@account22.com" , "Français" , "adress22" , "www.linkedin.com/profile/nom22" , "0" , "0" , "1" ])
+        self.contacts.append([ "23" , "Job Title 23" , "France" , "Mme" , "Prénom 23" , "Nom 23" , "Commercial" , "1990-07-15" , "0628658627" , "0638534652" , "nom.prenom23@account23.com" , "Espagnol" , "adress23" , "www.linkedin.com/profile/nom23" , "5" , "0" , "1" ])
+        self.contacts.append([ "24" , "Job Title 24" , "Belgium" , "Mme" , "Prénom 24" , "Nom 24" , "Manager" , "1957-12-15" , "0623406203" , "0633740381" , "nom.prenom24@account24.com" , "Français" , "adress24" , "www.linkedin.com/profile/nom24" , "5" , "0" , "1" ])
+        self.contacts.append([ "25" , "Job Title 25" , "Belgium" , "Mrs" , "Prénom 25" , "Nom 25" , "Autre" , "1987-12-22" , "0692768991" , "0612636751" , "nom.prenom25@account25.com" , "Flamand" , "adress25" , "www.linkedin.com/profile/nom25" , "5" , "0" , "1" ])
+        self.contacts.append([ "26" , "Job Title 26" , "France" , "Mrs" , "Prénom 26" , "Nom 26" , "Commercial" , "1953-03-07" , "0631174577" , "0694834789" , "nom.prenom26@account26.com" , "Français" , "adress26" , "www.linkedin.com/profile/nom26" , "5" , "0" , "0" ])
+        self.contacts.append([ "27" , "Job Title 27" , "Spain" , "Mrs" , "Prénom 27" , "Nom 27" , "Commercial" , "1990-08-20" , "0686090312" , "0664360846" , "nom.prenom27@account27.com" , "Flamand" , "adress27" , "www.linkedin.com/profile/nom27" , "5" , "0" , "0" ])
+        self.contacts.append([ "28" , "Job Title 28" , "Belgium" , "Mrs" , "Prénom 28" , "Nom 28" , "Commercial" , "1942-02-27" , "0650076251" , "0601194968" , "nom.prenom28@account28.com" , "Flamand" , "adress28" , "www.linkedin.com/profile/nom28" , "5" , "0" , "0" ])
+        self.contacts.append([ "29" , "Job Title 29" , "France" , "Mr" , "Prénom 29" , "Nom 29" , "Commercial" , "1955-02-23" , "0678970664" , "0644222651" , "nom.prenom29@account29.com" , "Espagnol" , "adress29" , "www.linkedin.com/profile/nom29" , "0" , "0" , "1" ])
+        self.contacts.append([ "30" , "Job Title 30" , "Spain" , "Mr" , "Prénom 30" , "Nom 30" , "Commercial" , "1964-01-12" , "0628026919" , "0692147362" , "nom.prenom30@account30.com" , "Espagnol" , "adress30" , "www.linkedin.com/profile/nom30" , "0" , "0" , "1" ])
+        self.contacts.append([ "31" , "Job Title 31" , "Belgium" , "Mrs" , "Prénom 31" , "Nom 31" , "Manager" , "1952-03-01" , "0621147842" , "0618209541" , "nom.prenom31@account31.com" , "Français" , "adress31" , "www.linkedin.com/profile/nom31" , "0" , "0" , "0" ])
+        self.contacts.append([ "32" , "Job Title 32" , "Spain" , "Mrs" , "Prénom 32" , "Nom 32" , "Autre" , "1956-09-20" , "0637476585" , "0640176516" , "nom.prenom32@account32.com" , "Français" , "adress32" , "www.linkedin.com/profile/nom32" , "0" , "0" , "1" ])
+        self.contacts.append([ "33" , "Job Title 33" , "Belgium" , "Mrs" , "Prénom 33" , "Nom 33" , "Commercial" , "1990-05-26" , "0683101418" , "0686790017" , "nom.prenom33@account33.com" , "Français" , "adress33" , "www.linkedin.com/profile/nom33" , "18" , "0" , "0" ])
+        self.contacts.append([ "34" , "Job Title 34" , "Belgium" , "Mme" , "Prénom 34" , "Nom 34" , "Autre" , "1972-05-05" , "0636487068" , "0650405820" , "nom.prenom34@account34.com" , "Français" , "adress34" , "www.linkedin.com/profile/nom34" , "18" , "0" , "0" ])
+        self.contacts.append([ "35" , "Job Title 35" , "France" , "Mrs" , "Prénom 35" , "Nom 35" , "Manager" , "1973-03-11" , "0682665692" , "0613316568" , "nom.prenom35@account35.com" , "Flamand" , "adress35" , "www.linkedin.com/profile/nom35" , "18" , "0" , "1" ])
+        self.contacts.append([ "36" , "Job Title 36" , "Belgium" , "Mme" , "Prénom 36" , "Nom 36" , "Commercial" , "1955-12-25" , "0639973978" , "0661930839" , "nom.prenom36@account36.com" , "Espagnol" , "adress36" , "www.linkedin.com/profile/nom36" , "18" , "0" , "1" ])
+        self.contacts.append([ "37" , "Job Title 37" , "Belgium" , "Mme" , "Prénom 37" , "Nom 37" , "Commercial" , "1974-03-07" , "0682373925" , "0672558195" , "nom.prenom37@account37.com" , "Français" , "adress37" , "www.linkedin.com/profile/nom37" , "18" , "0" , "0" ])
+        self.contacts.append([ "38" , "Job Title 38" , "Belgium" , "Mrs" , "Prénom 38" , "Nom 38" , "Autre" , "1977-05-01" , "0676731527" , "0601607188" , "nom.prenom38@account38.com" , "Flamand" , "adress38" , "www.linkedin.com/profile/nom38" , "18" , "0" , "1" ])
+        self.contacts.append([ "39" , "Job Title 39" , "France" , "Mr" , "Prénom 39" , "Nom 39" , "Autre" , "1953-10-22" , "0641059038" , "0666300509" , "nom.prenom39@account39.com" , "Flamand" , "adress39" , "www.linkedin.com/profile/nom39" , "18" , "0" , "1" ])
+        self.contacts.append([ "40" , "Job Title 40" , "France" , "Mrs" , "Prénom 40" , "Nom 40" , "Autre" , "1957-04-02" , "0617577910" , "0654032283" , "nom.prenom40@account40.com" , "Flamand" , "adress40" , "www.linkedin.com/profile/nom40" , "18" , "0" , "0" ])
+        self.contacts.append([ "41" , "Job Title 41" , "Spain" , "Mrs" , "Prénom 41" , "Nom 41" , "Manager" , "1949-10-09" , "0609922974" , "0632330582" , "nom.prenom41@account41.com" , "Flamand" , "adress41" , "www.linkedin.com/profile/nom41" , "18" , "0" , "0" ])
+        self.contacts.append([ "42" , "Job Title 42" , "Spain" , "Mme" , "Prénom 42" , "Nom 42" , "Autre" , "1985-05-02" , "0605699661" , "0693378610" , "nom.prenom42@account42.com" , "Flamand" , "adress42" , "www.linkedin.com/profile/nom42" , "18" , "0" , "1" ])
+        self.contacts.append([ "43" , "Job Title 43" , "France" , "Mme" , "Prénom 43" , "Nom 43" , "Commercial" , "1940-03-02" , "0660137196" , "0618617372" , "nom.prenom43@account43.com" , "Espagnol" , "adress43" , "www.linkedin.com/profile/nom43" , "18" , "0" , "1" ])
+        self.contacts.append([ "44" , "Job Title 44" , "France" , "Mr" , "Prénom 44" , "Nom 44" , "Manager" , "1963-11-18" , "0665085008" , "0654448349" , "nom.prenom44@account44.com" , "Français" , "adress44" , "www.linkedin.com/profile/nom44" , "18" , "0" , "0" ])
+        self.contacts.append([ "45" , "Job Title 45" , "Belgium" , "Mme" , "Prénom 45" , "Nom 45" , "Commercial" , "1955-08-09" , "0694989481" , "0607268837" , "nom.prenom45@account45.com" , "Espagnol" , "adress45" , "www.linkedin.com/profile/nom45" , "18" , "0" , "1" ])
+        self.contacts.append([ "46" , "Job Title 46" , "France" , "Mr" , "Prénom 46" , "Nom 46" , "Manager" , "1951-11-20" , "0611438749" , "0619581915" , "nom.prenom46@account46.com" , "Espagnol" , "adress46" , "www.linkedin.com/profile/nom46" , "18" , "0" , "0" ])
+        self.contacts.append([ "47" , "Job Title 47" , "France" , "Mrs" , "Prénom 47" , "Nom 47" , "Manager" , "1977-06-04" , "0637364909" , "0696838390" , "nom.prenom47@account47.com" , "Français" , "adress47" , "www.linkedin.com/profile/nom47" , "18" , "0" , "0" ])
+        self.contacts.append([ "48" , "Job Title 48" , "France" , "Mme" , "Prénom 48" , "Nom 48" , "Autre" , "1947-12-19" , "0681118241" , "0671771618" , "nom.prenom48@account48.com" , "Espagnol" , "adress48" , "www.linkedin.com/profile/nom48" , "18" , "0" , "0" ])
+        self.contacts.append([ "49" , "Job Title 49" , "Spain" , "Mr" , "Prénom 49" , "Nom 49" , "Commercial" , "1964-02-20" , "0641449620" , "0658487042" , "nom.prenom49@account49.com" , "Espagnol" , "adress49" , "www.linkedin.com/profile/nom49" , "18" , "0" , "0" ])
+        self.contacts.append([ "50" , "Job Title 50" , "Belgium" , "Mrs" , "Prénom 50" , "Nom 50" , "Manager" , "1971-10-02" , "0642680552" , "0663112915" , "nom.prenom50@account50.com" , "Espagnol" , "adress50" , "www.linkedin.com/profile/nom50" , "18" , "0" , "1" ])
+        self.contacts.append([ "51" , "Job Title 51" , "Spain" , "Mr" , "Prénom 51" , "Nom 51" , "Autre" , "1946-12-20" , "0689569699" , "0646460428" , "nom.prenom51@account51.com" , "Flamand" , "adress51" , "www.linkedin.com/profile/nom51" , "18" , "0" , "0" ])
+        self.contacts.append([ "52" , "Job Title 52" , "France" , "Mme" , "Prénom 52" , "Nom 52" , "Manager" , "1990-06-02" , "0640057590" , "0601951662" , "nom.prenom52@account52.com" , "Français" , "adress52" , "www.linkedin.com/profile/nom52" , "18" , "0" , "0" ])
+        self.contacts.append([ "53" , "Job Title 53" , "Belgium" , "Mr" , "Prénom 53" , "Nom 53" , "Manager" , "1989-08-10" , "0690261682" , "0686990599" , "nom.prenom53@account53.com" , "Français" , "adress53" , "www.linkedin.com/profile/nom53" , "18" , "0" , "0" ])
+        self.contacts.append([ "54" , "Job Title 54" , "France" , "Mr" , "Prénom 54" , "Nom 54" , "Autre" , "1960-03-04" , "0688970338" , "0697403018" , "nom.prenom54@account54.com" , "Français" , "adress54" , "www.linkedin.com/profile/nom54" , "18" , "0" , "0" ])
     }
     func viderContacts(){
-        self.contacts = [[ "1" , "Job Title 1" , "Belgium" , "Mr" , "Prénom 1" , "Nom 1" , "Commercial" , "1940-09-22" , "0667207781" , "0639660225" , "nom.prenom1@account1.com" , "Flamand" , "adress1" , "www.linkedin.com/profile/nom1" , "2" ]]
+        self.contacts = [[ "1" , "Job Title 1" , "France" , "Mrs" , "Prénom 1" , "Nom 1" , "Commercial" , "1940-10-13" , "0654390191" , "0646873762" , "nom.prenom1@account1.com" , "Français" , "adress1" , "www.linkedin.com/profile/nom1" , "2" , "0" , "1" ]]
     }
     func remplirTableauContacts() -> [ContactModel] {
         remplirContacts()
@@ -354,7 +353,9 @@ class Bouchonnage {
             var workingAdressContact: String = contact[12]
             var linkedinProfileContact: String = contact[13]
             var idContact1: Int = contact[14].toInt()!
-            contactModel = ContactModel(idContact: idContact, jobTitleContact: jobTitleContact, countryContact: countryContact, civilityContact: civilityContact, firstNameContact: firstNameContact, lastNameContact: lastNameContact, typeContact: typeContact, birthdateContact: birthdateContact, phoneBusinessContact: phoneBusinessContact, phoneMobileContact: phoneMobileContact, emailContact: emailContact, preferredLanguageContact: preferredLanguageContact, workingAdressContact: workingAdressContact, linkedinProfileContact: linkedinProfileContact, idContact1: idContact1)
+            var statusContact: Int = contact[15].toInt()!
+            var favoriteContact: Int = contact[16].toInt()!
+            contactModel = ContactModel(idContact: idContact, jobTitleContact: jobTitleContact, countryContact: countryContact, civilityContact: civilityContact, firstNameContact: firstNameContact, lastNameContact: lastNameContact, typeContact: typeContact, birthdateContact: birthdateContact, phoneBusinessContact: phoneBusinessContact, phoneMobileContact: phoneMobileContact, emailContact: emailContact, preferredLanguageContact: preferredLanguageContact, workingAdressContact: workingAdressContact, linkedinProfileContact: linkedinProfileContact, idContact1: idContact1, statusContact: statusContact, favoriteContact: favoriteContact)
             contactsARendre.append(contactModel)
         }
         viderContacts()
@@ -367,7 +368,6 @@ class Bouchonnage {
             successful += ContactDataModel().insertContact(contactToInsert)
             successful += "\n"
         }
-        println(successful)
     }
     
     var accountContacts = [[ "15" , "2" , "role de contact 2 dans account 15" ]]
@@ -450,7 +450,6 @@ class Bouchonnage {
             successful += AccountContactDataModel().insertAccountContact(accountContactToInsert)
             successful += "\n"
         }
-        println(successful)
     }
     
     var contactOpportunities = [[ "13" , "26" ]]
@@ -532,7 +531,6 @@ class Bouchonnage {
             successful += OpportunitiesContactsDataModel().insertOpportunitiesContacts(contactOpportunityToInsert)
             successful += "\n"
         }
-        println(successful)
     }
     
     var accountOpportunities = [[ "27" , "39" ]]
@@ -614,7 +612,6 @@ class Bouchonnage {
             successful += AccountOpportunitiesDataModel().insertAccountOpportunities(accountOpportunityToInsert)
             successful += "\n"
         }
-        println(successful)
     }
     
     var contactMeetings = [[ "35" , "29" ]]
@@ -696,7 +693,6 @@ class Bouchonnage {
             successful += MeetingContactDataModel().insertMeetingContactModel(contactMeetingToInsert)
             successful += "\n"
         }
-        println(successful)
     }
 
     var contracts = [[ "1" , "sujet contrat 1" , "9397866" , "2015-08-20" , "Got it" ]]
@@ -782,7 +778,6 @@ class Bouchonnage {
             successful += ContractsDataModel().insertContracts(contractToInsert)
             successful += "\n"
         }
-        println(successful)
     }
 
     var accountContracts = [[ "26" , "27" ]]
@@ -864,7 +859,6 @@ class Bouchonnage {
             successful += AccountContractsDataModel().insertAccountContracts(accountContractToInsert)
             successful += "\n"
         }
-        println(successful)
     }
     
     var tasks = [[ "1" , "sujet task 1" , "2015-07-02" , "Got it" ]]
@@ -950,7 +944,6 @@ class Bouchonnage {
             successful += TaskDataModel().insertTask(taskToInsert)
             successful += "\n"
         }
-        println(successful)
     }
     
     var accountTasks = [[ "5" , "8" ]]
@@ -1032,7 +1025,6 @@ class Bouchonnage {
             successful += TasksAccountDataModel().insertTaskAccount(accountTaskToInsert)
             successful += "\n"
         }
-        println(successful)
     }
 
     
@@ -1115,7 +1107,6 @@ class Bouchonnage {
             successful += TasksContactsDataModel().insertTasksContacts(contactTaskToInsert)
             successful += "\n"
         }
-        println(successful)
     }
 
     var taskMeetings =  [[ "28" , "3" ]]
@@ -1197,7 +1188,6 @@ class Bouchonnage {
             successful += TasksMeetingsDataModel().insertTasksMeeting(taskMeetingToInsert)
             successful += "\n"
         }
-        println(successful)
     }
 
     var users = [[ "1", "test", "test", "ddelfosse@csc.com", "test", "test", "Salesforce", "Quel est le nom de votre premier animal de compagnie", "chien" ]]
@@ -1237,6 +1227,5 @@ class Bouchonnage {
             successful += UserDataModel().insertUser(userToInsert)
             successful += "\n"
         }
-        println(successful)
     }
 }

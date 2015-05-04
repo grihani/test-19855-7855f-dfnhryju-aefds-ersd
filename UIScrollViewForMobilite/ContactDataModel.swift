@@ -32,8 +32,9 @@ class ContactDataModel {
                 var workingAdressContact: String = results.stringForColumn("workingAdressContact")
                 var linkedinProfileContact: String = results.stringForColumn("linkedinProfileContact")
                 var idContact1: Int = Int(results.intForColumn("idContact1"))
-                
-                var contact = ContactModel(idContact: idContact, jobTitleContact: jobTitleContact, countryContact: countryContact, civilityContact: civilityContact, firstNameContact: firstNameContact, lastNameContact: lastNameContact, typeContact: typeContact, birthdateContact: birthdateContact, phoneBusinessContact: phoneBusinessContact, phoneMobileContact: phoneMobileContact, emailContact: emailContact, preferredLanguageContact: preferredLanguageContact, workingAdressContact: workingAdressContact, linkedinProfileContact: linkedinProfileContact, idContact1: idContact1)
+                var statusContact: Int = Int(results.intForColumn("statusContact"))
+                var favoriteContact: Int = Int(results.intForColumn("favoriteContact"))
+                var contact = ContactModel(idContact: idContact, jobTitleContact: jobTitleContact, countryContact: countryContact, civilityContact: civilityContact, firstNameContact: firstNameContact, lastNameContact: lastNameContact, typeContact: typeContact, birthdateContact: birthdateContact, phoneBusinessContact: phoneBusinessContact, phoneMobileContact: phoneMobileContact, emailContact: emailContact, preferredLanguageContact: preferredLanguageContact, workingAdressContact: workingAdressContact, linkedinProfileContact: linkedinProfileContact, idContact1: idContact1, statusContact: statusContact, favoriteContact: favoriteContact)
                 
                 allContacts.append(contact)
             }
@@ -64,8 +65,9 @@ class ContactDataModel {
                 var workingAdressContact: String = results.stringForColumn("workingAdressContact")
                 var linkedinProfileContact: String = results.stringForColumn("linkedinProfileContact")
                 var idContact1: Int = Int(results.intForColumn("idContact1"))
-                
-                var contact = ContactModel(idContact: idContact, jobTitleContact: jobTitleContact, countryContact: countryContact, civilityContact: civilityContact, firstNameContact: firstNameContact, lastNameContact: lastNameContact, typeContact: typeContact, birthdateContact: birthdateContact, phoneBusinessContact: phoneBusinessContact, phoneMobileContact: phoneMobileContact, emailContact: emailContact, preferredLanguageContact: preferredLanguageContact, workingAdressContact: workingAdressContact, linkedinProfileContact: linkedinProfileContact, idContact1: idContact1)
+                var statusContact: Int = Int(results.intForColumn("statusContact"))
+                var favoriteContact: Int = Int(results.intForColumn("favoriteContact"))
+                var contact = ContactModel(idContact: idContact, jobTitleContact: jobTitleContact, countryContact: countryContact, civilityContact: civilityContact, firstNameContact: firstNameContact, lastNameContact: lastNameContact, typeContact: typeContact, birthdateContact: birthdateContact, phoneBusinessContact: phoneBusinessContact, phoneMobileContact: phoneMobileContact, emailContact: emailContact, preferredLanguageContact: preferredLanguageContact, workingAdressContact: workingAdressContact, linkedinProfileContact: linkedinProfileContact, idContact1: idContact1, statusContact: statusContact, favoriteContact: favoriteContact)
                 
                 contactsOfAccount.append(contact)
             }
@@ -95,8 +97,9 @@ class ContactDataModel {
                 var workingAdressContact: String = results.stringForColumn("workingAdressContact")
                 var linkedinProfileContact: String = results.stringForColumn("linkedinProfileContact")
                 var idContact1: Int = Int(results.intForColumn("idContact1"))
-                
-                contact = ContactModel(idContact: idContact, jobTitleContact: jobTitleContact, countryContact: countryContact, civilityContact: civilityContact, firstNameContact: firstNameContact, lastNameContact: lastNameContact, typeContact: typeContact, birthdateContact: birthdateContact, phoneBusinessContact: phoneBusinessContact, phoneMobileContact: phoneMobileContact, emailContact: emailContact, preferredLanguageContact: preferredLanguageContact, workingAdressContact: workingAdressContact, linkedinProfileContact: linkedinProfileContact, idContact1: idContact1)
+                var statusContact: Int = Int(results.intForColumn("statusContact"))
+                var favoriteContact: Int = Int(results.intForColumn("favoriteContact"))
+                var contact = ContactModel(idContact: idContact, jobTitleContact: jobTitleContact, countryContact: countryContact, civilityContact: civilityContact, firstNameContact: firstNameContact, lastNameContact: lastNameContact, typeContact: typeContact, birthdateContact: birthdateContact, phoneBusinessContact: phoneBusinessContact, phoneMobileContact: phoneMobileContact, emailContact: emailContact, preferredLanguageContact: preferredLanguageContact, workingAdressContact: workingAdressContact, linkedinProfileContact: linkedinProfileContact, idContact1: idContact1, statusContact: statusContact, favoriteContact: favoriteContact)
             }
         }
         return contact
@@ -104,7 +107,7 @@ class ContactDataModel {
     
     func insertContact(contact: ContactModel) -> String {
         var erreur = String()
-        let insertSQL = "INSERT INTO Contacts (jobTitleContact,countryContact,civilityContact,firstNameContact,lastNameContact,typeContact,birthdateContact,phoneBusinessContact,phoneMobileContact,emailContact,preferredLanguageContact,workingAdressContact,linkedinProfileContact,idContact1) VALUES (?, ?, ?, ?,?, ?, ?, ?,?, ?, ?, ?, ?, ?)"
+        let insertSQL = "INSERT INTO Contacts (jobTitleContact,countryContact,civilityContact,firstNameContact,lastNameContact,typeContact,birthdateContact,phoneBusinessContact,phoneMobileContact,emailContact,preferredLanguageContact,workingAdressContact,linkedinProfileContact,idContact1, statusContact, favoriteContact) VALUES (?, ?, ?, ?,?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?)"
         let result = contactDataBase.executeUpdate(insertSQL, withArgumentsInArray: contact.arrayFromModel())
         if !result {
             erreur += "\n Error: \(contactDataBase.lastErrorMessage())"

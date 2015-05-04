@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fa7-38-I0q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A7r-ge-PhP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -1779,12 +1779,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRD-t3-7qF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7032" y="808"/>
+            <point key="canvasLocation" x="4896" y="1504"/>
         </scene>
-        <!--Vue360 View Controller-->
+        <!--Account Details View Controller-->
         <scene sceneID="NzU-Tc-oFT">
             <objects>
-                <viewController storyboardIdentifier="Vue 360°" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H1v-Pv-r5V" customClass="Vue360ViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Account Details" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H1v-Pv-r5V" customClass="AccountDetailsViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2XB-bh-KzN"/>
                         <viewControllerLayoutGuide type="bottom" id="Rtx-uT-vWA"/>
@@ -2044,12 +2044,12 @@
                 </tapGestureRecognizer>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nZ-jJ-zgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4106" y="808"/>
+            <point key="canvasLocation" x="7070" y="808"/>
         </scene>
-        <!--Detail AccountsV2 View Controller-->
+        <!--Vue360 View Controller-->
         <scene sceneID="tTq-Tl-MYe">
             <objects>
-                <viewController storyboardIdentifier="vue360Bis" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4LH-GK-JIb" customClass="DetailAccountsV2ViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Vue 360°" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4LH-GK-JIb" customClass="Vue360ViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LUy-QZ-v4D"/>
                         <viewControllerLayoutGuide type="bottom" id="yWs-gP-WKk"/>
@@ -2145,13 +2145,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcX-TW-7Tm">
-                                                        <rect key="frame" x="65" y="286" width="53" height="17"/>
+                                                        <rect key="frame" x="65" y="253" width="53" height="17"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqY-El-Syp">
-                                                        <rect key="frame" x="126" y="286" width="154" height="62"/>
+                                                        <rect key="frame" x="126" y="253" width="154" height="62"/>
                                                         <string key="text">12 rue Tartampion,
 Paris, 75015,
 France</string>
@@ -2160,9 +2160,9 @@ France</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tar-Rh-bAg">
-                                                        <rect key="frame" x="126" y="356" width="154" height="167"/>
+                                                        <rect key="frame" x="126" y="323" width="154" height="200"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="167" id="KBb-ps-VwR"/>
+                                                            <constraint firstAttribute="height" constant="200" id="KBb-ps-VwR"/>
                                                         </constraints>
                                                     </mapView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7N-ga-3nj" userLabel="Line key figures">
@@ -2208,7 +2208,7 @@ France</string>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ol-M0-gzi" userLabel="Line address">
-                                                        <rect key="frame" x="65" y="303" width="53" height="1"/>
+                                                        <rect key="frame" x="65" y="270" width="53" height="1"/>
                                                         <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="icE-zb-7oN"/>
@@ -2294,7 +2294,7 @@ France</string>
                                                         </constraints>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="28" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tw4-Cn-vEM">
-                                                        <rect key="frame" x="8" y="29" width="272" height="120"/>
+                                                        <rect key="frame" x="8" y="29" width="252" height="120"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="wgE-sd-ZZW"/>
@@ -2340,13 +2340,13 @@ France</string>
                                                         </constraints>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="28" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LOg-zb-Rpy">
-                                                        <rect key="frame" x="8" y="178" width="272" height="120"/>
+                                                        <rect key="frame" x="8" y="178" width="252" height="120"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="hdu-OB-enB"/>
                                                         </constraints>
                                                         <prototypes>
-                                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellContact" textLabel="SfS-Mo-fE0" detailTextLabel="w87-5B-34O" rowHeight="28" style="IBUITableViewCellStyleValue1" id="1Qz-v1-rI9">
+                                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellDeals" textLabel="SfS-Mo-fE0" detailTextLabel="w87-5B-34O" rowHeight="28" style="IBUITableViewCellStyleValue1" id="1Qz-v1-rI9">
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Qz-v1-rI9" id="R7Q-8M-Jk0">
                                                                     <autoresizingMask key="autoresizingMask"/>
@@ -2374,12 +2374,11 @@ France</string>
                                                     </tableView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lsZ-2T-e9I">
                                                         <rect key="frame" x="8" y="306" width="272" height="209"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="tw4-Cn-vEM" secondAttribute="trailing" id="12Q-O6-l3I"/>
+                                                    <constraint firstAttribute="trailing" secondItem="tw4-Cn-vEM" secondAttribute="trailing" constant="20" symbolic="YES" id="12Q-O6-l3I"/>
                                                     <constraint firstAttribute="trailing" secondItem="rRg-mU-whA" secondAttribute="trailing" id="98a-aL-3JH"/>
                                                     <constraint firstItem="8AL-UB-jYF" firstAttribute="top" secondItem="ZmC-bz-Y7K" secondAttribute="top" constant="8" id="LEQ-NF-tls"/>
                                                     <constraint firstItem="GiU-pG-HEZ" firstAttribute="top" secondItem="8AL-UB-jYF" secondAttribute="bottom" id="LOy-bm-0B7"/>
@@ -2387,7 +2386,7 @@ France</string>
                                                     <constraint firstItem="KCn-18-TQd" firstAttribute="leading" secondItem="ZmC-bz-Y7K" secondAttribute="leading" constant="8" id="Q1u-n5-gZX"/>
                                                     <constraint firstItem="rRg-mU-whA" firstAttribute="leading" secondItem="KCn-18-TQd" secondAttribute="leading" id="Rxa-B7-CYH"/>
                                                     <constraint firstItem="tw4-Cn-vEM" firstAttribute="top" secondItem="GiU-pG-HEZ" secondAttribute="bottom" id="TLC-pu-poc"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LOg-zb-Rpy" secondAttribute="trailing" id="UOr-1y-bs4"/>
+                                                    <constraint firstAttribute="trailing" secondItem="LOg-zb-Rpy" secondAttribute="trailing" constant="20" symbolic="YES" id="UOr-1y-bs4"/>
                                                     <constraint firstItem="8AL-UB-jYF" firstAttribute="leading" secondItem="ZmC-bz-Y7K" secondAttribute="leading" constant="8" id="Vp5-kS-pd7"/>
                                                     <constraint firstItem="LOg-zb-Rpy" firstAttribute="top" secondItem="rRg-mU-whA" secondAttribute="bottom" id="WoO-SB-KPm"/>
                                                     <constraint firstAttribute="trailing" secondItem="GiU-pG-HEZ" secondAttribute="trailing" id="bE3-Jw-YYv"/>
@@ -2438,6 +2437,13 @@ France</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="accountAddress" destination="qqY-El-Syp" id="QOi-4j-u9Q"/>
+                        <outlet property="accountName" destination="4nx-Le-u4F" id="2Kg-tK-ZaA"/>
+                        <outlet property="accountParentAccount" destination="Pxj-qT-fHq" id="Dqp-Vc-qPF"/>
+                        <outlet property="accountPhone" destination="B4J-cJ-Ifm" id="aHv-tJ-Aes"/>
+                        <outlet property="accountShortName" destination="9oJ-zJ-aNq" id="dES-QP-kEC"/>
+                        <outlet property="accountType" destination="oSb-R0-IxU" id="6LO-jE-AH8"/>
+                        <outlet property="accountWebsite" destination="nG9-eU-XRf" id="Bl2-Me-Bp3"/>
                         <outlet property="keyContacts" destination="tw4-Cn-vEM" id="VxZ-Hz-F1m"/>
                         <outlet property="scrollView" destination="uvF-v1-sJf" id="4ER-in-bAy"/>
                         <outlet property="topDeals" destination="LOg-zb-Rpy" id="u5A-4c-GXf"/>
@@ -2445,7 +2451,7 @@ France</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Zv-wx-QGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4106" y="1469"/>
+            <point key="canvasLocation" x="4106" y="808"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1Cd-T1-ds2">
@@ -2508,7 +2514,7 @@ France</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N4P-b5-Cdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4106" y="2132"/>
+            <point key="canvasLocation" x="4106" y="1516"/>
         </scene>
         <!--test-->
         <scene sceneID="dsd-4A-zNC">
@@ -2544,14 +2550,8 @@ France</string>
                                     <outletCollection property="gestureRecognizers" destination="0AH-kX-UX1" appends="YES" id="bwb-HY-Obi"/>
                                 </connections>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="zST-QS-V5W">
-                                <rect key="frame" x="58" y="117" width="526" height="434"/>
-                                <connections>
-                                    <outlet property="delegate" destination="jpl-la-HIO" id="Dqm-vm-cpc"/>
-                                </connections>
-                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dId-Ql-EZl">
-                                <rect key="frame" x="58" y="72" width="526" height="37"/>
+                                <rect key="frame" x="58" y="112" width="526" height="37"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="zj3-3A-wg8"/>
@@ -2562,23 +2562,75 @@ France</string>
                                 <color key="pageIndicatorTintColor" red="0.56240378998590912" green="0.61723040807482887" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.60626513154711104" green="0.98047107910078724" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Account" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoW-jx-wW7">
+                                <rect key="frame" x="58" y="72" width="150" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="S7b-CT-h2M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riF-P0-RvM">
+                                <rect key="frame" x="555" y="75" width="29" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="TbN-TI-kq5"/>
+                                    <constraint firstAttribute="width" constant="29" id="wmo-gZ-7UD"/>
+                                </constraints>
+                                <state key="normal" image="favoriteAccount">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phO-Bp-L3O">
+                                <rect key="frame" x="518" y="75" width="29" height="29"/>
+                                <state key="normal" image="Mail">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Cb-yL-qfe">
+                                <rect key="frame" x="481" y="75" width="29" height="29"/>
+                                <state key="normal" image="goToLocation">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="zST-QS-V5W">
+                                <rect key="frame" x="58" y="149" width="526" height="406"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jpl-la-HIO" id="Dqm-vm-cpc"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="riF-P0-RvM" firstAttribute="height" secondItem="phO-Bp-L3O" secondAttribute="height" id="0b4-3x-zda"/>
+                            <constraint firstItem="dId-Ql-EZl" firstAttribute="top" secondItem="riF-P0-RvM" secondAttribute="bottom" constant="8" id="191-lg-mIr"/>
                             <constraint firstItem="zST-QS-V5W" firstAttribute="trailing" secondItem="j8T-om-EVn" secondAttribute="trailingMargin" id="1QX-yd-9qL"/>
                             <constraint firstItem="KSd-Ir-v1b" firstAttribute="top" secondItem="ieg-MN-oo3" secondAttribute="bottom" constant="8" id="1yn-Ta-6U6"/>
                             <constraint firstItem="zST-QS-V5W" firstAttribute="leading" secondItem="CqG-gR-2R8" secondAttribute="trailing" constant="8" id="2xH-yn-61x"/>
                             <constraint firstItem="KSd-Ir-v1b" firstAttribute="top" secondItem="CqG-gR-2R8" secondAttribute="bottom" id="32K-vO-H6f"/>
                             <constraint firstItem="ieg-MN-oo3" firstAttribute="leading" secondItem="CqG-gR-2R8" secondAttribute="trailing" constant="8" id="3Nd-tu-GLN"/>
-                            <constraint firstItem="dId-Ql-EZl" firstAttribute="top" secondItem="eyV-kq-hCP" secondAttribute="bottom" constant="8" id="4gN-t7-BUW"/>
+                            <constraint firstItem="dId-Ql-EZl" firstAttribute="top" secondItem="phO-Bp-L3O" secondAttribute="bottom" constant="8" id="BVo-HU-8Tu"/>
+                            <constraint firstItem="phO-Bp-L3O" firstAttribute="leading" secondItem="7Cb-yL-qfe" secondAttribute="trailing" constant="8" id="Dye-IL-dnz"/>
                             <constraint firstItem="dId-Ql-EZl" firstAttribute="trailing" secondItem="j8T-om-EVn" secondAttribute="trailingMargin" id="Fhx-hn-uH6"/>
-                            <constraint firstItem="zST-QS-V5W" firstAttribute="top" secondItem="dId-Ql-EZl" secondAttribute="bottom" constant="8" id="GL4-3e-alX"/>
+                            <constraint firstItem="zST-QS-V5W" firstAttribute="top" secondItem="dId-Ql-EZl" secondAttribute="bottom" id="GL4-3e-alX"/>
+                            <constraint firstItem="riF-P0-RvM" firstAttribute="trailing" secondItem="j8T-om-EVn" secondAttribute="trailingMargin" id="GLJ-2d-XKZ"/>
+                            <constraint firstItem="riF-P0-RvM" firstAttribute="trailing" secondItem="j8T-om-EVn" secondAttribute="trailingMargin" id="HED-Fx-CFN"/>
                             <constraint firstItem="dId-Ql-EZl" firstAttribute="leading" secondItem="CqG-gR-2R8" secondAttribute="trailing" constant="8" id="KKg-AI-pm9"/>
                             <constraint firstItem="ieg-MN-oo3" firstAttribute="trailing" secondItem="j8T-om-EVn" secondAttribute="trailingMargin" id="Njy-zx-iRb"/>
                             <constraint firstItem="dId-Ql-EZl" firstAttribute="width" secondItem="ieg-MN-oo3" secondAttribute="width" id="P0Z-Sn-DUu"/>
-                            <constraint firstItem="ieg-MN-oo3" firstAttribute="top" secondItem="zST-QS-V5W" secondAttribute="bottom" constant="4" id="llB-1a-rHg"/>
+                            <constraint firstItem="riF-P0-RvM" firstAttribute="leading" secondItem="phO-Bp-L3O" secondAttribute="trailing" constant="8" id="P1f-i8-DKN"/>
+                            <constraint firstItem="dId-Ql-EZl" firstAttribute="top" secondItem="eoW-jx-wW7" secondAttribute="bottom" constant="20" id="QxN-4z-QG7"/>
+                            <constraint firstItem="phO-Bp-L3O" firstAttribute="width" secondItem="7Cb-yL-qfe" secondAttribute="width" id="RxP-Ty-7Zi"/>
+                            <constraint firstItem="eoW-jx-wW7" firstAttribute="leading" secondItem="CqG-gR-2R8" secondAttribute="trailing" constant="8" id="U7M-Bl-ogN"/>
+                            <constraint firstItem="eoW-jx-wW7" firstAttribute="top" secondItem="eyV-kq-hCP" secondAttribute="bottom" constant="8" id="V5R-Il-I6P"/>
+                            <constraint firstItem="phO-Bp-L3O" firstAttribute="leading" secondItem="7Cb-yL-qfe" secondAttribute="trailing" constant="8" id="Vbr-WF-VhQ"/>
+                            <constraint firstItem="phO-Bp-L3O" firstAttribute="height" secondItem="7Cb-yL-qfe" secondAttribute="height" id="XpL-Ed-MaP"/>
+                            <constraint firstItem="dId-Ql-EZl" firstAttribute="top" secondItem="7Cb-yL-qfe" secondAttribute="bottom" constant="8" id="eaD-iz-sDm"/>
+                            <constraint firstItem="ieg-MN-oo3" firstAttribute="top" secondItem="zST-QS-V5W" secondAttribute="bottom" id="llB-1a-rHg"/>
                             <constraint firstItem="CqG-gR-2R8" firstAttribute="leading" secondItem="j8T-om-EVn" secondAttribute="leading" id="sFy-Zg-amr"/>
+                            <constraint firstItem="riF-P0-RvM" firstAttribute="leading" secondItem="phO-Bp-L3O" secondAttribute="trailing" constant="8" id="sdT-Wb-7ni"/>
                             <constraint firstItem="CqG-gR-2R8" firstAttribute="top" secondItem="eyV-kq-hCP" secondAttribute="bottom" id="tYx-15-9gi"/>
+                            <constraint firstItem="riF-P0-RvM" firstAttribute="width" secondItem="phO-Bp-L3O" secondAttribute="width" id="wbn-Fw-RBo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="test" id="U3d-e1-KGV">
@@ -2589,6 +2641,7 @@ France</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addressAccount" destination="eoW-jx-wW7" id="sEg-y4-cjs"/>
                         <outlet property="containerView" destination="zST-QS-V5W" id="Ngg-AD-l1j"/>
                         <outlet property="listeButtonsForPages" destination="dId-Ql-EZl" id="SZv-hW-AeY"/>
                         <outlet property="navigationBar" destination="U3d-e1-KGV" id="eJu-4P-N5g"/>
@@ -3919,7 +3972,7 @@ France</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6D3-LW-TQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2271" y="1768"/>
+            <point key="canvasLocation" x="2755" y="1712"/>
         </scene>
         <!--Detail Meetings View Controller-->
         <scene sceneID="lrH-XY-Sjg">
@@ -3978,7 +4031,7 @@ France</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2271" y="2490"/>
+            <point key="canvasLocation" x="2755" y="2434"/>
         </scene>
         <!--Contact List Table View Controller-->
         <scene sceneID="1nu-He-3tr">
@@ -4014,7 +4067,7 @@ France</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mj6-Kw-r8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1943" y="3234"/>
+            <point key="canvasLocation" x="2427" y="3178"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="T0Q-J4-EKm">
@@ -4032,7 +4085,7 @@ France</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpv-6I-RcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1459" y="1768"/>
+            <point key="canvasLocation" x="1943" y="1712"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ynz-e9-XJv">
@@ -4050,7 +4103,7 @@ France</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MlS-0z-nCs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1459" y="2490"/>
+            <point key="canvasLocation" x="1943" y="2434"/>
         </scene>
         <!--Add a contact-->
         <scene sceneID="3zX-aN-JAN">
@@ -4729,7 +4782,7 @@ France</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vag-Zb-1eG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1131" y="3234"/>
+            <point key="canvasLocation" x="1615" y="3178"/>
         </scene>
         <!--Mot De Passe Oublie View Controller-->
         <scene sceneID="Klh-uv-lfl">
@@ -4906,13 +4959,15 @@ France</string>
         <image name="Social" width="32" height="32"/>
         <image name="Team48px" width="48" height="48"/>
         <image name="discardChanges" width="204" height="204"/>
+        <image name="favoriteAccount" width="37" height="38"/>
         <image name="fleche droite" width="50" height="200"/>
+        <image name="goToLocation" width="37" height="39"/>
         <image name="linkedin" width="132" height="32"/>
         <image name="logoCSC" width="400" height="80"/>
         <image name="logout" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="z0s-AV-P8O"/>
+        <segue reference="qlf-EX-5Vo"/>
         <segue reference="47i-YG-Ipk"/>
     </inferredMetricsTieBreakers>
 </document>

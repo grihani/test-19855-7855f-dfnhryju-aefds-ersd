@@ -13,21 +13,38 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var showList: UIView!
     @IBOutlet weak var containerView: UIScrollView!
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var pageControl: UIPageControl! {
+        didSet {
+            pageControl.pageIndicatorTintColor = blueUncheckedColor
+            pageControl.currentPageIndicatorTintColor = blueCheckedColor
+        }
+    }
     @IBOutlet weak var listeButtonsForPages: UIView!
     @IBOutlet weak var navigationBar: UINavigationItem!
+    @IBOutlet weak var addressAccount: UILabel! {
+        didSet {
+            if let account = account {
+                addressAccount.text = account.adressAccount
+            }
+        }
+    }
     
-    var identifiers: [String] = ["Meetings", "Vue 360°", "Contacts", "Next Actions", "Pipeline", "vue360Bis" ]
-    // Manque 'Next actions', 'Account Details', 'Pipe', 'Relation Activity'
+    var identifiers: [String] = ["Meetings", "Vue 360°", "Contacts", "Next Actions", "Pipeline", "Account Details" ]
+    // Manque 'Relation Activity'
     var meetingsOfAccount: MeetingsOfAccountViewController = MeetingsOfAccountViewController()
     var vue360: Vue360ViewController = Vue360ViewController()
     var contactsOfAccount: ContactsOfAccountViewController = ContactsOfAccountViewController()
     var tasksOfAccount: TasksOfAccountViewController = TasksOfAccountViewController()
     var opportunitiesOfAccount: OpportunitiesOfAccountViewController = OpportunitiesOfAccountViewController()
+    var accountDetails: AccountDetailsViewController = AccountDetailsViewController()
     var pageControllers: [UIViewController] = []
     var pageViews: [UIView] = []
     var firstPage = 1
-    var account: AccountModel!
+    var account: AccountModel! {
+        didSet {
+            addressAccount?.text = account.adressAccount
+        }
+    }
     var viewDidItsLayout: Bool = false
     
     @IBOutlet var buttonPages: [UIButton] = []
@@ -68,6 +85,12 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             
             let pageScrollViewSize = containerView.frame.size
             containerView.contentSize = CGSize(width: pageScrollViewSize.width * CGFloat(pageCount), height: pageScrollViewSize.height)
+            var i: CGFloat = 0
+            for button in buttonPages {
+                button.frame.size.width = self.listeButtonsForPages.frame.size.width / CGFloat(buttonPages.count) - 8
+                button.frame.origin.x = i * (button.frame.size.width + 8)
+                i++
+            }
             viewDidItsLayout = true
         }
     }
@@ -86,8 +109,8 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         }
         if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[1]) as? Vue360ViewController {
             viewControllers.append(viewController)
+            viewController.account = self.account
             self.vue360 = viewController
-            vue360.account = self.account
         }
         if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[2]) as? ContactsOfAccountViewController {
             viewControllers.append(viewController)
@@ -104,7 +127,9 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             self.opportunitiesOfAccount = viewController
             self.opportunitiesOfAccount.account = self.account
         }
-        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[5]) as? DetailAccountsV2ViewController {
+        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[5]) as? AccountDetailsViewController {
+            viewController.account = self.account
+            self.accountDetails = viewController
             viewControllers.append(viewController)
         }
         return viewControllers
@@ -157,18 +182,15 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         let page = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
         colorButtons(page)
         pageControl.currentPage = page
-        self.vue360.updateAccount()
         self.view.endEditing(true)
     }
     
     // action to show the list of accounts
     @IBAction func showList(sender: UIBarButtonItem) {
         self.revealViewController().revealToggle(sender)
-        vue360.updateAccount()
     }
     @IBAction func showList(sender: UITapGestureRecognizer) {
         self.revealViewController().revealToggle(sender)
-        vue360.updateAccount()
     }
     
     // creates the button to add to the view
@@ -211,8 +233,6 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             button.addTarget(self, action: Selector("goPage:"), forControlEvents: UIControlEvents.TouchUpInside)
-            button.layer.cornerRadius = 8
-            button.sizeToFit()
             view.addSubview(button)
             buttonPages.append(button)
             createMenuButtons(menu, lastCreatedFrame: button.frame, view: view)

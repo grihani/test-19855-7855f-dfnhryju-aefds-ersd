@@ -1,395 +1,224 @@
 //
-//  Vue360ViewController.swift
+//  DetailAccountsV2ViewController.swift
 //  UIScrollViewForMobilite
 //
-//  Created by CSC CSC on 02/04/2015.
+//  Created by CSC CSC on 28/04/2015.
 //  Copyright (c) 2015 CSC CSC. All rights reserved.
 //
 
 import UIKit
-import MapKit
 
-class Vue360ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITextViewDelegate, UITextFieldDelegate {
+class Vue360ViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var nameCompany: UITextField!
-    @IBOutlet weak var shortNameCompany: UITextField!
-    @IBOutlet weak var industryCompany: UITextField!
-    @IBOutlet weak var phoneCompany: UITextField!
-    @IBOutlet weak var webSite: UITextField!
-    @IBOutlet weak var leadSource: UITextField!
-    @IBOutlet weak var statusAccount: UITextField!
-    @IBOutlet weak var segmentAccount: UITextField!
-    @IBOutlet weak var faxAccount: UITextField!
-    @IBOutlet weak var regionAccount: UITextField!
-    @IBOutlet weak var adressCompany: UITextView!
-    @IBOutlet weak var countryAccount: UITextField!
-    @IBOutlet weak var coverageAccount: UITextField!
-    @IBOutlet weak var mapAdressCompany: MKMapView!
-    @IBOutlet weak var leftView: UIView!
-    @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var discardChangesButton: UIButton!
-    
-    var activeField: AnyObject!
-    var account: AccountModel!
-    var accountAfterUpdates: AccountModel!
-    var locationManager = CLLocationManager()
-    let fileManager = NSFileManager.defaultManager()
-    var imageExists = true
-    var modificationsHaveHappened: Bool = false
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        saveButton.hidden = true
-        discardChangesButton.hidden = true
-        setDelegates()
-        registerForKeyboardNotifications()
-        self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.startUpdatingLocation()
-        if account != nil {
-            self.nameCompany.text = account.nameAccount
-            self.shortNameCompany.text = account.shortNameAccount
-            self.industryCompany.text = account.industryAccount
-            self.phoneCompany.text = account.phoneAccount
-            self.webSite.text = account.websiteAccount
-            self.adressCompany.text = account.adressAccount
-            self.leadSource.text = account.leadSource
-            self.statusAccount.text = account.statusAccount
-            self.segmentAccount.text = account.segmentAccount
-            self.faxAccount.text = account.faxAccount
-            self.regionAccount.text = account.regionAccount
-            self.countryAccount.text = account.countryAccount
-            self.coverageAccount.text = account.coverageAccount
-        } else {
-            disablefields()
+    // MARK: - IBOutlets
+    @IBOutlet weak var accountName: UILabel! {
+        didSet {
+            if let account = account {
+                accountName.text = account.nameAccount
+            }
+        }
+    }
+    @IBOutlet weak var accountShortName: UILabel! {
+        didSet {
+            if let account = account {
+                accountShortName.text = account.shortNameAccount
+            }
+        }
+    }
+    @IBOutlet weak var accountType: UILabel! {
+        didSet {
+            if let account = account {
+                accountType.text = account.typeAccount
+            }
+        }
+    }
+    @IBOutlet weak var accountWebsite: UIButton! {
+        didSet {
+            if let account = account {
+                accountWebsite.setTitle(account.websiteAccount, forState: .Normal)
+            }
+        }
+    }
+    @IBOutlet weak var accountParentAccount: UIButton! {
+        didSet {
+            accountParentAccount.setTitleColor(UIColor.blackColor(), forState: .Disabled)
+            if parentAccount != nil {
+                accountParentAccount.setTitle(parentAccount.nameAccount, forState: .Normal)
+                accountParentAccount.enabled = true
+            } else {
+                accountParentAccount.setTitle("No parent account", forState: .Normal)
+                accountParentAccount.enabled = false
+            }
+        }
+    }
+    @IBOutlet weak var accountPhone: UILabel! {
+        didSet {
+            if let account = account {
+                accountPhone.text = account.phoneAccount
+            }
+        }
+    }
+    @IBOutlet weak var accountAddress: UILabel! {
+        didSet {
+            if let account = account {
+                accountAddress.text = account.adressAccount
+            }
         }
     }
     
+    // MARK: - model variables
+    var parentAccount: AccountModel! {
+        didSet {
+            accountParentAccount?.setTitle(parentAccount.nameAccount, forState: .Normal)
+        }
+    }
+    
+    var account: AccountModel! {
+        didSet {
+            updateUI()
+            searchForKeyContacts()
+            searchForTopDeals()
+        }
+    }
+    
+    var contacts: [ContactModel]! {
+        didSet {
+            keyContacts?.reloadData()
+        }
+    }
+    
+    var deals: [OpportunityModel]! {
+        didSet {
+            topDeals?.reloadData()
+        }
+    }
+    // MARK: - functions to update UI
+    func updateUI() {
+        accountName?.text = account.nameAccount ?? ""
+        accountShortName?.text = account.shortNameAccount
+        accountType?.text = account.statusAccount
+        accountWebsite?.setTitle(account.websiteAccount, forState: .Normal)
+        accountPhone?.text = account.phoneAccount
+        accountAddress?.text = account.adressAccount
+        var textLabelForParentAccount = ""
+        if account.idAccount1 == 0 {
+            parentAccount = nil
+            textLabelForParentAccount = "No parent account"
+        } else {
+            parentAccount = AccountDataModel().searchForParentAccount(account: account)
+            textLabelForParentAccount = parentAccount.nameAccount
+        }
+        accountParentAccount?.setTitle(textLabelForParentAccount, forState: .Normal)
+    }
+    
+    func searchForKeyContacts() {
+        self.contacts = ContactDataModel().contactsOfAccount(account: account)
+    }
+    
+    func searchForTopDeals() {
+        self.deals = OpportunityDataModel().opportunitiesOfAccount(account: account)
+    }
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    // MARK: - view life cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func setDelegates() {
-        self.nameCompany.delegate = self
-        self.shortNameCompany.delegate = self
-        self.industryCompany.delegate = self
-        self.phoneCompany.delegate = self
-        self.webSite.delegate = self
-        self.locationManager.delegate = self
-        self.adressCompany.delegate = self
-        self.mapAdressCompany.delegate = self
-        self.leadSource.delegate = self
-        self.statusAccount.delegate = self
-        self.segmentAccount.delegate = self
-        self.faxAccount.delegate = self
-        self.regionAccount.delegate = self
-        self.countryAccount.delegate = self
-        self.coverageAccount.delegate = self
-    }
-    func disablefields() {
-        self.nameCompany.text = "Vous n'avez aucun compte d'enregistré ou aucun meeting de prévu avec des contacts appartenant à un compte"
-        self.nameCompany.enabled = false
-        self.shortNameCompany.text = ""
-        self.shortNameCompany.enabled = false
-        self.industryCompany.text = ""
-        self.industryCompany.enabled = false
-        self.phoneCompany.text = ""
-        self.phoneCompany.enabled = false
-        self.webSite.text = ""
-        self.webSite.enabled = false
-        self.adressCompany.text = ""
-        self.adressCompany.editable = false
-        self.leadSource.text = ""
-        self.leadSource.enabled = false
-        self.statusAccount.text = ""
-        self.statusAccount.enabled = false
-        self.segmentAccount.text = ""
-        self.segmentAccount.enabled = false
-        self.faxAccount.text = ""
-        self.faxAccount.enabled = false
-        self.regionAccount.text = ""
-        self.regionAccount.enabled = false
-        self.countryAccount.text = ""
-        self.countryAccount.enabled = false
-        self.coverageAccount.text = ""
-        self.coverageAccount.enabled = false
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.registerForKeyboardNotifications()
     }
     
-    func geolocaliseAvecImage(#address: String?, account: AccountModel, mapView: MKMapView) {
-        if let address = address {
-            // if the image exists put the image in place of the mapView
-            // else create the mapView then show the image in its place
-            if checkImageExist(address: address, account: account) {
-                var frame = mapView.frame
-                self.imageExists = true
-                mapView.removeFromSuperview()
-                self.mapAdressCompany = nil
-                var pathImage = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-                pathImage = pathImage.stringByAppendingPathComponent("Maps/\(account.idAccount)/\(account.adressAccount).png")
-                var image = UIImageView(image: UIImage(contentsOfFile: pathImage))
-                image.frame = frame
-                self.leftView.addSubview(image)
-            } else {
-                var geocoder = CLGeocoder()
-                geocoder.geocodeAddressString(address, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) -> Void in
-                    if let placemark = placemarks?[0] as? CLPlacemark {
-                        if placemark.location != nil {
-                            self.imageExists = false
-                            let span = MKCoordinateSpanMake(0.01, 0.01)
-                            let region = MKCoordinateRegionMake(placemark.location.coordinate, span)
-                            mapView.setRegion(region, animated: false)
-                            let annotation = MKPointAnnotation()
-                            annotation.setCoordinate(placemark.location.coordinate)
-                            annotation.title = account.nameAccount
-                            mapView.addAnnotation(annotation)
-                            mapView.selectAnnotation(annotation, animated: true)
-                        } else {
-                        
-                        }
-                    }
-                })
-            }
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let observer = cookieForKeyboardAppears {
+            center.removeObserver(observer)
+        }
+        if let observer = cookieForKeyboardDisappears {
+            center.removeObserver(observer)
         }
     }
     
-    // check if there's an image in the repertory for the mapview
-    func checkImageExist(#address: String, account: AccountModel) -> Bool{
-        var error: NSError?
-        var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        var dirPath = paths.stringByAppendingPathComponent("Maps/\(account.idAccount)/")
-        if !fileManager.fileExistsAtPath(dirPath){
-            fileManager.createDirectoryAtPath(dirPath, withIntermediateDirectories: true, attributes: nil, error: &error)
-            return false
-        } else {
-            var filePath = dirPath.stringByAppendingPathComponent("\(account.adressAccount).png")
-            if !fileManager.fileExistsAtPath(filePath){
-                // deleting all files in the directory
-                var i = 0
-                var directoryFiles = fileManager.contentsOfDirectoryAtPath(dirPath, error: &error)
-                if let directoryFiles = directoryFiles {
-                    for file in directoryFiles {
-                        i++
-                        print("suppression \(i): ")
-                        let success = fileManager.removeItemAtPath("\(dirPath)/\(file)", error: &error)
-                        if (!success || error != nil) {
-                            println(error)
-                        }
-                    }
-                }
-                return false
-            }
-        }
-        return true
-    }
+    // MARK: - keyboard notifications
     
-    // that's just to geolocalise an adress without creating an image
-    func geolocalise (#address: String?, account: AccountModel, mapView: MKMapView){
-        if address != nil {
-            var geocoder = CLGeocoder()
-        
-            geocoder.geocodeAddressString(address, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) -> Void in
-                if let placemark = placemarks?[0] as? CLPlacemark {
-                    let span = MKCoordinateSpanMake(0.01, 0.01)
-                    let region = MKCoordinateRegionMake(placemark.location.coordinate, span)
-                    mapView.setRegion(region, animated: false)
-                    let annotation = MKPointAnnotation()
-                    
-                    annotation.setCoordinate(placemark.location.coordinate)
-                    annotation.title = account.nameAccount
-                    annotation.subtitle = account.phoneAccount
-                    mapView.addAnnotation(annotation)
-                    mapView.selectAnnotation(annotation, animated: true)
-                }
-            })
-            
-        }
-    }
+    var cookieForKeyboardAppears: NSObjectProtocol!
+    var cookieForKeyboardDisappears: NSObjectProtocol!
+    let center = NSNotificationCenter.defaultCenter()
+    let queue = NSOperationQueue.mainQueue()
     
-    
-    // rendering a picture for the mapview
-    func pictureForView(view: UIView) -> UIImage {
-        UIGraphicsBeginImageContext(view.frame.size)
-        var ctx: CGContextRef = UIGraphicsGetCurrentContext()
-        view.layer.renderInContext(ctx)
-        var image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
-    }
-    
-    // Mark: - MapView Delegate methods
-    // it will check if there's an image here so that we put it up
-    func mapViewWillStartRenderingMap(mapView: MKMapView!) {
-        if account != nil {
-            geolocaliseAvecImage(address: account.adressAccount, account: account, mapView: self.mapAdressCompany)
-        }
-    }
-    func mapViewDidFinishRenderingMap(mapView: MKMapView!, fullyRendered: Bool) {
-        if account != nil && !self.imageExists {
-            var frame = mapView.frame
-            var mapImage: UIImage = self.pictureForView(mapView)
-            var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-            var dirPath = paths.stringByAppendingPathComponent("Maps/\(account.idAccount)/")
-            var imagePath = dirPath.stringByAppendingPathComponent("\(account.adressAccount).png")
-            if !fileManager.fileExistsAtPath(imagePath) {
-//                fileManager.createDirectoryAtPath(dirPath, withIntermediateDirectories: true, attributes: nil, error: nil)
-                UIImagePNGRepresentation(mapImage).writeToFile(imagePath, atomically: true)
-                
-            }
-            mapView.removeFromSuperview()
-            var image = UIImageView(image: UIImage(contentsOfFile: imagePath))
-            image.frame = frame
-            self.leftView.addSubview(image)
-            
-            println(imagePath)
-        }
-    }
-    
-    
-    // Mark: - UITapGesture 
-    // taping on the controller's view to get the keyboard to not show anymore
-    @IBAction func finishedEditCompany(sender: UITapGestureRecognizer) {
-        self.view.endEditing(true)
-    }
-    
-    @IBAction func changeFieldsOfAccount(sender: AnyObject) {
-        
-    }
-    
-    
-    @IBAction func changingFieldsOfAccount(sender: UITextField) {
-        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text)
-        
-        let accountToCompare = accountAfterUpdates.arrayOfStringsFromModel()
-        let accountToCompareTo = account.arrayOfStringsFromModel()
-        if !(accountToCompareTo == accountToCompare) {
-            modificationsHaveHappened = true
-            saveButton.hidden = false
-            discardChangesButton.hidden = false
-        } else {
-            modificationsHaveHappened = false
-            saveButton.hidden = true
-            discardChangesButton.hidden = true
-        }
-    }
-    
-    // Mark: - Notifications
     func registerForKeyboardNotifications() {
-//        let center = NSNotificationCenter.defaultCenter()
-//        let queue = NSOperationQueue.mainQueue()
-//        center.addObserver(self,
-//            selector: Selector("keyBoardWasShown:"),
-//            name: UIKeyboardDidShowNotification,
-//            object: nil
-//        )
-//        NSNotificationCenter.defaultCenter().addObserver(self,
-//            selector: Selector("keyboardWillBeHidden:"),
-//            name: "UIKeyboardWillHideNotification",
-//            object: nil
-//        )
-        
+        cookieForKeyboardAppears = center.addObserverForName(UIKeyboardDidShowNotification, object: nil, queue: queue, usingBlock: { notification in
+            self.keyBoardWasShown(notification)
+        })
+        cookieForKeyboardDisappears = center.addObserverForName(UIKeyboardDidHideNotification, object: nil, queue: queue, usingBlock: { notification in
+            self.keyboardWillBeHidden(notification)
+        })
     }
     func keyBoardWasShown(aNotification: NSNotification) {
         println("je vois que le keyboard est apparu")
-//        if let info: NSDictionary = aNotification.userInfo {
-//            if let kbSize = info.objectForKey(UIKeyboardFrameBeginUserInfoKey)?.CGRectValue().size {
-//                println(kbSize)
-//                let contentInset = UIEdgeInsetsMake(0, 0, kbSize.height, 0)
-//                let scrollView = self.view.superview as UIScrollView
-//                scrollView.contentInset = contentInset
-//                scrollView.scrollIndicatorInsets = contentInset
-//                
-//                var aRect = self.view.superview?.superview?.frame
-//                if let aRect = aRect {
-//                    
-//                    var rectToCheck = aRect
-//                    rectToCheck.size.height -= kbSize.height
-//                    let frameActiveField = activeField.convertRect(activeField.frame, toView: scrollView.superview)
-//                    println(frameActiveField)
-//                    println(rectToCheck)
-//                    if !CGRectContainsPoint(rectToCheck, frameActiveField.origin) {
-//                        println("trying to put the field up")
-//                        scrollView.scrollRectToVisible(activeField.frame, animated: true)
-//                    }
-//                }
-//            }
-//        }
+        if let info: NSDictionary = aNotification.userInfo {
+            if let kbSize = info.objectForKey(UIKeyboardFrameBeginUserInfoKey)?.CGRectValue().size {
+                println(kbSize)
+                let contentInset = UIEdgeInsetsMake(0, 0, kbSize.height, 0)
+                let scrollView = self.scrollView
+                println(scrollView.contentInset)
+                scrollView.contentInset = contentInset
+                scrollView.scrollIndicatorInsets = contentInset
+            }
+        }
     }
     func keyboardWillBeHidden(aNotification: NSNotification) {
         println("le keyboard a disparu")
+        let contentInsets = UIEdgeInsetsZero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
     }
     
-    // Mark: - TextField delegate methods
-    func textFieldDidBeginEditing(textField: UITextField) {
-        self.activeField = textField
-    }
-    func textFieldDidEndEditing(textField: UITextField) {
-        self.activeField = nil
+    // MARK: - tableViewDataSource
+    
+    @IBOutlet weak var keyContacts: UITableView!
+    @IBOutlet weak var topDeals: UITableView!
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == keyContacts {
+            return contacts.count
+        }
+        else if tableView == topDeals {
+            return deals.count
+        }
+        return 0
     }
     
-    // Mark: - TextView delegate methods
-    func textViewDidBeginEditing(textView: UITextView) {
-        self.activeField = textView
-    }
-    func textViewDidChange(textView: UITextView) {
-        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text)
-        let accountToCompare = accountAfterUpdates.arrayOfStringsFromModel()
-        let accountToCompareTo = account.arrayOfStringsFromModel()
-        if !(accountToCompareTo == accountToCompare) {
-            modificationsHaveHappened = true
-            saveButton.hidden = false
-            discardChangesButton.hidden = false
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if tableView == keyContacts {
+            let cell = tableView.dequeueReusableCellWithIdentifier("cellContact") as UITableViewCell
+            cell.textLabel?.text = contacts[indexPath.row].firstNameContact + " " + contacts[indexPath.row].lastNameContact
+            cell.detailTextLabel?.text = contacts[indexPath.row].typeContact
+            return cell
         } else {
-            modificationsHaveHappened = false
-            saveButton.hidden = true
-            discardChangesButton.hidden = true
+            let cell = tableView.dequeueReusableCellWithIdentifier("cellDeals") as UITableViewCell
+            cell.textLabel?.text = deals[indexPath.row].nomOpportunite
+            cell.detailTextLabel?.text = deals[indexPath.row].contractValueOpportunite + "€"
+            return cell
         }
-    }
-    func textViewDidEndEditing(textView: UITextView) {
-        self.activeField = nil
-    }
-    
-    // Mark: - CLLocationManager delegate methods
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        //        println(locations.last)
-    }
-    
-    // Mark: - UIButton: saving and discarding changes
-    @IBAction func savingChanges(sender: UIButton) {
-        updateAccount()
-    }
-    @IBAction func discardingChanges(sender: UIButton) {
-        discardChanges()
-    }
-    
-    // Mark: - functions to save and discard changes
-    func updateAccount() {
         
-        if modificationsHaveHappened {
-            AccountDataModel().updateAccount(account: accountAfterUpdates)
-            saveButton.hidden = true
-        }
-        modificationsHaveHappened = false
     }
     
-    func discardChanges() {
-        var accountIntermediaire = self.account
-        self.account = self.accountAfterUpdates
-        self.accountAfterUpdates = accountIntermediaire
-        
-        self.nameCompany.text = account.nameAccount
-        self.shortNameCompany.text = account.shortNameAccount
-        self.industryCompany.text = account.industryAccount
-        self.phoneCompany.text = account.phoneAccount
-        self.webSite.text = account.websiteAccount
-        self.adressCompany.text = account.adressAccount
-        self.leadSource.text = account.leadSource
-        self.statusAccount.text = account.statusAccount
-        self.segmentAccount.text = account.segmentAccount
-        self.faxAccount.text = account.faxAccount
-        self.regionAccount.text = account.regionAccount
-        self.countryAccount.text = account.countryAccount
-        self.coverageAccount.text = account.coverageAccount
-        modificationsHaveHappened = true
-        updateAccount()
-        self.account = accountIntermediaire
+    // MARK: - tableViewDelegate
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 40
     }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    
 }

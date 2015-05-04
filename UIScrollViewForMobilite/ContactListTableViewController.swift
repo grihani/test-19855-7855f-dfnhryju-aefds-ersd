@@ -17,7 +17,6 @@ class ContactListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         contact = ContactDataModel().allContacts()
-        println("view did load")
     }
 
     override func didReceiveMemoryWarning() {

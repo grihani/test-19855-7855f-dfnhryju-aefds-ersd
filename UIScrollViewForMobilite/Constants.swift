@@ -10,10 +10,15 @@ import Foundation
 import UIKit
 
 let whiteColor: UIColor = UIColor.whiteColor()
-let blueCheckedColor: UIColor = UIColor(red: 143/255, green: 157/255, blue: 255/255, alpha: 1)
-let blueUncheckedColor: UIColor = UIColor(red: 155/255, green: 250/255, blue: 255/255, alpha: 1)
+
+let blueCheckedColor: UIColor = UIColor(red: 132/255, green: 163/255, blue: 205/255, alpha: 1)
+
+let blueUncheckedColor: UIColor = UIColor(red: 221/255, green: 231/255, blue: 243/255, alpha: 1)
+
 let blackColor: UIColor = UIColor.blackColor()
+
 let blueButtonColor: UIColor = UIColor(red: 58/255, green: 144/255, blue: 219/255, alpha: 1)
+
 
 extension UIViewController {
     var presenterViewController: UIViewController {

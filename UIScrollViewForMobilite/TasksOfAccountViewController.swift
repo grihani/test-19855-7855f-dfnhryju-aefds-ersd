@@ -60,7 +60,6 @@ class TasksOfAccountViewController: UIViewController, UITableViewDelegate, UIPop
                 let key = tasksOfAccounts.statusTasks[section]
                 if let tasksOfSection = dictionary.objectForKey(key) as? [TaskModel] {
                     tasksOfAccounts.chosenTask = tasksOfSection[row]
-                    println(tasksOfSection[row].arrayFromModel())
                                     self.performSegueWithIdentifier("trialPopoverFromOtherClass", sender: self)
                 }
             }
@@ -143,7 +142,6 @@ class TasksOfAccounts: UITableViewController, UITableViewDataSource, UITableView
             let key = statusTasks[section]
             if let tasksOfSection = dictionary.objectForKey(key) as? [TaskModel] {
                 self.chosenTask = tasksOfSection[row]
-                println(tasksOfSection[row].arrayFromModel())
 //                self.container.performSegueWithIdentifier("trialPopoverFromOtherClass", sender: self)
             }
         }
@@ -152,7 +150,6 @@ class TasksOfAccounts: UITableViewController, UITableViewDataSource, UITableView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "trialPopoverFromOtherClass" {
             if let ppc = segue.destinationViewController as? TaskDetailsOfAccountViewController                                                                                                                                                                            {
-                println("trying to pass a segue")
             }
             
         }
@@ -299,9 +296,7 @@ class TasksOfMeetings: UITableViewController, UITableViewDataSource, UITableView
             for key in dictionary.allKeys as [String] {
                 keyAsString = key
             }
-            println(keyAsString)
             if let tasksOfSection = dictionary.objectForKey(keyAsString) as? [TaskModel] {
-                println(tasksOfSection[row])
                 dateFormatter.dateFormat = "yyyy-MM-dd"
                 let date: NSDate = dateFormatter.dateFromString(tasksOfSection[row].dateTask)!
                 dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle

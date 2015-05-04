@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4809A8BA1ACD4F3A001FEC98 /* Vue360ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4809A8B91ACD4F3A001FEC98 /* Vue360ViewController.swift */; };
+		4809A8BA1ACD4F3A001FEC98 /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4809A8B91ACD4F3A001FEC98 /* AccountDetailsViewController.swift */; };
 		480DA2271ACBD68E00F43FA1 /* MeetingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA2261ACBD68E00F43FA1 /* MeetingDataModel.swift */; };
 		480DA2291ACC2B7600F43FA1 /* OpportunityDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA2281ACC2B7600F43FA1 /* OpportunityDataModel.swift */; };
 		480DA22B1ACC2B8B00F43FA1 /* ContactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA22A1ACC2B8B00F43FA1 /* ContactDataModel.swift */; };
@@ -48,7 +48,7 @@
 		4881861D1AC94F6600923A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4881861B1AC94F6600923A18 /* Main.storyboard */; };
 		488186221AC94F6600923A18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488186201AC94F6600923A18 /* LaunchScreen.xib */; };
 		4881862E1AC94F6700923A18 /* UIScrollViewForMobiliteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4881862D1AC94F6700923A18 /* UIScrollViewForMobiliteTests.swift */; };
-		488B68B51AEFD4AD00D7652B /* DetailAccountsV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488B68B41AEFD4AD00D7652B /* DetailAccountsV2ViewController.swift */; };
+		488B68B51AEFD4AD00D7652B /* Vue360ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488B68B41AEFD4AD00D7652B /* Vue360ViewController.swift */; };
 		489B31611AC9520300C04732 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489B31601AC9520300C04732 /* SWRevealViewController.m */; };
 		489B31641AC952C800C04732 /* ListAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B31631AC952C800C04732 /* ListAccountsViewController.swift */; };
 		489B31661AC952DB00C04732 /* DetailAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */; };
@@ -97,7 +97,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4809A8B91ACD4F3A001FEC98 /* Vue360ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vue360ViewController.swift; sourceTree = "<group>"; };
+		4809A8B91ACD4F3A001FEC98 /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
 		480DA2261ACBD68E00F43FA1 /* MeetingDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDataModel.swift; sourceTree = "<group>"; };
 		480DA2281ACC2B7600F43FA1 /* OpportunityDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityDataModel.swift; sourceTree = "<group>"; };
 		480DA22A1ACC2B8B00F43FA1 /* ContactDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDataModel.swift; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		488186271AC94F6700923A18 /* UIScrollViewForMobiliteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIScrollViewForMobiliteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4881862C1AC94F6700923A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4881862D1AC94F6700923A18 /* UIScrollViewForMobiliteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewForMobiliteTests.swift; sourceTree = "<group>"; };
-		488B68B41AEFD4AD00D7652B /* DetailAccountsV2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailAccountsV2ViewController.swift; sourceTree = "<group>"; };
+		488B68B41AEFD4AD00D7652B /* Vue360ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vue360ViewController.swift; sourceTree = "<group>"; };
 		489B315F1AC9520300C04732 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		489B31601AC9520300C04732 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		489B31621AC9526100C04732 /* UIScrollViewForMobilite-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollViewForMobilite-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -427,8 +427,8 @@
 			children = (
 				489B31631AC952C800C04732 /* ListAccountsViewController.swift */,
 				489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */,
-				488B68B41AEFD4AD00D7652B /* DetailAccountsV2ViewController.swift */,
-				4809A8B91ACD4F3A001FEC98 /* Vue360ViewController.swift */,
+				488B68B41AEFD4AD00D7652B /* Vue360ViewController.swift */,
+				4809A8B91ACD4F3A001FEC98 /* AccountDetailsViewController.swift */,
 				481876D41AE7AC85005BF26F /* PipesOfAccounts */,
 				4849836C1AE5517F00972133 /* TasksOfAccounts */,
 				485DE0961ADBB1B300E95DD8 /* MeetingsOfAccount */,
@@ -639,7 +639,7 @@
 				48FCB1401ACAE09E00A770B2 /* AccountContactModel.swift in Sources */,
 				484CDC341AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift in Sources */,
 				485A23CE1AD6EA1F0074EDD1 /* Dates.swift in Sources */,
-				4809A8BA1ACD4F3A001FEC98 /* Vue360ViewController.swift in Sources */,
+				4809A8BA1ACD4F3A001FEC98 /* AccountDetailsViewController.swift in Sources */,
 				48FCB1421ACAE1F500A770B2 /* OpportunitiesContactsModel.swift in Sources */,
 				480DA2351ACC2BDC00F43FA1 /* AccountOpportunitiesDataModel.swift in Sources */,
 				480DA2271ACBD68E00F43FA1 /* MeetingDataModel.swift in Sources */,
@@ -686,7 +686,7 @@
 				4851F8C31AE91DC200F1BE9B /* BirthDayPickerOfContactViewController.swift in Sources */,
 				4851F8C51AE91F5100F1BE9B /* CountryPickerOfContactViewController.swift in Sources */,
 				48D62EED1AEA6FFE00FEEA5A /* AssistantOfContactViewController.swift in Sources */,
-				488B68B51AEFD4AD00D7652B /* DetailAccountsV2ViewController.swift in Sources */,
+				488B68B51AEFD4AD00D7652B /* Vue360ViewController.swift in Sources */,
 				480DA2291ACC2B7600F43FA1 /* OpportunityDataModel.swift in Sources */,
 				481876D31AE78535005BF26F /* TaskDetailsOfAccountViewController.swift in Sources */,
 				48FCB1461ACAE45300A770B2 /* MeetingContactModel.swift in Sources */,

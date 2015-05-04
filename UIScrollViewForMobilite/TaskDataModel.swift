@@ -140,8 +140,6 @@ class TaskDataModel {
                     let task = TaskModel(idTask: idTask, subjectTask: subjectTask, dateTask: dateTask, statusTask: statusTask)
                     tasks.append(task)
                     counterVerifier++
-                    println(meeting.arrayFromModel())
-                    println(task.arrayFromModel())
                 }
             }
             if counterVerifier > 0 {

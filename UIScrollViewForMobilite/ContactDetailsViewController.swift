@@ -169,7 +169,6 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        println("cellForRowAtIndexPath")
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         let cell = tableView.dequeueReusableCellWithIdentifier("cellForShowingcontact") as ContactCell
         cell.contact = self.contact
