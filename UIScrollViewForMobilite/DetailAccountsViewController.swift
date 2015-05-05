@@ -49,12 +49,21 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var buttonPages: [UIButton] = []
     
+    var barButtonMenu:UIBarButtonItem = UIBarButtonItem()
+    var barButtonHome:UIBarButtonItem = UIBarButtonItem()
+    
     // here we define the buttons in the top menu, add the pan gesture to show our list
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         self.view.window?.rootViewController = self
+        
+        barButtonMenu = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "displayMenu")
+        
+        barButtonHome = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "goHome")
+        navigationItem.leftBarButtonItems?.append(barButtonMenu)
+        navigationItem.rightBarButtonItem = barButtonHome
         
 //        self.showList.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
 //        buttonForPages(listeButtonsForPages)
@@ -236,6 +245,26 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             view.addSubview(button)
             buttonPages.append(button)
             createMenuButtons(menu, lastCreatedFrame: button.frame, view: view)
+        }
+    }
+    
+    func goHome() {
+        
+    }
+    
+    func displayMenu() {
+        performSegueWithIdentifier("menuPopover", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "menuPopover" {
+            if let destinationVC = segue.destinationViewController as? MenuPopoverTableViewController {
+                if let ppc = destinationVC.popoverPresentationController {
+                    ppc.barButtonItem = barButtonMenu
+                    let minimumSize = destinationVC.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+                    destinationVC.preferredContentSize = minimumSize
+                }
+            }
         }
     }
 }

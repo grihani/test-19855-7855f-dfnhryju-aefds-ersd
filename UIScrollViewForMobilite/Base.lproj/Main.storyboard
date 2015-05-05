@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A7r-ge-PhP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5oH-ku-82W">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,6 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="sqh-6R-KfO"/>
                     <connections>
                         <segue destination="E6p-WX-q1H" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="bsc-FS-SxB"/>
                         <segue destination="7hi-Yz-OEV" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="47i-YG-Ipk"/>
@@ -25,7 +26,99 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kN6-k0-5wV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="157" y="512"/>
+            <point key="canvasLocation" x="319" y="476"/>
+        </scene>
+        <!--Menu Popover Table View Controller-->
+        <scene sceneID="i3k-Uv-37j">
+            <objects>
+                <tableViewController id="2V3-HR-5Ta" customClass="MenuPopoverTableViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5Ck-hU-q1r">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="id3-gu-0ab">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="accountMenu" textLabel="pp9-cL-PfZ" imageView="NhF-Sk-7ww" rowHeight="50" style="IBUITableViewCellStyleDefault" id="65U-ND-W6z">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="65U-ND-W6z" id="nCe-2S-Fig">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Account" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pp9-cL-PfZ">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Accounts" id="NhF-Sk-7ww">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="A7r-ge-PhP" kind="presentation" identifier="displayModuleAccounts" id="Veg-PS-e5G"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contactMenu" textLabel="eim-0G-UbM" imageView="o7u-Bi-jfo" rowHeight="50" style="IBUITableViewCellStyleDefault" id="nWU-ht-C59">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nWU-ht-C59" id="HfJ-hu-j68">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Contact" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eim-0G-UbM">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Contacts" id="o7u-Bi-jfo">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="RzH-17-3Vt" kind="presentation" identifier="displayModuleContacts" id="JAL-l7-30z"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="meetingMenu" textLabel="xyw-rJ-dwi" imageView="uSW-F1-MQn" rowHeight="50" style="IBUITableViewCellStyleDefault" id="fkk-L9-Tdf">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fkk-L9-Tdf" id="mHf-Ur-36j">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Meeting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xyw-rJ-dwi">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Calendars" id="uSW-F1-MQn">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="4zC-Yu-10l" kind="presentation" identifier="displayModuleMeetings" id="LWL-xz-HCi"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="2V3-HR-5Ta" id="7r3-X0-iQj"/>
+                            <outlet property="delegate" destination="2V3-HR-5Ta" id="P1L-69-ZrD"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="cellAccount" destination="65U-ND-W6z" id="r3h-S8-IRe"/>
+                        <outlet property="cellContact" destination="nWU-ht-C59" id="qz7-7B-rVg"/>
+                        <outlet property="cellMeeting" destination="fkk-L9-Tdf" id="bdT-2H-yWa"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qFj-YF-TZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-403" y="-306"/>
         </scene>
         <!--List Accounts View Controller-->
         <scene sceneID="CsF-d1-ec9">
@@ -96,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kYJ-lL-ZDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2755" y="-94"/>
+            <point key="canvasLocation" x="3567" y="-94"/>
         </scene>
         <!--Add Meeting Without Date View Controller-->
         <scene sceneID="1ao-Xv-xcC">
@@ -364,7 +457,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYi-HF-wHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3401" y="145"/>
+            <point key="canvasLocation" x="4213" y="145"/>
         </scene>
         <!--Meetings Of Account View Controller-->
         <scene sceneID="cGz-u2-9qr">
@@ -1110,7 +1203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oYA-at-Wlb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3401" y="808"/>
+            <point key="canvasLocation" x="4213" y="808"/>
         </scene>
         <!--Linkedin Contact Of Account View Controller-->
         <scene sceneID="Wfd-Xw-v7L">
@@ -1143,7 +1236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4c-bS-8CS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4891" y="145"/>
+            <point key="canvasLocation" x="5703" y="145"/>
         </scene>
         <!--Contacts Of Account View Controller-->
         <scene sceneID="aFB-8B-4vk">
@@ -1399,7 +1492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6x-wW-Oxe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4891" y="808"/>
+            <point key="canvasLocation" x="5703" y="808"/>
         </scene>
         <!--Task Details Of Account View Controller-->
         <scene sceneID="DWy-XN-fWd">
@@ -1464,7 +1557,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YVZ-hR-2L6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5624" y="145"/>
+            <point key="canvasLocation" x="6436" y="145"/>
         </scene>
         <!--Tasks Of Account View Controller-->
         <scene sceneID="3Pq-76-Ery">
@@ -1623,7 +1716,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nP-Lo-WdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5624" y="808"/>
+            <point key="canvasLocation" x="6436" y="808"/>
         </scene>
         <!--Opportunities Of Account View Controller-->
         <scene sceneID="25q-NW-hBS">
@@ -1675,7 +1768,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sim-hs-ER7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6327" y="808"/>
+            <point key="canvasLocation" x="7139" y="808"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QJH-Jx-hMr">
@@ -2044,7 +2137,7 @@
                 </tapGestureRecognizer>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nZ-jJ-zgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7070" y="808"/>
+            <point key="canvasLocation" x="7882" y="808"/>
         </scene>
         <!--Vue360 View Controller-->
         <scene sceneID="tTq-Tl-MYe">
@@ -2451,7 +2544,7 @@ France</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Zv-wx-QGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4106" y="808"/>
+            <point key="canvasLocation" x="4918" y="808"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1Cd-T1-ds2">
@@ -2647,6 +2740,9 @@ France</string>
                         <outlet property="navigationBar" destination="U3d-e1-KGV" id="eJu-4P-N5g"/>
                         <outlet property="pageControl" destination="ieg-MN-oo3" id="dbK-Vq-Rg4"/>
                         <outlet property="showList" destination="CqG-gR-2R8" id="Olb-Zf-uIG"/>
+                        <segue destination="2V3-HR-5Ta" kind="popoverPresentation" identifier="menuPopover" popoverAnchorView="j8T-om-EVn" id="Vh5-PJ-0jx">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26K-g6-v2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2656,7 +2752,7 @@ France</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2755" y="808"/>
+            <point key="canvasLocation" x="3511" y="808"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mYJ-RX-4TL">
@@ -2674,7 +2770,7 @@ France</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hNB-JT-vkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1943" y="-94"/>
+            <point key="canvasLocation" x="2755" y="-94"/>
         </scene>
         <!--Homepage Login View Controller-->
         <scene sceneID="taA-pp-Flq">
@@ -2701,12 +2797,12 @@ France</string>
                                     <constraint firstAttribute="width" constant="150" id="MLd-ev-U98"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ymX-hP-dGe">
                                 <rect key="frame" x="225" y="277" width="150" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iP-3S-3zb">
                                 <rect key="frame" x="225" y="315" width="150" height="30"/>
@@ -2802,7 +2898,7 @@ France</string>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1qz-tS-hed">
                                                         <rect key="frame" x="100" y="8" width="164" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMz-Ua-nLp">
                                                         <rect key="frame" x="8" y="11" width="84" height="21"/>
@@ -2816,7 +2912,7 @@ France</string>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DwE-RX-AGk">
                                                         <rect key="frame" x="100" y="46" width="164" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Password:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCT-S5-D1w">
                                                         <rect key="frame" x="11" y="49" width="81" height="21"/>
@@ -2827,7 +2923,7 @@ France</string>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WA4-6x-XpV">
                                                         <rect key="frame" x="100" y="84" width="164" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mail:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAS-qE-LHe">
                                                         <rect key="frame" x="55" y="88" width="37" height="21"/>
@@ -2875,12 +2971,12 @@ France</string>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c0e-0M-sjQ">
                                                         <rect key="frame" x="144" y="8" width="120" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bre-dR-Qtk">
                                                         <rect key="frame" x="144" y="46" width="120" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                                         <connections>
                                                             <action selector="chooseRerponseSecrete:" destination="Ic4-Gg-Z28" eventType="editingDidEnd" id="Obc-cW-Sxr"/>
                                                         </connections>
@@ -2926,7 +3022,7 @@ France</string>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bgd-l4-uIh">
                                                         <rect key="frame" x="131" y="8" width="359" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3063,7 +3159,7 @@ France</string>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="RzH-17-3Vt" kind="show" identifier="goToModuleContacts" id="oaN-OC-rI6"/>
+                                            <segue destination="RzH-17-3Vt" kind="presentation" identifier="goToModuleContacts" id="oaN-OC-rI6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzP-pU-uY4">
@@ -3078,7 +3174,7 @@ France</string>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="4zC-Yu-10l" kind="show" identifier="goToModuleMeetings" id="Utl-zX-cwY"/>
+                                            <segue destination="4zC-Yu-10l" kind="presentation" identifier="goToModuleMeetings" id="Utl-zX-cwY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7K-dJ-HA2">
@@ -3090,7 +3186,7 @@ France</string>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="A7r-ge-PhP" kind="show" identifier="goToModuleAccount" id="JNm-JK-mZv"/>
+                                            <segue destination="A7r-ge-PhP" kind="presentation" identifier="goToModuleAccounts" id="43w-vO-EaN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmm-UP-bWP">
@@ -3913,7 +4009,7 @@ France</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnF-Jl-bjJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="291" y="2132"/>
+            <point key="canvasLocation" x="319" y="2008"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="T7Y-Xw-3DO">
@@ -3953,7 +4049,7 @@ France</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="owD-EN-sQ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1943" y="808"/>
+            <point key="canvasLocation" x="2755" y="808"/>
         </scene>
         <!--List Meetings View Controller-->
         <scene sceneID="lKL-hK-Zxr">
@@ -4799,7 +4895,7 @@ France</string>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ot-j9-cTE">
                                 <rect key="frame" x="220" y="72" width="364" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <connections>
                                     <action selector="editingUsernameTextField:" destination="cAk-RL-osK" eventType="editingChanged" id="4uq-LT-Q6Y"/>
                                 </connections>
@@ -4807,7 +4903,7 @@ France</string>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4GG-fL-bVR">
                                 <rect key="frame" x="220" y="168" width="364" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your secret question:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs8-2R-F3p">
                                 <rect key="frame" x="16" y="110" width="196" height="21"/>
@@ -4967,7 +5063,10 @@ France</string>
         <image name="logout" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qlf-EX-5Vo"/>
+        <segue reference="z0s-AV-P8O"/>
+        <segue reference="JAL-l7-30z"/>
+        <segue reference="LWL-xz-HCi"/>
+        <segue reference="Veg-PS-e5G"/>
         <segue reference="47i-YG-Ipk"/>
     </inferredMetricsTieBreakers>
 </document>
