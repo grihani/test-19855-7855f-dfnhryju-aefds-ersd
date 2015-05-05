@@ -26,6 +26,7 @@ class BirthDayPickerOfContactViewController: UIViewController {
             datePicker.date = dateOfPicker
         }
         datePicker.maximumDate = NSDate()
+        println(self.presentingViewController)
         // Do any additional setup after loading the view.
     }
 

@@ -24,12 +24,20 @@ class TypologyOfContactViewController: UIViewController, UIPickerViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         chosenTypology = chosenTypology ?? typology[0]
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        println(self.presentingViewController)
+        println(self.presentingViewController?.contentViewController)
+        println(self.presentingViewController?.contentViewController.presenterViewController)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

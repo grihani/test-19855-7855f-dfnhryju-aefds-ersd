@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9ev-Tc-CoB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5oH-ku-82W">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -1115,7 +1115,7 @@
         <!--Meetings Of AccountV2 View Controller-->
         <scene sceneID="6LG-Sw-Vbq">
             <objects>
-                <viewController id="9ev-Tc-CoB" customClass="MeetingsOfAccountV2ViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="meetings of account V2" id="9ev-Tc-CoB" customClass="MeetingsOfAccountV2ViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OK2-aM-EQS"/>
                         <viewControllerLayoutGuide type="bottom" id="5wF-Oc-IQZ"/>
@@ -1144,6 +1144,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="WAp-LI-cOE"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="diU-e5-Or7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDX-uO-lS9">
@@ -1157,6 +1158,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="PbX-3H-nYj"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="tvk-N2-WaE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25z-oB-CDd">
@@ -1170,6 +1172,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="HbU-Fe-RJn"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="w3e-fo-FDG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzd-vL-GfV">
@@ -1183,6 +1186,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="5jY-tZ-brv"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="vHb-xc-2Pf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1z-Wr-8tE">
@@ -1196,6 +1200,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="Gwd-A6-jbh"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="tq2-es-5cl"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hae-tv-enp">
@@ -1208,6 +1213,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="szY-rM-V0P"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="vmO-8g-pHn"/>
                                         </connections>
                                     </button>
@@ -1221,6 +1227,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="1uK-NL-Ml4"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="xRy-OV-gch"/>
                                         </connections>
                                     </button>
@@ -1234,6 +1241,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="Ik7-5r-3Uq"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="Mkc-St-Dtx"/>
                                         </connections>
                                     </button>
@@ -1248,6 +1256,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="JPB-sL-nWt"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="wOX-Mh-fWS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fco-GH-JAV">
@@ -1260,6 +1269,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="Hni-4V-N6B"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="ijh-cC-geX"/>
                                         </connections>
                                     </button>
@@ -1274,6 +1284,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="Y4o-d3-mbx"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="xdo-r0-ce8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ory-bj-y5e">
@@ -1287,6 +1298,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="d8i-X6-ZhN"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="fb3-cy-PmF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3f-Qb-oGA">
@@ -1299,6 +1311,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="B2L-ro-RWe"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="Xzl-Bz-Qaz"/>
                                         </connections>
                                     </button>
@@ -1313,6 +1326,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="30K-tn-vL0"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="bxG-10-eUw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4X-vg-j2W">
@@ -1325,6 +1339,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="P0i-Yr-Kdl"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="qfO-KV-LPn"/>
                                         </connections>
                                     </button>
@@ -1338,6 +1353,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="4Sn-sK-JsM"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="M7I-Pr-cWE"/>
                                         </connections>
                                     </button>
@@ -1352,6 +1368,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="2Rf-b1-5Zd"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="lno-Cu-axx"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCr-nW-jPE">
@@ -1364,6 +1381,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="s4R-MO-hgq"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="vuQ-Ht-MeY"/>
                                         </connections>
                                     </button>
@@ -1378,6 +1396,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="XSd-0J-uzR"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="dFC-ys-rc8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iL-gC-D6b">
@@ -1391,6 +1410,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="Fqx-9c-iqE"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="Ofp-g8-tX4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BkK-hJ-My3">
@@ -1404,6 +1424,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="Xb2-me-JfM"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="wXf-qQ-tLT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8I-8y-QEF">
@@ -1416,6 +1437,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="37Q-8I-Ino"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="cLZ-qk-Vre"/>
                                         </connections>
                                     </button>
@@ -1429,6 +1451,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="CUD-wT-uIa"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="b0C-y2-FFg"/>
                                         </connections>
                                     </button>
@@ -1442,6 +1465,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="bGT-9H-oze"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="n6R-dD-efm"/>
                                         </connections>
                                     </button>
@@ -1456,6 +1480,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="Ofk-1J-G4y"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="Yzy-0U-Urp"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PN0-dm-4z7">
@@ -1469,6 +1494,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="CTh-hY-HR6"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="SyO-1Y-kqB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyW-OF-nz3">
@@ -1481,6 +1507,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="9oC-bO-hQR"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="PbY-jY-280"/>
                                         </connections>
                                     </button>
@@ -1495,6 +1522,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="fQM-0Q-qph"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="ptm-2D-BkB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3I-5R-dZ5">
@@ -1507,6 +1535,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="GYM-yf-DaL"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="NEa-sy-9Ka"/>
                                         </connections>
                                     </button>
@@ -1520,6 +1549,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="hwb-iO-32X"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="i01-xW-qR5"/>
                                         </connections>
                                     </button>
@@ -1534,6 +1564,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="Whq-3M-NSw"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="g2n-KV-bv1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gU5-fk-fVX">
@@ -1546,6 +1577,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="AjX-OD-a9w"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="lPh-UW-pPo"/>
                                         </connections>
                                     </button>
@@ -1559,6 +1591,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="IXA-nc-rIX"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="al5-vt-yms"/>
                                         </connections>
                                     </button>
@@ -1572,6 +1605,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="Vfa-QW-Iqm"/>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="s2h-O7-jI4"/>
                                         </connections>
                                     </button>
@@ -1586,6 +1620,7 @@
                                         </state>
                                         <connections>
                                             <action selector="checkForMeetings:" destination="rYC-PH-qHZ" eventType="touchUpInside" id="LRn-Sq-HYS"/>
+                                            <action selector="checkForMeetings:" destination="9ev-Tc-CoB" eventType="touchUpInside" id="W4t-yj-Wai"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgo-wO-WdD">
@@ -1748,32 +1783,54 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqq-aP-5UT">
                                 <rect key="frame" x="226" y="357" width="358" height="235"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNE-W3-6yR">
-                                        <rect key="frame" x="0.0" y="0.0" width="358" height="197"/>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZh-wP-Xmj">
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="44"/>
+                                        <items>
+                                            <barButtonItem title="Item" id="QeP-nT-Y2c"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="Jkx-cb-jhK"/>
+                                            <barButtonItem systemItem="add" id="s7w-PU-5HP"/>
+                                        </items>
+                                    </toolbar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="p8U-50-rRm">
+                                        <rect key="frame" x="0.0" y="44" width="358" height="191"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2TM-iA-uF8">
-                                        <rect key="frame" x="0.0" y="205" width="358" height="30"/>
-                                        <state key="normal" title="Add a new meeting">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="meetings of day x" textLabel="hag-fU-VVb" detailTextLabel="nf5-tc-dbD" style="IBUITableViewCellStyleValue1" id="Mln-xV-kU9">
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mln-xV-kU9" id="j72-bX-sCT">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hag-fU-VVb">
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nf5-tc-dbD">
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ZNE-W3-6yR" secondAttribute="trailing" id="8HB-DW-5cN"/>
-                                    <constraint firstItem="2TM-iA-uF8" firstAttribute="top" secondItem="ZNE-W3-6yR" secondAttribute="bottom" constant="8" id="OW1-b7-1QF"/>
-                                    <constraint firstItem="2TM-iA-uF8" firstAttribute="leading" secondItem="qqq-aP-5UT" secondAttribute="leading" id="W8F-a1-Ioe"/>
-                                    <constraint firstItem="ZNE-W3-6yR" firstAttribute="leading" secondItem="qqq-aP-5UT" secondAttribute="leading" id="aEB-BS-vgJ"/>
-                                    <constraint firstItem="ZNE-W3-6yR" firstAttribute="top" secondItem="qqq-aP-5UT" secondAttribute="top" id="iO6-Gu-qCM"/>
-                                    <constraint firstAttribute="trailing" secondItem="2TM-iA-uF8" secondAttribute="trailing" id="ij5-R7-Fij"/>
-                                    <constraint firstAttribute="bottom" secondItem="2TM-iA-uF8" secondAttribute="bottom" id="mIh-Ta-6F7"/>
+                                    <constraint firstAttribute="trailing" secondItem="p8U-50-rRm" secondAttribute="trailing" id="36X-nL-9YF"/>
+                                    <constraint firstAttribute="trailing" secondItem="CZh-wP-Xmj" secondAttribute="trailing" id="DgU-jh-9fb"/>
+                                    <constraint firstItem="p8U-50-rRm" firstAttribute="top" secondItem="CZh-wP-Xmj" secondAttribute="bottom" id="LTK-lA-QPk"/>
+                                    <constraint firstItem="p8U-50-rRm" firstAttribute="leading" secondItem="qqq-aP-5UT" secondAttribute="leading" id="ReB-o4-Rdo"/>
+                                    <constraint firstAttribute="bottom" secondItem="p8U-50-rRm" secondAttribute="bottom" id="SA0-2i-Wa9"/>
+                                    <constraint firstItem="CZh-wP-Xmj" firstAttribute="leading" secondItem="qqq-aP-5UT" secondAttribute="leading" id="aV7-ql-kqz"/>
+                                    <constraint firstItem="CZh-wP-Xmj" firstAttribute="top" secondItem="qqq-aP-5UT" secondAttribute="top" id="btn-j8-pmb"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tB1-EW-qpC">
-                                <rect key="frame" x="16" y="49" width="202" height="543"/>
+                                <rect key="frame" x="16" y="20" width="202" height="572"/>
                                 <connections>
                                     <segue destination="8Om-LG-6a3" kind="embed" identifier="show meetings of account" id="clF-Wb-4Q0"/>
                                 </connections>
@@ -1782,10 +1839,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qqq-aP-5UT" firstAttribute="width" secondItem="lvH-6l-Cm3" secondAttribute="width" id="2jT-ZC-cWQ"/>
+                            <constraint firstItem="tB1-EW-qpC" firstAttribute="top" secondItem="OK2-aM-EQS" secondAttribute="bottom" id="82l-BU-jov"/>
                             <constraint firstItem="gKQ-I5-YDg" firstAttribute="trailing" secondItem="7ki-Gg-NVJ" secondAttribute="trailingMargin" id="8hi-yp-D0s"/>
                             <constraint firstItem="lvH-6l-Cm3" firstAttribute="width" secondItem="gKQ-I5-YDg" secondAttribute="width" id="Gb1-77-T3n"/>
                             <constraint firstItem="lvH-6l-Cm3" firstAttribute="top" secondItem="gKQ-I5-YDg" secondAttribute="bottom" constant="8" id="J4N-O6-gZ7"/>
-                            <constraint firstItem="lvH-6l-Cm3" firstAttribute="top" secondItem="tB1-EW-qpC" secondAttribute="top" id="QAm-yB-FB7"/>
                             <constraint firstItem="gKQ-I5-YDg" firstAttribute="top" secondItem="OK2-aM-EQS" secondAttribute="bottom" id="QtP-1M-LJG"/>
                             <constraint firstItem="tB1-EW-qpC" firstAttribute="leading" secondItem="7ki-Gg-NVJ" secondAttribute="leadingMargin" id="Rzz-Cf-c5y"/>
                             <constraint firstItem="5wF-Oc-IQZ" firstAttribute="top" secondItem="qqq-aP-5UT" secondAttribute="bottom" constant="8" symbolic="YES" id="UGu-QW-u97"/>
@@ -1797,12 +1854,52 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonToAddMeeting" destination="s7w-PU-5HP" id="qbc-fs-wk8"/>
+                        <outlet property="calendarContainer" destination="lvH-6l-Cm3" id="bCu-4B-ybj"/>
+                        <outlet property="chosenDate" destination="gKQ-I5-YDg" id="vjA-Kn-GsH"/>
                         <outlet property="meetingsOfAccountContainer" destination="tB1-EW-qpC" id="Sdd-DN-qgD"/>
+                        <outlet property="meetingsOfDayTableView" destination="p8U-50-rRm" id="v2v-rg-X5y"/>
+                        <outlet property="titleOfTableView" destination="QeP-nT-Y2c" id="dgu-sZ-Tki"/>
+                        <outletCollection property="buttonsForDays" destination="dta-I8-Erk" collectionClass="NSMutableArray" id="rPf-RL-eIP"/>
+                        <outletCollection property="buttonsForDays" destination="JDX-uO-lS9" collectionClass="NSMutableArray" id="hTz-Yv-gqX"/>
+                        <outletCollection property="buttonsForDays" destination="25z-oB-CDd" collectionClass="NSMutableArray" id="IGd-Ku-1n0"/>
+                        <outletCollection property="buttonsForDays" destination="yzd-vL-GfV" collectionClass="NSMutableArray" id="yap-ry-axh"/>
+                        <outletCollection property="buttonsForDays" destination="T1z-Wr-8tE" collectionClass="NSMutableArray" id="hdd-kf-wc8"/>
+                        <outletCollection property="buttonsForDays" destination="Hae-tv-enp" collectionClass="NSMutableArray" id="Qdi-mz-S6y"/>
+                        <outletCollection property="buttonsForDays" destination="11G-Xr-nUG" collectionClass="NSMutableArray" id="PBR-b2-ARZ"/>
+                        <outletCollection property="buttonsForDays" destination="e4y-LH-kLY" collectionClass="NSMutableArray" id="6Br-yN-o8v"/>
+                        <outletCollection property="buttonsForDays" destination="jr4-Ia-jur" collectionClass="NSMutableArray" id="vzo-ld-Dst"/>
+                        <outletCollection property="buttonsForDays" destination="Fco-GH-JAV" collectionClass="NSMutableArray" id="NqM-zK-PT0"/>
+                        <outletCollection property="buttonsForDays" destination="maf-Kw-GoF" collectionClass="NSMutableArray" id="2My-fu-jRc"/>
+                        <outletCollection property="buttonsForDays" destination="ory-bj-y5e" collectionClass="NSMutableArray" id="JGe-bH-shF"/>
+                        <outletCollection property="buttonsForDays" destination="Q3f-Qb-oGA" collectionClass="NSMutableArray" id="2Oe-z7-xMX"/>
+                        <outletCollection property="buttonsForDays" destination="7Ha-kG-Syv" collectionClass="NSMutableArray" id="Wft-wC-550"/>
+                        <outletCollection property="buttonsForDays" destination="f4X-vg-j2W" collectionClass="NSMutableArray" id="iIz-Ud-DkU"/>
+                        <outletCollection property="buttonsForDays" destination="cQD-DV-Jw6" collectionClass="NSMutableArray" id="fMR-2j-FF8"/>
+                        <outletCollection property="buttonsForDays" destination="iGT-Sp-SQf" collectionClass="NSMutableArray" id="Q2A-OV-3vp"/>
+                        <outletCollection property="buttonsForDays" destination="LCr-nW-jPE" collectionClass="NSMutableArray" id="4o9-Yk-oWK"/>
+                        <outletCollection property="buttonsForDays" destination="d1R-WR-4uW" collectionClass="NSMutableArray" id="mqP-Jk-rCi"/>
+                        <outletCollection property="buttonsForDays" destination="6iL-gC-D6b" collectionClass="NSMutableArray" id="vej-tS-mZy"/>
+                        <outletCollection property="buttonsForDays" destination="BkK-hJ-My3" collectionClass="NSMutableArray" id="im9-kr-X04"/>
+                        <outletCollection property="buttonsForDays" destination="H8I-8y-QEF" collectionClass="NSMutableArray" id="lZv-Wf-jp1"/>
+                        <outletCollection property="buttonsForDays" destination="qVF-yh-gXy" collectionClass="NSMutableArray" id="ULZ-D9-kWh"/>
+                        <outletCollection property="buttonsForDays" destination="CSU-Im-ndz" collectionClass="NSMutableArray" id="oKF-OK-koK"/>
+                        <outletCollection property="buttonsForDays" destination="up7-g0-Nps" collectionClass="NSMutableArray" id="zUq-qj-tyJ"/>
+                        <outletCollection property="buttonsForDays" destination="PN0-dm-4z7" collectionClass="NSMutableArray" id="04P-PT-YRU"/>
+                        <outletCollection property="buttonsForDays" destination="GyW-OF-nz3" collectionClass="NSMutableArray" id="myk-72-NeV"/>
+                        <outletCollection property="buttonsForDays" destination="PXb-C0-2cs" collectionClass="NSMutableArray" id="fAX-rD-8zd"/>
+                        <outletCollection property="buttonsForDays" destination="X3I-5R-dZ5" collectionClass="NSMutableArray" id="Yn5-0N-MuP"/>
+                        <outletCollection property="buttonsForDays" destination="Q42-LM-eDb" collectionClass="NSMutableArray" id="rbg-V1-0Ad"/>
+                        <outletCollection property="buttonsForDays" destination="ZGp-uv-wuZ" collectionClass="NSMutableArray" id="pDU-Ra-K5o"/>
+                        <outletCollection property="buttonsForDays" destination="gU5-fk-fVX" collectionClass="NSMutableArray" id="jgz-6h-rZF"/>
+                        <outletCollection property="buttonsForDays" destination="WaU-52-L9t" collectionClass="NSMutableArray" id="5wZ-1R-zCa"/>
+                        <outletCollection property="buttonsForDays" destination="AL9-lW-PF6" collectionClass="NSMutableArray" id="fnx-UM-Buz"/>
+                        <outletCollection property="buttonsForDays" destination="ZP2-q5-Sli" collectionClass="NSMutableArray" id="Zo7-PL-oEe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfH-9C-3Cy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1839" y="4397"/>
+            <point key="canvasLocation" x="7853" y="808"/>
         </scene>
         <!--Linkedin Contact Of Account View Controller-->
         <scene sceneID="Wfd-Xw-v7L">
@@ -2316,6 +2413,161 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nP-Lo-WdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5624" y="808"/>
+        </scene>
+        <!--Tasks Of AccountV2 View Controller-->
+        <scene sceneID="Te1-aa-Ctw">
+            <objects>
+                <viewController id="raF-03-T3g" customClass="TasksOfAccountV2ViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0bO-to-Afo"/>
+                        <viewControllerLayoutGuide type="bottom" id="mbI-Ya-lBZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eGr-tV-gXa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sGl-Hm-ONo" userLabel="Left View">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyD-8b-H56" userLabel="Top View">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="512"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZRf-xg-v1x">
+                                                <rect key="frame" x="0.0" y="44" width="200" height="468"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableView>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EoA-nS-dfO">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
+                                                <items>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MvS-iq-JPG"/>
+                                                    <barButtonItem title="Tasks of Accounts" id="rlT-9b-2qO">
+                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <connections>
+                                                            <action selector="tapTop:" destination="raF-03-T3g" id="Vpq-hy-o6H"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1pq-Pi-42O"/>
+                                                </items>
+                                            </toolbar>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="ZRf-xg-v1x" firstAttribute="top" secondItem="EoA-nS-dfO" secondAttribute="bottom" id="1ak-yU-c2O"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZRf-xg-v1x" secondAttribute="bottom" id="GTf-Ga-MKB"/>
+                                            <constraint firstAttribute="trailing" secondItem="EoA-nS-dfO" secondAttribute="trailing" id="dWa-q5-ACd"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="f7X-63-gwL"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZRf-xg-v1x" secondAttribute="trailing" id="gPl-Wn-HoF"/>
+                                            <constraint firstItem="ZRf-xg-v1x" firstAttribute="leading" secondItem="lyD-8b-H56" secondAttribute="leading" id="jdR-e1-OhV"/>
+                                            <constraint firstItem="EoA-nS-dfO" firstAttribute="top" secondItem="lyD-8b-H56" secondAttribute="top" id="oBW-4w-f2D"/>
+                                            <constraint firstItem="EoA-nS-dfO" firstAttribute="leading" secondItem="lyD-8b-H56" secondAttribute="leading" id="uNN-Jk-v76"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZa-Rt-F7F" userLabel="Mid View">
+                                        <rect key="frame" x="0.0" y="512" width="200" height="44"/>
+                                        <subviews>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqh-8a-xgh">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
+                                                <items>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bgV-QQ-dbu"/>
+                                                    <barButtonItem title="Tasks of contacts" id="8C9-88-GfN">
+                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <connections>
+                                                            <action selector="tapMid:" destination="raF-03-T3g" id="65U-Sx-enB"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MGT-cW-gm7"/>
+                                                </items>
+                                            </toolbar>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TYQ-1o-RzE">
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="TYQ-1o-RzE" firstAttribute="top" secondItem="oqh-8a-xgh" secondAttribute="bottom" id="3b6-ob-AHQ"/>
+                                            <constraint firstItem="TYQ-1o-RzE" firstAttribute="leading" secondItem="QZa-Rt-F7F" secondAttribute="leading" id="6Ed-X0-SHQ"/>
+                                            <constraint firstAttribute="height" constant="44" id="Ge1-Wc-aIi"/>
+                                            <constraint firstItem="oqh-8a-xgh" firstAttribute="top" secondItem="QZa-Rt-F7F" secondAttribute="top" id="Iw8-r0-SUK"/>
+                                            <constraint firstAttribute="trailing" secondItem="oqh-8a-xgh" secondAttribute="trailing" id="b0u-yN-6pw"/>
+                                            <constraint firstAttribute="trailing" secondItem="TYQ-1o-RzE" secondAttribute="trailing" id="d1h-Or-11P"/>
+                                            <constraint firstItem="oqh-8a-xgh" firstAttribute="leading" secondItem="QZa-Rt-F7F" secondAttribute="leading" id="efW-N6-LO4"/>
+                                            <constraint firstAttribute="bottom" secondItem="TYQ-1o-RzE" secondAttribute="bottom" id="km2-EZ-iFp"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0c-VX-cjJ" userLabel="Bot View">
+                                        <rect key="frame" x="0.0" y="556" width="200" height="44"/>
+                                        <subviews>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiX-Xu-gBM">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
+                                                <items>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sEL-55-lZe"/>
+                                                    <barButtonItem title="Tasks of meetings" id="ylj-1V-87K">
+                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <connections>
+                                                            <action selector="tapBot:" destination="raF-03-T3g" id="bo0-vF-IT1"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9FI-HS-fvh"/>
+                                                </items>
+                                            </toolbar>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Oe1-5m-wi8">
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Oe1-5m-wi8" firstAttribute="leading" secondItem="N0c-VX-cjJ" secondAttribute="leading" id="0t1-9K-3he"/>
+                                            <constraint firstAttribute="trailing" secondItem="Oe1-5m-wi8" secondAttribute="trailing" id="15R-MR-XsN"/>
+                                            <constraint firstItem="aiX-Xu-gBM" firstAttribute="top" secondItem="N0c-VX-cjJ" secondAttribute="top" id="4P7-Te-i3I"/>
+                                            <constraint firstAttribute="height" constant="44" id="8HS-lF-ijJ"/>
+                                            <constraint firstItem="aiX-Xu-gBM" firstAttribute="leading" secondItem="N0c-VX-cjJ" secondAttribute="leading" id="9Jy-LV-ogm"/>
+                                            <constraint firstItem="Oe1-5m-wi8" firstAttribute="top" secondItem="aiX-Xu-gBM" secondAttribute="bottom" id="DEp-R2-Ur8"/>
+                                            <constraint firstAttribute="bottom" secondItem="Oe1-5m-wi8" secondAttribute="bottom" id="LVQ-xU-FxY"/>
+                                            <constraint firstAttribute="trailing" secondItem="aiX-Xu-gBM" secondAttribute="trailing" id="lEK-BI-bEN"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="N0c-VX-cjJ" secondAttribute="trailing" id="5It-f3-bdz"/>
+                                    <constraint firstAttribute="trailing" secondItem="QZa-Rt-F7F" secondAttribute="trailing" id="5Yl-vE-Bi9"/>
+                                    <constraint firstItem="N0c-VX-cjJ" firstAttribute="leading" secondItem="sGl-Hm-ONo" secondAttribute="leading" id="62Y-aN-YO3"/>
+                                    <constraint firstItem="QZa-Rt-F7F" firstAttribute="top" secondItem="lyD-8b-H56" secondAttribute="bottom" id="GLW-bE-dKq"/>
+                                    <constraint firstAttribute="trailing" secondItem="lyD-8b-H56" secondAttribute="trailing" id="HqC-Tx-Opc"/>
+                                    <constraint firstAttribute="width" constant="200" id="JZR-mE-Dfx"/>
+                                    <constraint firstItem="N0c-VX-cjJ" firstAttribute="top" secondItem="QZa-Rt-F7F" secondAttribute="bottom" id="Sf5-xH-n9z"/>
+                                    <constraint firstItem="lyD-8b-H56" firstAttribute="top" secondItem="sGl-Hm-ONo" secondAttribute="top" id="lYZ-V9-xlX"/>
+                                    <constraint firstAttribute="bottom" secondItem="N0c-VX-cjJ" secondAttribute="bottom" id="qCn-DV-f3G"/>
+                                    <constraint firstItem="lyD-8b-H56" firstAttribute="leading" secondItem="sGl-Hm-ONo" secondAttribute="leading" id="v39-yS-f4b"/>
+                                    <constraint firstItem="QZa-Rt-F7F" firstAttribute="leading" secondItem="sGl-Hm-ONo" secondAttribute="leading" id="vsk-FV-MJW"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHf-XA-pac">
+                                <rect key="frame" x="208" y="28" width="376" height="564"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mbI-Ya-lBZ" firstAttribute="top" secondItem="eHf-XA-pac" secondAttribute="bottom" constant="8" symbolic="YES" id="4hE-5V-ZTW"/>
+                            <constraint firstItem="eHf-XA-pac" firstAttribute="leading" secondItem="sGl-Hm-ONo" secondAttribute="trailing" constant="8" symbolic="YES" id="5zB-bU-0mb"/>
+                            <constraint firstItem="eHf-XA-pac" firstAttribute="trailing" secondItem="eGr-tV-gXa" secondAttribute="trailingMargin" id="67S-m4-hHF"/>
+                            <constraint firstItem="sGl-Hm-ONo" firstAttribute="top" secondItem="eGr-tV-gXa" secondAttribute="topMargin" id="Bn7-Nw-f7G"/>
+                            <constraint firstItem="sGl-Hm-ONo" firstAttribute="leading" secondItem="eGr-tV-gXa" secondAttribute="leadingMargin" constant="-16" id="VWc-RV-IVo"/>
+                            <constraint firstItem="eHf-XA-pac" firstAttribute="top" secondItem="0bO-to-Afo" secondAttribute="bottom" constant="8" symbolic="YES" id="cmZ-JR-QKG"/>
+                            <constraint firstItem="mbI-Ya-lBZ" firstAttribute="top" secondItem="sGl-Hm-ONo" secondAttribute="bottom" id="wEy-Jy-ytR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="botHeight" destination="8HS-lF-ijJ" id="chi-X0-dWy"/>
+                        <outlet property="containerView" destination="sGl-Hm-ONo" id="brZ-Ly-Zfs"/>
+                        <outlet property="midHeight" destination="Ge1-Wc-aIi" id="5yT-KU-T3x"/>
+                        <outlet property="topHeight" destination="f7X-63-gwL" id="RjE-3K-cgv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q9P-hN-ecN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5624" y="1504"/>
         </scene>
         <!--Opportunities Of Account View Controller-->
         <scene sceneID="25q-NW-hBS">
@@ -3254,15 +3506,6 @@ France</string>
                                 <color key="pageIndicatorTintColor" red="0.56240378998590912" green="0.61723040807482887" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.60626513154711104" green="0.98047107910078724" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Account" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoW-jx-wW7">
-                                <rect key="frame" x="58" y="72" width="150" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="S7b-CT-h2M"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riF-P0-RvM">
                                 <rect key="frame" x="555" y="75" width="29" height="29"/>
                                 <constraints>
@@ -3291,6 +3534,15 @@ France</string>
                                     <outlet property="delegate" destination="jpl-la-HIO" id="Dqm-vm-cpc"/>
                                 </connections>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Account" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoW-jx-wW7">
+                                <rect key="frame" x="58" y="72" width="150" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="S7b-CT-h2M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -3755,7 +4007,7 @@ France</string>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="RzH-17-3Vt" kind="show" identifier="goToModuleContacts" id="oaN-OC-rI6"/>
+                                            <segue destination="RzH-17-3Vt" kind="presentation" identifier="goToModuleContacts" id="oaN-OC-rI6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzP-pU-uY4">
@@ -3770,7 +4022,7 @@ France</string>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="4zC-Yu-10l" kind="show" identifier="goToModuleMeetings" id="Utl-zX-cwY"/>
+                                            <segue destination="4zC-Yu-10l" kind="presentation" identifier="goToModuleMeetings" id="Utl-zX-cwY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7K-dJ-HA2">
@@ -3782,7 +4034,7 @@ France</string>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="A7r-ge-PhP" kind="show" identifier="goToModuleAccount" id="JNm-JK-mZv"/>
+                                            <segue destination="A7r-ge-PhP" kind="presentation" identifier="goToModuleAccount" id="JNm-JK-mZv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmm-UP-bWP">
@@ -5644,7 +5896,7 @@ France</string>
             <objects>
                 <tableViewController id="ShJ-y6-WZD" customClass="MeetingsOfAccountTableViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DTH-lV-igE">
-                        <rect key="frame" x="0.0" y="0.0" width="202" height="543"/>
+                        <rect key="frame" x="0.0" y="0.0" width="202" height="572"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -5681,18 +5933,18 @@ France</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fmn-F7-7Ew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1788" y="3515.5"/>
+            <point key="canvasLocation" x="7991" y="1516"/>
         </scene>
         <!--Meeting details-->
         <scene sceneID="RxP-Rd-9eO">
             <objects>
-                <viewController id="S4i-a8-40Y" sceneMemberID="viewController">
+                <viewController id="S4i-a8-40Y" customClass="MeetingsDetailViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UOA-9s-wSr"/>
                         <viewControllerLayoutGuide type="bottom" id="snD-KK-grK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v4V-jS-38C">
-                        <rect key="frame" x="0.0" y="0.0" width="202" height="543"/>
+                        <rect key="frame" x="0.0" y="0.0" width="202" height="572"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -5700,7 +5952,7 @@ France</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNY-mh-YZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1310" y="3543.5"/>
+            <point key="canvasLocation" x="8545" y="1516"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ijX-29-Rdv">
@@ -5712,13 +5964,16 @@ France</string>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="KEm-b2-MWM">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="ShJ-y6-WZD" kind="relationship" relationship="rootViewController" id="aXv-uS-E5u"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0mJ-k2-K9v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2202" y="3515.5"/>
+            <point key="canvasLocation" x="7709" y="1516"/>
         </scene>
     </scenes>
     <resources>
@@ -5740,7 +5995,7 @@ France</string>
         <image name="logout" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qlf-EX-5Vo"/>
-        <segue reference="47i-YG-Ipk"/>
+        <segue reference="z0s-AV-P8O"/>
+        <segue reference="VMg-4x-Ova"/>
     </inferredMetricsTieBreakers>
 </document>

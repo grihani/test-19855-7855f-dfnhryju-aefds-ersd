@@ -52,8 +52,8 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     // here we define the buttons in the top menu, add the pan gesture to show our list
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+//        self.presentingViewController?.presentingViewController
+        println(self.presentingViewController)
         self.view.window?.rootViewController = self
         
 //        self.showList.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())

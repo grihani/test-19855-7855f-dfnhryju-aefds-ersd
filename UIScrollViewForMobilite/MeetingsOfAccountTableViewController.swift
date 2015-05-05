@@ -10,6 +10,7 @@ import UIKit
 
 class MeetingsOfAccountTableViewController: UITableViewController {
 
+    // MARK: - Variables
     var meetings: [MeetingModel]! {
         didSet {
             tableView.reloadData()
@@ -22,6 +23,9 @@ class MeetingsOfAccountTableViewController: UITableViewController {
             }
         }
     }
+    
+    // MARK: - Constants
+    let dateFormatter = NSDateFormatter()
     
     // MARK: - view life cycle
     override func viewDidLoad() {
@@ -53,11 +57,29 @@ class MeetingsOfAccountTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("meetings of Account", forIndexPath: indexPath) as UITableViewCell
         let row = indexPath.row
         cell.textLabel?.text = meetings[row].subjectMeeting
-        cell.detailTextLabel?.text = meetings[row].dateBeginMeeting
+        cell.detailTextLabel?.text = fromSQLiteDateToFullyCustomizedDateOnSwift(meetings[row].dateBeginMeeting)
 
         return cell
     }
 
+    func fromSQLiteDateToFullyCustomizedDateOnSwift(date: String) -> String {
+        var customDateString = ""
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let dateFromString = dateFormatter.dateFromString(date)
+        if dateFromString != nil {
+            dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+            dateFormatter.timeStyle = .ShortStyle
+            customDateString = dateFormatter.stringFromDate(dateFromString!)
+        } else {
+            customDateString = "Please contact the developper"
+        }
+        return customDateString
+    }
+    
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

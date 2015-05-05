@@ -60,6 +60,8 @@
 		48D62EEB1AEA6FD100FEEA5A /* TypologyOfContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D62EEA1AEA6FD100FEEA5A /* TypologyOfContactViewController.swift */; };
 		48D62EED1AEA6FFE00FEEA5A /* AssistantOfContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D62EEC1AEA6FFE00FEEA5A /* AssistantOfContactViewController.swift */; };
 		48D62EEF1AEA701300FEEA5A /* AccountOfContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D62EEE1AEA701300FEEA5A /* AccountOfContactViewController.swift */; };
+		48EC61A51AF8C7480038A28B /* MeetingsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC61A41AF8C7480038A28B /* MeetingsDetailViewController.swift */; };
+		48EC61A71AF8E8450038A28B /* TasksOfAccountV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC61A61AF8E8450038A28B /* TasksOfAccountV2ViewController.swift */; };
 		48ECA65F1AF7CDA1000B0A55 /* MeetingsOfAccountV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ECA65E1AF7CDA1000B0A55 /* MeetingsOfAccountV2ViewController.swift */; };
 		48ECA6611AF7CDBC000B0A55 /* MeetingsOfAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ECA6601AF7CDBC000B0A55 /* MeetingsOfAccountTableViewController.swift */; };
 		48FCB1231ACAD55500A770B2 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1221ACAD55500A770B2 /* DataBase.swift */; };
@@ -160,6 +162,8 @@
 		48D62EEA1AEA6FD100FEEA5A /* TypologyOfContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypologyOfContactViewController.swift; sourceTree = "<group>"; };
 		48D62EEC1AEA6FFE00FEEA5A /* AssistantOfContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssistantOfContactViewController.swift; sourceTree = "<group>"; };
 		48D62EEE1AEA701300FEEA5A /* AccountOfContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountOfContactViewController.swift; sourceTree = "<group>"; };
+		48EC61A41AF8C7480038A28B /* MeetingsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsDetailViewController.swift; sourceTree = "<group>"; };
+		48EC61A61AF8E8450038A28B /* TasksOfAccountV2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksOfAccountV2ViewController.swift; sourceTree = "<group>"; };
 		48ECA65E1AF7CDA1000B0A55 /* MeetingsOfAccountV2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsOfAccountV2ViewController.swift; sourceTree = "<group>"; };
 		48ECA6601AF7CDBC000B0A55 /* MeetingsOfAccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsOfAccountTableViewController.swift; sourceTree = "<group>"; };
 		48FCB1221ACAD55500A770B2 /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 			children = (
 				481419D01AD58908009B38D6 /* ListMeetingsViewController.swift */,
 				481419D21AD58919009B38D6 /* DetailMeetingsViewController.swift */,
+				48EC61A41AF8C7480038A28B /* MeetingsDetailViewController.swift */,
 			);
 			name = Meetings;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				4849836D1AE5519A00972133 /* TasksOfAccountViewController.swift */,
+				48EC61A61AF8E8450038A28B /* TasksOfAccountV2ViewController.swift */,
 				481876D21AE78535005BF26F /* TaskDetailsOfAccountViewController.swift */,
 			);
 			name = TasksOfAccounts;
@@ -640,6 +646,7 @@
 				48C22FD61ADFE5F200DE3F5F /* ContactsOfAccountViewController.swift in Sources */,
 				48FCB1341ACAD73600A770B2 /* FMResultSet.m in Sources */,
 				48FCB13A1ACADE0A00A770B2 /* OpportunityModel.swift in Sources */,
+				48EC61A51AF8C7480038A28B /* MeetingsDetailViewController.swift in Sources */,
 				4851F8C11AE9183C00F1BE9B /* CivilityPickerViewController.swift in Sources */,
 				480DA2391ACC2C0D00F43FA1 /* AccountContractsDataModel.swift in Sources */,
 				48FCB1401ACAE09E00A770B2 /* AccountContactModel.swift in Sources */,
@@ -674,6 +681,7 @@
 				488186181AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld in Sources */,
 				48FCB1361ACADBAC00A770B2 /* AccountModel.swift in Sources */,
 				48D62EE91AEA6FBA00FEEA5A /* PreferredLanguageOfContactViewController.swift in Sources */,
+				48EC61A71AF8E8450038A28B /* TasksOfAccountV2ViewController.swift in Sources */,
 				48FCB14E1ACAE77C00A770B2 /* TaskModel.swift in Sources */,
 				48FCB1311ACAD73600A770B2 /* FMDatabaseAdditions.m in Sources */,
 				485DE0981ADBB1E900E95DD8 /* AddMeetingWithoutDateViewController.swift in Sources */,

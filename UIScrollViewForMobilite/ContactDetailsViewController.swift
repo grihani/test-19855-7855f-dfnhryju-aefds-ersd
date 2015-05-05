@@ -155,6 +155,13 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         checkStatusOfCreationOfContact()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        println(self.presentingViewController)
+        println(self.presentingViewController?.contentViewController)
+        println(self.presentingViewController?.contentViewController.presenterViewController)
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
