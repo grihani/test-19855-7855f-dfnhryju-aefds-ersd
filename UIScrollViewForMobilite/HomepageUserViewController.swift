@@ -29,6 +29,7 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
     var viewDidItsLayout = false
     var email: String = ""
 
+    @IBOutlet weak var contactsButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 

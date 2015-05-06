@@ -133,6 +133,15 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var statusSave: UILabel!
     
+    var buttonToShowMenu: UIBarButtonItem!
+    @IBAction func showMenu(sender: UIBarButtonItem) {
+        println("show menu")
+        performSegueWithIdentifier("show Menu", sender: sender)
+    }
+    var buttonHome: UIBarButtonItem!
+    @IBAction func goHome(sender: UIBarButtonItem) {
+        self.presentingViewController?.contentViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
 //    @IBOutlet weak var contactCell: ContactCell!
     var idContact: Int = 0
     var jobTitleContact: String = ""
@@ -153,6 +162,12 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         checkStatusOfCreationOfContact()
+        buttonToShowMenu = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showMenu:")
+        navigationItem.leftBarButtonItems?.append(buttonToShowMenu)
+        
+        buttonHome = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.Done, target: self, action: "goHome:")
+        navigationItem.rightBarButtonItems?.append(buttonHome)
+
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -188,11 +203,30 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         
     }
 
-    
+    @IBAction func rewind(sender: UIBarButtonItem) {
+        println(self.presentingViewController)
+        let presentingController = self.presentingViewController?.contentViewController as? HomepageUserViewController
+        presentingController?.dismissViewControllerAnimated(false, completion: nil)
+        presentingController?.performSegueWithIdentifier("goToModuleAccount", sender: nil)
+    }
     
     // MARK: - Navigation
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "civility of contact" {
+        if segue.identifier == "show Menu" {
+            if let menuTableViewController = segue.destinationViewController as? MenuTableViewController {
+                println()
+                var minimumSize = menuTableViewController.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+                minimumSize.width = 320
+                minimumSize.height = 164
+                menuTableViewController.preferredContentSize = minimumSize
+                if let ppc = menuTableViewController.popoverPresentationController {
+                    ppc.barButtonItem = sender as UIBarButtonItem
+                }
+            }
+        }
+        else if segue.identifier == "civility of contact" {
             if let civilityView = segue.destinationViewController as? CivilityPickerViewController {
                 civilityView.civilityButton = cellContact.civilityContact
                 civilityView.civilityContact = self.civilityContact

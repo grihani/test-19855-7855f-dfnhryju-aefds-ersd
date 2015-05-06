@@ -47,12 +47,24 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     }
     var viewDidItsLayout: Bool = false
     
+    
+    var buttonToShowMenu: UIBarButtonItem!
+   
+    @IBAction func showMenu(sender: UIBarButtonItem) {
+        println("show menu")
+        performSegueWithIdentifier("show Menu", sender: sender)
+    }
+    
+    var buttonHome: UIBarButtonItem!
+    @IBAction func goHome(sender: UIBarButtonItem) {
+        self.presentingViewController?.contentViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     @IBOutlet var buttonPages: [UIButton] = []
     
     // here we define the buttons in the top menu, add the pan gesture to show our list
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.presentingViewController?.presentingViewController
         println(self.presentingViewController)
         self.view.window?.rootViewController = self
         
@@ -66,6 +78,12 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             self.navigationBar.title = account.nameAccount
         }
         colorButtons(firstPage)
+        buttonToShowMenu = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showMenu:")
+        navigationBar.leftBarButtonItems?.append(buttonToShowMenu)
+        buttonHome = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.Done, target: self, action: "goHome:")
+        
+        navigationBar.rightBarButtonItems?.append(buttonHome)
+        
     }
     
     // every action that has relation to the layout of the view has to be put in here
@@ -236,6 +254,28 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             view.addSubview(button)
             buttonPages.append(button)
             createMenuButtons(menu, lastCreatedFrame: button.frame, view: view)
+        }
+    }
+    
+    
+    @IBAction func editAccount(sender: UIBarButtonItem) {
+        showPage(5)
+    }
+    
+    // MARK: - Navigation:
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "show Menu" {
+            if let menuTableViewController = segue.destinationViewController as? MenuTableViewController {
+                println()
+                var minimumSize = menuTableViewController.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+                minimumSize.width = 320
+                minimumSize.height = 164
+                menuTableViewController.preferredContentSize = minimumSize
+                if let ppc = menuTableViewController.popoverPresentationController {
+                    ppc.barButtonItem = sender as UIBarButtonItem
+                }
+            }
         }
     }
 }
