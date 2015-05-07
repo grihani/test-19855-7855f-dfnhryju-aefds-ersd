@@ -216,7 +216,6 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "show Menu" {
             if let menuTableViewController = segue.destinationViewController as? MenuTableViewController {
-                println()
                 var minimumSize = menuTableViewController.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
                 minimumSize.width = 320
                 minimumSize.height = 164

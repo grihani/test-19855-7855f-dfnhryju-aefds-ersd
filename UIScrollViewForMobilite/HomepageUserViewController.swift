@@ -14,7 +14,7 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
     var idUser: Int = 0
     
     @IBOutlet weak var meetingTableView: UITableView!
-    @IBOutlet weak var labelBienvenue: UILabel!
+    
     @IBOutlet weak var chosenDate: UILabel!
     @IBOutlet var buttonsForDays: [UIButton]!
     @IBOutlet weak var calendarContainer: UIView!
@@ -35,14 +35,19 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
 
         // Do any additional setup after loading the view.
         var userModel = UserDataModel().getUserWithIdUser(idUser)
-        labelBienvenue.text = "Bonjour, \(userModel.username)"
+        navigationItem.title = "Bonjour, \(userModel.username)"
         var today = NSDate()
         dateFormatter.timeStyle = .NoStyle
         dateFormatter.dateStyle = .FullStyle
         self.chosenDate.text = dateFormatter.stringFromDate(today)
         meetings = MeetingDataModel().allMeetings(fromDate: today, toDate: today)
     }
-
+    @IBOutlet weak var rightPanelContainer: UIView!
+    var verifyHidden = false
+    
+    var hidden: Bool = false
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,11 +61,57 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        hidePanels()
+    }
+    
+    func hidePanels() {
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.rightPanelContainer.center.x += 400
+            self.rightPanelControl.center.x -= 50
+            self.languetteToHideRightPanel.center.x += 400
+            self.photoContainer.center.x = self.view.center.x
+        })
+    }
+    
+    @IBOutlet weak var photoContainer: UIView!
+    @IBOutlet weak var languetteToHideRightPanel: UIView!
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "showContactSegue" {
 //            if let destinationVC = (segue.destinationViewController as UINavigationController).topViewController as? ContactViewController {
 //                destinationVC.idUser = self.idUser
 //            }
+        }
+    }
+    @IBOutlet var showingTheRightPanel: UITapGestureRecognizer!
+    @IBOutlet var hidingTheRightPanel: UITapGestureRecognizer!
+    @IBOutlet weak var rightPanelControl: UIView!
+    var didHideRightPanel = true
+    @IBAction func showPanelContainer(sender: UITapGestureRecognizer) {
+        if sender == showingTheRightPanel {
+            if didHideRightPanel {
+                didHideRightPanel = false
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.rightPanelContainer.center.x -= 400
+                    self.rightPanelControl.center.x += 50
+                    self.photoContainer.center.x -= 198
+                    self.languetteToHideRightPanel.center.x -= 400
+                })
+            }
+        }
+    }
+    @IBAction func hidePanelContainer(sender: UITapGestureRecognizer) {
+        if sender == hidingTheRightPanel {
+            if !didHideRightPanel {
+                didHideRightPanel = true
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.rightPanelContainer.center.x += 400
+                    self.rightPanelControl.center.x -= 50
+                    self.photoContainer.center.x = self.view.center.x
+                    self.languetteToHideRightPanel.center.x += 400
+                })
+            }
         }
     }
     
@@ -85,7 +136,7 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
             if let dayToShow = dayToShow {
                 dates.append(dayToShow)
             }
-            checkForNumberOfMeetings(date: dayToShow!, button: button)
+            self.checkForNumberOfMeetings(date: dayToShow!, button: button)
         }
         return dates
     }
