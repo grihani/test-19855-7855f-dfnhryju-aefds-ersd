@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4801C85A1AFA4FCF00C0364B /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C8591AFA4FCF00C0364B /* MenuTableViewController.swift */; };
 		4809A8BA1ACD4F3A001FEC98 /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4809A8B91ACD4F3A001FEC98 /* AccountDetailsViewController.swift */; };
 		480DA2271ACBD68E00F43FA1 /* MeetingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA2261ACBD68E00F43FA1 /* MeetingDataModel.swift */; };
 		480DA2291ACC2B7600F43FA1 /* OpportunityDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DA2281ACC2B7600F43FA1 /* OpportunityDataModel.swift */; };
@@ -101,6 +102,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4801C8591AFA4FCF00C0364B /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		4809A8B91ACD4F3A001FEC98 /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
 		480DA2261ACBD68E00F43FA1 /* MeetingDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDataModel.swift; sourceTree = "<group>"; };
 		480DA2281ACC2B7600F43FA1 /* OpportunityDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityDataModel.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 			children = (
 				4856DB261AEE257E00A61515 /* UIScrollViewForMobilite.entitlements */,
 				4881861B1AC94F6600923A18 /* Main.storyboard */,
+				4801C8591AFA4FCF00C0364B /* MenuTableViewController.swift */,
 				486AE4701AD81ABD00E701AF /* Constants.swift */,
 				4824EEAE1AF251AF004F0283 /* HomePage */,
 				484CDC301AE0E256001E09F8 /* Functionalities */,
@@ -688,6 +691,7 @@
 				4824EEB01AF25295004F0283 /* HomepageLoginViewController.swift in Sources */,
 				4824EEBA1AF26617004F0283 /* MotDePasseOublieViewController.swift in Sources */,
 				481419D31AD58919009B38D6 /* DetailMeetingsViewController.swift in Sources */,
+				4801C85A1AFA4FCF00C0364B /* MenuTableViewController.swift in Sources */,
 				48FCB1481ACAE50000A770B2 /* ContractsModel.swift in Sources */,
 				480DA2311ACC2BB900F43FA1 /* AccountContactDataModel.swift in Sources */,
 				488186151AC94F6600923A18 /* AppDelegate.swift in Sources */,

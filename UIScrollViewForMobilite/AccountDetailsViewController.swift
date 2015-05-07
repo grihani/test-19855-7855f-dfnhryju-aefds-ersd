@@ -24,7 +24,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
     @IBOutlet weak var adressCompany: UITextView!
     @IBOutlet weak var countryAccount: UITextField!
     @IBOutlet weak var coverageAccount: UITextField!
-    @IBOutlet weak var mapAdressCompany: MKMapView!
+//    @IBOutlet weak var mapAdressCompany: MKMapView!
     @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var discardChangesButton: UIButton!
@@ -76,7 +76,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
         self.webSite.delegate = self
         self.locationManager.delegate = self
         self.adressCompany.delegate = self
-        self.mapAdressCompany.delegate = self
+//        self.mapAdressCompany.delegate = self
         self.leadSource.delegate = self
         self.statusAccount.delegate = self
         self.segmentAccount.delegate = self
@@ -122,7 +122,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
                 var frame = mapView.frame
                 self.imageExists = true
                 mapView.removeFromSuperview()
-                self.mapAdressCompany = nil
+//                self.mapAdressCompany = nil
                 var pathImage = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
                 pathImage = pathImage.stringByAppendingPathComponent("Maps/\(account.idAccount)/\(account.adressAccount).png")
                 var image = UIImageView(image: UIImage(contentsOfFile: pathImage))
@@ -219,7 +219,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
     // it will check if there's an image here so that we put it up
     func mapViewWillStartRenderingMap(mapView: MKMapView!) {
         if account != nil {
-            geolocaliseAvecImage(address: account.adressAccount, account: account, mapView: self.mapAdressCompany)
+//            geolocaliseAvecImage(address: account.adressAccount, account: account, mapView: self.mapAdressCompany)
         }
     }
     func mapViewDidFinishRenderingMap(mapView: MKMapView!, fullyRendered: Bool) {

@@ -11,6 +11,47 @@ class TaskDataModel {
     
     let dateFormatter = NSDateFormatter()
     
+    func tasksOfAccount(#account: AccountModel) -> [(title: String, tasks: [TaskModel])] {
+        
+        typealias MyData = (title: String, tasks: [TaskModel])
+        
+        var tasksOfAccount: [MyData]  = []
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let actualDate = dateFormatter.stringFromDate(NSDate())
+        var counterVerifier = 0
+        var querySQL = "SELECT DISTINCT statusTask FROM Tasks"
+        let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let results = results{
+            while results.next() == true {
+                var elementTaskOfAccount: MyData = ("", [])
+                var tasks: [TaskModel] = []
+                var key = ""
+                var statusTask = results.stringForColumn("statusTask")
+                querySQL = "SELECT * FROM tasks WHERE statusTask = '\(statusTask)'and idTask IN (SELECT idTask FROM Tasks_Account WHERE idAccount = \(account.idAccount)) AND date(dateTask) <= date('\(actualDate)') ORDER BY date(dateTask) ASC"
+                let resultsInLessThanDate: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+                if let resultsInLessThanDate = resultsInLessThanDate {
+                    while resultsInLessThanDate.next() == true {
+                        var idTask: Int = Int(resultsInLessThanDate.intForColumn("idTask"))
+                        var subjectTask: String = resultsInLessThanDate.stringForColumn("subjectTask")
+                        var dateTask: String = resultsInLessThanDate.stringForColumn("dateTask")
+                        var statusTask: String = resultsInLessThanDate.stringForColumn("statusTask")
+                        let task = TaskModel(idTask: idTask, subjectTask: subjectTask, dateTask: dateTask, statusTask: statusTask)
+                        tasks.append(task)
+                        counterVerifier++
+                    }
+                }
+                if counterVerifier > 0 {
+                    key = "OVERDUE & " + statusTask
+                    elementTaskOfAccount.title = key
+                    elementTaskOfAccount.tasks = tasks
+                    tasksOfAccount.append(elementTaskOfAccount)
+                    counterVerifier = 0
+                }
+            }
+        }
+        return tasksOfAccount
+    }
+    
     // NSMutableArray will be the same as : [[String: [TaskModel]]]
     func tasksOfAccountAsArray(#account: AccountModel) -> NSMutableArray {
         var tasksOfAccount: NSMutableArray = NSMutableArray()

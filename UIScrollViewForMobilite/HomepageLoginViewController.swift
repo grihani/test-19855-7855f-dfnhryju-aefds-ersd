@@ -10,8 +10,16 @@ import UIKit
 
 class HomepageLoginViewController: UIViewController {
 
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var username: UITextField! {
+        didSet {
+            username.text = "test"
+        }
+    }
+    @IBOutlet weak var password: UITextField!{
+        didSet {
+            password.text = "test"
+        }
+    }
     var idUser = 0
     
     override func viewDidLoad() {
