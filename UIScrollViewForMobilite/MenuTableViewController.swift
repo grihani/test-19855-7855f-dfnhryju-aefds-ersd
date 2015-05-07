@@ -49,24 +49,17 @@ class MenuTableViewController: UITableViewController, UIPopoverPresentationContr
             presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
         }
         else {
-            switch row {
-            case 0:
-                if let homePageUserController = presentingViewController?.presentingViewController?.contentViewController as? HomepageUserViewController {
+            if let homePageUserController = presentingViewController?.presentingViewController?.contentViewController as? HomepageUserViewController {
                 homePageUserController.dismissViewControllerAnimated(false, completion: nil)
-                homePageUserController.performSegueWithIdentifier("goToModuleAccount", sender: nil)
-                }
-            case 1:
-                if let homePageUserController = presentingViewController?.presentingViewController?.contentViewController as? HomepageUserViewController {
-                    homePageUserController.dismissViewControllerAnimated(false, completion: nil)
+                switch row {
+                case 0:
+                    homePageUserController.performSegueWithIdentifier("goToModuleAccount", sender: nil)
+                case 1:
                     homePageUserController.performSegueWithIdentifier("goToModuleContacts", sender: nil)
-                }
-
             case 2:
-                if let homePageUserController = presentingViewController?.presentingViewController?.contentViewController as? HomepageUserViewController {
-                    homePageUserController.dismissViewControllerAnimated(false, completion: nil)
-                    homePageUserController.performSegueWithIdentifier("goToModuleMeetings", sender: nil)
-                }
+                homePageUserController.performSegueWithIdentifier("goToModuleMeetings", sender: nil)
             default: break
+                }
             }
         }
     }

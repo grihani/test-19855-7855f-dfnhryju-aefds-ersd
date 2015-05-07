@@ -11,6 +11,11 @@ import UIKit
 class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     
     
+    @IBOutlet weak var lineUnderMenu: UIView! {
+        didSet {
+            lineUnderMenu.backgroundColor = blueCheckedColor
+        }
+    }
     @IBOutlet weak var showList: UIView!
     @IBOutlet weak var containerView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl! {

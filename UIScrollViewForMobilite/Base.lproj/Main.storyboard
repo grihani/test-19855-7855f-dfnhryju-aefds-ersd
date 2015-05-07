@@ -24,7 +24,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Accounts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hAT-ug-qiZ">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Accounts" id="Gja-r4-XRV">
@@ -41,7 +41,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Contacts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dcq-30-NP1">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Contacts" id="IcU-6m-aIc">
@@ -58,7 +58,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Meetings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CIS-Gp-5eX">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Calendars" id="2tn-gO-zIC">
@@ -2553,7 +2553,8 @@
                                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="MGT-cW-gm7"/>
                                                 </items>
                                             </toolbar>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TYQ-1o-RzE">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TYQ-1o-RzE">
+                                                <rect key="frame" x="0.0" y="44" width="200" height="11"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableView>
                                         </subviews>
@@ -2585,7 +2586,8 @@
                                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="9FI-HS-fvh"/>
                                                 </items>
                                             </toolbar>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Oe1-5m-wi8">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Oe1-5m-wi8">
+                                                <rect key="frame" x="0.0" y="44" width="200" height="11"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableView>
                                         </subviews>
@@ -3009,7 +3011,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Commentary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTc-cZ-N8I">
                                         <rect key="frame" x="8" y="8" width="96" height="20"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -3602,7 +3604,7 @@ France</string>
                                 </state>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="zST-QS-V5W">
-                                <rect key="frame" x="58" y="149" width="526" height="406"/>
+                                <rect key="frame" x="58" y="157" width="526" height="398"/>
                                 <connections>
                                     <outlet property="delegate" destination="jpl-la-HIO" id="Dqm-vm-cpc"/>
                                 </connections>
@@ -3616,6 +3618,13 @@ France</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nz-ta-gVK">
+                                <rect key="frame" x="58" y="149" width="526" height="3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="y0o-dn-YaJ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -3628,8 +3637,9 @@ France</string>
                             <constraint firstItem="ieg-MN-oo3" firstAttribute="leading" secondItem="CqG-gR-2R8" secondAttribute="trailing" constant="8" id="3Nd-tu-GLN"/>
                             <constraint firstItem="dId-Ql-EZl" firstAttribute="top" secondItem="phO-Bp-L3O" secondAttribute="bottom" constant="8" id="BVo-HU-8Tu"/>
                             <constraint firstItem="phO-Bp-L3O" firstAttribute="leading" secondItem="7Cb-yL-qfe" secondAttribute="trailing" constant="8" id="Dye-IL-dnz"/>
+                            <constraint firstItem="dId-Ql-EZl" firstAttribute="leading" secondItem="5nz-ta-gVK" secondAttribute="leading" id="FZv-LZ-eQA"/>
                             <constraint firstItem="dId-Ql-EZl" firstAttribute="trailing" secondItem="j8T-om-EVn" secondAttribute="trailingMargin" id="Fhx-hn-uH6"/>
-                            <constraint firstItem="zST-QS-V5W" firstAttribute="top" secondItem="dId-Ql-EZl" secondAttribute="bottom" id="GL4-3e-alX"/>
+                            <constraint firstItem="zST-QS-V5W" firstAttribute="top" secondItem="dId-Ql-EZl" secondAttribute="bottom" constant="8" symbolic="YES" id="GL4-3e-alX"/>
                             <constraint firstItem="riF-P0-RvM" firstAttribute="trailing" secondItem="j8T-om-EVn" secondAttribute="trailingMargin" id="GLJ-2d-XKZ"/>
                             <constraint firstItem="riF-P0-RvM" firstAttribute="trailing" secondItem="j8T-om-EVn" secondAttribute="trailingMargin" id="HED-Fx-CFN"/>
                             <constraint firstItem="dId-Ql-EZl" firstAttribute="leading" secondItem="CqG-gR-2R8" secondAttribute="trailing" constant="8" id="KKg-AI-pm9"/>
@@ -3644,8 +3654,10 @@ France</string>
                             <constraint firstItem="phO-Bp-L3O" firstAttribute="height" secondItem="7Cb-yL-qfe" secondAttribute="height" id="XpL-Ed-MaP"/>
                             <constraint firstItem="dId-Ql-EZl" firstAttribute="top" secondItem="7Cb-yL-qfe" secondAttribute="bottom" constant="8" id="eaD-iz-sDm"/>
                             <constraint firstItem="ieg-MN-oo3" firstAttribute="top" secondItem="zST-QS-V5W" secondAttribute="bottom" id="llB-1a-rHg"/>
+                            <constraint firstItem="5nz-ta-gVK" firstAttribute="top" secondItem="dId-Ql-EZl" secondAttribute="bottom" id="mhz-QC-bNh"/>
                             <constraint firstItem="CqG-gR-2R8" firstAttribute="leading" secondItem="j8T-om-EVn" secondAttribute="leading" id="sFy-Zg-amr"/>
                             <constraint firstItem="riF-P0-RvM" firstAttribute="leading" secondItem="phO-Bp-L3O" secondAttribute="trailing" constant="8" id="sdT-Wb-7ni"/>
+                            <constraint firstItem="dId-Ql-EZl" firstAttribute="trailing" secondItem="5nz-ta-gVK" secondAttribute="trailing" id="slS-Yr-WRi"/>
                             <constraint firstItem="CqG-gR-2R8" firstAttribute="top" secondItem="eyV-kq-hCP" secondAttribute="bottom" id="tYx-15-9gi"/>
                             <constraint firstItem="riF-P0-RvM" firstAttribute="width" secondItem="phO-Bp-L3O" secondAttribute="width" id="wbn-Fw-RBo"/>
                         </constraints>
@@ -3665,6 +3677,7 @@ France</string>
                     <connections>
                         <outlet property="addressAccount" destination="eoW-jx-wW7" id="sEg-y4-cjs"/>
                         <outlet property="containerView" destination="zST-QS-V5W" id="Ngg-AD-l1j"/>
+                        <outlet property="lineUnderMenu" destination="5nz-ta-gVK" id="0RO-aj-pbx"/>
                         <outlet property="listeButtonsForPages" destination="dId-Ql-EZl" id="SZv-hW-AeY"/>
                         <outlet property="navigationBar" destination="U3d-e1-KGV" id="eJu-4P-N5g"/>
                         <outlet property="pageControl" destination="ieg-MN-oo3" id="dbK-Vq-Rg4"/>
