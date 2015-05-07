@@ -146,6 +146,16 @@ class Vue360ViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier ==  "mapPopover" {
+            if let destinationVC = segue.destinationViewController as? MapPopoverViewController {
+                let minimumSize = destinationVC.view.systemLayoutSizeFittingSize(UILayoutFittingExpandedSize)
+                destinationVC.preferredContentSize = CGSize(width: 150,height: 150)
+                destinationVC.account = self.account
+            }
+        }
+    }
+    
     // MARK: - keyboard notifications
     
     var cookieForKeyboardAppears: NSObjectProtocol!

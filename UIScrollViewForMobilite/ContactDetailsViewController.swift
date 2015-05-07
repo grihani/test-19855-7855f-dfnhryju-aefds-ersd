@@ -133,6 +133,9 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var statusSave: UILabel!
     
+    var barButtonMenu:UIBarButtonItem = UIBarButtonItem()
+    var barButtonHome:UIBarButtonItem = UIBarButtonItem()
+    
 //    @IBOutlet weak var contactCell: ContactCell!
     var idContact: Int = 0
     var jobTitleContact: String = ""
@@ -153,6 +156,13 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         checkStatusOfCreationOfContact()
+        
+        barButtonMenu = UIBarButtonItem(image: UIImage(named: "Menu"), style: UIBarButtonItemStyle.Bordered, target: self, action: "displayMenu")
+        
+        barButtonHome = UIBarButtonItem(image: UIImage(named: "Home"), style: UIBarButtonItemStyle.Plain, target: self, action: "goHome")
+        
+        navigationItem.leftBarButtonItems?.append(barButtonMenu)
+        navigationItem.rightBarButtonItem = barButtonHome
     }
 
     override func didReceiveMemoryWarning() {
@@ -161,6 +171,15 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     
     func textFieldDidBeginEditing(textField: UITextField) {
         println("hello World")
+    }
+    
+    
+    func goHome() {
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func displayMenu() {
+        performSegueWithIdentifier("menuPopover", sender: self)
     }
     
     // Mark: - tableview data source
@@ -258,6 +277,15 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
                 if let ppc = typologyOfContact.popoverPresentationController {
                     let minimumSize = typologyOfContact.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
                     typologyOfContact.preferredContentSize = minimumSize
+                }
+            }
+        }
+        else if segue.identifier == "menuPopover" {
+            if let destinationVC = segue.destinationViewController as? MenuPopoverTableViewController {
+                if let ppc = destinationVC.popoverPresentationController {
+                    ppc.barButtonItem = barButtonMenu
+                    let minimumSize = destinationVC.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+                    destinationVC.preferredContentSize = minimumSize
                 }
             }
         }

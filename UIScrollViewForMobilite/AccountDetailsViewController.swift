@@ -24,7 +24,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
     @IBOutlet weak var adressCompany: UITextView!
     @IBOutlet weak var countryAccount: UITextField!
     @IBOutlet weak var coverageAccount: UITextField!
-    @IBOutlet weak var mapAdressCompany: MKMapView!
+//    @IBOutlet weak var mapAdressCompany: MKMapView!
     @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var discardChangesButton: UIButton!
@@ -76,7 +76,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
         self.webSite.delegate = self
         self.locationManager.delegate = self
         self.adressCompany.delegate = self
-        self.mapAdressCompany.delegate = self
+//        self.mapAdressCompany.delegate = self
         self.leadSource.delegate = self
         self.statusAccount.delegate = self
         self.segmentAccount.delegate = self
@@ -122,7 +122,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
                 var frame = mapView.frame
                 self.imageExists = true
                 mapView.removeFromSuperview()
-                self.mapAdressCompany = nil
+//                self.mapAdressCompany = nil
                 var pathImage = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
                 pathImage = pathImage.stringByAppendingPathComponent("Maps/\(account.idAccount)/\(account.adressAccount).png")
                 var image = UIImageView(image: UIImage(contentsOfFile: pathImage))
@@ -217,31 +217,31 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
     
     // Mark: - MapView Delegate methods
     // it will check if there's an image here so that we put it up
-    func mapViewWillStartRenderingMap(mapView: MKMapView!) {
-        if account != nil {
-            geolocaliseAvecImage(address: account.adressAccount, account: account, mapView: self.mapAdressCompany)
-        }
-    }
-    func mapViewDidFinishRenderingMap(mapView: MKMapView!, fullyRendered: Bool) {
-        if account != nil && !self.imageExists {
-            var frame = mapView.frame
-            var mapImage: UIImage = self.pictureForView(mapView)
-            var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-            var dirPath = paths.stringByAppendingPathComponent("Maps/\(account.idAccount)/")
-            var imagePath = dirPath.stringByAppendingPathComponent("\(account.adressAccount).png")
-            if !fileManager.fileExistsAtPath(imagePath) {
-//                fileManager.createDirectoryAtPath(dirPath, withIntermediateDirectories: true, attributes: nil, error: nil)
-                UIImagePNGRepresentation(mapImage).writeToFile(imagePath, atomically: true)
-                
-            }
-            mapView.removeFromSuperview()
-            var image = UIImageView(image: UIImage(contentsOfFile: imagePath))
-            image.frame = frame
-            self.leftView.addSubview(image)
-            
-//            println(imagePath)
-        }
-    }
+//    func mapViewWillStartRenderingMap(mapView: MKMapView!) {
+//        if account != nil {
+//            geolocaliseAvecImage(address: account.adressAccount, account: account, mapView: self.mapAdressCompany)
+//        }
+//    }
+//    func mapViewDidFinishRenderingMap(mapView: MKMapView!, fullyRendered: Bool) {
+//        if account != nil && !self.imageExists {
+//            var frame = mapView.frame
+//            var mapImage: UIImage = self.pictureForView(mapView)
+//            var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+//            var dirPath = paths.stringByAppendingPathComponent("Maps/\(account.idAccount)/")
+//            var imagePath = dirPath.stringByAppendingPathComponent("\(account.adressAccount).png")
+//            if !fileManager.fileExistsAtPath(imagePath) {
+////                fileManager.createDirectoryAtPath(dirPath, withIntermediateDirectories: true, attributes: nil, error: nil)
+//                UIImagePNGRepresentation(mapImage).writeToFile(imagePath, atomically: true)
+//                
+//            }
+//            mapView.removeFromSuperview()
+//            var image = UIImageView(image: UIImage(contentsOfFile: imagePath))
+//            image.frame = frame
+//            self.leftView.addSubview(image)
+//            
+////            println(imagePath)
+//        }
+//    }
     
     
     // Mark: - UITapGesture 
@@ -256,7 +256,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
     
     
     @IBAction func changingFieldsOfAccount(sender: UITextField) {
-        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text, typeAccount: account.typeAccount)
+        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text, typeAccount: account.typeAccount, favoriteAccount: account.favoriteAccount)
         
         let accountToCompare = accountAfterUpdates.arrayOfStringsFromModel()
         let accountToCompareTo = account.arrayOfStringsFromModel()
@@ -293,7 +293,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
         self.activeField = textView
     }
     func textViewDidChange(textView: UITextView) {
-        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text, typeAccount: account.typeAccount)
+        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text, typeAccount: account.typeAccount, favoriteAccount: account.favoriteAccount)
         let accountToCompare = accountAfterUpdates.arrayOfStringsFromModel()
         let accountToCompareTo = account.arrayOfStringsFromModel()
         if !(accountToCompareTo == accountToCompare) {

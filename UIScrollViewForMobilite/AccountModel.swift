@@ -10,7 +10,7 @@ import Foundation
 
 class AccountModel {
     
-    let accountCreateSQL = "CREATE TABLE  IF NOT EXISTS Account (idAccount INTEGER NOT NULL, nameAccount TEXT, shortNameAccount TEXT, leadSource TEXT, statusAccount TEXT, industryAccount TEXT, segmentAccount TEXT, websiteAccount TEXT, phoneAccount TEXT, faxAccount TEXT, coverageAccount TEXT, regionAccount TEXT, adressAccount TEXT, idAccount1 INTEGER, countryAccount TEXT, typeAccount TEXT, CONSTRAINT PK_Account PRIMARY KEY (idAccount), FOREIGN KEY (idAccount) REFERENCES Account (idAccount)); "
+    let accountCreateSQL = "CREATE TABLE  IF NOT EXISTS Account (idAccount INTEGER NOT NULL, nameAccount TEXT, shortNameAccount TEXT, leadSource TEXT, statusAccount TEXT, industryAccount TEXT, segmentAccount TEXT, websiteAccount TEXT, phoneAccount TEXT, faxAccount TEXT, coverageAccount TEXT, regionAccount TEXT, adressAccount TEXT, idAccount1 INTEGER, countryAccount TEXT, typeAccount TEXT, favoriteAccount INTEGER, CONSTRAINT PK_Account PRIMARY KEY (idAccount), FOREIGN KEY (idAccount) REFERENCES Account (idAccount)); "
     
     var idAccount: Int
     var nameAccount: String
@@ -28,6 +28,7 @@ class AccountModel {
     var idAccount1: Int
     var countryAccount: String
     var typeAccount: String
+    var favoriteAccount: Int
     
     init() {
         self.idAccount = 0
@@ -46,9 +47,10 @@ class AccountModel {
         self.idAccount1 = 0
         self.countryAccount = ""
         self.typeAccount = ""
+        self.favoriteAccount = 0
     }
     
-    init(idAccount: Int, nameAccount: String, shortNameAccount: String, leadSource: String, statusAccount: String, industryAccount: String, segmentAccount: String, websiteAccount: String, phoneAccount: String, faxAccount: String, coverageAccount: String, regionAccount: String, adressAccount: String, idAccount1: Int,countryAccount: String,typeAccount: String) {
+    init(idAccount: Int, nameAccount: String, shortNameAccount: String, leadSource: String, statusAccount: String, industryAccount: String, segmentAccount: String, websiteAccount: String, phoneAccount: String, faxAccount: String, coverageAccount: String, regionAccount: String, adressAccount: String, idAccount1: Int,countryAccount: String,typeAccount: String,favoriteAccount: Int) {
             self.idAccount = idAccount
             self.nameAccount = nameAccount
             self.shortNameAccount = shortNameAccount
@@ -65,6 +67,7 @@ class AccountModel {
             self.idAccount1 = idAccount1
             self.countryAccount = countryAccount
             self.typeAccount = typeAccount
+            self.favoriteAccount = favoriteAccount
     }
     // utilisée pour l'insertion seulement
     func arrayFromModel() -> [AnyObject] {
@@ -83,7 +86,8 @@ class AccountModel {
             self.adressAccount,
             self.idAccount1,
             self.countryAccount,
-            self.typeAccount
+            self.typeAccount,
+            self.favoriteAccount
         ]
     }
     // utilisée pour la comparaison seulement
@@ -103,7 +107,8 @@ class AccountModel {
             self.adressAccount,
             String(self.idAccount1),
             self.countryAccount,
-            self.typeAccount
+            self.typeAccount,
+            String(self.favoriteAccount)
         ]
     }
 }

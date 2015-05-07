@@ -28,6 +28,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             }
         }
     }
+    @IBOutlet weak var favorisButton: UIButton!
     
     var identifiers: [String] = ["Meetings", "Vue 360°", "Contacts", "Next Actions", "Pipeline", "Account Details" ]
     // Manque 'Relation Activity'
@@ -59,9 +60,10 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         
         self.view.window?.rootViewController = self
         
-        barButtonMenu = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "displayMenu")
+        barButtonMenu = UIBarButtonItem(image: UIImage(named: "Menu"), style: UIBarButtonItemStyle.Bordered, target: self, action: "displayMenu")
         
-        barButtonHome = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "goHome")
+        barButtonHome = UIBarButtonItem(image: UIImage(named: "Home"), style: UIBarButtonItemStyle.Plain, target: self, action: "goHome")
+        
         navigationItem.leftBarButtonItems?.append(barButtonMenu)
         navigationItem.rightBarButtonItem = barButtonHome
         
@@ -73,6 +75,11 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         }
         if account != nil {
             self.navigationBar.title = account.nameAccount
+            if account.favoriteAccount == 0 {
+                favorisButton.setImage(UIImage(named: "favoris")!, forState: UIControlState.Normal)
+            } else {
+                favorisButton.setImage(UIImage(named: "favorisSelec")!, forState: UIControlState.Normal)
+            }
         }
         colorButtons(firstPage)
     }
@@ -248,8 +255,24 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    @IBAction func favorisButtonPressed(sender: UIButton) {
+        var image: UIImage = favorisButton.imageForState(UIControlState.Normal)!
+        let imageFav: UIImage = UIImage(named: "favoris")!
+        let imageFavSelec: UIImage = UIImage(named: "favorisSelec")!
+        if image == imageFav {
+            favorisButton.setImage(imageFavSelec, forState: UIControlState.Normal)
+            //set favoris = true (1)
+            self.account.favoriteAccount = 1
+        } else {
+            favorisButton.setImage(imageFav, forState: UIControlState.Normal)
+            //set favoris = false (0)
+            self.account.favoriteAccount = 0
+        }
+        AccountDataModel().updateAccount(account: self.account)
+    }
+    
     func goHome() {
-        
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func displayMenu() {

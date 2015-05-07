@@ -84,6 +84,7 @@
 		48FCB1571ACAED6A00A770B2 /* AccountDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */; };
 		48FCB1591ACAF47200A770B2 /* Bouchonnage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1581ACAF47200A770B2 /* Bouchonnage.swift */; };
 		9F2A4AF81AE309ED007359DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4881861E1AC94F6600923A18 /* Images.xcassets */; };
+		EF4A0F5D1AFBB8F100299ED0 /* MapPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4A0F5C1AFBB8F100299ED0 /* MapPopoverViewController.swift */; };
 		EFFD57DD1AF8D18A0082F259 /* MenuPopoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFD57DC1AF8D18A0082F259 /* MenuPopoverTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -188,6 +189,7 @@
 		48FCB1531ACAE97E00A770B2 /* TasksMeetingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksMeetingsModel.swift; sourceTree = "<group>"; };
 		48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDataModel.swift; sourceTree = "<group>"; };
 		48FCB1581ACAF47200A770B2 /* Bouchonnage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bouchonnage.swift; sourceTree = "<group>"; };
+		EF4A0F5C1AFBB8F100299ED0 /* MapPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPopoverViewController.swift; sourceTree = "<group>"; };
 		EFFD57DC1AF8D18A0082F259 /* MenuPopoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuPopoverTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -321,6 +323,7 @@
 				48CFE2881AE7FCE400FFDFE8 /* Contacts */,
 				488186121AC94F6600923A18 /* Supporting Files */,
 				EFFD57DC1AF8D18A0082F259 /* MenuPopoverTableViewController.swift */,
+				EF4A0F5C1AFBB8F100299ED0 /* MapPopoverViewController.swift */,
 			);
 			path = UIScrollViewForMobilite;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				48CFE28A1AE7FCFC00FFDFE8 /* ContactDetailsViewController.swift in Sources */,
 				48FCB1541ACAE97E00A770B2 /* TasksMeetingsModel.swift in Sources */,
 				489B31661AC952DB00C04732 /* DetailAccountsViewController.swift in Sources */,
+				EF4A0F5D1AFBB8F100299ED0 /* MapPopoverViewController.swift in Sources */,
 				48FCB1331ACAD73600A770B2 /* FMDatabaseQueue.m in Sources */,
 				48FCB1301ACAD73600A770B2 /* FMDatabase.m in Sources */,
 				486AE4711AD81ABD00E701AF /* Constants.swift in Sources */,

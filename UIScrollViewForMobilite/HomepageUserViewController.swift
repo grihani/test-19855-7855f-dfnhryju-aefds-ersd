@@ -57,13 +57,8 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "showContactSegue" {
-//            if let destinationVC = (segue.destinationViewController as UINavigationController).topViewController as? ContactViewController {
-//                destinationVC.idUser = self.idUser
-//            }
         }
         if segue.identifier == "goToModuleAccount" {
-            
-            
         }
     }
     
@@ -168,6 +163,10 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
     func showSendMailErrorAlert() {
         let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device couldn't send email.", delegate: self, cancelButtonTitle: "OK")
         sendMailErrorAlert.show()
+    }
+    
+    @IBAction func logoutButtonPressed(sender: AnyObject) {
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - MFMailComposeViewControllerDelegate Method

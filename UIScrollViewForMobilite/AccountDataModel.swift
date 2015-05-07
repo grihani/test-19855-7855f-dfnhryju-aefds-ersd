@@ -37,8 +37,9 @@ class AccountDataModel {
                 var idAccount1: Int = Int(results.intForColumn("idAccount1"))
                 var countryAccount: String = results.stringForColumn("countryAccount")
                 var typeAccount: String = results.stringForColumn("typeAccount")
-                let account = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount)
-                    
+                var favoriteAccount: Int = Int(results.intForColumn("favoriteAccount"))
+                let account = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount, favoriteAccount: favoriteAccount)
+                
                 allAccounts.append(account)
             }
         }
@@ -68,7 +69,8 @@ class AccountDataModel {
                 var idAccount1: Int = Int(results.intForColumn("idAccount1"))
                 var countryAccount: String = results.stringForColumn("countryAccount")
                 var typeAccount: String = results.stringForColumn("typeAccount")
-                accountOfContact = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount)
+                var favoriteAccount: Int = Int(results.intForColumn("favoriteAccount"))
+                accountOfContact = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount, favoriteAccount: favoriteAccount)
             }
         }
         return accountOfContact
@@ -80,7 +82,7 @@ class AccountDataModel {
         
         DataBase().createViewForAccountsThatHaveMeetings()
         
-        var querySQL = "SELECT DISTINCT idAccount, nameAccount, shortNameAccount, leadSource, statusAccount, industryAccount, segmentAccount, websiteAccount, phoneAccount, faxAccount, coverageAccount, regionAccount, adressAccount, idAccount1, countryAccount, typeAccount FROM Account_Contact_Meeting"
+        var querySQL = "SELECT DISTINCT idAccount, nameAccount, shortNameAccount, leadSource, statusAccount, industryAccount, segmentAccount, websiteAccount, phoneAccount, faxAccount, coverageAccount, regionAccount, adressAccount, idAccount1, countryAccount, typeAccount, favoriteAccount FROM Account_Contact_Meeting"
         var results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
         if let results = results {
             while results.next() == true {
@@ -100,7 +102,8 @@ class AccountDataModel {
                 var idAccount1: Int = Int(results.intForColumn("idAccount1"))
                 var countryAccount: String = results.stringForColumn("countryAccount")
                 var typeAccount: String = results.stringForColumn("typeAccount")
-                let account = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount)
+                var favoriteAccount: Int = Int(results.intForColumn("favoriteAccount"))
+                let account = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount, favoriteAccount: favoriteAccount)
                 
                 accountsPerMeeting.append(account)
             }
@@ -125,7 +128,8 @@ class AccountDataModel {
                 var idAccount1: Int = Int(results.intForColumn("idAccount1"))
                 var countryAccount: String = results.stringForColumn("countryAccount")
                 var typeAccount: String = results.stringForColumn("typeAccount")
-                let account = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount)
+                var favoriteAccount: Int = Int(results.intForColumn("favoriteAccount"))
+                let account = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount, favoriteAccount: favoriteAccount)
                 
                 accountsPerMeeting.append(account)
             }
@@ -156,7 +160,8 @@ class AccountDataModel {
                 var idAccount1: Int = Int(result.intForColumn("idAccount1"))
                 var countryAccount: String = result.stringForColumn("countryAccount")
                 var typeAccount: String = result.stringForColumn("typeAccount")
-                parentAccount = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount)
+                var favoriteAccount: Int = Int(result.intForColumn("favoriteAccount"))
+                parentAccount = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount, favoriteAccount: favoriteAccount)
             }
         }
         return parentAccount
@@ -185,7 +190,8 @@ class AccountDataModel {
                 var idAccount1: Int = Int(results.intForColumn("idAccount1"))
                 var countryAccount: String = results.stringForColumn("countryAccount")
                 var typeAccount: String = results.stringForColumn("typeAccount")
-                let account = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount)
+                var favoriteAccount: Int = Int(results.intForColumn("favoriteAccount"))
+                let account = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount, favoriteAccount: favoriteAccount)
 
                 searchedAccount.append(account)
             }
@@ -197,7 +203,7 @@ class AccountDataModel {
         var accountOfNextMeeting: AccountModel?
         
         DataBase().createViewForAccountsThatHaveMeetings()
-        var querySQL = "SELECT DISTINCT idAccount, nameAccount, shortNameAccount, leadSource, statusAccount, industryAccount, segmentAccount, websiteAccount, phoneAccount, faxAccount, coverageAccount, regionAccount, adressAccount, idAccount1, countryAccount, typeAccount FROM Account_Contact_Meeting LIMIT 1"
+        var querySQL = "SELECT DISTINCT idAccount, nameAccount, shortNameAccount, leadSource, statusAccount, industryAccount, segmentAccount, websiteAccount, phoneAccount, faxAccount, coverageAccount, regionAccount, adressAccount, idAccount1, countryAccount, typeAccount, favoriteAccount FROM Account_Contact_Meeting LIMIT 1"
         var results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
         if let results = results {
             while results.next() == true {
@@ -217,7 +223,8 @@ class AccountDataModel {
                 var idAccount1: Int = Int(results.intForColumn("idAccount1"))
                 var countryAccount: String = results.stringForColumn("countryAccount")
                 var typeAccount: String = results.stringForColumn("typeAccount")
-                accountOfNextMeeting = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount)
+                var favoriteAccount: Int = Int(results.intForColumn("favoriteAccount"))
+                accountOfNextMeeting = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount, favoriteAccount: favoriteAccount)
             }
             
         } else {
@@ -252,7 +259,8 @@ class AccountDataModel {
                 var idAccount1: Int = Int(results.intForColumn("idAccount1"))
                 var countryAccount: String = results.stringForColumn("countryAccount")
                 var typeAccount: String = results.stringForColumn("typeAccount")
-                let account = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount)
+                var favoriteAccount: Int = Int(results.intForColumn("favoriteAccount"))
+                let account = AccountModel(idAccount: idAccount, nameAccount: nameAccount, shortNameAccount: shortNameAccount, leadSource: leadSource, statusAccount: statusAccount, industryAccount: industryAccount, segmentAccount: segmentAccount, websiteAccount: websiteAccount, phoneAccount: phoneAccount, faxAccount: faxAccount, coverageAccount: coverageAccount, regionAccount: regionAccount, adressAccount: adressAccount, idAccount1: idAccount1, countryAccount: countryAccount, typeAccount: typeAccount, favoriteAccount: favoriteAccount)
                 
                 accountsMetOnDate.append(account)
             }
@@ -266,7 +274,7 @@ class AccountDataModel {
         var arrayAccount = account.arrayFromModel()
         //the id of the account has to be added at the end
         arrayAccount.append(account.idAccount)
-        let insertSQL = "Update Account SET nameAccount = ?, shortNameAccount = ?, leadSource = ?, statusAccount = ?, industryAccount = ?, segmentAccount = ?, websiteAccount = ?, phoneAccount = ?, faxAccount = ?, coverageAccount = ?, regionAccount = ?, adressAccount = ?, idAccount1 = ?, countryAccount = ?, typeAccount = ? Where IdAccount= ?"
+        let insertSQL = "Update Account SET nameAccount = ?, shortNameAccount = ?, leadSource = ?, statusAccount = ?, industryAccount = ?, segmentAccount = ?, websiteAccount = ?, phoneAccount = ?, faxAccount = ?, coverageAccount = ?, regionAccount = ?, adressAccount = ?, idAccount1 = ?, countryAccount = ?, typeAccount = ?, favoriteAccount = ? Where IdAccount= ?"
         let result = contactDataBase.executeUpdate(insertSQL,
             withArgumentsInArray: arrayAccount)
         
@@ -279,7 +287,7 @@ class AccountDataModel {
     // insert a new Account (used only in the case of creation in the CRM)
     func insertAccount(account : AccountModel) -> String {
         var erreur = String()
-        let insertSQL = "INSERT INTO Account (nameAccount,shortNameAccount,leadSource,statusAccount,industryAccount,segmentAccount,websiteAccount,phoneAccount,faxAccount,coverageAccount,regionAccount,adressAccount,idAccount1,countryAccount, typeAccount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        let insertSQL = "INSERT INTO Account (nameAccount,shortNameAccount,leadSource,statusAccount,industryAccount,segmentAccount,websiteAccount,phoneAccount,faxAccount,coverageAccount,regionAccount,adressAccount,idAccount1,countryAccount, typeAccount, favoriteAccount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             
         let result = contactDataBase.executeUpdate(insertSQL, withArgumentsInArray: account.arrayFromModel())
         if !result {
