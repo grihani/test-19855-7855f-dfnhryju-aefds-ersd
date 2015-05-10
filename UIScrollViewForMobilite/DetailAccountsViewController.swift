@@ -36,10 +36,10 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     
     var identifiers: [String] = ["Meetings", "Vue 360°", "Contacts", "Next Actions", "Pipeline", "Account Details" ]
     // Manque 'Relation Activity'
-    var meetingsOfAccount: MeetingsOfAccountViewController = MeetingsOfAccountViewController()
+    var meetingsOfAccount: MeetingsOfAccountV2ViewController = MeetingsOfAccountV2ViewController()
     var vue360: Vue360ViewController = Vue360ViewController()
     var contactsOfAccount: ContactsOfAccountViewController = ContactsOfAccountViewController()
-    var tasksOfAccount: TasksOfAccountViewController = TasksOfAccountViewController()
+    var tasksOfAccount: TasksOfAccountV2ViewController = TasksOfAccountV2ViewController()
     var opportunitiesOfAccount: OpportunitiesOfAccountViewController = OpportunitiesOfAccountViewController()
     var accountDetails: AccountDetailsViewController = AccountDetailsViewController()
     var pageControllers: [UIViewController] = []
@@ -125,7 +125,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     // get all the viewControllers that have identifiers defined in var identifiers
     func getViewControllers() -> [UIViewController]{
         var viewControllers: [UIViewController] = [UIViewController]()
-        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[0]) as? MeetingsOfAccountViewController {
+        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[0]) as? MeetingsOfAccountV2ViewController {
             viewControllers.append(viewController)
             self.meetingsOfAccount = viewController
             self.meetingsOfAccount.account = self.account
@@ -140,7 +140,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             self.contactsOfAccount = viewController
             self.contactsOfAccount.account = self.account
         }
-        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[3]) as? TasksOfAccountViewController {
+        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[3]) as? TasksOfAccountV2ViewController {
             viewControllers.append(viewController)
             self.tasksOfAccount = viewController
             self.tasksOfAccount.account = self.account

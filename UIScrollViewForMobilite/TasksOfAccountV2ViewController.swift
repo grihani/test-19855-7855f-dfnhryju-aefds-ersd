@@ -8,23 +8,41 @@
 
 import UIKit
 
-class TasksOfAccountV2ViewController: UIViewController {
+class TasksOfAccountV2ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    // MARK: - IBOutlets
+    // MARK: - IBOutlets for collapsing and expanding tableviews
     @IBOutlet weak var topHeight: NSLayoutConstraint!
     @IBOutlet weak var midHeight: NSLayoutConstraint!
     @IBOutlet weak var botHeight: NSLayoutConstraint!
     
+    // MARK: - IBOutlets
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var tasksOfAccounts: UITableView!{
+        didSet{
+            tasksOfAccounts.delegate = self
+            tasksOfAccounts.dataSource = self
+        }
+    }
+    @IBOutlet weak var tasksOfContacts: UITableView!
+    @IBOutlet weak var tasksOfMeetings: UITableView!
     
     
-    
+    // MARK: - Variables
+    var account: AccountModel!
+    var chosenTask: TaskModel!
     
     // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        topHeight.constant = 1000
+        collectionOfTasksOfAccounts = TaskDataModel().tasksOfAccountAsArray(account: self.account)
+        for dictionary in collectionOfTasksOfAccounts {
+            if let dictionary = dictionary as? [String: [TaskModel]] {
+                for nameSection in dictionary.keys {
+                    statusTasksOfAccounts.append(nameSection)
+                }
+            }
+        }
         
     }
 
@@ -72,6 +90,71 @@ class TasksOfAccountV2ViewController: UIViewController {
             self.botHeight.constant = self.heightOfExpandedView
             self.containerView.layoutIfNeeded()
             }, completion: nil)
+    }
+    
+    //MARK: - TableviewDataSource
+    var collectionOfTasksOfAccounts: NSMutableArray = NSMutableArray()
+    var statusTasksOfAccounts: [String] = []
+    var chosenTaskOfAccount: TaskModel = TaskModel()
+    let dateFormatter =  NSDateFormatter()
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if tableView == tasksOfAccounts {
+            return statusTasksOfAccounts[section]
+        }
+        return ""
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if tableView == tasksOfAccounts {
+        return statusTasksOfAccounts.count
+        }
+        return 0
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == tasksOfAccounts {
+            if let dictionary: NSDictionary = collectionOfTasksOfAccounts.objectAtIndex(section) as? NSDictionary {
+                let key = statusTasksOfAccounts[section]
+                if let tasksOfSection = dictionary.objectForKey(key) as? [TaskModel] {
+                    return tasksOfSection.count
+                }
+            }
+        }
+        return 0
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if tableView == tasksOfAccounts {
+            let cell = tableView.dequeueReusableCellWithIdentifier("tasks of accounts", forIndexPath: indexPath) as UITableViewCell
+            let section = indexPath.section
+            let row = indexPath.row
+            if let dictionary: NSDictionary = collectionOfTasksOfAccounts.objectAtIndex(section) as? NSDictionary {
+                
+                
+                let key = statusTasksOfAccounts[section]
+                if let tasksOfSection = dictionary.objectForKey(key) as? [TaskModel] {
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    let date: NSDate = dateFormatter.dateFromString(tasksOfSection[row].dateTask)!
+                    dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+                    dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+                    let stringFromDate = dateFormatter.stringFromDate(date)
+                    cell.textLabel?.text = stringFromDate + " : " + tasksOfSection[row].subjectTask
+                }
+            }
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("", forIndexPath: indexPath) as UITableViewCell
+            return cell
+        }
+    }
+    
+    //MARK: - TableviewDelegate
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        
     }
 
     /*

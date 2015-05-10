@@ -143,6 +143,7 @@ class MeetingsOfAccountV2ViewController: UIViewController, UITableViewDataSource
     
     private struct segueIdentifiers {
         static let segueOfContainer = "show meetings of account"
+        static let segueOfAddMeetingPopover = "add a meeting"
     }
     
     var destinationTableViewController: MeetingsOfAccountTableViewController?
@@ -150,6 +151,11 @@ class MeetingsOfAccountV2ViewController: UIViewController, UITableViewDataSource
         if segue.identifier == segueIdentifiers.segueOfContainer {
             destinationTableViewController = segue.destinationViewController.contentViewController as? MeetingsOfAccountTableViewController
             updateMeetings()
+        }
+        else if segue.identifier == segueIdentifiers.segueOfAddMeetingPopover {
+            let destinationViewController = segue.destinationViewController.contentViewController as UIViewController
+            let maximumSize = destinationViewController.view.systemLayoutSizeFittingSize(UILayoutFittingExpandedSize)
+            destinationViewController.preferredContentSize = maximumSize
         }
     }
     
@@ -242,4 +248,8 @@ class MeetingsOfAccountV2ViewController: UIViewController, UITableViewDataSource
         
         return customDateString
     }
+    
+    // MARK: - Navigation
+    
+    
 }

@@ -61,8 +61,13 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
+    var viewDidItsAppearance = false
     override func viewDidAppear(animated: Bool) {
-        hidePanels()
+        super.viewDidAppear(animated)
+        if !viewDidItsAppearance {
+            hidePanels()
+            viewDidItsAppearance = true
+        }
     }
     
     func hidePanels() {
