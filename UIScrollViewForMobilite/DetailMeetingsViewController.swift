@@ -10,12 +10,12 @@ import UIKit
 
 class DetailMeetingsViewController: UIViewController {
 
-    var buttonToShowMenu: UIBarButtonItem!
+    @IBOutlet weak var buttonToShowMenu: UIBarButtonItem!
     @IBAction func showMenu(sender: UIBarButtonItem) {
         println("show menu")
         performSegueWithIdentifier("show Menu", sender: sender)
     }
-    var buttonHome: UIBarButtonItem!
+    @IBOutlet weak var buttonHome: UIBarButtonItem!
     @IBAction func goHome(sender: UIBarButtonItem) {
         self.presentingViewController?.contentViewController.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -23,10 +23,8 @@ class DetailMeetingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        buttonToShowMenu = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showMenu:")
+        navigationItem.leftBarButtonItems?.append(buttonHome)
         navigationItem.leftBarButtonItems?.append(buttonToShowMenu)
-        buttonHome = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.Done, target: self, action: "goHome:")
-        navigationItem.rightBarButtonItems?.append(buttonHome)
     
     }
 
@@ -35,7 +33,36 @@ class DetailMeetingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    // MARK: - Actions of showing the Master
+    @IBOutlet weak var languette: UIImageView!
+    var leftListShown: Bool = false {
+        didSet {
+            if leftListShown {
+                languette?.image = UIImage(named: "languetteFermeture")
+            } else {
+                languette?.image = UIImage(named: "languette gauche")
+            }
+        }
+    }
+    
+    @IBAction func showListMeetings(sender: UIBarButtonItem) {
+        self.revealViewController().revealToggle(sender)
+        if !leftListShown {
+            leftListShown = true
+        } else {
+            leftListShown = false
+        }
+    }
+    
+    
+    @IBAction func showListMeetings(sender: UITapGestureRecognizer) {
+        self.revealViewController().revealToggle(sender)
+        if !leftListShown {
+            leftListShown = true
+        } else {
+            leftListShown = false
+        }
+    }
     
     // MARK: - Navigation
 
@@ -52,12 +79,5 @@ class DetailMeetingsViewController: UIViewController {
                 }
             }
         }
-    }
-
-    @IBAction func showListMeetings(sender: UIBarButtonItem) {
-        self.revealViewController().revealToggle(sender)
-    }
-    @IBAction func showListMeetings(sender: UITapGestureRecognizer) {
-        self.revealViewController().revealToggle(sender)
     }
 }

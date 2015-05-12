@@ -8,7 +8,8 @@
 
 import Foundation
 import UIKit
-
+    // Hexa: 84a3cd for blueCheckedColor
+    // Hexa: 2f9372 for greenMenuButtons
 let whiteColor: UIColor = UIColor.whiteColor()
 
 let blueCheckedColor: UIColor = UIColor(red: 132/255, green: 163/255, blue: 205/255, alpha: 1)

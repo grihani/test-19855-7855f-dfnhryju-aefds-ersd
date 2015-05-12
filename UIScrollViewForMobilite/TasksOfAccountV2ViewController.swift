@@ -58,8 +58,8 @@ class TasksOfAccountV2ViewController: UIViewController, UITableViewDataSource, U
         if !viewDidItsLayoutForExpandedTableView {
             println("viewDidLayoutSubviews")
             heightOfExpandedView = containerView.frame.size.height - 88
-            topHeight.constant = heightOfExpandedView
-            midHeight.constant = 44
+            topHeight.constant = 44
+            midHeight.constant = heightOfExpandedView
             botHeight.constant = 44
             containerView.layoutIfNeeded()
             viewDidItsLayoutForExpandedTableView = true

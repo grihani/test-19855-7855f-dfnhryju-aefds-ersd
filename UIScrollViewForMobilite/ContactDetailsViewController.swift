@@ -94,6 +94,7 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
             navigationBar?.title = contact.lastNameContact
         }
     }
+    @IBOutlet weak var leftSlidingBar: UIView!
     
     @IBOutlet weak var accountDetails: UILabel! {
         didSet {
@@ -133,12 +134,12 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var statusSave: UILabel!
     
-    var buttonToShowMenu: UIBarButtonItem!
+    @IBOutlet weak var buttonToShowMenu: UIBarButtonItem!
     @IBAction func showMenu(sender: UIBarButtonItem) {
         println("show menu")
         performSegueWithIdentifier("show Menu", sender: sender)
     }
-    var buttonHome: UIBarButtonItem!
+    @IBOutlet weak var buttonHome: UIBarButtonItem!
     @IBAction func goHome(sender: UIBarButtonItem) {
         self.presentingViewController?.contentViewController.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -162,12 +163,8 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         checkStatusOfCreationOfContact()
-        buttonToShowMenu = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showMenu:")
+        navigationItem.leftBarButtonItems?.append(buttonHome)
         navigationItem.leftBarButtonItems?.append(buttonToShowMenu)
-        
-        buttonHome = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.Done, target: self, action: "goHome:")
-        navigationItem.rightBarButtonItems?.append(buttonHome)
-
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -303,9 +300,37 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    // MARK: - Actions of showing the Master
+    @IBOutlet weak var languette: UIImageView!
+    var leftListShown: Bool = false {
+        didSet {
+            if leftListShown {
+                languette?.image = UIImage(named: "languetteFermeture")
+            } else {
+                languette?.image = UIImage(named: "languette gauche")
+            }
+        }
+    }
+    
     @IBAction func showList(sender: UIBarButtonItem) {
         self.revealViewController().revealToggle(sender)
+        if !leftListShown {
+            leftListShown = true
+        } else {
+            leftListShown = false
+        }
     }
+    
+    
+    @IBAction func showList(sender: UITapGestureRecognizer) {
+        self.revealViewController().revealToggle(sender)
+        if !leftListShown {
+            leftListShown = true
+        } else {
+            leftListShown = false
+        }
+    }
+    
     
     func checkStatusOfCreationOfContact() {
         var stringStatus = ""
@@ -377,7 +402,7 @@ class ContactCell: UITableViewCell {
     
     func updateCellUIForReading() {
         if !self.first {
-            UIView.animateWithDuration(0.5,
+            UIView.animateWithDuration(0.2,
                 animations: { () -> Void in
                     self.civilityContact.alpha = 0
                     self.firstNameContact.alpha = 0
@@ -421,7 +446,7 @@ class ContactCell: UITableViewCell {
     func appearAfterEndAnimation() {
         self.civilityContact.enabled = false
         self.firstNameContact.borderStyle = .None
-        self.firstNameContact.textAlignment = NSTextAlignment.Right
+        self.firstNameContact.textAlignment = NSTextAlignment.Left
         self.firstNameContact.enabled = false
         self.lastNameContact.borderStyle = UITextBorderStyle.None
         self.lastNameContact.enabled = false
@@ -451,7 +476,7 @@ class ContactCell: UITableViewCell {
     }
     
     func updateCellUIForUpdating() {
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
+        
         self.civilityContact.enabled = true
         self.firstNameContact.borderStyle = UITextBorderStyle.RoundedRect
         self.firstNameContact.textAlignment = NSTextAlignment.Left
@@ -461,11 +486,11 @@ class ContactCell: UITableViewCell {
         self.jobTitleContact.borderStyle = .RoundedRect
         self.jobTitleContact.enabled = true
         self.birthdateContact.enabled = true
-        self.birthdateContact.contentHorizontalAlignment = .Center
+        self.birthdateContact.contentHorizontalAlignment = .Left
         self.phoneBusinessContact.enabled = true
         self.phoneBusinessContact.borderStyle = .RoundedRect
         self.countryContact.enabled = true
-        self.countryContact.contentHorizontalAlignment = .Center
+        self.countryContact.contentHorizontalAlignment = .Left
         self.phoneMobileContact.enabled = true
         self.phoneMobileContact.borderStyle = .RoundedRect
         self.emailContact.enabled = true
@@ -475,14 +500,13 @@ class ContactCell: UITableViewCell {
         self.workingAdressContact.layer.borderColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1).CGColor
 
         self.linkedinProfileContact.enabled = true
-        self.linkedinProfileContact.contentHorizontalAlignment = .Center
+        self.linkedinProfileContact.contentHorizontalAlignment = .Left
         self.preferredLanguageContact.enabled = true
-        self.preferredLanguageContact.contentHorizontalAlignment = .Center
+        self.preferredLanguageContact.contentHorizontalAlignment = .Left
         self.typeContact.enabled = true
-        self.typeContact.contentHorizontalAlignment = .Center
+        self.typeContact.contentHorizontalAlignment = .Left
         self.idContact1.enabled = true
-        self.idContact1.contentHorizontalAlignment = .Center
-        })
+        self.idContact1.contentHorizontalAlignment = .Left
     }
     
     var contact: ContactModel! {

@@ -35,7 +35,7 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
 
         // Do any additional setup after loading the view.
         var userModel = UserDataModel().getUserWithIdUser(idUser)
-        navigationItem.title = "Bonjour, \(userModel.username)"
+        navigationItem.title = "Hello, Benjamin Amsaleg"
         var today = NSDate()
         dateFormatter.timeStyle = .NoStyle
         dateFormatter.dateStyle = .FullStyle

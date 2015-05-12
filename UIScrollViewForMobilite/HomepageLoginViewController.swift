@@ -10,31 +10,54 @@ import UIKit
 
 class HomepageLoginViewController: UIViewController {
 
-    @IBOutlet weak var username: UITextField! {
-        didSet {
-            username.text = "test"
-        }
-    }
-    @IBOutlet weak var password: UITextField!{
-        didSet {
-            password.text = "test"
-        }
-    }
+    // MARK: - IBOutlets defined in the storyboard
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var loginButton: UIButton!{didSet {loginButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        loginButton.backgroundColor = blueCheckedColor}}
+    
+    @IBOutlet weak var forgottenPasswordButton: UIButton!
+    @IBOutlet weak var createAccountButton: UIButton!
+    
+    // MARK: - Variables
     var idUser = 0
     
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
+        username.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        username.endEditing(true)
+        password.endEditing(true)
+    }
+    
+    // MARK: - Keyboard related events
+    @IBAction func nextPressed(sender: UITextField) {
+        if username.isFirstResponder() {
+            password.becomeFirstResponder()
+        }
+    }
+    
+    @IBAction func goPressed(sender: UITextField) {
+        logUser()
+        
+    }
+    
+    // MARK: - IBactions for buttons
     @IBAction func logInButtonPressed(sender: UIButton) {
+        
+        logUser()
+    }
+    
+    // MARK: - Functions
+    
+    func logUser() {
         // Vérification du nom d'utilisateur
         var (userExiste, userId) = UserDataModel().isTrueUserWithUsernameAndPassword(username.text, password: password.text)
         if (userExiste) {
@@ -51,11 +74,7 @@ class HomepageLoginViewController: UIViewController {
         }
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        username.endEditing(true)
-        password.endEditing(true)
-    }
-    
+    // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "logIn" {
             if let destinationVC = (segue.destinationViewController as UINavigationController).topViewController as? HomepageUserViewController {
@@ -64,8 +83,11 @@ class HomepageLoginViewController: UIViewController {
         }
     }
     
+    // MARK: - Unwind segues
     @IBAction func backButton(segue: UIStoryboardSegue) {
-        
+        username.text = ""
+        password.text = ""
+        username.becomeFirstResponder()
     }
     
     /*

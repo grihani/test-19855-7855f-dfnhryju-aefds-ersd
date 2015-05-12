@@ -34,7 +34,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    var identifiers: [String] = ["Meetings", "Vue 360°", "Contacts", "Next Actions", "Pipeline", "Account Details" ]
+    var identifiers: [String] = ["Meetings", "Vue 360°", "Contacts", "Activities", "Pipeline", "Account Details" ]
     // Manque 'Relation Activity'
     var meetingsOfAccount: MeetingsOfAccountV2ViewController = MeetingsOfAccountV2ViewController()
     var vue360: Vue360ViewController = Vue360ViewController()
@@ -53,14 +53,12 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     var viewDidItsLayout: Bool = false
     
     
-    var buttonToShowMenu: UIBarButtonItem!
-   
+    @IBOutlet var buttonToShowMenu: UIBarButtonItem!
     @IBAction func showMenu(sender: UIBarButtonItem) {
-        println("show menu")
         performSegueWithIdentifier("show Menu", sender: sender)
     }
     
-    var buttonHome: UIBarButtonItem!
+    @IBOutlet var buttonHome: UIBarButtonItem!
     @IBAction func goHome(sender: UIBarButtonItem) {
         self.presentingViewController?.contentViewController.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -83,11 +81,11 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             self.navigationBar.title = account.nameAccount
         }
         colorButtons(firstPage)
-        buttonToShowMenu = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showMenu:")
-        navigationBar.leftBarButtonItems?.append(buttonToShowMenu)
-        buttonHome = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.Done, target: self, action: "goHome:")
         
-        navigationBar.rightBarButtonItems?.append(buttonHome)
+        navigationBar.leftBarButtonItems?.append(buttonHome)
+        
+        navigationBar.leftBarButtonItems?.append(buttonToShowMenu)
+        
         
     }
     
@@ -153,6 +151,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[5]) as? AccountDetailsViewController {
             viewController.account = self.account
             self.accountDetails = viewController
+            self.accountDetails.read = true
             viewControllers.append(viewController)
         }
         return viewControllers
@@ -209,11 +208,34 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     }
     
     // action to show the list of accounts
+    @IBOutlet weak var languette: UIImageView!
+    var leftListShown: Bool = false {
+        didSet {
+            if leftListShown {
+                languette?.image = UIImage(named: "languetteFermeture")
+            } else {
+                languette?.image = UIImage(named: "languette gauche")
+            }
+        }
+    }
+    
     @IBAction func showList(sender: UIBarButtonItem) {
         self.revealViewController().revealToggle(sender)
+        if !leftListShown {
+            leftListShown = true
+        } else {
+            leftListShown = false
+        }
     }
+    
+    
     @IBAction func showList(sender: UITapGestureRecognizer) {
         self.revealViewController().revealToggle(sender)
+        if !leftListShown {
+            leftListShown = true
+        } else {
+            leftListShown = false
+        }
     }
     
     // creates the button to add to the view
@@ -262,9 +284,20 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    @IBOutlet weak var editButton: UIBarButtonItem!
     
     @IBAction func editAccount(sender: UIBarButtonItem) {
         showPage(5)
+        self.accountDetails.update = true
+        let editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveAccount:")
+        navigationBar.rightBarButtonItem = editButton
+    }
+    
+    @IBAction func saveAccount(sender: UIBarButtonItem) {
+        showPage(1)
+        self.accountDetails.read = true
+        let editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "editAccount:")
+        navigationBar.rightBarButtonItem = editButton
     }
     
     // MARK: - Navigation:

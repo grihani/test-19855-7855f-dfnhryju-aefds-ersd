@@ -49,6 +49,9 @@ class MeetingsOfAccountV2ViewController: UIViewController, UITableViewDataSource
             meetingsOfDayTableView?.reloadData()
         }
     }
+    
+    var dateToSendToPopover = NSDate()
+    
     var daysOfCalendar: [NSDate] = []
     
     func arrayOfDates() -> [NSDate]  {
@@ -153,9 +156,14 @@ class MeetingsOfAccountV2ViewController: UIViewController, UITableViewDataSource
             updateMeetings()
         }
         else if segue.identifier == segueIdentifiers.segueOfAddMeetingPopover {
-            let destinationViewController = segue.destinationViewController.contentViewController as UIViewController
-            let maximumSize = destinationViewController.view.systemLayoutSizeFittingSize(UILayoutFittingExpandedSize)
+            let destinationViewController = segue.destinationViewController.contentViewController as AddAMeetingFromAccountsViewController
+            var maximumSize = destinationViewController.view.systemLayoutSizeFittingSize(UILayoutFittingExpandedSize)
+            
+            maximumSize.width = 680
             destinationViewController.preferredContentSize = maximumSize
+            destinationViewController.account = self.account
+            destinationViewController.chosenDate = self.dateToSendToPopover
+            destinationViewController.accountContacts  = ContactDataModel().contactsOfAccount(account: account)
         }
     }
     
@@ -174,6 +182,7 @@ class MeetingsOfAccountV2ViewController: UIViewController, UITableViewDataSource
             dateFormatter.timeStyle = .NoStyle
             dateFormatter.dateStyle = .FullStyle
             let chosenDate = dateFormatter.stringFromDate(daysOfCalendar[indexOfDate])
+            self.dateToSendToPopover = daysOfCalendar[indexOfDate]
             self.datePicked = daysOfCalendar[indexOfDate]
             self.chosenDate.text = chosenDate
             colorButtons(daysOfCalendar[indexOfDate])
@@ -249,7 +258,7 @@ class MeetingsOfAccountV2ViewController: UIViewController, UITableViewDataSource
         return customDateString
     }
     
-    // MARK: - Navigation
+    
     
     
 }

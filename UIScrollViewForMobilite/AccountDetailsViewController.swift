@@ -26,8 +26,84 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
     @IBOutlet weak var coverageAccount: UITextField!
 //    @IBOutlet weak var mapAdressCompany: MKMapView!
     @IBOutlet weak var leftView: UIView!
-    @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var discardChangesButton: UIButton!
+    
+    var read: Bool! {
+        didSet {
+            if let read = read {
+                if read {
+                    disableFields()
+                    update = false
+                }
+            }
+        }
+    }
+    func disableFields() {
+        nameCompany?.enabled = false
+        shortNameCompany?.enabled = false
+        industryCompany?.enabled = false
+        phoneCompany?.enabled = false
+        webSite?.enabled = false
+        leadSource?.enabled = false
+        segmentAccount?.enabled = false
+        faxAccount?.enabled = false
+        regionAccount?.enabled = false
+        adressCompany?.editable = false
+        countryAccount?.enabled = false
+        coverageAccount?.enabled = false
+        
+        nameCompany?.borderStyle = .None
+        shortNameCompany?.borderStyle = .None
+        industryCompany?.borderStyle = .None
+        phoneCompany?.borderStyle = .None
+        webSite?.borderStyle = .None
+        leadSource?.borderStyle = .None
+        segmentAccount?.borderStyle = .None
+        faxAccount?.borderStyle = .None
+        regionAccount?.borderStyle = .None
+        adressCompany?.layer.borderWidth = 0
+        countryAccount?.borderStyle = .None
+        coverageAccount?.borderStyle = .None
+    }
+    
+    var update: Bool! {
+        didSet {
+            if let update = update {
+                if update {
+                    enableFields()
+                    read = false
+                }
+            }
+        }
+    }
+    func enableFields() {
+        nameCompany?.enabled = true
+        shortNameCompany?.enabled = true
+        industryCompany?.enabled = true
+        phoneCompany?.enabled = true
+        webSite?.enabled = true
+        leadSource?.enabled = true
+        segmentAccount?.enabled = true
+        faxAccount?.enabled = true
+        regionAccount?.enabled = true
+        adressCompany?.editable = true
+        countryAccount?.enabled = true
+        coverageAccount?.enabled = true
+        
+        nameCompany?.borderStyle = .RoundedRect
+        shortNameCompany?.borderStyle = .RoundedRect
+        industryCompany?.borderStyle = .RoundedRect
+        phoneCompany?.borderStyle = .RoundedRect
+        webSite?.borderStyle = .RoundedRect
+        leadSource?.borderStyle = .RoundedRect
+        segmentAccount?.borderStyle = .RoundedRect
+        faxAccount?.borderStyle = .RoundedRect
+        regionAccount?.borderStyle = .RoundedRect
+        adressCompany?.layer.borderWidth = 01
+        adressCompany?.layer.borderColor = UIColor.grayColor().CGColor
+        countryAccount?.borderStyle = .RoundedRect
+        coverageAccount?.borderStyle = .RoundedRect
+    }
+    
     
     var activeField: AnyObject!
     var account: AccountModel!
@@ -39,8 +115,6 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        saveButton.hidden = true
-        discardChangesButton.hidden = true
         setDelegates()
         registerForKeyboardNotifications()
         self.locationManager.requestAlwaysAuthorization()
@@ -262,12 +336,8 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
         let accountToCompareTo = account.arrayOfStringsFromModel()
         if !(accountToCompareTo == accountToCompare) {
             modificationsHaveHappened = true
-            saveButton.hidden = false
-            discardChangesButton.hidden = false
         } else {
             modificationsHaveHappened = false
-            saveButton.hidden = true
-            discardChangesButton.hidden = true
         }
     }
     
@@ -298,12 +368,8 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
         let accountToCompareTo = account.arrayOfStringsFromModel()
         if !(accountToCompareTo == accountToCompare) {
             modificationsHaveHappened = true
-            saveButton.hidden = false
-            discardChangesButton.hidden = false
         } else {
             modificationsHaveHappened = false
-            saveButton.hidden = true
-            discardChangesButton.hidden = true
         }
     }
     func textViewDidEndEditing(textView: UITextView) {
@@ -328,7 +394,6 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
         
         if modificationsHaveHappened {
             AccountDataModel().updateAccount(account: accountAfterUpdates)
-            saveButton.hidden = true
         }
         modificationsHaveHappened = false
     }

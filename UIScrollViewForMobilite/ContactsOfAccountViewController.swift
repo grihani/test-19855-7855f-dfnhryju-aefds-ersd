@@ -33,6 +33,7 @@ class ContactsOfAccountViewController: UIViewController, UITableViewDataSource, 
     
     @IBOutlet weak var accessLinkedinProfile: UIButton!
     
+    @IBOutlet weak var tableView: UITableView!
     
     
     var account: AccountModel!
@@ -48,6 +49,9 @@ class ContactsOfAccountViewController: UIViewController, UITableViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.contacts = ContactDataModel().contactsOfAccount(account: account)
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
+        tableView(self.tableView, didSelectRowAtIndexPath: indexPath)
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,22 +75,24 @@ class ContactsOfAccountViewController: UIViewController, UITableViewDataSource, 
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.contactSelected = contacts[indexPath.row]
-        self.civilityContact.text = contactSelected.civilityContact
-        self.firstAndLastNameContact.text = contactSelected.firstNameContact + " " + contactSelected.lastNameContact
-        self.firstNameContact.text = contactSelected.firstNameContact
-        self.lastNameContact.text = contactSelected.lastNameContact
-        self.jobTitleContact.text = contactSelected.jobTitleContact
-        self.countryContact.text = contactSelected.countryContact
-        self.typeContact.text = contactSelected.typeContact
-        self.birthdateContact.text = contactSelected.birthdateContact
-        self.phoneBusinessContact.text = contactSelected.phoneBusinessContact
-        self.phoneMobileContact.text = contactSelected.phoneMobileContact
-        self.emailContact.text = contactSelected.emailContact
-        self.preferredLanguageContact.text = contactSelected.preferredLanguageContact
-        self.workingAdressContact.text = contactSelected.workingAdressContact
-        self.linkedinProfileContact.text = contactSelected.linkedinProfileContact
-        self.idContact1.text = String(contactSelected.idContact1)
+        if contacts.count != 0 {
+            self.contactSelected = contacts[indexPath.row]
+            self.civilityContact.text = contactSelected.civilityContact
+            self.firstAndLastNameContact.text = contactSelected.firstNameContact + " " + contactSelected.lastNameContact
+            self.firstNameContact.text = contactSelected.firstNameContact
+            self.lastNameContact.text = contactSelected.lastNameContact
+            self.jobTitleContact.text = contactSelected.jobTitleContact
+            self.countryContact.text = contactSelected.countryContact
+            self.typeContact.text = contactSelected.typeContact
+            self.birthdateContact.text = contactSelected.birthdateContact
+            self.phoneBusinessContact.text = contactSelected.phoneBusinessContact
+            self.phoneMobileContact.text = contactSelected.phoneMobileContact
+            self.emailContact.text = contactSelected.emailContact
+            self.preferredLanguageContact.text = contactSelected.preferredLanguageContact
+            self.workingAdressContact.text = contactSelected.workingAdressContact
+            self.linkedinProfileContact.text = contactSelected.linkedinProfileContact
+            self.idContact1.text = String(contactSelected.idContact1)
+        }
     }
     
     @IBAction func addAContact(sender: UIBarButtonItem) {

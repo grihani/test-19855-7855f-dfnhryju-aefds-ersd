@@ -66,7 +66,8 @@ class AccountModel {
             self.countryAccount = countryAccount
             self.typeAccount = typeAccount
     }
-    // utilisée pour l'insertion seulement
+    
+        // utilisée pour l'insertion seulement
     func arrayFromModel() -> [AnyObject] {
         return [
             self.nameAccount,
