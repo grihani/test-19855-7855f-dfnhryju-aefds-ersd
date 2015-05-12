@@ -5133,29 +5133,20 @@ France</string>
                                         <rect key="frame" x="20" y="0.0" width="432" height="450"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bam Elliptique" translatesAutoresizingMaskIntoConstraints="NO" id="WYm-LS-lgi">
-                                                <rect key="frame" x="116" y="75" width="200" height="300"/>
+                                                <rect key="frame" x="116" y="110" width="200" height="230"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="IWz-aF-ALZ"/>
-                                                    <constraint firstAttribute="height" constant="300" id="vso-r6-5MI"/>
+                                                    <constraint firstAttribute="height" constant="230" id="vso-r6-5MI"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdo-ra-7yB">
-                                                <rect key="frame" x="279" y="327" width="48" height="48"/>
+                                                <rect key="frame" x="286" y="305" width="48" height="48"/>
                                                 <state key="normal" image="Team48px">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kG5-Kx-blL">
-                                                <rect key="frame" x="105" y="327" width="48" height="48"/>
-                                                <state key="normal" image="Contacts">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="RzH-17-3Vt" kind="presentation" identifier="goToModuleContacts" modalTransitionStyle="crossDissolve" id="oaN-OC-rI6"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Of2-Q5-k5v">
-                                                <rect key="frame" x="105" y="75" width="48" height="48"/>
+                                                <rect key="frame" x="98" y="95" width="48" height="48"/>
                                                 <state key="normal" image="Calendars">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -5164,19 +5155,19 @@ France</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzP-pU-uY4">
-                                                <rect key="frame" x="192" y="375" width="48" height="48"/>
+                                                <rect key="frame" x="192" y="348" width="48" height="48"/>
                                                 <state key="normal" image="Social">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yiq-TO-NNV">
-                                                <rect key="frame" x="68" y="201" width="48" height="48"/>
+                                                <rect key="frame" x="60" y="201" width="48" height="48"/>
                                                 <state key="normal" image="Mail">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7K-dJ-HA2">
-                                                <rect key="frame" x="316" y="201" width="48" height="48"/>
+                                                <rect key="frame" x="324" y="201" width="48" height="48"/>
                                                 <state key="normal" image="Accounts">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -5185,39 +5176,48 @@ France</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U03-kC-Kgh">
-                                                <rect key="frame" x="192" y="27" width="48" height="48"/>
+                                                <rect key="frame" x="192" y="54" width="48" height="48"/>
                                                 <state key="normal" image="Chart">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmm-UP-bWP">
-                                                <rect key="frame" x="279" y="75" width="48" height="48"/>
+                                                <rect key="frame" x="286" y="94" width="48" height="48"/>
                                                 <state key="normal" image="Briefcase">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kG5-Kx-blL">
+                                                <rect key="frame" x="98" y="305" width="48" height="48"/>
+                                                <state key="normal" image="Contacts">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="RzH-17-3Vt" kind="presentation" identifier="goToModuleContacts" modalTransitionStyle="crossDissolve" id="oaN-OC-rI6"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="WYm-LS-lgi" firstAttribute="top" secondItem="Nmm-UP-bWP" secondAttribute="top" id="5us-sx-8JO"/>
-                                            <constraint firstItem="D7K-dJ-HA2" firstAttribute="leading" secondItem="WYm-LS-lgi" secondAttribute="trailing" id="8vq-cP-eJ2"/>
-                                            <constraint firstItem="WYm-LS-lgi" firstAttribute="leading" secondItem="Of2-Q5-k5v" secondAttribute="trailing" constant="-37" id="AD4-CH-07R"/>
+                                            <constraint firstItem="WYm-LS-lgi" firstAttribute="top" secondItem="Nmm-UP-bWP" secondAttribute="top" constant="16" id="5us-sx-8JO"/>
+                                            <constraint firstItem="D7K-dJ-HA2" firstAttribute="leading" secondItem="WYm-LS-lgi" secondAttribute="trailing" constant="8" id="8vq-cP-eJ2"/>
+                                            <constraint firstItem="WYm-LS-lgi" firstAttribute="leading" secondItem="Of2-Q5-k5v" secondAttribute="trailing" constant="-30" id="AD4-CH-07R"/>
                                             <constraint firstAttribute="centerX" secondItem="U03-kC-Kgh" secondAttribute="centerX" id="DRk-rI-i2l"/>
-                                            <constraint firstItem="WYm-LS-lgi" firstAttribute="top" secondItem="Of2-Q5-k5v" secondAttribute="bottom" constant="-48" id="Ffq-xl-RjU"/>
+                                            <constraint firstItem="WYm-LS-lgi" firstAttribute="top" secondItem="Of2-Q5-k5v" secondAttribute="bottom" constant="-33" id="Ffq-xl-RjU"/>
                                             <constraint firstAttribute="centerX" secondItem="WYm-LS-lgi" secondAttribute="centerX" id="GUi-zb-D7k"/>
-                                            <constraint firstItem="WYm-LS-lgi" firstAttribute="leading" secondItem="kG5-Kx-blL" secondAttribute="trailing" constant="-37" id="JEl-v0-Ywq"/>
-                                            <constraint firstItem="WYm-LS-lgi" firstAttribute="top" secondItem="U03-kC-Kgh" secondAttribute="bottom" id="LMQ-lR-7fr"/>
-                                            <constraint firstItem="Nmm-UP-bWP" firstAttribute="leading" secondItem="WYm-LS-lgi" secondAttribute="trailing" constant="-37" id="NHz-Q7-dJ9"/>
-                                            <constraint firstItem="kG5-Kx-blL" firstAttribute="top" secondItem="WYm-LS-lgi" secondAttribute="bottom" constant="-48" id="O5K-uD-Lrc"/>
-                                            <constraint firstItem="hdo-ra-7yB" firstAttribute="top" secondItem="WYm-LS-lgi" secondAttribute="bottom" constant="-48" id="Pye-dd-eSY"/>
+                                            <constraint firstItem="WYm-LS-lgi" firstAttribute="leading" secondItem="kG5-Kx-blL" secondAttribute="trailing" constant="-30" id="JEl-v0-Ywq"/>
+                                            <constraint firstItem="WYm-LS-lgi" firstAttribute="top" secondItem="U03-kC-Kgh" secondAttribute="bottom" constant="8" id="LMQ-lR-7fr"/>
+                                            <constraint firstItem="Nmm-UP-bWP" firstAttribute="leading" secondItem="WYm-LS-lgi" secondAttribute="trailing" constant="-30" id="NHz-Q7-dJ9"/>
+                                            <constraint firstItem="kG5-Kx-blL" firstAttribute="top" secondItem="WYm-LS-lgi" secondAttribute="bottom" constant="-35" id="O5K-uD-Lrc"/>
+                                            <constraint firstItem="hdo-ra-7yB" firstAttribute="top" secondItem="WYm-LS-lgi" secondAttribute="bottom" constant="-35" id="Pye-dd-eSY"/>
                                             <constraint firstAttribute="centerY" secondItem="Yiq-TO-NNV" secondAttribute="centerY" id="cFl-k7-7Nk"/>
-                                            <constraint firstItem="WYm-LS-lgi" firstAttribute="leading" secondItem="Yiq-TO-NNV" secondAttribute="trailing" id="evJ-hj-1VR"/>
-                                            <constraint firstItem="vzP-pU-uY4" firstAttribute="top" secondItem="WYm-LS-lgi" secondAttribute="bottom" id="flL-oX-3Vl"/>
+                                            <constraint firstItem="WYm-LS-lgi" firstAttribute="leading" secondItem="Yiq-TO-NNV" secondAttribute="trailing" constant="8" id="evJ-hj-1VR"/>
+                                            <constraint firstItem="vzP-pU-uY4" firstAttribute="top" secondItem="WYm-LS-lgi" secondAttribute="bottom" constant="8" id="flL-oX-3Vl"/>
                                             <constraint firstAttribute="centerY" secondItem="WYm-LS-lgi" secondAttribute="centerY" id="ki5-L8-L0D"/>
                                             <constraint firstAttribute="centerY" secondItem="D7K-dJ-HA2" secondAttribute="centerY" id="wLS-Fr-bdH"/>
-                                            <constraint firstItem="WYm-LS-lgi" firstAttribute="top" secondItem="Nmm-UP-bWP" secondAttribute="bottom" constant="-48" id="wh8-qu-3qN"/>
+                                            <constraint firstItem="WYm-LS-lgi" firstAttribute="top" secondItem="Nmm-UP-bWP" secondAttribute="bottom" constant="-32" id="wh8-qu-3qN"/>
                                             <constraint firstAttribute="centerX" secondItem="vzP-pU-uY4" secondAttribute="centerX" id="xFH-oA-1Qb"/>
-                                            <constraint firstItem="hdo-ra-7yB" firstAttribute="leading" secondItem="WYm-LS-lgi" secondAttribute="trailing" constant="-37" id="ykg-Vp-s8k"/>
+                                            <constraint firstItem="hdo-ra-7yB" firstAttribute="leading" secondItem="WYm-LS-lgi" secondAttribute="trailing" constant="-30" id="ykg-Vp-s8k"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -6732,7 +6732,7 @@ France</string>
     </scenes>
     <resources>
         <image name="Accounts" width="48" height="48"/>
-        <image name="Bam Elliptique" width="320" height="500"/>
+        <image name="Bam Elliptique" width="364" height="420"/>
         <image name="Briefcase" width="48" height="48"/>
         <image name="Calendars" width="48" height="48"/>
         <image name="Chart" width="48" height="48"/>
@@ -6755,8 +6755,8 @@ France</string>
         <image name="twitter" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="47i-YG-Ipk"/>
         <segue reference="qlf-EX-5Vo"/>
+        <segue reference="VMg-4x-Ova"/>
         <segue reference="54W-7h-U1l"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -32,9 +32,34 @@ class HomepageLoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    var viewOfTouch: UIView! = UIView(frame: CGRect(origin: CGPointZero, size: CGSize(width: 20, height: 20)))
+    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         username.endEditing(true)
         password.endEditing(true)
+        for touch in touches {
+            var location = touch.locationInView(self.view)
+            location.x -= 10
+            location.y -= 10
+            viewOfTouch.frame.origin = location
+            viewOfTouch.backgroundColor = UIColor.redColor()
+            viewOfTouch.alpha = 0.30
+            viewOfTouch.layer.cornerRadius = 10
+            self.view.insertSubview(viewOfTouch, atIndex: 100)
+        }
+    }
+    
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        for touch in touches {
+            var location = touch.locationInView(self.view)
+            location.x -= 10
+            location.y -= 10
+            viewOfTouch.frame.origin = location
+        }
+    }
+    
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        viewOfTouch.removeFromSuperview()
     }
     
     // MARK: - Keyboard related events
