@@ -65,6 +65,8 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var buttonPages: [UIButton] = []
     
+    var shownView: UIView!
+    
     // here we define the buttons in the top menu, add the pan gesture to show our list
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -195,6 +197,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         let  pageSize = containerView.bounds
         let xContentOffset = pageSize.width * CGFloat(page)
         containerView.setContentOffset(CGPoint(x: xContentOffset, y: 0), animated: false)
+        firstPage = page
 //        pageControl.currentPage = page
     }
     
@@ -204,6 +207,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         let page = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
         colorButtons(page)
         pageControl.currentPage = page
+        firstPage = page
         self.view.endEditing(true)
     }
     
@@ -305,7 +309,6 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "show Menu" {
             if let menuTableViewController = segue.destinationViewController as? MenuTableViewController {
-                println()
                 var minimumSize = menuTableViewController.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
                 minimumSize.width = 320
                 minimumSize.height = 164
@@ -313,6 +316,16 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
                 if let ppc = menuTableViewController.popoverPresentationController {
                     ppc.barButtonItem = sender as UIBarButtonItem
                 }
+            }
+        } else if segue.identifier == "show map of account" {
+            if let menuTableViewController = segue.destinationViewController.contentViewController as? MapOfAccountViewController {
+                var minimumSize = menuTableViewController.view.systemLayoutSizeFittingSize(UILayoutFittingExpandedSize)
+                minimumSize.width = self.view.frame.size.width/2
+                minimumSize.height = self.view.frame.size.height/2
+                menuTableViewController.preferredContentSize = minimumSize
+//                if let ppc = menuTableViewController.popoverPresentationController {
+//                    ppc.barButtonItem = sender as UIBarButtonItem
+//                }
             }
         }
     }

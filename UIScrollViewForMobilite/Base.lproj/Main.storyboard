@@ -171,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kYJ-lL-ZDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2755" y="-94"/>
+            <point key="canvasLocation" x="1943" y="-242"/>
         </scene>
         <!--Add Meeting Without Date View Controller-->
         <scene sceneID="1ao-Xv-xcC">
@@ -2289,7 +2289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4c-bS-8CS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4891" y="6"/>
+            <point key="canvasLocation" x="5703" y="6"/>
         </scene>
         <!--Contacts Of Account View Controller-->
         <scene sceneID="aFB-8B-4vk">
@@ -3340,6 +3340,45 @@
             </objects>
             <point key="canvasLocation" x="7070" y="808"/>
         </scene>
+        <!--Map Of Account View Controller-->
+        <scene sceneID="6Ev-a2-SrE">
+            <objects>
+                <viewController id="Tzt-4c-mji" customClass="MapOfAccountViewController" customModule="UIScrollViewForMobilite" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="29X-9u-Z87"/>
+                        <viewControllerLayoutGuide type="bottom" id="PAW-2s-7tp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oPn-ER-FSV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sMe-Lz-teB">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sMe-Lz-teB" firstAttribute="top" secondItem="oPn-ER-FSV" secondAttribute="topMargin" id="8IV-hY-ahm"/>
+                            <constraint firstItem="PAW-2s-7tp" firstAttribute="top" secondItem="sMe-Lz-teB" secondAttribute="bottom" id="Lup-nd-FyA"/>
+                            <constraint firstItem="sMe-Lz-teB" firstAttribute="leading" secondItem="oPn-ER-FSV" secondAttribute="leadingMargin" constant="-16" id="iqu-nM-LhO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sMe-Lz-teB" secondAttribute="trailing" constant="-16" id="lI3-Iz-VEa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dHB-X4-MZE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="pDb-V4-Caf">
+                            <connections>
+                                <action selector="closeMap:" destination="Tzt-4c-mji" id="NtD-3I-ZYu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapViewForCompany" destination="sMe-Lz-teB" id="rNf-kL-hsz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eW4-3U-8nW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2755" y="-581"/>
+        </scene>
         <!--Vue360 View Controller-->
         <scene sceneID="tTq-Tl-MYe">
             <objects>
@@ -3502,6 +3541,21 @@ France</string>
                                                             <constraint firstAttribute="height" constant="1" id="icE-zb-7oN"/>
                                                         </constraints>
                                                     </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gnb-s8-fPF">
+                                                        <rect key="frame" x="0.0" y="268" width="272" height="247"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gyi-Ce-0qS">
+                                                                <rect key="frame" x="0.0" y="0.0" width="272" height="247"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="Gyi-Ce-0qS" secondAttribute="trailing" id="7xM-YU-TLO"/>
+                                                            <constraint firstItem="Gyi-Ce-0qS" firstAttribute="leading" secondItem="gnb-s8-fPF" secondAttribute="leading" id="H3L-tB-E3u"/>
+                                                            <constraint firstItem="Gyi-Ce-0qS" firstAttribute="top" secondItem="gnb-s8-fPF" secondAttribute="top" id="L5G-IQ-Awh"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Gyi-Ce-0qS" secondAttribute="bottom" id="eaK-Z8-uK6"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -3517,10 +3571,12 @@ France</string>
                                                     <constraint firstItem="y8L-RS-xgu" firstAttribute="top" secondItem="7le-r7-sVi" secondAttribute="bottom" id="8ii-aH-oGp"/>
                                                     <constraint firstItem="JpP-Sy-Gjg" firstAttribute="leading" secondItem="fOi-XC-OHw" secondAttribute="leading" constant="8" id="ALb-Ww-QUh"/>
                                                     <constraint firstItem="Pxj-qT-fHq" firstAttribute="top" secondItem="nG9-eU-XRf" secondAttribute="bottom" constant="8" symbolic="YES" id="AZK-Fz-RKi"/>
+                                                    <constraint firstItem="gnb-s8-fPF" firstAttribute="top" secondItem="qqY-El-Syp" secondAttribute="bottom" constant="8" id="AwI-cu-sMF"/>
                                                     <constraint firstItem="9oJ-zJ-aNq" firstAttribute="leading" secondItem="7le-r7-sVi" secondAttribute="trailing" constant="8" symbolic="YES" id="BAt-JS-8iy"/>
                                                     <constraint firstItem="Pxj-qT-fHq" firstAttribute="leading" secondItem="JpP-Sy-Gjg" secondAttribute="trailing" constant="8" symbolic="YES" id="BbH-6w-qRP"/>
                                                     <constraint firstItem="uzr-sS-yQo" firstAttribute="trailing" secondItem="l7M-xd-EOA" secondAttribute="trailing" id="D9y-S4-icB"/>
                                                     <constraint firstItem="B4J-cJ-Ifm" firstAttribute="top" secondItem="Pxj-qT-fHq" secondAttribute="bottom" constant="8" symbolic="YES" id="DN9-Dc-oLq"/>
+                                                    <constraint firstAttribute="bottom" secondItem="gnb-s8-fPF" secondAttribute="bottom" constant="8" id="DqS-kI-VlX"/>
                                                     <constraint firstItem="zCY-q4-3yn" firstAttribute="trailing" secondItem="JpP-Sy-Gjg" secondAttribute="trailing" id="EFL-eK-qjI"/>
                                                     <constraint firstAttribute="trailing" secondItem="9oJ-zJ-aNq" secondAttribute="trailing" id="FCc-nz-yuD"/>
                                                     <constraint firstItem="FKd-18-nJb" firstAttribute="top" secondItem="Kxc-mB-atD" secondAttribute="bottom" id="Gvj-kh-tEA"/>
@@ -3549,8 +3605,10 @@ France</string>
                                                     <constraint firstAttribute="trailing" secondItem="qqY-El-Syp" secondAttribute="trailing" id="l8d-Z1-SFt"/>
                                                     <constraint firstAttribute="trailing" secondItem="nG9-eU-XRf" secondAttribute="trailing" id="lQz-dl-ub9"/>
                                                     <constraint firstAttribute="trailing" secondItem="l7N-ga-3nj" secondAttribute="trailing" id="m8z-WQ-ZvL"/>
+                                                    <constraint firstAttribute="trailing" secondItem="gnb-s8-fPF" secondAttribute="trailing" constant="8" id="mWt-lK-2M8"/>
                                                     <constraint firstItem="uzr-sS-yQo" firstAttribute="centerY" secondItem="nG9-eU-XRf" secondAttribute="centerY" id="mzp-3u-lgj"/>
                                                     <constraint firstAttribute="trailing" secondItem="B4J-cJ-Ifm" secondAttribute="trailing" id="nu5-JB-pLr"/>
+                                                    <constraint firstItem="gnb-s8-fPF" firstAttribute="leading" secondItem="fOi-XC-OHw" secondAttribute="leading" id="pAI-hz-3p4"/>
                                                     <constraint firstItem="l7N-ga-3nj" firstAttribute="leading" secondItem="fOi-XC-OHw" secondAttribute="leading" constant="8" id="q6E-Oh-z9H"/>
                                                     <constraint firstItem="JBe-cU-tqC" firstAttribute="leading" secondItem="fOi-XC-OHw" secondAttribute="leading" constant="8" id="qTr-al-dAA"/>
                                                     <constraint firstAttribute="trailing" secondItem="oSb-R0-IxU" secondAttribute="trailing" id="qUq-DO-Sxr"/>
@@ -3657,6 +3715,17 @@ France</string>
                                                     </tableView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lsZ-2T-e9I">
                                                         <rect key="frame" x="8" y="306" width="272" height="209"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gr9-RU-Syu">
+                                                                <rect key="frame" x="0.0" y="0.0" width="272" height="209"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="gr9-RU-Syu" firstAttribute="leading" secondItem="lsZ-2T-e9I" secondAttribute="leading" id="3zu-VF-Dqd"/>
+                                                            <constraint firstAttribute="bottom" secondItem="gr9-RU-Syu" secondAttribute="bottom" id="6rG-pY-sZO"/>
+                                                            <constraint firstItem="gr9-RU-Syu" firstAttribute="top" secondItem="lsZ-2T-e9I" secondAttribute="top" id="BrJ-CB-f7o"/>
+                                                            <constraint firstAttribute="trailing" secondItem="gr9-RU-Syu" secondAttribute="trailing" id="kLx-Ng-M8s"/>
+                                                        </constraints>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3797,7 +3866,7 @@ France</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N4P-b5-Cdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4106" y="1516"/>
+            <point key="canvasLocation" x="5670" y="-720"/>
         </scene>
         <!--test-->
         <scene sceneID="dsd-4A-zNC">
@@ -3857,7 +3926,7 @@ France</string>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phO-Bp-L3O">
                                 <rect key="frame" x="518" y="75" width="29" height="29"/>
-                                <state key="normal" image="Mail">
+                                <state key="normal" image="MailWithoutBorders">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -3866,6 +3935,11 @@ France</string>
                                 <state key="normal" image="goToLocation">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="QrW-v9-PF3" kind="popoverPresentation" identifier="show map of account" popoverAnchorView="7Cb-yL-qfe" id="5xi-P7-SzI">
+                                        <popoverArrowDirection key="popoverArrowDirection" right="YES"/>
+                                    </segue>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="zST-QS-V5W">
                                 <rect key="frame" x="53" y="157" width="531" height="398"/>
@@ -4039,7 +4113,7 @@ France</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hNB-JT-vkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1943" y="-94"/>
+            <point key="canvasLocation" x="1131" y="-242"/>
         </scene>
         <!--Homepage Login View Controller-->
         <scene sceneID="taA-pp-Flq">
@@ -6475,7 +6549,7 @@ France</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fmn-F7-7Ew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4156" y="-8"/>
+            <point key="canvasLocation" x="4968" y="-8"/>
         </scene>
         <!--Meeting details-->
         <scene sceneID="RxP-Rd-9eO">
@@ -6709,7 +6783,7 @@ France</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0mJ-k2-K9v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3901" y="-8"/>
+            <point key="canvasLocation" x="4713" y="-8"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UfO-EH-MWE">
@@ -6727,7 +6801,25 @@ France</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9T-BY-87C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3426" y="6"/>
+            <point key="canvasLocation" x="4238" y="6"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eVr-qk-A0j">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QrW-v9-PF3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nmj-lV-fd3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Tzt-4c-mji" kind="relationship" relationship="rootViewController" id="2Eq-Am-Bfc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oqz-cy-0IV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2755" y="115"/>
         </scene>
     </scenes>
     <resources>
@@ -6739,6 +6831,7 @@ France</string>
         <image name="Contacts" width="48" height="48"/>
         <image name="Home" width="24" height="24"/>
         <image name="Mail" width="48" height="48"/>
+        <image name="MailWithoutBorders" width="48" height="48"/>
         <image name="Menu" width="24" height="24"/>
         <image name="Refresh" width="48" height="48"/>
         <image name="Settings" width="48" height="48"/>
@@ -6757,6 +6850,6 @@ France</string>
     <inferredMetricsTieBreakers>
         <segue reference="qlf-EX-5Vo"/>
         <segue reference="VMg-4x-Ova"/>
-        <segue reference="54W-7h-U1l"/>
+        <segue reference="PHH-MI-5DJ"/>
     </inferredMetricsTieBreakers>
 </document>

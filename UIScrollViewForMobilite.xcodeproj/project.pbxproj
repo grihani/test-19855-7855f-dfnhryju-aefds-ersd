@@ -34,6 +34,7 @@
 		4824EEB61AF25CDA004F0283 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824EEB51AF25CDA004F0283 /* UserModel.swift */; };
 		4824EEB81AF25CEE004F0283 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824EEB71AF25CEE004F0283 /* UserDataModel.swift */; };
 		4824EEBA1AF26617004F0283 /* MotDePasseOublieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824EEB91AF26617004F0283 /* MotDePasseOublieViewController.swift */; };
+		4830C1341B03397700DAC19B /* MapOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830C1331B03397700DAC19B /* MapOfAccountViewController.swift */; };
 		4849836E1AE5519A00972133 /* TasksOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4849836D1AE5519A00972133 /* TasksOfAccountViewController.swift */; };
 		484CDC321AE0E275001E09F8 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CDC311AE0E275001E09F8 /* LoadingIndicator.swift */; };
 		484CDC341AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CDC331AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift */; };
@@ -132,6 +133,7 @@
 		4824EEB51AF25CDA004F0283 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		4824EEB71AF25CEE004F0283 /* UserDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		4824EEB91AF26617004F0283 /* MotDePasseOublieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotDePasseOublieViewController.swift; sourceTree = "<group>"; };
+		4830C1331B03397700DAC19B /* MapOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOfAccountViewController.swift; sourceTree = "<group>"; };
 		4849836D1AE5519A00972133 /* TasksOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksOfAccountViewController.swift; sourceTree = "<group>"; };
 		484CDC311AE0E275001E09F8 /* LoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		484CDC331AE0E7F2001E09F8 /* AddContactOfAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactOfAccountViewController.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 				489B31631AC952C800C04732 /* ListAccountsViewController.swift */,
 				489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */,
 				488B68B41AEFD4AD00D7652B /* Vue360ViewController.swift */,
+				4830C1331B03397700DAC19B /* MapOfAccountViewController.swift */,
 				4809A8B91ACD4F3A001FEC98 /* AccountDetailsViewController.swift */,
 				481876D41AE7AC85005BF26F /* PipesOfAccounts */,
 				4849836C1AE5517F00972133 /* TasksOfAccounts */,
@@ -686,6 +689,7 @@
 				480DA22D1ACC2B9800F43FA1 /* TaskDataModel.swift in Sources */,
 				48FCB1501ACAE80300A770B2 /* TasksAccountModel.swift in Sources */,
 				480DA23D1ACC2C3A00F43FA1 /* TasksContactsDataModel.swift in Sources */,
+				4830C1341B03397700DAC19B /* MapOfAccountViewController.swift in Sources */,
 				48FCB1381ACADCCD00A770B2 /* MeetingModel.swift in Sources */,
 				489B31641AC952C800C04732 /* ListAccountsViewController.swift in Sources */,
 				48FCB1231ACAD55500A770B2 /* DataBase.swift in Sources */,
