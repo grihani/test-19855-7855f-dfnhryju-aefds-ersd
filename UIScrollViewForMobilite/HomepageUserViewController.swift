@@ -23,13 +23,14 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
     var daysOfCalendar: [NSDate] = []
     var meetingsState: [(Int,Int)] = []
     
-    var dateFormatter: NSDateFormatter = NSDateFormatter()
+    let dateFormatter: NSDateFormatter = NSDateFormatter()
     var datePicked = NSDate()
     let calendar = NSCalendar.currentCalendar()
     var viewDidItsLayout = false
     var email: String = ""
 
     @IBOutlet weak var contactsButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,6 +43,7 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
         self.chosenDate.text = dateFormatter.stringFromDate(today)
         meetings = MeetingDataModel().allMeetings(fromDate: today, toDate: today)
     }
+    
     @IBOutlet weak var rightPanelContainer: UIView!
     var verifyHidden = false
     
@@ -89,6 +91,7 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
 //            }
         }
     }
+    
     @IBOutlet var showingTheRightPanel: UITapGestureRecognizer!
     @IBOutlet var hidingTheRightPanel: UITapGestureRecognizer!
     @IBOutlet weak var rightPanelControl: UIView!
@@ -257,15 +260,14 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    // MARK: - hiding subviews
+    @IBOutlet weak var positionForLanguette: NSLayoutConstraint!
+    @IBOutlet weak var positionForRightPanelContainerView: NSLayoutConstraint!
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
     }
-    */
+    
 
 }

@@ -13,11 +13,6 @@ class ListAccountsViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var listAccounts: UITableView!
     @IBOutlet weak var triAccounts: UISegmentedControl!
     var allAccounts: [AccountModel] = []
-    let backgroundUnhighlighted = UIColor(red: 0, green: 0, blue: 100, alpha: 0.1)
-    let backgroundHighlighted = UIColor(red: 0, green: 0, blue: 100, alpha: 0.25)
-    let whiteBackground = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
-    let whiteTint = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
-    let blackTint = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()

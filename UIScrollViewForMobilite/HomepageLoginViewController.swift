@@ -13,8 +13,10 @@ class HomepageLoginViewController: UIViewController {
     // MARK: - IBOutlets defined in the storyboard
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var loginButton: UIButton!{didSet {loginButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        loginButton.backgroundColor = blueCheckedColor}}
+    @IBOutlet weak var loginButton: UIButton!{didSet {
+        loginButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        loginButton.backgroundColor = blueCheckedColor
+    }}
     
     @IBOutlet weak var forgottenPasswordButton: UIButton!
     @IBOutlet weak var createAccountButton: UIButton!
@@ -32,6 +34,7 @@ class HomepageLoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: - General touch events
     var viewOfTouch: UIView! = UIView(frame: CGRect(origin: CGPointZero, size: CGSize(width: 20, height: 20)))
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -63,12 +66,13 @@ class HomepageLoginViewController: UIViewController {
     }
     
     // MARK: - Keyboard related events
+        // go to next textfield
     @IBAction func nextPressed(sender: UITextField) {
         if username.isFirstResponder() {
             password.becomeFirstResponder()
         }
     }
-    
+        // log the user
     @IBAction func goPressed(sender: UITextField) {
         logUser()
         
@@ -82,6 +86,7 @@ class HomepageLoginViewController: UIViewController {
     
     // MARK: - Functions
     
+        // function to log the user
     func logUser() {
         // Vérification du nom d'utilisateur
         var (userExiste, userId) = UserDataModel().isTrueUserWithUsernameAndPassword(username.text, password: password.text)
@@ -91,9 +96,9 @@ class HomepageLoginViewController: UIViewController {
             // Afficher la page d'accueil de l'utilisateur.
             performSegueWithIdentifier("logIn", sender: self)
         } else {
-            let msgUserExiste = "Le nom d'utilisateur ou le mot de passe n'est pas correct."
-            let alert = UIAlertController(title: "ATTENTION", message: msgUserExiste, preferredStyle: .Alert)
-            let action = UIAlertAction(title: "Modifier", style: .Default, handler: nil)
+            let msgUserExiste = "The username or password are not correct."
+            let alert = UIAlertController(title: "BEWARE", message: msgUserExiste, preferredStyle: .Alert)
+            let action = UIAlertAction(title: "Change", style: .Default, handler: nil)
             alert.addAction(action)
             presentViewController(alert, animated: true, completion: nil)
         }
@@ -114,15 +119,4 @@ class HomepageLoginViewController: UIViewController {
         password.text = ""
         username.becomeFirstResponder()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

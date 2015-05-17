@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5oH-ku-82W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5oH-ku-82W">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -5353,6 +5353,8 @@ France</string>
                         <outlet property="languetteToHideRightPanel" destination="fgv-Fw-9Fd" id="F8j-dX-mSS"/>
                         <outlet property="meetingTableView" destination="gG3-19-Zrg" id="M7V-91-CcJ"/>
                         <outlet property="photoContainer" destination="isO-Yn-WDe" id="7rA-RM-fj0"/>
+                        <outlet property="positionForLanguette" destination="au0-QO-9HX" id="SDz-9H-hsc"/>
+                        <outlet property="positionForRightPanelContainerView" destination="lh0-h5-iIt" id="fDn-Nw-AGE"/>
                         <outlet property="rightPanelContainer" destination="qhJ-Tr-afW" id="a99-52-0lm"/>
                         <outlet property="rightPanelControl" destination="i19-wp-faW" id="Wzp-yR-Vqr"/>
                         <outlet property="showingTheRightPanel" destination="knC-eZ-bqK" id="g1F-zt-o7F"/>
@@ -5406,7 +5408,7 @@ France</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1219" y="1328"/>
+            <point key="canvasLocation" x="-1179" y="1328"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="afR-zy-Iod">

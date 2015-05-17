@@ -12,22 +12,22 @@ class AccountModel {
     
     let accountCreateSQL = "CREATE TABLE  IF NOT EXISTS Account (idAccount INTEGER NOT NULL, nameAccount TEXT, shortNameAccount TEXT, leadSource TEXT, statusAccount TEXT, industryAccount TEXT, segmentAccount TEXT, websiteAccount TEXT, phoneAccount TEXT, faxAccount TEXT, coverageAccount TEXT, regionAccount TEXT, adressAccount TEXT, idAccount1 INTEGER, countryAccount TEXT, typeAccount TEXT, CONSTRAINT PK_Account PRIMARY KEY (idAccount), FOREIGN KEY (idAccount) REFERENCES Account (idAccount)); "
     
-    var idAccount: Int
-    var nameAccount: String
-    var shortNameAccount: String
-    var leadSource: String
-    var statusAccount: String
-    var industryAccount: String
-    var segmentAccount: String
-    var websiteAccount: String
-    var phoneAccount: String
-    var faxAccount: String
-    var coverageAccount: String
-    var regionAccount: String
-    var adressAccount: String
-    var idAccount1: Int
-    var countryAccount: String
-    var typeAccount: String
+    var idAccount: Int = 0
+    var nameAccount: String = ""
+    var shortNameAccount: String = ""
+    var leadSource: String = ""
+    var statusAccount: String = ""
+    var industryAccount: String = ""
+    var segmentAccount: String = ""
+    var websiteAccount: String = ""
+    var phoneAccount: String = ""
+    var faxAccount: String = ""
+    var coverageAccount: String = ""
+    var regionAccount: String = ""
+    var adressAccount: String = ""
+    var idAccount1: Int = 0
+    var countryAccount: String = ""
+    var typeAccount: String = ""
     
     init() {
         self.idAccount = 0

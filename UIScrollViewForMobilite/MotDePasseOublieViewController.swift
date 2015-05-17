@@ -10,31 +10,34 @@ import UIKit
 import MessageUI
 
 class MotDePasseOublieViewController: UIViewController, MFMailComposeViewControllerDelegate {
-
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var reponseSecrete: UITextField!
     @IBOutlet weak var questionSecrete: UILabel!
     @IBOutlet weak var labelQuestion: UILabel!
     @IBOutlet weak var labelReponse: UILabel!
     @IBOutlet weak var buttonVerifier: UIButton!
+    
+    // MARK: - Variables
     var email: String = ""
     
+    // MARK: - view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    // MARK: - General touch events
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         username.endEditing(true)
         reponseSecrete.endEditing(true)
     }
-
+    
+    // MARK: - IBActions
+    // checking in the dataBase for the user's secret question
     @IBAction func editingUsernameTextField(sender: AnyObject) {
         let userModel = UserDataModel().getUserWithUsername(username.text)
         labelQuestion.hidden = false
@@ -44,16 +47,20 @@ class MotDePasseOublieViewController: UIViewController, MFMailComposeViewControl
         buttonVerifier.hidden = false
     }
     
+    // Verify if the user has put the right answer and emailing it to him (though it's not really an email
     @IBAction func verifReponseButtonPressed(sender: AnyObject) {
         var (bonCouple, email) = UserDataModel().isCorrectUsernameReponse(username.text, reponseSecrete: reponseSecrete.text)
         if bonCouple {
             // envoi d'un email pour nouveau mot de passe.
+            
             self.email = email
             println("email: \(self.email)")
-            let mailComposeViewController = configuredMailComposeViewController()
+            let mailComposeViewController = self.configuredMailComposeViewController()
             if MFMailComposeViewController.canSendMail() {
+                
                 self.presentViewController(mailComposeViewController, animated: true, completion: nil)
-            } else {
+                
+            }else {
                 self.showSendMailErrorAlert()
             }
         } else {
@@ -65,6 +72,8 @@ class MotDePasseOublieViewController: UIViewController, MFMailComposeViewControl
         }
     }
     
+    // MARK: - Functions
+    // MFMailComposeViewController elements of mail
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
@@ -74,6 +83,7 @@ class MotDePasseOublieViewController: UIViewController, MFMailComposeViewControl
         return mailComposerVC
     }
     
+    // MFMailComposeViewController action of not being able to send the mail
     func showSendMailErrorAlert() {
         let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device couldn't send email.", delegate: self, cancelButtonTitle: "OK")
         sendMailErrorAlert.show()
@@ -83,15 +93,4 @@ class MotDePasseOublieViewController: UIViewController, MFMailComposeViewControl
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
