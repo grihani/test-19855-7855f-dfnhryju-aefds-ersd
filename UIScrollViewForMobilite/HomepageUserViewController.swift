@@ -49,7 +49,6 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
     
     var hidden: Bool = false
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -85,10 +84,11 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var languetteToHideRightPanel: UIView!
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if segue.identifier == "showContactSegue" {
-//            if let destinationVC = (segue.destinationViewController as UINavigationController).topViewController as? ContactViewController {
-//                destinationVC.idUser = self.idUser
-//            }
+        if segue.identifier == "goToModuleContacts" {
+            if let destinationVC = segue.destinationViewController as? ContactDetailsViewController {
+                println("segue go to module Contact")
+                destinationVC.contact = ContactDataModel().getFirstFavoriteContact()
+            }
         }
     }
     

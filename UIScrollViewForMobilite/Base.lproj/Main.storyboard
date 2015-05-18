@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5oH-ku-82W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5oH-ku-82W">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -3920,9 +3920,12 @@ France</string>
                                     <constraint firstAttribute="height" constant="29" id="TbN-TI-kq5"/>
                                     <constraint firstAttribute="width" constant="29" id="wmo-gZ-7UD"/>
                                 </constraints>
-                                <state key="normal" image="favoriteAccount">
+                                <state key="normal" image="notFavoris">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="favorisButtonPressed:" destination="jpl-la-HIO" eventType="touchUpInside" id="cR2-Bv-A0e"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phO-Bp-L3O">
                                 <rect key="frame" x="518" y="75" width="29" height="29"/>
@@ -4067,6 +4070,7 @@ France</string>
                         <outlet property="buttonToShowMenu" destination="f83-cM-kPL" id="8r2-Z7-V1L"/>
                         <outlet property="containerView" destination="zST-QS-V5W" id="Ngg-AD-l1j"/>
                         <outlet property="editButton" destination="kix-rU-WLE" id="tf5-Ra-tku"/>
+                        <outlet property="favorisButton" destination="riF-P0-RvM" id="wdZ-VS-1sx"/>
                         <outlet property="languette" destination="JaR-U0-Syp" id="1KZ-f4-pfZ"/>
                         <outlet property="lineUnderMenu" destination="5nz-ta-gVK" id="0RO-aj-pbx"/>
                         <outlet property="listeButtonsForPages" destination="dId-Ql-EZl" id="SZv-hW-AeY"/>
@@ -5315,7 +5319,7 @@ France</string>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nz8-51-vSX">
                                 <rect key="frame" x="780" y="532" width="48" height="48"/>
-                                <state key="normal" image="Settings">
+                                <state key="normal" image="settings">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -5675,8 +5679,8 @@ France</string>
                                     <outletCollection property="gestureRecognizers" destination="mNE-dg-q0Y" appends="YES" id="dft-oR-TJP"/>
                                 </connections>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="381" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GgA-pp-cm4">
-                                <rect key="frame" x="53" y="139" width="531" height="453"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="381" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GgA-pp-cm4">
+                                <rect key="frame" x="53" y="192" width="531" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="cellForShowingcontact" rowHeight="381" id="e3E-ih-YOt" customClass="ContactCell" customModule="UIScrollViewForMobilite" customModuleProvider="target">
@@ -5892,14 +5896,14 @@ France</string>
                                     <outlet property="delegate" destination="c4r-8G-mqr" id="CKI-DC-S9j"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account details" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74g-dI-TVI">
-                                <rect key="frame" x="460" y="110" width="124" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Account details" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74g-dI-TVI">
+                                <rect key="frame" x="460" y="163" width="124" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status d'enregistrement :" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdA-Pw-WzM">
-                                <rect key="frame" x="53" y="72" width="399" height="59"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Status d'enregistrement :" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdA-Pw-WzM">
+                                <rect key="frame" x="53" y="125" width="399" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="399" id="0g7-Or-ya5"/>
                                 </constraints>
@@ -5907,8 +5911,8 @@ France</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fae-Jm-tQK">
-                                <rect key="frame" x="527" y="72" width="57" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fae-Jm-tQK">
+                                <rect key="frame" x="527" y="125" width="57" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Account">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -5919,24 +5923,37 @@ France</string>
                                     </segue>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APu-lX-6gv">
+                                <rect key="frame" x="535" y="72" width="49" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="JTc-I1-xpv"/>
+                                    <constraint firstAttribute="width" constant="49" id="Oue-t7-qc1"/>
+                                </constraints>
+                                <state key="normal" image="notFavoris">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="favorisButtonPressed:" destination="c4r-8G-mqr" eventType="touchUpInside" id="knT-d8-Y54"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="74g-dI-TVI" firstAttribute="leading" secondItem="kdA-Pw-WzM" secondAttribute="trailing" constant="8" id="0Al-jT-FZo"/>
                             <constraint firstItem="Fae-Jm-tQK" firstAttribute="trailing" secondItem="Ye4-p9-jb1" secondAttribute="trailingMargin" id="0DJ-7v-I2x"/>
                             <constraint firstItem="74g-dI-TVI" firstAttribute="trailing" secondItem="Ye4-p9-jb1" secondAttribute="trailingMargin" id="0w6-0a-bde"/>
+                            <constraint firstItem="APu-lX-6gv" firstAttribute="top" secondItem="gv0-Sa-Yy8" secondAttribute="bottom" constant="8" id="3Pj-qZ-hxm"/>
                             <constraint firstItem="GgA-pp-cm4" firstAttribute="trailing" secondItem="Ye4-p9-jb1" secondAttribute="trailingMargin" id="3ek-at-6Jk"/>
                             <constraint firstItem="yZM-z2-8sb" firstAttribute="top" secondItem="gv0-Sa-Yy8" secondAttribute="bottom" id="6Jm-fv-g5p"/>
                             <constraint firstItem="81w-fr-1oc" firstAttribute="top" secondItem="GgA-pp-cm4" secondAttribute="bottom" constant="8" id="HHl-mK-PTD"/>
                             <constraint firstItem="yZM-z2-8sb" firstAttribute="leading" secondItem="Ye4-p9-jb1" secondAttribute="leadingMargin" constant="-21" id="I14-vF-UVc"/>
                             <constraint firstItem="GgA-pp-cm4" firstAttribute="top" secondItem="kdA-Pw-WzM" secondAttribute="bottom" constant="8" id="Jza-G6-fHo"/>
-                            <constraint firstItem="Fae-Jm-tQK" firstAttribute="top" secondItem="gv0-Sa-Yy8" secondAttribute="bottom" constant="8" id="KfS-G2-soR"/>
                             <constraint firstItem="74g-dI-TVI" firstAttribute="top" secondItem="Fae-Jm-tQK" secondAttribute="bottom" constant="8" id="Qdd-nN-rov"/>
                             <constraint firstItem="GgA-pp-cm4" firstAttribute="top" secondItem="74g-dI-TVI" secondAttribute="bottom" constant="8" id="VNM-zU-ht9"/>
                             <constraint firstItem="81w-fr-1oc" firstAttribute="top" secondItem="yZM-z2-8sb" secondAttribute="bottom" id="gwS-1y-aI5"/>
                             <constraint firstItem="kdA-Pw-WzM" firstAttribute="leading" secondItem="yZM-z2-8sb" secondAttribute="trailing" constant="8" id="tnv-To-Vyk"/>
                             <constraint firstItem="GgA-pp-cm4" firstAttribute="leading" secondItem="yZM-z2-8sb" secondAttribute="trailing" constant="8" id="u1y-et-2JY"/>
-                            <constraint firstItem="kdA-Pw-WzM" firstAttribute="top" secondItem="gv0-Sa-Yy8" secondAttribute="bottom" constant="8" id="v2p-aO-Ndr"/>
+                            <constraint firstItem="APu-lX-6gv" firstAttribute="trailing" secondItem="Ye4-p9-jb1" secondAttribute="trailingMargin" id="vqi-09-vZd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add a contact" id="Oc0-no-j6q">
@@ -5952,6 +5969,7 @@ France</string>
                         <outlet property="accountOfContact" destination="Fae-Jm-tQK" id="ZjU-sK-9zh"/>
                         <outlet property="buttonHome" destination="y5J-Dg-Npm" id="TA5-t6-1h3"/>
                         <outlet property="buttonToShowMenu" destination="bYd-6h-n7e" id="955-RF-FcE"/>
+                        <outlet property="favorisButton" destination="APu-lX-6gv" id="JSk-2f-kCW"/>
                         <outlet property="languette" destination="lUM-eQ-Yd7" id="iZz-0o-QmT"/>
                         <outlet property="leftSlidingBar" destination="yZM-z2-8sb" id="8M8-wN-qFn"/>
                         <outlet property="navigationBar" destination="Oc0-no-j6q" id="onC-bu-RKP"/>
@@ -6836,22 +6854,22 @@ France</string>
         <image name="MailWithoutBorders" width="48" height="48"/>
         <image name="Menu" width="24" height="24"/>
         <image name="Refresh" width="48" height="48"/>
-        <image name="Settings" width="48" height="48"/>
         <image name="Social" width="48" height="48"/>
         <image name="Team48px" width="48" height="48"/>
         <image name="YouTube" width="48" height="48"/>
-        <image name="favoriteAccount" width="32" height="32"/>
         <image name="goToLocation" width="37" height="39"/>
         <image name="languette calendrier" width="39" height="70"/>
         <image name="languette gauche" width="39" height="70"/>
         <image name="linkedin" width="48" height="48"/>
         <image name="logoCSC" width="400" height="80"/>
         <image name="logout" width="48" height="48"/>
+        <image name="notFavoris" width="32" height="32"/>
+        <image name="settings" width="48" height="48"/>
         <image name="twitter" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qlf-EX-5Vo"/>
-        <segue reference="VMg-4x-Ova"/>
-        <segue reference="PHH-MI-5DJ"/>
+        <segue reference="47i-YG-Ipk"/>
+        <segue reference="eKK-C7-ee4"/>
+        <segue reference="54W-7h-U1l"/>
     </inferredMetricsTieBreakers>
 </document>

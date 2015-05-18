@@ -146,4 +146,49 @@ class ContactDataModel {
         }
         return erreur
     }
+    
+    func updateContact(contact: ContactModel) {
+        var erreur = String()
+        
+        var arrayAccount = contact.arrayFromModel()
+        //the id of the account has to be added at the end
+        arrayAccount.append(contact.idContact)
+        let insertSQL = "Update Contacts SET jobTitleContact = ?, countryContact = ?, civilityContact = ?, firstNameContact = ?, lastNameContact = ?, typeContact = ?, birthdateContact = ?, phoneBusinessContact = ?, phoneMobileContact = ?, emailContact = ?, preferredLanguageContact = ?, workingAdressContact = ?, linkedinProfileContact = ?, idContact1 = ?, statusContact = ?, favoriteContact = ? Where idContact= ?"
+        let result = contactDataBase.executeUpdate(insertSQL,
+            withArgumentsInArray: arrayAccount)
+        
+        if !result {
+            erreur = "Error: \(contactDataBase.lastErrorMessage())"
+        }
+        println(erreur)
+    }
+    
+    func getFirstFavoriteContact() -> ContactModel {
+        var firstFavoriteContact: ContactModel = ContactModel()
+        var querySQL = "SELECT * FROM Contacts WHERE favoriteContact = 1 LIMIT 1"
+        let result: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let result = result {
+            if result.next(){
+                var idContact: Int = Int(result.intForColumn("idContact"))
+                var jobTitleContact: String = result.stringForColumn("jobTitleContact")
+                var countryContact: String = result.stringForColumn("countryContact")
+                var civilityContact: String = result.stringForColumn("civilityContact")
+                var firstNameContact: String = result.stringForColumn("firstNameContact")
+                var lastNameContact: String = result.stringForColumn("lastNameContact")
+                var typeContact: String = result.stringForColumn("typeContact")
+                var birthdateContact: String = result.stringForColumn("birthdateContact")
+                var phoneBusinessContact: String = result.stringForColumn("phoneBusinessContact")
+                var phoneMobileContact: String = result.stringForColumn("phoneMobileContact")
+                var emailContact: String = result.stringForColumn("emailContact")
+                var preferredLanguageContact: String = result.stringForColumn("preferredLanguageContact")
+                var workingAdressContact: String = result.stringForColumn("workingAdressContact")
+                var linkedinProfileContact: String = result.stringForColumn("linkedinProfileContact")
+                var idContact1: Int = Int(result.intForColumn("idContact1"))
+                var statusContact: Int = Int(result.intForColumn("statusContact"))
+                var favoriteContact: Int = Int(result.intForColumn("favoriteContact"))
+                firstFavoriteContact = ContactModel(idContact: idContact, jobTitleContact: jobTitleContact, countryContact: countryContact, civilityContact: civilityContact, firstNameContact: firstNameContact, lastNameContact: lastNameContact, typeContact: typeContact, birthdateContact: birthdateContact, phoneBusinessContact: phoneBusinessContact, phoneMobileContact: phoneMobileContact, emailContact: emailContact, preferredLanguageContact: preferredLanguageContact, workingAdressContact: workingAdressContact, linkedinProfileContact: linkedinProfileContact, idContact1: idContact1, statusContact: statusContact, favoriteContact: favoriteContact)
+            }
+        }
+        return firstFavoriteContact
+    }
 }

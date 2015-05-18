@@ -330,7 +330,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
     
     
     @IBAction func changingFieldsOfAccount(sender: UITextField) {
-        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text, typeAccount: account.typeAccount)
+        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text, typeAccount: account.typeAccount, favoriteAccount: account.favoriteAccount)
         
         let accountToCompare = accountAfterUpdates.arrayOfStringsFromModel()
         let accountToCompareTo = account.arrayOfStringsFromModel()
@@ -363,7 +363,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
         self.activeField = textView
     }
     func textViewDidChange(textView: UITextView) {
-        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text, typeAccount: account.typeAccount)
+        self.accountAfterUpdates = AccountModel(idAccount: account.idAccount, nameAccount: nameCompany.text, shortNameAccount: shortNameCompany.text, leadSource: leadSource.text, statusAccount: statusAccount.text, industryAccount: industryCompany.text, segmentAccount: segmentAccount.text, websiteAccount: webSite.text, phoneAccount: phoneCompany.text, faxAccount: faxAccount.text, coverageAccount: coverageAccount.text, regionAccount: regionAccount.text, adressAccount: adressCompany.text, idAccount1: account.idAccount1, countryAccount: countryAccount.text, typeAccount: account.typeAccount, favoriteAccount: account.favoriteAccount)
         let accountToCompare = accountAfterUpdates.arrayOfStringsFromModel()
         let accountToCompareTo = account.arrayOfStringsFromModel()
         if !(accountToCompareTo == accountToCompare) {

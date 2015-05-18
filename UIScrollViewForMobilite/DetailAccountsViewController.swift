@@ -10,7 +10,6 @@ import UIKit
 
 class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     
-    
     @IBOutlet weak var lineUnderMenu: UIView! {
         didSet {
             lineUnderMenu.backgroundColor = blueCheckedColor
@@ -33,6 +32,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
             }
         }
     }
+    @IBOutlet weak var favorisButton: UIButton!
     
     var identifiers: [String] = ["Meetings", "Vue 360°", "Contacts", "Activities", "Pipeline", "Account Details" ]
     // Manque 'Relation Activity'
@@ -51,7 +51,6 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     var viewDidItsLayout: Bool = false
-    
     
     @IBOutlet var buttonToShowMenu: UIBarButtonItem!
     @IBAction func showMenu(sender: UIBarButtonItem) {
@@ -81,6 +80,11 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         }
         if account != nil {
             self.navigationBar.title = account.nameAccount
+            if account.favoriteAccount == 0 {
+                favorisButton.setImage(UIImage(named: "notFavoris")!, forState: UIControlState.Normal)
+            } else {
+                favorisButton.setImage(UIImage(named: "addedToFavoris")!, forState: UIControlState.Normal)
+            }
         }
         colorButtons(firstPage)
         
@@ -302,6 +306,26 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         self.accountDetails.read = true
         let editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "editAccount:")
         navigationBar.rightBarButtonItem = editButton
+    }
+    
+    @IBAction func favorisButtonPressed(sender: UIButton) {
+        var image: UIImage = favorisButton.imageForState(UIControlState.Normal)!
+        let imageFav: UIImage = UIImage(named: "notFavoris")!
+        let imageFavSelec: UIImage = UIImage(named: "addedToFavoris")!
+        if image == imageFav {
+            favorisButton.setImage(imageFavSelec, forState: UIControlState.Normal)
+            //set favoris = true (1)
+            println("ajouté aux favoris")
+            self.account.favoriteAccount = 1
+            println("favoris: \(self.account.favoriteAccount)")
+        } else {
+            favorisButton.setImage(imageFav, forState: UIControlState.Normal)
+            //set favoris = false (0)
+            println("supprimé des favoris")
+            self.account.favoriteAccount = 0
+            println("favoris: \(self.account.favoriteAccount)")
+        }
+        AccountDataModel().updateAccount(account: self.account)
     }
     
     // MARK: - Navigation:

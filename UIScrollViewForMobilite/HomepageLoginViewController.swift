@@ -80,7 +80,6 @@ class HomepageLoginViewController: UIViewController {
     
     // MARK: - IBactions for buttons
     @IBAction func logInButtonPressed(sender: UIButton) {
-        
         logUser()
     }
     

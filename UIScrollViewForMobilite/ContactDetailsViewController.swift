@@ -89,6 +89,7 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
             workingAdressContact = contact.workingAdressContact
             linkedinProfileContact = contact.linkedinProfileContact
             idContact1 = contact.idContact1
+            favoriteContact = contact.favoriteContact
             
             account = AccountDataModel().accountOfContact(contact: contact)
             navigationBar?.title = contact.lastNameContact
@@ -110,7 +111,6 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
                 accountDetails?.text = account.industryAccount + "\n" + account.phoneAccount + "\n" + account.adressAccount
                 accountOfContact?.setTitle(account.nameAccount, forState: .Normal)
             }
-            
         }
     }
     
@@ -134,6 +134,17 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var statusSave: UILabel!
     
+    @IBOutlet weak var favorisButton: UIButton! {
+        didSet {
+            if contact != nil {
+                if contact.favoriteContact == 0 {
+                    favorisButton.setImage(UIImage(named: "notFavoris")!, forState: UIControlState.Normal)
+                } else {
+                    favorisButton.setImage(UIImage(named: "addedToFavoris")!, forState: UIControlState.Normal)
+                }
+            }
+        }
+    }
     @IBOutlet weak var buttonToShowMenu: UIBarButtonItem!
     @IBAction func showMenu(sender: UIBarButtonItem) {
         println("show menu")
@@ -159,6 +170,7 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     var workingAdressContact: String = ""
     var linkedinProfileContact: String = ""
     var idContact1: Int = 0
+    var favoriteContact: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -169,10 +181,25 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        println(self.presentingViewController)
-        println(self.presentingViewController?.contentViewController)
-        println(self.presentingViewController?.contentViewController.presenterViewController)
-
+//        println(self.presentingViewController)
+//        println(self.presentingViewController?.contentViewController)
+//        println(self.presentingViewController?.contentViewController.presenterViewController)
+        contact = ContactDataModel().getFirstFavoriteContact()
+        println("idContact: \(contact.idContact)")
+        println("jobTitleContact: \(contact.jobTitleContact)")
+        println("countryContact: \(contact.countryContact)")
+        println("civilityContact: \(contact.civilityContact)")
+        println("firstNameContact: \(contact.firstNameContact)")
+        println("lastNameContact: \(contact.lastNameContact)")
+        println("typeContact: \(contact.typeContact)")
+        println("birthdateContact: \(contact.birthdateContact)")
+        println("phoneBusinessContact: \(contact.phoneBusinessContact)")
+        println("phoneMobileContact: \(contact.phoneMobileContact)")
+        println("emailContact: \(contact.emailContact)")
+        println("preferredLanguageContact: \(contact.preferredLanguageContact)")
+        println("workingAdressContact: \(contact.workingAdressContact)")
+        println("linkedinProfileContact: \(contact.linkedinProfileContact)")
+        println("idContact1: \(contact.idContact1)")
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -197,7 +224,6 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         cell.create = self.create
         cellContact = cell
         return cell
-        
     }
 
     @IBAction func rewind(sender: UIBarButtonItem) {
@@ -239,7 +265,6 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
                 if let ppc = birthdayView.popoverPresentationController {
                     let minimumSize = birthdayView.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
                     birthdayView.preferredContentSize = minimumSize
-                    
                 }
             }
         }
@@ -375,6 +400,25 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         checkStatusOfCreationOfContact()
     }
 
+    @IBAction func favorisButtonPressed(sender: UIButton) {
+        var image: UIImage = favorisButton.imageForState(UIControlState.Normal)!
+        let imageFav: UIImage = UIImage(named: "notFavoris")!
+        let imageFavSelec: UIImage = UIImage(named: "addedToFavoris")!
+        if image == imageFav {
+            favorisButton.setImage(imageFavSelec, forState: UIControlState.Normal)
+            //set favoris = true (1)
+            println("ajouté aux favoris")
+            self.contact.favoriteContact = 1
+            println("favoris: \(self.contact.favoriteContact)")
+        } else {
+            favorisButton.setImage(imageFav, forState: UIControlState.Normal)
+            //set favoris = false (0)
+            println("supprimé des favoris")
+            self.contact.favoriteContact = 0
+            println("favoris: \(self.contact.favoriteContact)")
+        }
+        ContactDataModel().updateContact(self.contact)
+    }
 }
 
 class ContactCell: UITableViewCell {
@@ -386,7 +430,6 @@ class ContactCell: UITableViewCell {
         didSet {
             if read {
                 updateCellUIForReading()
-                
             }
         }
     }
@@ -512,6 +555,7 @@ class ContactCell: UITableViewCell {
     var contact: ContactModel! {
         didSet {
             if contact != nil {
+                contact = ContactDataModel().getFirstFavoriteContact()
                 self.civilityContact.setTitle(contact.civilityContact, forState: .Normal)
                 self.lastNameContact.text = contact.lastNameContact
                 self.firstNameContact.text = contact.firstNameContact
@@ -531,6 +575,8 @@ class ContactCell: UITableViewCell {
                 self.preferredLanguageContact.setTitle(contact.preferredLanguageContact, forState: .Normal)
                 self.typeContact.setTitle(contact.typeContact, forState: .Normal)
                 self.idContact1.setTitle(String(contact.idContact1), forState: .Normal)
+                
+                self.read = true
             }
         }
     }
@@ -552,15 +598,21 @@ class ContactCell: UITableViewCell {
         }
     }
     @IBOutlet weak var phoneBusinessContact: UITextField!
-    @IBOutlet weak var countryContact: UIButton! {didSet {
-        countryContact.setTitleColor(disabledColor, forState: .Disabled)
-        countryContact.setTitle("France", forState: .Normal) } }
+    @IBOutlet weak var countryContact: UIButton! {
+        didSet {
+            countryContact.setTitleColor(disabledColor, forState: .Disabled)
+            countryContact.setTitle("France", forState: .Normal)
+        }
+    }
     @IBOutlet weak var phoneMobileContact: UITextField!
     @IBOutlet weak var emailContact: UITextField!
-    @IBOutlet weak var workingAdressContact: UITextView! {didSet { workingAdressContact.layer.cornerRadius = 8
-        workingAdressContact.layer.borderColor = UIColor.grayColor().CGColor
-        workingAdressContact.layer.borderWidth = 1
-        } }
+    @IBOutlet weak var workingAdressContact: UITextView! {
+        didSet {
+            workingAdressContact.layer.cornerRadius = 8
+            workingAdressContact.layer.borderColor = UIColor.grayColor().CGColor
+            workingAdressContact.layer.borderWidth = 1
+        }
+    }
     @IBOutlet weak var linkedinProfileContact: UIButton! {
         didSet {
             linkedinProfileContact.setTitleColor(disabledColor, forState: .Disabled)
