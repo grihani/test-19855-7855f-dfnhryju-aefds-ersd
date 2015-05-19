@@ -197,6 +197,18 @@ class DataBase {
             
         }
     }
+    
+    func createViewForContactsThatHaveAccounts() {
+        
+        var querySQL = "CREATE TEMPORARY VIEW IF NOT EXISTS Contact_Account AS SELECT * FROM Contacts INNER JOIN Account_Contacts ON Contacts.idContact = account_contacts.idContact INNER JOIN Account ON account_contacts.idAccount = Account.idAccount ORDER BY Contacts.lastNameContact ASC"
+        if !contactDataBase.executeStatements(querySQL) {
+            
+            
+        } else {
+            
+            
+        }
+    }
 }
 
 // méthodes de récupération de NSUserDefaults

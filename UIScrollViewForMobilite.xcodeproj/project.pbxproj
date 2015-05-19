@@ -93,6 +93,7 @@
 		48FCB1571ACAED6A00A770B2 /* AccountDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */; };
 		48FCB1591ACAF47200A770B2 /* Bouchonnage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1581ACAF47200A770B2 /* Bouchonnage.swift */; };
 		9F2A4AF81AE309ED007359DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4881861E1AC94F6600923A18 /* Images.xcassets */; };
+		EF0908171B0B6CFF006F5208 /* DetailContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0908161B0B6CFF006F5208 /* DetailContactsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -205,6 +206,7 @@
 		48FCB1531ACAE97E00A770B2 /* TasksMeetingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksMeetingsModel.swift; sourceTree = "<group>"; };
 		48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDataModel.swift; sourceTree = "<group>"; };
 		48FCB1581ACAF47200A770B2 /* Bouchonnage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bouchonnage.swift; sourceTree = "<group>"; };
+		EF0908161B0B6CFF006F5208 /* DetailContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailContactsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,6 +407,7 @@
 			children = (
 				4851F8BD1AE8CCB900F1BE9B /* ContactListTableViewController.swift */,
 				48CFE2891AE7FCFC00FFDFE8 /* ContactDetailsViewController.swift */,
+				EF0908161B0B6CFF006F5208 /* DetailContactsViewController.swift */,
 				4851F8BF1AE917F200F1BE9B /* PopoverViewsInContacts */,
 			);
 			name = Contacts;
@@ -704,6 +707,7 @@
 				485DE0981ADBB1E900E95DD8 /* AddMeetingWithoutDateViewController.swift in Sources */,
 				4824EEB01AF25295004F0283 /* HomepageLoginViewController.swift in Sources */,
 				4824EEBA1AF26617004F0283 /* MotDePasseOublieViewController.swift in Sources */,
+				EF0908171B0B6CFF006F5208 /* DetailContactsViewController.swift in Sources */,
 				481419D31AD58919009B38D6 /* DetailMeetingsViewController.swift in Sources */,
 				4801C85A1AFA4FCF00C0364B /* MenuTableViewController.swift in Sources */,
 				48FCB1481ACAE50000A770B2 /* ContractsModel.swift in Sources */,

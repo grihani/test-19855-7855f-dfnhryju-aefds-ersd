@@ -38,7 +38,7 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     
     
     func updateUIForReading() {
-        statusSave?.text = ""
+//        statusSave?.text = ""
         if let account = account {
             accountOfContact?.setTitle(account.nameAccount, forState: .Normal)
             accountDetails?.text = account.industryAccount + "\n" + account.phoneAccount + "\n" + account.adressAccount
@@ -132,29 +132,7 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     @IBOutlet weak var navigationBar: UINavigationItem!
-    @IBOutlet weak var statusSave: UILabel!
     
-    @IBOutlet weak var favorisButton: UIButton! {
-        didSet {
-            if contact != nil {
-                if contact.favoriteContact == 0 {
-                    favorisButton.setImage(UIImage(named: "notFavoris")!, forState: UIControlState.Normal)
-                } else {
-                    favorisButton.setImage(UIImage(named: "addedToFavoris")!, forState: UIControlState.Normal)
-                }
-            }
-        }
-    }
-    @IBOutlet weak var buttonToShowMenu: UIBarButtonItem!
-    @IBAction func showMenu(sender: UIBarButtonItem) {
-        println("show menu")
-        performSegueWithIdentifier("show Menu", sender: sender)
-    }
-    @IBOutlet weak var buttonHome: UIBarButtonItem!
-    @IBAction func goHome(sender: UIBarButtonItem) {
-        self.presentingViewController?.contentViewController.dismissViewControllerAnimated(true, completion: nil)
-    }
-//    @IBOutlet weak var contactCell: ContactCell!
     var idContact: Int = 0
     var jobTitleContact: String = ""
     var countryContact: String = ""
@@ -174,9 +152,7 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkStatusOfCreationOfContact()
-        navigationItem.leftBarButtonItems?.append(buttonHome)
-        navigationItem.leftBarButtonItems?.append(buttonToShowMenu)
+//        checkStatusOfCreationOfContact()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -356,30 +332,30 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    
-    func checkStatusOfCreationOfContact() {
-        var stringStatus = ""
-        if account == nil {
-            stringStatus += "- Manque le compte auquel est rattaché le contact\n"
-        }
-        if firstNameContact == "" && lastNameContact == "" {
-            stringStatus += "- Manque les nom et prénom du contact \n"
-        } else if firstNameContact == "" {
-            stringStatus += "- Manque le nom du contact \n"
-        } else if lastNameContact == "" {
-            stringStatus += "- Manque le prénom du contact\n"
-        }
-        if emailContact == "" || phoneMobileContact == "" || phoneBusinessContact == "" {
-            stringStatus += "- Rajoutez au moins un E-mail ou un téléphone au contact"
-        }
-        
-        if stringStatus != "" {
-            statusSave.text = stringStatus
-        } else {
-            statusSave.text = "Il est possible d'enregistrer le contact"
-        }
-        
-    }
+//    
+//    func checkStatusOfCreationOfContact() {
+//        var stringStatus = ""
+//        if account == nil {
+//            stringStatus += "- Manque le compte auquel est rattaché le contact\n"
+//        }
+//        if firstNameContact == "" && lastNameContact == "" {
+//            stringStatus += "- Manque les nom et prénom du contact \n"
+//        } else if firstNameContact == "" {
+//            stringStatus += "- Manque le nom du contact \n"
+//        } else if lastNameContact == "" {
+//            stringStatus += "- Manque le prénom du contact\n"
+//        }
+//        if emailContact == "" || phoneMobileContact == "" || phoneBusinessContact == "" {
+//            stringStatus += "- Rajoutez au moins un E-mail ou un téléphone au contact"
+//        }
+//        
+//        if stringStatus != "" {
+//            statusSave.text = stringStatus
+//        } else {
+//            statusSave.text = "Il est possible d'enregistrer le contact"
+//        }
+//        
+//    }
     
     @IBAction func showContact(sender: UIButton) {
         println("idContact: \(idContact)")
@@ -397,27 +373,7 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         println("workingAdressContact: \(workingAdressContact)")
         println("linkedinProfileContact: \(linkedinProfileContact)")
         println("idContact1: \(idContact1)")
-        checkStatusOfCreationOfContact()
-    }
-
-    @IBAction func favorisButtonPressed(sender: UIButton) {
-        var image: UIImage = favorisButton.imageForState(UIControlState.Normal)!
-        let imageFav: UIImage = UIImage(named: "notFavoris")!
-        let imageFavSelec: UIImage = UIImage(named: "addedToFavoris")!
-        if image == imageFav {
-            favorisButton.setImage(imageFavSelec, forState: UIControlState.Normal)
-            //set favoris = true (1)
-            println("ajouté aux favoris")
-            self.contact.favoriteContact = 1
-            println("favoris: \(self.contact.favoriteContact)")
-        } else {
-            favorisButton.setImage(imageFav, forState: UIControlState.Normal)
-            //set favoris = false (0)
-            println("supprimé des favoris")
-            self.contact.favoriteContact = 0
-            println("favoris: \(self.contact.favoriteContact)")
-        }
-        ContactDataModel().updateContact(self.contact)
+        //checkStatusOfCreationOfContact()
     }
 }
 
