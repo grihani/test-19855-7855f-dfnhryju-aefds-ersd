@@ -164,6 +164,7 @@ class Vue360ViewController: UIViewController, UIScrollViewDelegate, UITableViewD
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        println("memory error")
     }
     
     override func viewDidAppear(animated: Bool) {

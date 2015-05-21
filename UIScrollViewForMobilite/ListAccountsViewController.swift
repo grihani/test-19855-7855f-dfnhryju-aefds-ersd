@@ -56,6 +56,12 @@ class ListAccountsViewController: UIViewController, UITableViewDataSource, UITab
         default: break
         }
         listAccounts.reloadData()
+        
+        let index = sender.selectedSegmentIndex
+        let title = sender.titleForSegmentAtIndex(index)
+        println(title)
+        println(self)
+        println(self.description)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -66,4 +72,12 @@ class ListAccountsViewController: UIViewController, UITableViewDataSource, UITab
             }
         }
     }
+    
+    @IBAction func boubou(sender: UISegmentedControl) {
+        let index = sender.selectedSegmentIndex
+        let title = sender.titleForSegmentAtIndex(index)
+        println(title)
+        println(self)
+    }
+    
 }

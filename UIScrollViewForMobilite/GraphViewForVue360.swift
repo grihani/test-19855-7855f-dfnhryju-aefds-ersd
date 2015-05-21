@@ -22,7 +22,7 @@ class GraphViewForVue360: UIView {
             setNeedsDisplay()
         }
     }
-    var valueForLine: [Double] = [2000,1500,250,800,1200,50,500, 2400,1800,750,200,520,174,280] {
+    var valueForLine: [Double] = [500,1500,250,800,1200,50,500, 2400,1800,750,200,520,174,280] {
         didSet {
             setNeedsDisplay()
         }

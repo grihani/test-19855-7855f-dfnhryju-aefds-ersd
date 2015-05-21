@@ -56,4 +56,6 @@ class MapOfAccountViewController: UIViewController, MKMapViewDelegate, CLLocatio
     @IBAction func closeMap(sender: UIBarButtonItem) {
         self.presentingViewController?.contentViewController.presenterViewController.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
 }
