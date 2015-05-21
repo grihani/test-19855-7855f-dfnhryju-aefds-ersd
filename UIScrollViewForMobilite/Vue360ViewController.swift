@@ -66,6 +66,40 @@ class Vue360ViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         }
     }
     
+    // MARK: - doughnut charts
+    
+    @IBOutlet weak var leftDoughnut: DoughnutsForVue360! {
+        didSet {
+            leftDoughnut.background = UIColor(red: 220/255, green: 230/255, blue: 242/255, alpha: 1)
+            leftDoughnut.onTopColor = UIColor(red: 149/255, green: 178/255, blue: 216/255, alpha: 1)
+            leftDoughnut.overAchiever = leftDoughnut.onTopColor
+        }
+    }
+    
+    @IBOutlet weak var leftMiddleDoughnut: DoughnutsForVue360! {
+        didSet {
+            leftMiddleDoughnut.background = UIColor(red: 253/255, green: 234/255, blue: 218/255, alpha: 1)
+            leftMiddleDoughnut.onTopColor = UIColor(red: 250/255, green: 192/255, blue: 144/255, alpha: 1)
+            leftMiddleDoughnut.overAchiever = leftMiddleDoughnut.onTopColor
+        }
+    }
+    
+    @IBOutlet weak var rightMiddleDoughnut: DoughnutsForVue360! {
+        didSet {
+            rightMiddleDoughnut.background = UIColor(red: 225/255, green: 234/255, blue: 205/255, alpha: 1)
+            rightMiddleDoughnut.onTopColor = UIColor(red: 164/255, green: 215/255, blue: 109/255, alpha: 1)
+            rightMiddleDoughnut.overAchiever = rightMiddleDoughnut.onTopColor
+        }
+    }
+    
+    @IBOutlet weak var rightDoughnut: DoughnutsForVue360! {
+        didSet {
+            rightDoughnut.background = UIColor(red: 223/255, green: 238/255, blue: 241/255, alpha: 1)
+            rightDoughnut.onTopColor = UIColor(red: 194/255, green: 227/255, blue: 236/255, alpha: 1)
+            rightDoughnut.overAchiever = rightDoughnut.onTopColor
+        }
+    }
+    
     // MARK: - model variables
     var parentAccount: AccountModel! {
         didSet {
@@ -125,6 +159,7 @@ class Vue360ViewController: UIViewController, UIScrollViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.contentSize = CGSize(width: 911, height: 600)
     }
 
     override func didReceiveMemoryWarning() {
@@ -144,6 +179,12 @@ class Vue360ViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         if let observer = cookieForKeyboardDisappears {
             center.removeObserver(observer)
         }
+    }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        println(scrollView.frame.size)
     }
     
     // MARK: - keyboard notifications
@@ -219,6 +260,48 @@ class Vue360ViewController: UIViewController, UIScrollViewDelegate, UITableViewD
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.01
     }
+    
+    
+    // MARK: - IBAction For Showing and Hiding the graphs
+    @IBOutlet weak var doughnutGraphView: DoughnutsForVue360!
+    @IBOutlet weak var barGraphView: GraphViewForVue360!
+    @IBOutlet weak var buttonForDoughnutGraphView: UIButton!
+    @IBOutlet weak var buttonForBarGraphView: UIButton!
+    @IBAction func showDoughnutGraphs(sender: UIButton) {
+        UIView.transitionFromView(barGraphView, toView: doughnutGraphView, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromBottom | .ShowHideTransitionViews, completion: nil)
+        buttonForDoughnutGraphView.enabled = false
+        buttonForBarGraphView.enabled = true
+    }
+    
+    @IBAction func showBarGraph(sender: UIButton) {
+        UIView.transitionFromView(doughnutGraphView, toView: barGraphView, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromBottom | .ShowHideTransitionViews, completion: nil)
+        buttonForDoughnutGraphView.enabled = true
+        buttonForBarGraphView.enabled = false
+    }
+    
+    // MARK: - IBAction for clicking on the graph view
+    
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var midLabel: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
+    @IBAction func tapTheGraphView(sender: UITapGestureRecognizer) {
+        let pointOfTap = sender.locationInView(barGraphView)
+        println(pointOfTap)
+        let margin = barGraphView.margin
+        let spacer = barGraphView.spacer
+        
+        if pointOfTap.x > margin * 3/4 && pointOfTap.x < barGraphView.bounds.size.width - margin * 3/4 {
+            
+            let sectionOfTouch = Int((pointOfTap.x - margin/2) / spacer)
+            topLabel.text = "\(barGraphView.valueForLine[sectionOfTouch])"
+            midLabel.text = "\(barGraphView.valueForFirstBar[sectionOfTouch])"
+            bottomLabel.text = "\(barGraphView.valueForSecondBar[sectionOfTouch])"
+            barGraphView.selectedMonth = sectionOfTouch
+            barGraphView.actualMonth = sectionOfTouch
+        }
+    }
+    
+    
     
     
 }

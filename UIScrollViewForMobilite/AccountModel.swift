@@ -48,6 +48,11 @@ class AccountModel {
         self.typeAccount = ""
     }
     
+    convenience init(idAccount: Int) {
+        self.init()
+        self.idAccount = idAccount
+    }
+    
     init(idAccount: Int, nameAccount: String, shortNameAccount: String, leadSource: String, statusAccount: String, industryAccount: String, segmentAccount: String, websiteAccount: String, phoneAccount: String, faxAccount: String, coverageAccount: String, regionAccount: String, adressAccount: String, idAccount1: Int,countryAccount: String,typeAccount: String) {
             self.idAccount = idAccount
             self.nameAccount = nameAccount
