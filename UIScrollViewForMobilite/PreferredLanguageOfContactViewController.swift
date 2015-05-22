@@ -49,7 +49,7 @@ class PreferredLanguageOfContactViewController: UIViewController, UIPickerViewDa
         preferredLanguage.setTitle(chosenLanguages[row], forState: .Normal)
         preferredLanguageContact = chosenLanguages[row]
         if let presentingViewController = self.presentingViewController?.presenterViewController as? ContactDetailsViewController {
-            presentingViewController.preferredLanguageContact = self.preferredLanguageContact
+            presentingViewController.preferredLanguageContact.setTitle(self.preferredLanguageContact, forState: .Normal)
         }
     }
     

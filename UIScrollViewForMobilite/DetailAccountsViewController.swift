@@ -70,7 +70,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         println(self.presentingViewController)
-        self.view.window?.rootViewController = self
+        //self.view.window?.rootViewController = self
         
 //        self.showList.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
 //        buttonForPages(listeButtonsForPages)

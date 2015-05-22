@@ -209,6 +209,18 @@ class DataBase {
             
         }
     }
+    
+    func createViewForContactsThatHaveMeetings() {
+        
+        var querySQL = "CREATE TEMPORARY VIEW IF NOT EXISTS Contact_Meetings AS SELECT * FROM Contacts INNER JOIN Meetings_Contacts ON Contacts.idContact = Meetings_Contacts.idContact INNER JOIN Meetings ON Meetings_Contacts.idMeeting = Meetings.idMeeting WHERE datetime(dateBeginMeeting) >= datetime('now') ORDER BY date(dateBeginMeeting) ASC"
+        if !contactDataBase.executeStatements(querySQL) {
+            
+            
+        } else {
+            
+            
+        }
+    }
 }
 
 // méthodes de récupération de NSUserDefaults

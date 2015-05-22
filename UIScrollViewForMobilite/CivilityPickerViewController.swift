@@ -47,7 +47,7 @@ class CivilityPickerViewController: UIViewController, UIPickerViewDataSource, UI
         civilityButton.setTitle(civility[row], forState: .Normal)
         civilityContact = civility[row]
         if let presentingViewController = self.presentingViewController?.presenterViewController as? ContactDetailsViewController {
-            presentingViewController.civilityContact = self.civilityContact
+            presentingViewController.civilityContact.setTitle(self.civilityContact, forState: .Normal)
         }
     }
 }

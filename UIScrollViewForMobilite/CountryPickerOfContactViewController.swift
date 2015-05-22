@@ -70,8 +70,7 @@ class CountryPickerOfContactViewController: UIViewController, UIPickerViewDelega
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         if let presentingViewController = self.presentingViewController?.presenterViewController as? ContactDetailsViewController {
-            presentingViewController.countryContact = self.countryContact
-            presentingViewController.cellContact.countryContact.setTitle(self.countryContact, forState: .Normal)
+            presentingViewController.countryContact.setTitle(self.countryContact, forState: .Normal)
         }
     }
 

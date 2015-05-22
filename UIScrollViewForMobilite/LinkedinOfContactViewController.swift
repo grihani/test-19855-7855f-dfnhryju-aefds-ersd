@@ -58,7 +58,7 @@ class LinkedinOfContactViewController: UIViewController, UIWebViewDelegate, UIPo
     
     @IBAction func saveLinkedinTextField(sender: UIButton) {
         if let presentingViewController = self.presentingViewController?.presenterViewController as? ContactDetailsViewController {
-            presentingViewController.linkedinProfileContact = self.linkedinProfileContact
+            presentingViewController.linkedinProfileContact.setTitle(self.linkedinProfileContact, forState: .Normal)
             presentingViewController.dismissViewControllerAnimated(true, completion: nil)
         }
         

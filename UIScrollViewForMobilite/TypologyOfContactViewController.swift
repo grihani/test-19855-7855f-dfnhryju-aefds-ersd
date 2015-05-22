@@ -61,7 +61,7 @@ class TypologyOfContactViewController: UIViewController, UIPickerViewDataSource,
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         if let presentingViewController = self.presentingViewController?.presenterViewController as? ContactDetailsViewController {
-            presentingViewController.typeContact = chosenTypology
+            presentingViewController.typeContact.setTitle(self.chosenTypology, forState: .Normal)
         }
     }
 

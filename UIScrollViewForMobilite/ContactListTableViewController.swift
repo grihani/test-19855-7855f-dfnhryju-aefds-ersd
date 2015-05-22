@@ -12,9 +12,9 @@ class ContactListTableViewController: UITableViewController {
 
     var contact: [ContactModel] = []
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet var listContacts: UITableView!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
     // MARK: - view life cycle
     
@@ -46,20 +46,26 @@ class ContactListTableViewController: UITableViewController {
     }
     
     // MARK: - Navigation
-    @IBAction func changeContactsList(sender: UISegmentedControl) {
-        switch segmentedControl.selectedSegmentIndex{
+    @IBAction func changeContactList(sender: UISegmentedControl) {
+        switch segmentedControl.selectedSegmentIndex {
         case 0:
             println("contacts par accounts")
             contact = ContactDataModel().contactsPerAccounts()
         case 1:
             if segmentedControl.titleForSegmentAtIndex(1) == "A -> Z" {
+                segmentedControl.removeSegmentAtIndex(1, animated: true)
                 println("contact ordre ascendant")
                 contact = ContactDataModel().allContactsWithOrder(order: "ASC")
-                segmentedControl.setTitle("A -> Z", forSegmentAtIndex: 1)
+//                segmentedControl.setTitle("A -> Z", forSegmentAtIndex: 1)
+                segmentedControl.insertSegmentWithTitle("Z -> A", atIndex: 1, animated: true)
+                var subview: AnyObject = segmentedControl.subviews[1]
+//                subview.backgroundColor = UIColor.blueColor()
             } else {
+                segmentedControl.removeSegmentAtIndex(1, animated: true)
                 println("contact ordre descendant")
                 contact = ContactDataModel().allContactsWithOrder(order: "DESC")
-                segmentedControl.setTitle("Z -> A", forSegmentAtIndex: 1)
+//                segmentedControl.setTitle("Z -> A", forSegmentAtIndex: 1)
+                segmentedControl.insertSegmentWithTitle("A -> Z", atIndex: 1, animated: true)
             }
         case 2:
             println("contact ordre favoris")
@@ -76,23 +82,26 @@ class ContactListTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "chosenContact" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                if let controller = segue.destinationViewController.contentViewController as? ContactDetailsViewController {
+                if let controller = segue.destinationViewController.contentViewController as? DetailContactsViewController {
                     controller.read = true
                     controller.update = false
                     controller.create = false
                     controller.delete = false
                     controller.contact = contact[indexPath.row]
+                    println("Contact choisit : \(controller.contact)")
+                    println()
                 }
             }
         }
         else if segue.identifier == "createContact" {
-            if let controller = segue.destinationViewController.contentViewController as? ContactDetailsViewController {
+            if let controller = segue.destinationViewController.contentViewController as? DetailContactsViewController {
                 controller.read = false
                 controller.update = false
                 controller.create = true
                 controller.delete = false
+                println("création d'un contact")
+                println()
             }
         }
     }
-
 }

@@ -94,6 +94,14 @@
 		48FCB1591ACAF47200A770B2 /* Bouchonnage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1581ACAF47200A770B2 /* Bouchonnage.swift */; };
 		9F2A4AF81AE309ED007359DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4881861E1AC94F6600923A18 /* Images.xcassets */; };
 		EF0908171B0B6CFF006F5208 /* DetailContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0908161B0B6CFF006F5208 /* DetailContactsViewController.swift */; };
+		EF54D1331B0CC545005E9E99 /* MeetingsOfContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1321B0CC545005E9E99 /* MeetingsOfContactViewController.swift */; };
+		EF54D1351B0CC55A005E9E99 /* TasksOfContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1341B0CC55A005E9E99 /* TasksOfContactViewController.swift */; };
+		EF54D1371B0CC841005E9E99 /* TaskDetailsOfContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1361B0CC841005E9E99 /* TaskDetailsOfContactViewController.swift */; };
+		EF54D1391B0CC89B005E9E99 /* MeetingsOfContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1381B0CC89B005E9E99 /* MeetingsOfContactTableViewController.swift */; };
+		EF54D13B1B0CC8B5005E9E99 /* AddAMeetingFromContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D13A1B0CC8B5005E9E99 /* AddAMeetingFromContactViewController.swift */; };
+		EF54D13D1B0CC8CB005E9E99 /* MeetingsDetailFromContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D13C1B0CC8CB005E9E99 /* MeetingsDetailFromContactViewController.swift */; };
+		EF54D13F1B0CC8DF005E9E99 /* ParticipantsOfMeetingsOfContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D13E1B0CC8DF005E9E99 /* ParticipantsOfMeetingsOfContactViewController.swift */; };
+		EF54D1411B0CC900005E9E99 /* DetailsOfParticipantsOfMeetingFromContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1401B0CC900005E9E99 /* DetailsOfParticipantsOfMeetingFromContactViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,6 +215,14 @@
 		48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDataModel.swift; sourceTree = "<group>"; };
 		48FCB1581ACAF47200A770B2 /* Bouchonnage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bouchonnage.swift; sourceTree = "<group>"; };
 		EF0908161B0B6CFF006F5208 /* DetailContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailContactsViewController.swift; sourceTree = "<group>"; };
+		EF54D1321B0CC545005E9E99 /* MeetingsOfContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsOfContactViewController.swift; sourceTree = "<group>"; };
+		EF54D1341B0CC55A005E9E99 /* TasksOfContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksOfContactViewController.swift; sourceTree = "<group>"; };
+		EF54D1361B0CC841005E9E99 /* TaskDetailsOfContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailsOfContactViewController.swift; sourceTree = "<group>"; };
+		EF54D1381B0CC89B005E9E99 /* MeetingsOfContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsOfContactTableViewController.swift; sourceTree = "<group>"; };
+		EF54D13A1B0CC8B5005E9E99 /* AddAMeetingFromContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAMeetingFromContactViewController.swift; sourceTree = "<group>"; };
+		EF54D13C1B0CC8CB005E9E99 /* MeetingsDetailFromContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsDetailFromContactViewController.swift; sourceTree = "<group>"; };
+		EF54D13E1B0CC8DF005E9E99 /* ParticipantsOfMeetingsOfContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantsOfMeetingsOfContactViewController.swift; sourceTree = "<group>"; };
+		EF54D1401B0CC900005E9E99 /* DetailsOfParticipantsOfMeetingFromContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsOfParticipantsOfMeetingFromContactViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,6 +421,8 @@
 		48CFE2881AE7FCE400FFDFE8 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				EF54D1311B0CC521005E9E99 /* TasksOfContact */,
+				EF54D1301B0CC514005E9E99 /* MeetingsOfContact */,
 				4851F8BD1AE8CCB900F1BE9B /* ContactListTableViewController.swift */,
 				48CFE2891AE7FCFC00FFDFE8 /* ContactDetailsViewController.swift */,
 				EF0908161B0B6CFF006F5208 /* DetailContactsViewController.swift */,
@@ -534,6 +552,28 @@
 			name = dataSearchQueries;
 			sourceTree = "<group>";
 		};
+		EF54D1301B0CC514005E9E99 /* MeetingsOfContact */ = {
+			isa = PBXGroup;
+			children = (
+				EF54D1321B0CC545005E9E99 /* MeetingsOfContactViewController.swift */,
+				EF54D1381B0CC89B005E9E99 /* MeetingsOfContactTableViewController.swift */,
+				EF54D13A1B0CC8B5005E9E99 /* AddAMeetingFromContactViewController.swift */,
+				EF54D13C1B0CC8CB005E9E99 /* MeetingsDetailFromContactViewController.swift */,
+				EF54D13E1B0CC8DF005E9E99 /* ParticipantsOfMeetingsOfContactViewController.swift */,
+				EF54D1401B0CC900005E9E99 /* DetailsOfParticipantsOfMeetingFromContactViewController.swift */,
+			);
+			name = MeetingsOfContact;
+			sourceTree = "<group>";
+		};
+		EF54D1311B0CC521005E9E99 /* TasksOfContact */ = {
+			isa = PBXGroup;
+			children = (
+				EF54D1341B0CC55A005E9E99 /* TasksOfContactViewController.swift */,
+				EF54D1361B0CC841005E9E99 /* TaskDetailsOfContactViewController.swift */,
+			);
+			name = TasksOfContact;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -659,6 +699,8 @@
 				48FCB13C1ACADED000A770B2 /* ContactModel.swift in Sources */,
 				481419D11AD58908009B38D6 /* ListMeetingsViewController.swift in Sources */,
 				4824EEB61AF25CDA004F0283 /* UserModel.swift in Sources */,
+				EF54D13B1B0CC8B5005E9E99 /* AddAMeetingFromContactViewController.swift in Sources */,
+				EF54D13F1B0CC8DF005E9E99 /* ParticipantsOfMeetingsOfContactViewController.swift in Sources */,
 				481876D61AE7ACA1005BF26F /* OpportunitiesOfAccountViewController.swift in Sources */,
 				48FCB1521ACAE8DB00A770B2 /* TasksContactsModel.swift in Sources */,
 				48C22FD61ADFE5F200DE3F5F /* ContactsOfAccountViewController.swift in Sources */,
@@ -678,6 +720,7 @@
 				480DA23F1ACC2C5C00F43FA1 /* TasksMeetingsDataModel.swift in Sources */,
 				48D62EEB1AEA6FD100FEEA5A /* TypologyOfContactViewController.swift in Sources */,
 				48CFE28A1AE7FCFC00FFDFE8 /* ContactDetailsViewController.swift in Sources */,
+				EF54D13D1B0CC8CB005E9E99 /* MeetingsDetailFromContactViewController.swift in Sources */,
 				48FCB1541ACAE97E00A770B2 /* TasksMeetingsModel.swift in Sources */,
 				489B31661AC952DB00C04732 /* DetailAccountsViewController.swift in Sources */,
 				48FCB1331ACAD73600A770B2 /* FMDatabaseQueue.m in Sources */,
@@ -708,6 +751,7 @@
 				4824EEB01AF25295004F0283 /* HomepageLoginViewController.swift in Sources */,
 				4824EEBA1AF26617004F0283 /* MotDePasseOublieViewController.swift in Sources */,
 				EF0908171B0B6CFF006F5208 /* DetailContactsViewController.swift in Sources */,
+				EF54D1351B0CC55A005E9E99 /* TasksOfContactViewController.swift in Sources */,
 				481419D31AD58919009B38D6 /* DetailMeetingsViewController.swift in Sources */,
 				4801C85A1AFA4FCF00C0364B /* MenuTableViewController.swift in Sources */,
 				48FCB1481ACAE50000A770B2 /* ContractsModel.swift in Sources */,
@@ -715,6 +759,8 @@
 				488186151AC94F6600923A18 /* AppDelegate.swift in Sources */,
 				480DA2371ACC2BFC00F43FA1 /* MeetingContactDataModel.swift in Sources */,
 				484CDC321AE0E275001E09F8 /* LoadingIndicator.swift in Sources */,
+				EF54D1411B0CC900005E9E99 /* DetailsOfParticipantsOfMeetingFromContactViewController.swift in Sources */,
+				EF54D1331B0CC545005E9E99 /* MeetingsOfContactViewController.swift in Sources */,
 				480DA23B1ACC2C1E00F43FA1 /* TasksAccountDataModel.swift in Sources */,
 				48FCB14C1ACAE61700A770B2 /* AccountContractsModel.swift in Sources */,
 				485A23CA1AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift in Sources */,
@@ -726,11 +772,13 @@
 				4851F8C51AE91F5100F1BE9B /* CountryPickerOfContactViewController.swift in Sources */,
 				48D62EED1AEA6FFE00FEEA5A /* AssistantOfContactViewController.swift in Sources */,
 				488B68B51AEFD4AD00D7652B /* Vue360ViewController.swift in Sources */,
+				EF54D1391B0CC89B005E9E99 /* MeetingsOfContactTableViewController.swift in Sources */,
 				480D04001B0218A800478B8E /* DetailsOfParticipantsOfMeetingsViewController.swift in Sources */,
 				480DA2291ACC2B7600F43FA1 /* OpportunityDataModel.swift in Sources */,
 				481876D31AE78535005BF26F /* TaskDetailsOfAccountViewController.swift in Sources */,
 				48FCB1461ACAE45300A770B2 /* MeetingContactModel.swift in Sources */,
 				489B31611AC9520300C04732 /* SWRevealViewController.m in Sources */,
+				EF54D1371B0CC841005E9E99 /* TaskDetailsOfContactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,28 +8,24 @@
 
 import UIKit
 
-class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
-
+class ContactDetailsViewController: UIViewController, UITextFieldDelegate {
+    
+    let dateFormatter = NSDateFormatter()
+    let disabledColor = UIColor.blackColor()
+    
+    // MARK: - Animation Read/Update View
+    var first = true
     var read: Bool = false {
         didSet {
             if read {
                 updateUIForReading()
-                cellContact?.read = true
-                cellContact?.update = false
-                cellContact?.delete = false
-                cellContact?.create = false
             }
         }
     }
     var update: Bool = false {
         didSet {
             if update {
-                navigationBar.title = "Update contact : " + contact.lastNameContact
                 updateUIForUpdating()
-                cellContact?.read = false
-                cellContact?.update = true
-                cellContact?.delete = false
-                cellContact?.create = false
             }
         }
     }
@@ -44,8 +40,79 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
             accountDetails?.text = account.industryAccount + "\n" + account.phoneAccount + "\n" + account.adressAccount
         }
         accountOfContact?.enabled = false
-        let updateButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "updateContact")
-        self.navigationBar.rightBarButtonItems = [updateButton]
+        self.animationUIForReading()
+    }
+    
+    func animationUIForReading() {
+        if !self.first {
+            UIView.animateWithDuration(0.2,
+                animations: { () -> Void in
+                    self.civilityContact.alpha = 0
+                    self.firstNameContact.alpha = 0
+                    self.lastNameContact.alpha = 0
+                    self.jobTitleContact.alpha = 0
+                    self.birthdateContact.alpha = 0
+                    self.phoneBusinessContact.alpha = 0
+                    self.countryContact.alpha = 0
+                    self.phoneMobileContact.alpha = 0
+                    self.emailContact.alpha = 0
+                    self.workingAdressContact.alpha = 0
+                    self.linkedinProfileContact.alpha = 0
+                    self.preferredLanguageContact.alpha = 0
+                    self.typeContact.alpha = 0
+                    self.idContact1.alpha = 0
+                }) { animation in
+                    self.civilityContact.alpha = 01
+                    self.firstNameContact.alpha = 01
+                    self.lastNameContact.alpha = 01
+                    self.jobTitleContact.alpha = 01
+                    self.birthdateContact.alpha = 01
+                    self.phoneBusinessContact.alpha = 01
+                    self.countryContact.alpha = 01
+                    self.phoneMobileContact.alpha = 01
+                    self.emailContact.alpha = 01
+                    self.workingAdressContact.alpha = 01
+                    self.linkedinProfileContact.alpha = 01
+                    self.preferredLanguageContact.alpha = 01
+                    self.typeContact.alpha = 01
+                    self.idContact1.alpha = 01
+                    self.appearAfterEndAnimation()
+            }
+        } else {
+            self.appearAfterEndAnimation()
+            self.first = false
+        }
+    }
+    
+    func appearAfterEndAnimation() {
+        self.civilityContact?.enabled = false
+        self.firstNameContact?.borderStyle = .None
+        self.firstNameContact?.textAlignment = NSTextAlignment.Left
+        self.firstNameContact?.enabled = false
+        self.lastNameContact?.borderStyle = UITextBorderStyle.None
+        self.lastNameContact?.enabled = false
+        self.jobTitleContact?.borderStyle = .None
+        self.jobTitleContact?.enabled = false
+        self.birthdateContact?.enabled = false
+        self.birthdateContact?.contentHorizontalAlignment = .Left
+        self.phoneBusinessContact?.enabled = false
+        self.phoneBusinessContact?.borderStyle = .None
+        self.countryContact?.enabled = false
+        self.countryContact?.contentHorizontalAlignment = .Left
+        self.phoneMobileContact?.enabled = false
+        self.phoneMobileContact?.borderStyle = .None
+        self.emailContact?.enabled = false
+        self.emailContact?.borderStyle = .None
+        self.workingAdressContact?.editable = false
+        self.workingAdressContact?.layer.borderWidth = 0
+        self.linkedinProfileContact?.enabled = false
+        self.linkedinProfileContact?.contentHorizontalAlignment = .Left
+        self.preferredLanguageContact?.enabled = false
+        self.preferredLanguageContact?.contentHorizontalAlignment = .Left
+        self.typeContact?.enabled = false
+        self.typeContact?.contentHorizontalAlignment = .Left
+        self.idContact1?.enabled = false
+        self.idContact1?.contentHorizontalAlignment = .Left
     }
     
     func updateUIForUpdating() {
@@ -54,9 +121,43 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
             accountDetails?.text = account.industryAccount + "\n" + account.phoneAccount + "\n" + account.adressAccount
         }
         accountOfContact?.enabled = true
-        let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveContact")
-        self.navigationBar.rightBarButtonItems = [saveButton]
+        self.animationUIForUpdating()
     }
+    
+    func animationUIForUpdating() {
+        
+        self.civilityContact.enabled = true
+        self.firstNameContact.borderStyle = UITextBorderStyle.RoundedRect
+        self.firstNameContact.textAlignment = NSTextAlignment.Left
+        self.firstNameContact.enabled = true
+        self.lastNameContact.borderStyle = UITextBorderStyle.RoundedRect
+        self.lastNameContact.enabled = true
+        self.jobTitleContact.borderStyle = .RoundedRect
+        self.jobTitleContact.enabled = true
+        self.birthdateContact.enabled = true
+        self.birthdateContact.contentHorizontalAlignment = .Left
+        self.phoneBusinessContact.enabled = true
+        self.phoneBusinessContact.borderStyle = .RoundedRect
+        self.countryContact.enabled = true
+        self.countryContact.contentHorizontalAlignment = .Left
+        self.phoneMobileContact.enabled = true
+        self.phoneMobileContact.borderStyle = .RoundedRect
+        self.emailContact.enabled = true
+        self.emailContact.borderStyle = .RoundedRect
+        self.workingAdressContact.editable = true
+        self.workingAdressContact.layer.borderWidth = 1
+        self.workingAdressContact.layer.borderColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1).CGColor
+        
+        self.linkedinProfileContact.enabled = true
+        self.linkedinProfileContact.contentHorizontalAlignment = .Left
+        self.preferredLanguageContact.enabled = true
+        self.preferredLanguageContact.contentHorizontalAlignment = .Left
+        self.typeContact.enabled = true
+        self.typeContact.contentHorizontalAlignment = .Left
+        self.idContact1.enabled = true
+        self.idContact1.contentHorizontalAlignment = .Left
+    }
+    
     
     func updateContact() {
         self.update = true
@@ -74,27 +175,174 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     
     var contact: ContactModel! {
         didSet {
-            idContact = contact.idContact
-            jobTitleContact = contact.jobTitleContact
-            countryContact = contact.countryContact
-            civilityContact = contact.civilityContact
-            firstNameContact = contact.firstNameContact
-            lastNameContact = contact.lastNameContact
-            typeContact = contact.typeContact
-            birthdateContact = contact.birthdateContact
-            phoneBusinessContact = contact.phoneBusinessContact
-            phoneMobileContact = contact.phoneMobileContact
-            emailContact = contact.emailContact
-            preferredLanguageContact = contact.preferredLanguageContact
-            workingAdressContact = contact.workingAdressContact
-            linkedinProfileContact = contact.linkedinProfileContact
-            idContact1 = contact.idContact1
-            favoriteContact = contact.favoriteContact
-            
-            account = AccountDataModel().accountOfContact(contact: contact)
-            navigationBar?.title = contact.lastNameContact
+            if contact != nil {
+                self.civilityContact?.setTitle(contact.civilityContact, forState: .Normal)
+                self.lastNameContact?.text = contact.lastNameContact
+                self.firstNameContact?.text = contact.firstNameContact
+                self.jobTitleContact?.text = contact.jobTitleContact
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let birthdate = dateFormatter.dateFromString(contact.birthdateContact)
+                dateFormatter.dateStyle = .MediumStyle
+                dateFormatter.timeStyle = .NoStyle
+                let todayDate = dateFormatter.stringFromDate(birthdate!)
+                self.birthdateContact?.setTitle(todayDate, forState: .Normal)
+                self.phoneBusinessContact?.text = contact.phoneBusinessContact
+                self.phoneMobileContact?.text = contact.phoneMobileContact
+                self.workingAdressContact?.text = contact.workingAdressContact
+                self.emailContact?.text = contact.emailContact
+                self.linkedinProfileContact?.setTitle(contact.linkedinProfileContact, forState: .Normal)
+                self.countryContact?.setTitle(contact.countryContact, forState: .Normal)
+                self.preferredLanguageContact?.setTitle(contact.preferredLanguageContact, forState: .Normal)
+                self.typeContact?.setTitle(contact.typeContact, forState: .Normal)
+                self.idContact1?.setTitle(String(contact.idContact1), forState: .Normal)
+                self.read = true
+            }
         }
     }
+    
+    @IBOutlet weak var civilityContact: UIButton! {
+        didSet {
+            if let contact = contact {
+                self.civilityContact.setTitle(contact.civilityContact, forState: .Normal)
+            } else {
+                civilityContact.setTitleColor(disabledColor, forState: .Disabled)
+                civilityContact.setTitle("Mr", forState: .Normal)
+            }
+        }
+    }
+    @IBOutlet weak var firstNameContact: UITextField! {
+        didSet {
+            if let contact = contact {
+                self.firstNameContact.text = contact.firstNameContact
+            }
+        }
+    }
+    @IBOutlet weak var lastNameContact: UITextField! {
+        didSet {
+            if let contact = contact {
+                self.lastNameContact.text = contact.lastNameContact
+            }
+        }
+    }
+    @IBOutlet weak var jobTitleContact: UITextField! {
+        didSet {
+            if let contact = contact {
+                self.jobTitleContact.text = contact.jobTitleContact
+            }
+        }
+    }
+    @IBOutlet weak var birthdateContact: UIButton! {
+        didSet {
+            if let contact = contact {
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let birthdate = dateFormatter.dateFromString(contact.birthdateContact)
+                dateFormatter.dateStyle = .MediumStyle
+                dateFormatter.timeStyle = .NoStyle
+                let todayDate = dateFormatter.stringFromDate(birthdate!)
+                self.birthdateContact.setTitle(todayDate, forState: .Normal)
+            } else {
+                birthdateContact.setTitleColor(disabledColor, forState: .Disabled)
+                let chosenDate = dateToString(NSDate())
+                birthdateContact.setTitle(chosenDate, forState: .Normal)
+            }
+        }
+    }
+    @IBOutlet weak var phoneBusinessContact: UITextField! {
+        didSet {
+            if let contact = contact {
+                self.phoneBusinessContact?.text = contact.phoneBusinessContact
+            }
+        }
+    }
+    @IBOutlet weak var countryContact: UIButton! {
+        didSet {
+            if let contact = contact {
+                self.countryContact.setTitle(contact.countryContact, forState: .Normal)
+            } else {
+                countryContact.setTitleColor(disabledColor, forState: .Disabled)
+                countryContact.setTitle("France", forState: .Normal)
+            }
+        }
+    }
+    @IBOutlet weak var phoneMobileContact: UITextField! {
+        didSet {
+            if let contact = contact {
+                self.phoneMobileContact.text = contact.phoneMobileContact
+            }
+        }
+    }
+    @IBOutlet weak var emailContact: UITextField! {
+        didSet {
+            if let contact = contact {
+                self.emailContact.text = contact.emailContact
+            }
+        }
+    }
+    @IBOutlet weak var workingAdressContact: UITextView! {
+        didSet {
+            if let contact = contact {
+                self.workingAdressContact.text = contact.workingAdressContact
+            }
+            workingAdressContact.layer.cornerRadius = 8
+            workingAdressContact.layer.borderColor = UIColor.grayColor().CGColor
+            workingAdressContact.layer.borderWidth = 1
+        }
+    }
+    @IBOutlet weak var linkedinProfileContact: UIButton! {
+        didSet {
+            if let contact = contact {
+                self.linkedinProfileContact.setTitle(contact.linkedinProfileContact, forState: .Normal)
+            } else {
+                linkedinProfileContact.setTitleColor(disabledColor, forState: .Disabled)
+            }
+        }
+    }
+    @IBOutlet weak var preferredLanguageContact: UIButton! {
+        didSet {
+            if let contact = contact {
+                self.preferredLanguageContact.setTitle(contact.preferredLanguageContact, forState: .Normal)
+            } else {
+                preferredLanguageContact.setTitleColor(disabledColor, forState: .Disabled)
+            }
+        }
+    }
+    @IBOutlet weak var typeContact: UIButton!{
+        didSet {
+            if let contact = contact {
+                self.typeContact.setTitle(contact.typeContact, forState: .Normal)
+            } else {
+                typeContact.setTitleColor(disabledColor, forState: .Disabled)
+            }
+        }
+    }
+    @IBOutlet weak var idContact1: UIButton!{
+        didSet {
+            if let contact = contact {
+                self.idContact1.setTitle(String(contact.idContact1), forState: .Normal)
+            } else {
+                idContact1.setTitleColor(disabledColor, forState: .Disabled)
+            }
+        }
+    }
+    
+    func dateToString(date: NSDate) -> String {
+        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.timeStyle = .NoStyle
+        let chosenDate = dateFormatter.stringFromDate(date)
+        return chosenDate
+    }
+    
+    func rearrangedStringFromDate(dateInDB: String) -> String {
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let birthdate = dateFormatter.dateFromString(dateInDB) {
+            dateFormatter.dateStyle = .MediumStyle
+            dateFormatter.timeStyle = .NoStyle
+            let chosenDate = dateFormatter.stringFromDate(birthdate)
+            return chosenDate
+        }
+        return "Non procured"
+    }
+    
     @IBOutlet weak var leftSlidingBar: UIView!
     
     @IBOutlet weak var accountDetails: UILabel! {
@@ -114,12 +362,6 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    var cellContact : ContactCell! {
-        didSet {
-            cellContact.contact = self.contact
-        }
-    }
-    
     @IBOutlet weak var accountOfContact: UIButton! {
         didSet {
             accountOfContact.setTitleColor(UIColor.blackColor(), forState: .Disabled)
@@ -134,20 +376,6 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var navigationBar: UINavigationItem!
     
     var idContact: Int = 0
-    var jobTitleContact: String = ""
-    var countryContact: String = ""
-    var civilityContact: String = ""
-    var firstNameContact: String = ""
-    var lastNameContact: String = ""
-    var typeContact: String = ""
-    var birthdateContact: String = ""
-    var phoneBusinessContact: String = ""
-    var phoneMobileContact: String = ""
-    var emailContact: String = ""
-    var preferredLanguageContact: String = ""
-    var workingAdressContact: String = ""
-    var linkedinProfileContact: String = ""
-    var idContact1: Int = 0
     var favoriteContact: Int = 0
     
     override func viewDidLoad() {
@@ -157,25 +385,14 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-//        println(self.presentingViewController)
-//        println(self.presentingViewController?.contentViewController)
-//        println(self.presentingViewController?.contentViewController.presenterViewController)
-        contact = ContactDataModel().getFirstFavoriteContact()
-        println("idContact: \(contact.idContact)")
-        println("jobTitleContact: \(contact.jobTitleContact)")
-        println("countryContact: \(contact.countryContact)")
-        println("civilityContact: \(contact.civilityContact)")
-        println("firstNameContact: \(contact.firstNameContact)")
-        println("lastNameContact: \(contact.lastNameContact)")
-        println("typeContact: \(contact.typeContact)")
-        println("birthdateContact: \(contact.birthdateContact)")
-        println("phoneBusinessContact: \(contact.phoneBusinessContact)")
-        println("phoneMobileContact: \(contact.phoneMobileContact)")
-        println("emailContact: \(contact.emailContact)")
-        println("preferredLanguageContact: \(contact.preferredLanguageContact)")
-        println("workingAdressContact: \(contact.workingAdressContact)")
-        println("linkedinProfileContact: \(contact.linkedinProfileContact)")
-        println("idContact1: \(contact.idContact1)")
+        if contact == nil {
+            contact = ContactDataModel().getFirstFavoriteContact()
+        }
+        if self.read {
+            updateUIForReading()
+        } else if self.update {
+            updateUIForUpdating()
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -185,23 +402,6 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         println("hello World")
     }
     
-    // Mark: - tableview data source
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellForShowingcontact") as ContactCell
-        cell.contact = self.contact
-        cell.read = self.read
-        cell.update = self.update
-        cell.delete = self.delete
-        cell.create = self.create
-        cellContact = cell
-        return cell
-    }
-
     @IBAction func rewind(sender: UIBarButtonItem) {
         println(self.presentingViewController)
         let presentingController = self.presentingViewController?.contentViewController as? HomepageUserViewController
@@ -226,8 +426,8 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         }
         else if segue.identifier == "civility of contact" {
             if let civilityView = segue.destinationViewController as? CivilityPickerViewController {
-                civilityView.civilityButton = cellContact.civilityContact
-                civilityView.civilityContact = self.civilityContact
+                civilityView.civilityButton = self.civilityContact
+                civilityView.civilityContact = self.civilityContact.currentTitle!
                 if let ppc = civilityView.popoverPresentationController {
                     let minimumSize = civilityView.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
                     civilityView.preferredContentSize = minimumSize
@@ -236,8 +436,8 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         }
         else if segue.identifier == "birthday of contact" {
             if let birthdayView = segue.destinationViewController as? BirthDayPickerOfContactViewController {
-                birthdayView.date = cellContact.birthdateContact
-                birthdayView.birthdateContact = self.birthdateContact
+                birthdayView.date = self.birthdateContact
+                birthdayView.birthdateContact = self.birthdateContact.currentTitle!
                 if let ppc = birthdayView.popoverPresentationController {
                     let minimumSize = birthdayView.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
                     birthdayView.preferredContentSize = minimumSize
@@ -249,18 +449,18 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
                 if let ppc = countryView.popoverPresentationController {
                     let minimumSize = countryView.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
                     countryView.preferredContentSize = minimumSize
-                    countryView.countryContact = self.countryContact
-                    countryView.chosenCountryButton = cellContact.countryContact
+                    countryView.countryContact = self.countryContact.currentTitle!
+                    countryView.chosenCountryButton = self.countryContact
                 }
             }
         }
         else if segue.identifier == "linkedin of contact" {
             if let linkedinView = segue.destinationViewController as? LinkedinOfContactViewController {
                 if self.linkedinProfileContact == "" {
-                    linkedinProfileContact = "https://www.linkedin.com/vsearch/f?type=all&keywords=&orig=GLHD&rsid=&pageKey=oz-winner&trkInfo=&search=Search"
+                    linkedinProfileContact.setTitle("https://www.linkedin.com/vsearch/f?type=all&keywords=&orig=GLHD&rsid=&pageKey=oz-winner&trkInfo=&search=Search", forState: .Normal)
                 }
-                linkedinView.linkedinProfileContact = self.linkedinProfileContact
-                linkedinView.linkedinProfileContactButton = cellContact.linkedinProfileContact
+                linkedinView.linkedinProfileContact = contact.linkedinProfileContact
+                linkedinView.linkedinProfileContactButton = self.linkedinProfileContact
                 if let ppc = linkedinView.popoverPresentationController {
                     let maximumSize = linkedinView.view.systemLayoutSizeFittingSize(UILayoutFittingExpandedSize)
                     let width: CGFloat = 921
@@ -270,8 +470,8 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         }
         else if segue.identifier == "preferred language of contact" {
             if let preferredLanguageView = segue.destinationViewController as? PreferredLanguageOfContactViewController {
-                preferredLanguageView.preferredLanguageContact = self.preferredLanguageContact
-                preferredLanguageView.preferredLanguage = cellContact.preferredLanguageContact
+                preferredLanguageView.preferredLanguageContact = self.preferredLanguageContact.currentTitle!
+                preferredLanguageView.preferredLanguage = self.preferredLanguageContact
                 if let ppc = preferredLanguageView.popoverPresentationController {
                     let minimumSize = preferredLanguageView.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
                     preferredLanguageView.preferredContentSize = minimumSize
@@ -291,8 +491,8 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         }
         else if segue.identifier == "typology of contact" {
             if let typologyOfContact = segue.destinationViewController as? TypologyOfContactViewController {
-                typologyOfContact.typologyOfContact = cellContact.typeContact
-                typologyOfContact.chosenTypology = self.typeContact
+                typologyOfContact.typologyOfContact = self.typeContact
+                typologyOfContact.chosenTypology = self.typeContact.currentTitle!
                 if let ppc = typologyOfContact.popoverPresentationController {
                     let minimumSize = typologyOfContact.view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
                     typologyOfContact.preferredContentSize = minimumSize
@@ -374,237 +574,5 @@ class ContactDetailsViewController: UIViewController, UITableViewDelegate, UITab
         println("linkedinProfileContact: \(linkedinProfileContact)")
         println("idContact1: \(idContact1)")
         //checkStatusOfCreationOfContact()
-    }
-}
-
-class ContactCell: UITableViewCell {
-    let dateFormatter = NSDateFormatter()
-    let disabledColor = UIColor.blackColor()
-    
-    var first = true
-    var read: Bool = false {
-        didSet {
-            if read {
-                updateCellUIForReading()
-            }
-        }
-    }
-    var update: Bool = false {
-        didSet {
-            if update {
-                updateCellUIForUpdating()
-            }
-        }
-    }
-    var delete = false
-    var create = false
-    
-    func updateCellUIForReading() {
-        if !self.first {
-            UIView.animateWithDuration(0.2,
-                animations: { () -> Void in
-                    self.civilityContact.alpha = 0
-                    self.firstNameContact.alpha = 0
-                    self.lastNameContact.alpha = 0
-                    self.jobTitleContact.alpha = 0
-                    self.birthdateContact.alpha = 0
-                    self.phoneBusinessContact.alpha = 0
-                    self.countryContact.alpha = 0
-                    self.phoneMobileContact.alpha = 0
-                    self.emailContact.alpha = 0
-                    self.workingAdressContact.alpha = 0
-                    self.linkedinProfileContact.alpha = 0
-                    self.preferredLanguageContact.alpha = 0
-                    self.typeContact.alpha = 0
-                    self.idContact1.alpha = 0
-                }) { animation in
-                    self.civilityContact.alpha = 01
-                    self.firstNameContact.alpha = 01
-                    self.lastNameContact.alpha = 01
-                    self.jobTitleContact.alpha = 01
-                    self.birthdateContact.alpha = 01
-                    self.phoneBusinessContact.alpha = 01
-                    self.countryContact.alpha = 01
-                    self.phoneMobileContact.alpha = 01
-                    self.emailContact.alpha = 01
-                    self.workingAdressContact.alpha = 01
-                    self.linkedinProfileContact.alpha = 01
-                    self.preferredLanguageContact.alpha = 01
-                    self.typeContact.alpha = 01
-                    self.idContact1.alpha = 01
-                    self.appearAfterEndAnimation()
-            }
-        } else {
-            self.appearAfterEndAnimation()
-            self.first = false
-        }
-        
-        
-    }
-    
-    func appearAfterEndAnimation() {
-        self.civilityContact.enabled = false
-        self.firstNameContact.borderStyle = .None
-        self.firstNameContact.textAlignment = NSTextAlignment.Left
-        self.firstNameContact.enabled = false
-        self.lastNameContact.borderStyle = UITextBorderStyle.None
-        self.lastNameContact.enabled = false
-        self.jobTitleContact.borderStyle = .None
-        self.jobTitleContact.enabled = false
-        self.birthdateContact.enabled = false
-        self.birthdateContact.contentHorizontalAlignment = .Left
-        self.phoneBusinessContact.enabled = false
-        self.phoneBusinessContact.borderStyle = .None
-        self.countryContact.enabled = false
-        self.countryContact.contentHorizontalAlignment = .Left
-        self.phoneMobileContact.enabled = false
-        self.phoneMobileContact.borderStyle = .None
-        self.emailContact.enabled = false
-        self.emailContact.borderStyle = .None
-        self.workingAdressContact.editable = false
-        self.workingAdressContact.layer.borderWidth = 0
-        self.linkedinProfileContact.enabled = false
-        self.linkedinProfileContact.contentHorizontalAlignment = .Left
-        self.preferredLanguageContact.enabled = false
-        self.preferredLanguageContact.contentHorizontalAlignment = .Left
-        self.typeContact.enabled = false
-        self.typeContact.contentHorizontalAlignment = .Left
-        self.idContact1.enabled = false
-        self.idContact1.contentHorizontalAlignment = .Left
-        
-    }
-    
-    func updateCellUIForUpdating() {
-        
-        self.civilityContact.enabled = true
-        self.firstNameContact.borderStyle = UITextBorderStyle.RoundedRect
-        self.firstNameContact.textAlignment = NSTextAlignment.Left
-        self.firstNameContact.enabled = true
-        self.lastNameContact.borderStyle = UITextBorderStyle.RoundedRect
-        self.lastNameContact.enabled = true
-        self.jobTitleContact.borderStyle = .RoundedRect
-        self.jobTitleContact.enabled = true
-        self.birthdateContact.enabled = true
-        self.birthdateContact.contentHorizontalAlignment = .Left
-        self.phoneBusinessContact.enabled = true
-        self.phoneBusinessContact.borderStyle = .RoundedRect
-        self.countryContact.enabled = true
-        self.countryContact.contentHorizontalAlignment = .Left
-        self.phoneMobileContact.enabled = true
-        self.phoneMobileContact.borderStyle = .RoundedRect
-        self.emailContact.enabled = true
-        self.emailContact.borderStyle = .RoundedRect
-        self.workingAdressContact.editable = true
-        self.workingAdressContact.layer.borderWidth = 1
-        self.workingAdressContact.layer.borderColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1).CGColor
-
-        self.linkedinProfileContact.enabled = true
-        self.linkedinProfileContact.contentHorizontalAlignment = .Left
-        self.preferredLanguageContact.enabled = true
-        self.preferredLanguageContact.contentHorizontalAlignment = .Left
-        self.typeContact.enabled = true
-        self.typeContact.contentHorizontalAlignment = .Left
-        self.idContact1.enabled = true
-        self.idContact1.contentHorizontalAlignment = .Left
-    }
-    
-    var contact: ContactModel! {
-        didSet {
-            if contact != nil {
-                contact = ContactDataModel().getFirstFavoriteContact()
-                self.civilityContact.setTitle(contact.civilityContact, forState: .Normal)
-                self.lastNameContact.text = contact.lastNameContact
-                self.firstNameContact.text = contact.firstNameContact
-                self.jobTitleContact.text = contact.jobTitleContact
-                dateFormatter.dateFormat = "yyyy-MM-dd"
-                let birthdate = dateFormatter.dateFromString(contact.birthdateContact)
-                dateFormatter.dateStyle = .MediumStyle
-                dateFormatter.timeStyle = .NoStyle
-                let todayDate = dateFormatter.stringFromDate(birthdate!)
-                self.birthdateContact.setTitle(todayDate, forState: .Normal)
-                self.phoneBusinessContact.text = contact.phoneBusinessContact
-                self.phoneMobileContact.text = contact.phoneMobileContact
-                self.workingAdressContact.text = contact.workingAdressContact
-                self.emailContact.text = contact.emailContact
-                self.linkedinProfileContact.setTitle(contact.linkedinProfileContact, forState: .Normal)
-                self.countryContact.setTitle(contact.countryContact, forState: .Normal)
-                self.preferredLanguageContact.setTitle(contact.preferredLanguageContact, forState: .Normal)
-                self.typeContact.setTitle(contact.typeContact, forState: .Normal)
-                self.idContact1.setTitle(String(contact.idContact1), forState: .Normal)
-                
-                self.read = true
-            }
-        }
-    }
-    
-    @IBOutlet weak var civilityContact: UIButton! {
-        didSet {
-            civilityContact.setTitleColor(disabledColor, forState: .Disabled)
-            civilityContact.setTitle("Mr", forState: .Normal)
-        }
-    }
-    @IBOutlet weak var firstNameContact: UITextField!
-    @IBOutlet weak var lastNameContact: UITextField!
-    @IBOutlet weak var jobTitleContact: UITextField!
-    @IBOutlet weak var birthdateContact: UIButton! {
-        didSet {
-            birthdateContact.setTitleColor(disabledColor, forState: .Disabled)
-            let chosenDate = dateToString(NSDate())
-            birthdateContact.setTitle(chosenDate, forState: .Normal)
-        }
-    }
-    @IBOutlet weak var phoneBusinessContact: UITextField!
-    @IBOutlet weak var countryContact: UIButton! {
-        didSet {
-            countryContact.setTitleColor(disabledColor, forState: .Disabled)
-            countryContact.setTitle("France", forState: .Normal)
-        }
-    }
-    @IBOutlet weak var phoneMobileContact: UITextField!
-    @IBOutlet weak var emailContact: UITextField!
-    @IBOutlet weak var workingAdressContact: UITextView! {
-        didSet {
-            workingAdressContact.layer.cornerRadius = 8
-            workingAdressContact.layer.borderColor = UIColor.grayColor().CGColor
-            workingAdressContact.layer.borderWidth = 1
-        }
-    }
-    @IBOutlet weak var linkedinProfileContact: UIButton! {
-        didSet {
-            linkedinProfileContact.setTitleColor(disabledColor, forState: .Disabled)
-        }
-    }
-    @IBOutlet weak var preferredLanguageContact: UIButton! {
-        didSet {
-            preferredLanguageContact.setTitleColor(disabledColor, forState: .Disabled)
-        }
-    }
-    @IBOutlet weak var typeContact: UIButton!{
-        didSet {
-            typeContact.setTitleColor(disabledColor, forState: .Disabled)
-        }
-    }
-    @IBOutlet weak var idContact1: UIButton!{
-        didSet {
-            idContact1.setTitleColor(disabledColor, forState: .Disabled)
-        }
-    }
-    
-    func dateToString(date: NSDate) -> String {
-        dateFormatter.dateStyle = .MediumStyle
-        dateFormatter.timeStyle = .NoStyle
-        let chosenDate = dateFormatter.stringFromDate(date)
-        return chosenDate
-    }
-    
-    func rearrangedStringFromDate(dateInDB: String) -> String {
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        if let birthdate = dateFormatter.dateFromString(dateInDB) {
-            dateFormatter.dateStyle = .MediumStyle
-            dateFormatter.timeStyle = .NoStyle
-            let chosenDate = dateFormatter.stringFromDate(birthdate)
-            return chosenDate
-        }
-        return "Non procured"
     }
 }

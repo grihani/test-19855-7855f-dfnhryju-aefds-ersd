@@ -8,8 +8,29 @@
 
 import UIKit
 
-class DetailContactsViewController: UIViewController {
+class DetailContactsViewController: UIViewController, UIScrollViewDelegate {
     
+    // MARK : - Read/Update
+    var read: Bool = false
+    var update: Bool = false
+    var delete: Bool = false
+    var create: Bool = false
+    
+    func updateContact() {
+        self.update = true
+        self.read = false
+        self.delete = false
+        self.create = false
+    }
+    
+    func saveContact() {
+        self.update = false
+        self.read = true
+        self.delete = false
+        self.create = false
+    }
+    
+    // MARK: - IBOutlet
     @IBOutlet weak var showList: UIView!
     @IBOutlet weak var listeButtonForPages: UIView!
     @IBOutlet weak var lineUnderMenu: UIView! {
@@ -45,14 +66,18 @@ class DetailContactsViewController: UIViewController {
         performSegueWithIdentifier("show Menu", sender: sender)
     }
     @IBOutlet weak var navigationBar: UINavigationItem!
+    @IBOutlet weak var editSaveButton: UIBarButtonItem!
     
+    // MARK: - Variable
     var contact: ContactModel!
     
-    var identifiers: [String] = ["Contacts Details", "Meetings", "Activities"]
+    var identifiers: [String] = ["Contacts Details", "Contacts Meetings", "Contacts Tasks"]
     var contactDetail: ContactDetailsViewController = ContactDetailsViewController()
+    var contactMeetings: MeetingsOfContactViewController = MeetingsOfContactViewController()
+    var contactActivities: TasksOfContactViewController = TasksOfContactViewController()
     var pageControllers: [UIViewController] = []
     var pageViews: [UIView] = []
-    var firstPage = 1
+    var firstPage = 0
     
     var viewDidItsLayout: Bool = false
     
@@ -60,6 +85,11 @@ class DetailContactsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        createMenuButtons(identifiers, lastCreatedFrame: CGRectZero, view: listeButtonForPages)
+        
+        colorButtons(firstPage)
+        
         navigationItem.leftBarButtonItems?.append(homeButton)
         navigationItem.leftBarButtonItems?.append(menuButton)
     }
@@ -91,6 +121,18 @@ class DetailContactsViewController: UIViewController {
             viewDidItsLayout = true
         }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if contact == nil {
+            contact = ContactDataModel().getFirstFavoriteContact()
+        }
+        if self.read {
+            self.contactDetail.updateUIForReading()
+        } else if self.update {
+            self.contactDetail.updateUIForUpdating()
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -102,8 +144,17 @@ class DetailContactsViewController: UIViewController {
         var viewControllers: [UIViewController] = [UIViewController]()
         if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[0]) as? ContactDetailsViewController {
             viewControllers.append(viewController)
+            viewController.contact = self.contact
             self.contactDetail = viewController
-            
+        }
+        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[1]) as? MeetingsOfContactViewController {
+            viewControllers.append(viewController)
+            self.contactMeetings = viewController
+            self.contactMeetings.contact = self.contact
+        }
+        if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[2]) as? TasksOfContactViewController {
+            viewControllers.append(viewController)
+            self.contactActivities = viewController
         }
         return viewControllers
     }
@@ -159,12 +210,50 @@ class DetailContactsViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    // creates the button to add to the view
+    func buttonForPages(view: UIView) {
+        let frame = view.frame
+        var i = 0
+        let width = CGFloat(100)
+        for identifier in identifiers {
+            
+            let button = UIButton(frame: CGRect(x: CGFloat(i) * width, y: 0, width: 92, height: 37))
+            button.setTitle(identifier, forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+            button.addTarget(self, action: Selector("goPage:"), forControlEvents: UIControlEvents.TouchUpInside)
+            button.layer.cornerRadius = 8
+            button.sizeToFit()
+            view.addSubview(button)
+            buttonPages.append(button)
+            
+            i++
+        }
+    }
+    
     // colorier les boutons avec la couleur choisie
     func colorButtons(page:Int) {
         for button in buttonPages {
             button.backgroundColor = blueUncheckedColor
         }
         buttonPages[page].backgroundColor = blueCheckedColor
+    }
+    
+    func createMenuButtons(menuTitles: [String], lastCreatedFrame: CGRect, view:UIView) {
+        if menuTitles != [] {
+            var menu = menuTitles
+            var frame = lastCreatedFrame
+            frame.origin.x = frame.origin.x + 8 + frame.size.width
+            frame.size.height = 37
+            let button = UIButton(frame: frame)
+            let firstItemOfMenuTitles = menu.removeAtIndex(0)
+            button.setTitle(firstItemOfMenuTitles, forState: .Normal)
+            
+            button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+            button.addTarget(self, action: Selector("goPage:"), forControlEvents: UIControlEvents.TouchUpInside)
+            view.addSubview(button)
+            buttonPages.append(button)
+            createMenuButtons(menu, lastCreatedFrame: button.frame, view: view)
+        }
     }
     
     @IBAction func favorisButtonPressed(sender: UIButton) {
@@ -230,5 +319,21 @@ class DetailContactsViewController: UIViewController {
         } else {
             leftListShown = false
         }
+    }
+    
+    @IBAction func editAccount(sender: UIBarButtonItem) {
+        self.contactDetail.update = true
+        self.contactDetail.updateUIForUpdating()
+        navigationBar.title = "Update contact : " + contact.lastNameContact
+        let editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveAccount:")
+        navigationBar.rightBarButtonItem = editButton
+    }
+    
+    @IBAction func saveAccount(sender: UIBarButtonItem) {
+        self.contactDetail.read = true
+        self.contactDetail.updateUIForReading()
+        navigationBar.title = "\(contact.lastNameContact)"
+        let editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "editAccount:")
+        navigationBar.rightBarButtonItem = editButton
     }
 }

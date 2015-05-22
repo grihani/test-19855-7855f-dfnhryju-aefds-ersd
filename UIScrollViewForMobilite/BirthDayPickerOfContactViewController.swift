@@ -44,7 +44,7 @@ class BirthDayPickerOfContactViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         birthdateContact = dateFormatter.stringFromDate(dateOfPicker)
         if let presentingViewController = self.presentingViewController?.presenterViewController as? ContactDetailsViewController {
-            presentingViewController.birthdateContact = self.birthdateContact
+            presentingViewController.birthdateContact.setTitle(self.birthdateContact, forState: .Normal)
         }
     }
 
