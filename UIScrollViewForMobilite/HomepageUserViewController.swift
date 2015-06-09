@@ -242,7 +242,7 @@ class HomepageUserViewController: UIViewController, UITableViewDataSource, UITab
     
     // MARK: - TableViewDelegate
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("meetingsUser", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("meetingsUser", forIndexPath: indexPath) as! UITableViewCell
         let row = indexPath.row
         tableView.rowHeight = 72
         dateFormatter.timeStyle = .ShortStyle

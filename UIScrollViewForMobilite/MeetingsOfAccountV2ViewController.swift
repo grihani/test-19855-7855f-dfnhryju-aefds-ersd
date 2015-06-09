@@ -132,7 +132,7 @@ class MeetingsOfAccountV2ViewController: UIViewController, UITableViewDataSource
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifiers.meetingsOfDay, forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifiers.meetingsOfDay, forIndexPath: indexPath) as! UITableViewCell
         cell.textLabel?.text = meetings[indexPath.row].subjectMeeting
         cell.detailTextLabel?.text = fromSQLiteDateToFullyCustomizedDateOnSwift(meetings[indexPath.row].dateBeginMeeting)
         return cell
@@ -156,7 +156,7 @@ class MeetingsOfAccountV2ViewController: UIViewController, UITableViewDataSource
             updateMeetings()
         }
         else if segue.identifier == segueIdentifiers.segueOfAddMeetingPopover {
-            let destinationViewController = segue.destinationViewController.contentViewController as AddAMeetingFromAccountsViewController
+            let destinationViewController = segue.destinationViewController.contentViewController as! AddAMeetingFromAccountsViewController
             var maximumSize = destinationViewController.view.systemLayoutSizeFittingSize(UILayoutFittingExpandedSize)
             
             maximumSize.width = 680

@@ -66,6 +66,119 @@ class Vue360ViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         }
     }
     
+    @IBOutlet weak var numbersOfLeftDoughnut: UILabel! {
+        didSet {
+            if let leftDoughnut = leftDoughnut {
+                numbersOfLeftDoughnut.text = "\(leftDoughnut.doneActivities)/\(leftDoughnut.totalActivities)"
+            }
+        }
+    }
+    @IBOutlet weak var leftDoughnut: DoughnutsForVue360! {
+        didSet {
+            leftDoughnut.background = UIColor(red: 220/255, green: 230/255, blue: 242/255, alpha: 1)
+            leftDoughnut.onTopColor = UIColor(red: 149/255, green: 178/255, blue: 216/255, alpha: 1)
+            leftDoughnut.overAchiever = leftDoughnut.onTopColor
+            leftDoughnut.totalActivities = 30
+            leftDoughnut.doneActivities = 20
+            numbersOfLeftDoughnut?.text = "\(leftDoughnut.doneActivities)/\(leftDoughnut.totalActivities)"
+        }
+    }
+    
+    @IBOutlet weak var numbersOfLeftMiddleDoughnut: UILabel! {
+        didSet {
+            if let leftMiddleDoughnut = leftMiddleDoughnut {
+                numbersOfLeftMiddleDoughnut.text = "\(leftMiddleDoughnut.doneActivities)/\(leftMiddleDoughnut.totalActivities)"
+            }
+        }
+    }
+    @IBOutlet weak var leftMiddleDoughnut: DoughnutsForVue360! {
+        didSet {
+            leftMiddleDoughnut.background = UIColor(red: 253/255, green: 234/255, blue: 218/255, alpha: 1)
+            leftMiddleDoughnut.onTopColor = UIColor(red: 250/255, green: 192/255, blue: 144/255, alpha: 1)
+            leftMiddleDoughnut.overAchiever = leftMiddleDoughnut.onTopColor
+            leftMiddleDoughnut.totalActivities = 10
+            leftMiddleDoughnut.doneActivities = 2
+            numbersOfLeftMiddleDoughnut?.text = "\(leftMiddleDoughnut.doneActivities)/\(leftMiddleDoughnut.totalActivities)"
+        }
+    }
+    
+    @IBOutlet weak var numbersOfRightMiddleDoughnut: UILabel!{
+        didSet {
+            if let rightMiddleDoughnut = rightMiddleDoughnut {
+                numbersOfRightMiddleDoughnut.text = "\(rightMiddleDoughnut.doneActivities)/\(rightMiddleDoughnut.totalActivities)"
+            }
+        }
+    }
+    @IBOutlet weak var rightMiddleDoughnut: DoughnutsForVue360! {
+        didSet {
+            rightMiddleDoughnut.background = UIColor(red: 225/255, green: 234/255, blue: 205/255, alpha: 1)
+            rightMiddleDoughnut.onTopColor = UIColor(red: 164/255, green: 215/255, blue: 109/255, alpha: 1)
+            rightMiddleDoughnut.overAchiever = rightMiddleDoughnut.onTopColor
+            rightMiddleDoughnut.totalActivities = 25
+            rightMiddleDoughnut.doneActivities = 25
+            numbersOfRightMiddleDoughnut?.text = "\(rightMiddleDoughnut.doneActivities)/\(rightMiddleDoughnut.totalActivities)"
+        }
+    }
+    
+    @IBOutlet weak var numbersOfRightDoughnut: UILabel!{
+        didSet {
+            if let rightDoughnut = rightDoughnut {
+                numbersOfRightDoughnut.text = "\(rightDoughnut.doneActivities)/\(rightDoughnut.totalActivities)"
+            }
+        }
+    }
+    @IBOutlet weak var rightDoughnut: DoughnutsForVue360! {
+        didSet {
+            rightDoughnut.background = UIColor(red: 223/255, green: 238/255, blue: 241/255, alpha: 1)
+            rightDoughnut.onTopColor = UIColor(red: 194/255, green: 227/255, blue: 236/255, alpha: 1)
+            rightDoughnut.overAchiever = rightDoughnut.onTopColor
+            rightDoughnut.totalActivities = 20
+            rightDoughnut.doneActivities = 30
+            numbersOfRightDoughnut?.text = "\(rightDoughnut.doneActivities)/\(rightDoughnut.totalActivities)"
+        }
+    }
+    
+    // MARK: - IBAction For Showing and Hiding the graphs
+    @IBOutlet weak var doughnutGraphView: UIView!
+    @IBOutlet weak var barGraphContainer: UIView!
+    @IBOutlet weak var buttonForDoughnutGraphView: UIButton!
+    @IBOutlet weak var buttonForBarGraphView: UIButton!
+    @IBAction func showDoughnutGraphs(sender: UIButton) {
+        UIView.transitionFromView(barGraphContainer, toView: doughnutGraphView, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromBottom | .ShowHideTransitionViews, completion: nil)
+        buttonForDoughnutGraphView.enabled = false
+        buttonForBarGraphView.enabled = true
+    }
+    
+    @IBAction func showBarGraph(sender: UIButton) {
+        UIView.transitionFromView(doughnutGraphView, toView: barGraphContainer, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromBottom | .ShowHideTransitionViews, completion: nil)
+        buttonForDoughnutGraphView.enabled = true
+        buttonForBarGraphView.enabled = false
+    }
+    
+    // MARK: - IBAction for clicking on the graph view
+    
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var midLabel: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
+    
+    @IBOutlet weak var barGraphView: GraphViewForVue360!
+    
+    @IBAction func tapTheGraphView(sender: UITapGestureRecognizer) {
+        let pointOfTap = sender.locationInView(barGraphView)
+        let margin = barGraphView.margin
+        let spacer = barGraphView.spacer
+        
+        if pointOfTap.x > margin * 3/4 && pointOfTap.x < barGraphView.bounds.size.width - margin * 3/4 {
+            
+            let sectionOfTouch = Int((pointOfTap.x - margin/2) / spacer)
+            topLabel.text = "\(barGraphView.valueForLine[sectionOfTouch]) €"
+            midLabel.text = "\(barGraphView.valueForFirstBar[sectionOfTouch]) €"
+            bottomLabel.text = "\(barGraphView.valueForSecondBar[sectionOfTouch]) €"
+            barGraphView.selectedMonth = sectionOfTouch
+            barGraphView.actualMonth = sectionOfTouch
+        }
+    }
+    
     // MARK: - model variables
     var parentAccount: AccountModel! {
         didSet {
@@ -198,12 +311,12 @@ class Vue360ViewController: UIViewController, UIScrollViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if tableView == keyContacts {
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellContact") as UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("cellContact") as! UITableViewCell
             cell.textLabel?.text = contacts[indexPath.row].firstNameContact + " " + contacts[indexPath.row].lastNameContact
             cell.detailTextLabel?.text = contacts[indexPath.row].typeContact
             return cell
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellDeals") as UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("cellDeals") as! UITableViewCell
             cell.textLabel?.text = deals[indexPath.row].nomOpportunite
             cell.detailTextLabel?.text = deals[indexPath.row].contractValueOpportunite + "€"
             return cell

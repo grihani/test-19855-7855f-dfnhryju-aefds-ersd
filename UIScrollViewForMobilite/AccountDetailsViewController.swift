@@ -197,7 +197,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
                 self.imageExists = true
                 mapView.removeFromSuperview()
 //                self.mapAdressCompany = nil
-                var pathImage = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+                var pathImage = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
                 pathImage = pathImage.stringByAppendingPathComponent("Maps/\(account.idAccount)/\(account.adressAccount).png")
                 var image = UIImageView(image: UIImage(contentsOfFile: pathImage))
                 image.frame = frame
@@ -212,7 +212,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
                             let region = MKCoordinateRegionMake(placemark.location.coordinate, span)
                             mapView.setRegion(region, animated: false)
                             let annotation = MKPointAnnotation()
-                            annotation.setCoordinate(placemark.location.coordinate)
+//                            annotation.setCoordinate(placemark.location.coordinate)
                             annotation.title = account.nameAccount
                             mapView.addAnnotation(annotation)
                             mapView.selectAnnotation(annotation, animated: true)
@@ -228,7 +228,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
     // check if there's an image in the repertory for the mapview
     func checkImageExist(#address: String, account: AccountModel) -> Bool{
         var error: NSError?
-        var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
         var dirPath = paths.stringByAppendingPathComponent("Maps/\(account.idAccount)/")
         if !fileManager.fileExistsAtPath(dirPath){
             fileManager.createDirectoryAtPath(dirPath, withIntermediateDirectories: true, attributes: nil, error: &error)
@@ -267,7 +267,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
                     mapView.setRegion(region, animated: false)
                     let annotation = MKPointAnnotation()
                     
-                    annotation.setCoordinate(placemark.location.coordinate)
+//                    annotation.setCoordinate(placemark.location.coordinate)
                     annotation.title = account.nameAccount
                     annotation.subtitle = account.phoneAccount
                     mapView.addAnnotation(annotation)
@@ -300,7 +300,7 @@ class AccountDetailsViewController: UIViewController, MKMapViewDelegate, CLLocat
         if account != nil && !self.imageExists {
             var frame = mapView.frame
             var mapImage: UIImage = self.pictureForView(mapView)
-            var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+            var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
             var dirPath = paths.stringByAppendingPathComponent("Maps/\(account.idAccount)/")
             var imagePath = dirPath.stringByAppendingPathComponent("\(account.adressAccount).png")
             if !fileManager.fileExistsAtPath(imagePath) {

@@ -55,7 +55,7 @@ class DetailMeetingsViewController: UIViewController {
     }
     
     
-    @IBAction func showListMeetings(sender: UITapGestureRecognizer) {
+    @IBAction func showListMeetingsTapGestureRecognizer(sender: UITapGestureRecognizer) {
         self.revealViewController().revealToggle(sender)
         if !leftListShown {
             leftListShown = true
@@ -75,7 +75,7 @@ class DetailMeetingsViewController: UIViewController {
                 minimumSize.height = 164
                 menuTableViewController.preferredContentSize = minimumSize
                 if let ppc = menuTableViewController.popoverPresentationController {
-                    ppc.barButtonItem = sender as UIBarButtonItem
+                    ppc.barButtonItem = sender as! UIBarButtonItem
                 }
             }
         }

@@ -19,8 +19,13 @@ class LinkedinContactOfAccountViewController: UIViewController, UIWebViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
 //        let url = NSURL (string: linkedinAccount)
-        let url = NSURL (string: "https://fr.linkedin.com/pub/benjamin-blanc/1b/752/b81")
-        let requestObj = NSURLRequest(URL: url!)
+        let url = NSURL (string: linkedinAccount)
+        var requestObj: NSURLRequest = NSURLRequest()
+        if url != nil {
+            requestObj = NSURLRequest(URL: url!)
+        } else {
+            requestObj = NSURLRequest(URL: NSURL(string: "https://fr.linkedin.com/")!)
+        }
         self.linkedinWebView.loadRequest(requestObj)
         self.linkedinWebView.delegate = self
         loadingIndicator.hidden = true

@@ -164,7 +164,7 @@ class MeetingsOfAccountViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("meetingsAccount", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("meetingsAccount", forIndexPath: indexPath) as! UITableViewCell
         
         let row = indexPath.row
         tableView.rowHeight = 72

@@ -38,7 +38,7 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
                         let region = MKCoordinateRegionMake(placemark.location.coordinate, span)
                         self.mapView.setRegion(region, animated: false)
                         let annotation = MKPointAnnotation()
-                        annotation.setCoordinate(placemark.location.coordinate)
+//                        annotation.setCoordinate(placemark.location.coordinate)
                         annotation.title = accountsForMeetingsInDay[i].nameAccount
                         annotation.subtitle = "From " + address.dateBeginMeeting + " To " + address.dateEndMeeting
                         self.mapView.addAnnotation(annotation)
@@ -83,23 +83,23 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
         let row = indexPath.row
         let identifier = identifiersForTableView[row]
         if row == 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellWithTextField
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CellWithTextField
             self.cellSubject = cell
             return cell
         }
         else if row == 1 {
-            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellWithTextView
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CellWithTextView
             cellAdress = cell
             return cell
         }
         else if row == 2 {
-            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellForEnteringDateBeginMeeting
-            cell.setDateBeginMeeting(self.date)
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CellForEnteringDateBeginMeeting
+//            cell.setDateBeginMeeting(self.date)
             cellForEnteringDateBeginMeeting = cell
             return cell
         }
         else if row == 3 {
-            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellForDateBeginMeetingPicker
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CellForDateBeginMeetingPicker
             if !pickerForDateBeginIsShown{
                 cell.datePickerBeginMeeting.alpha = 0
             } else {
@@ -110,12 +110,12 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
             return cell
         }
         else if row == 4 {
-            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellForWholeDayMeeting
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CellForWholeDayMeeting
             self.cellForWholeDayMeeting = cell
             return cell
         }
         else  if row == 5 {
-            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellForDurationOfTheMeeting
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CellForDurationOfTheMeeting
             if !switchIsOn {
                 cell.durationOfTheMeeting.alpha = 1
             } else {
@@ -125,7 +125,7 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
             return cell
         }
         else if row == 6 {
-            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellForPickerForDuration
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CellForPickerForDuration
             cell.cellForDurationOfMeeting = cellForDurationOfMeeting
             cell.pickerForDuration.dataSource = cell
             cell.pickerForDuration.delegate = cell
@@ -133,7 +133,7 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
             return cell
         }
         else if row == 7 {
-            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as CellForContacts
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CellForContacts
             cell.tableViewForContacts.dataSource = cell
             cell.tableViewForContacts.delegate = cell
             cell.tableViewForContacts.editing = true
@@ -141,7 +141,7 @@ class AddMeetingWithoutDateViewController: UIViewController, MKMapViewDelegate, 
             return cell
         }
         else {
-            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! UITableViewCell
             return cell
         }
     }
@@ -241,12 +241,12 @@ class CellWithTextView: UITableViewCell {
 class CellForEnteringDateBeginMeeting: UITableViewCell {
     
     @IBOutlet weak var dateBeginMeeting: UILabel!
-    func setDateBeginMeeting(date: NSDate) {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        self.dateBeginMeeting.text = dateFormatter.stringFromDate(date)
-    }
+//    func setDateBeginMeeting(date: NSDate) {
+//        let dateFormatter = NSDateFormatter()
+//        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+//        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+//        self.dateBeginMeeting.text = dateFormatter.stringFromDate(date)
+//    }
 }
 
 class CellForDateBeginMeetingPicker : UITableViewCell{
@@ -259,7 +259,7 @@ class CellForDateBeginMeetingPicker : UITableViewCell{
     }
     
     @IBAction func changeDate(sender: UIDatePicker) {
-        self.cellForEnteringDateBeginMeeting.setDateBeginMeeting(sender.date)
+//        self.cellForEnteringDateBeginMeeting.setDateBeginMeeting(sender.date)
     }
 }
 
@@ -315,7 +315,7 @@ class CellForContacts: UITableViewCell, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("contactNames") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("contactNames") as! UITableViewCell
         let row = indexPath.row
         let contactsOfAccount = contacts[row]
         cell.textLabel?.text = contactsOfAccount.firstNameContact + " " + contactsOfAccount.lastNameContact

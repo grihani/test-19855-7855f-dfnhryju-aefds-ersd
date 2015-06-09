@@ -232,11 +232,11 @@ class AddAMeetingFromAccountsViewController: UIViewController, UITableViewDataSo
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if tableView == allContactsTableView {
-            let cell = tableView.dequeueReusableCellWithIdentifier(cells.cellIdentifierForAllContacts, forIndexPath: indexPath) as UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier(cells.cellIdentifierForAllContacts, forIndexPath: indexPath) as! UITableViewCell
             cell.textLabel?.text = allContacts[indexPath.row].firstNameContact + " " + allContacts[indexPath.row].lastNameContact
             return cell
         } else if tableView == contactsTableView {
-            let cell = tableView.dequeueReusableCellWithIdentifier(cells.cellIdentifierForContactsOfAccount, forIndexPath: indexPath) as UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier(cells.cellIdentifierForContactsOfAccount, forIndexPath: indexPath) as! UITableViewCell
             cell.textLabel?.text = accountContacts[indexPath.row].firstNameContact + " " + accountContacts[indexPath.row].lastNameContact
             return cell
         }

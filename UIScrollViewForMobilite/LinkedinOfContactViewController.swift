@@ -45,7 +45,7 @@ class LinkedinOfContactViewController: UIViewController, UIWebViewDelegate, UIPo
     
     func webViewDidStartLoad(webView: UIWebView) {
         self.loadingIndicator.show("Loading")
-        if let request = webView.request?.URL.absoluteString {
+        if let request = webView.request?.URL!.absoluteString {
             self.linkedinTextField.text = request
             linkedinProfileContact = request
             linkedinProfileContactButton.setTitle(request, forState: .Normal)

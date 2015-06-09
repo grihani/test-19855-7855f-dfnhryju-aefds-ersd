@@ -47,7 +47,10 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     var firstPage = 1
     var account: AccountModel! {
         didSet {
-            addressAccount?.text = account.adressAccount
+            if let account = account {
+                println(account)
+                addressAccount?.text = account.adressAccount
+            }
         }
     }
     var viewDidItsLayout: Bool = false
@@ -77,6 +80,10 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
         createMenuButtons(identifiers, lastCreatedFrame: CGRectZero, view: listeButtonsForPages)
         if account == nil {
             account = AccountDataModel().accountOfNextMeeting()
+            if account == nil {
+                account = AccountDataModel().allAccountsAToZ(order: "ASC")[0]
+                println(account)
+            }
         }
         if account != nil {
             self.navigationBar.title = account.nameAccount
@@ -237,7 +244,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
-    @IBAction func showList(sender: UITapGestureRecognizer) {
+    @IBAction func showListTapGestureRecognizer(sender: UITapGestureRecognizer) {
         self.revealViewController().revealToggle(sender)
         if !leftListShown {
             leftListShown = true
@@ -338,7 +345,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
                 minimumSize.height = 164
                 menuTableViewController.preferredContentSize = minimumSize
                 if let ppc = menuTableViewController.popoverPresentationController {
-                    ppc.barButtonItem = sender as UIBarButtonItem
+                    ppc.barButtonItem = sender as! UIBarButtonItem
                 }
             }
         } else if segue.identifier == "show map of account" {
@@ -347,6 +354,7 @@ class DetailAccountsViewController: UIViewController, UIScrollViewDelegate {
                 minimumSize.width = self.view.frame.size.width/2
                 minimumSize.height = self.view.frame.size.height/2
                 menuTableViewController.preferredContentSize = minimumSize
+                menuTableViewController.account = account
 //                if let ppc = menuTableViewController.popoverPresentationController {
 //                    ppc.barButtonItem = sender as UIBarButtonItem
 //                }

@@ -30,6 +30,13 @@ class DetailContactsViewController: UIViewController, UIScrollViewDelegate {
         self.create = false
     }
     
+    func createContact() {
+        self.update = false
+        self.read = false
+        self.create = true
+        self.delete = false
+    }
+    
     // MARK: - IBOutlet
     @IBOutlet weak var showList: UIView!
     @IBOutlet weak var listeButtonForPages: UIView!
@@ -38,23 +45,35 @@ class DetailContactsViewController: UIViewController, UIScrollViewDelegate {
             lineUnderMenu.backgroundColor = blueCheckedColor
         }
     }
-    @IBOutlet weak var favorisButton: UIButton! {
+    @IBOutlet weak var actionsOnContactButton: UIBarButtonItem! {
         didSet {
-            if contact != nil {
-                if contact.favoriteContact == 0 {
-                    favorisButton.setImage(UIImage(named: "notFavoris")!, forState: UIControlState.Normal)
-                } else {
-                    favorisButton.setImage(UIImage(named: "addedToFavoris")!, forState: UIControlState.Normal)
-                }
-            }
         }
     }
-    @IBOutlet weak var containerView: UIScrollView!
+    @IBAction func showActionsOnContact(sender: UIBarButtonItem) {
+        performSegueWithIdentifier("show actions", sender: sender)
+    }
+    @IBAction func favorisButtonPressed(sender: UIBarButtonItem) {
+        
+    }
+    @IBOutlet weak var containerView: UIScrollView! {
+        didSet {
+            containerView.delegate = self
+        }
+    }
     @IBOutlet weak var pageControl: UIPageControl! {
         didSet {
             pageControl.pageIndicatorTintColor = blueUncheckedColor
             pageControl.currentPageIndicatorTintColor = blueCheckedColor
         }
+    }
+    @IBOutlet var createContactButton: UIBarButtonItem!
+    @IBAction func createContact(sender: UIBarButtonItem) {
+        createContact()
+        self.contactDetail.createContact()
+        self.contactDetail.updateUIForCreating()
+        navigationBar.title = "Create Contact"
+        let editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveAccount:")
+        navigationBar.rightBarButtonItem = editButton
     }
     @IBOutlet var homeButton: UIBarButtonItem!
     @IBAction func goHome(sender: UIBarButtonItem) {
@@ -62,16 +81,32 @@ class DetailContactsViewController: UIViewController, UIScrollViewDelegate {
     }
     @IBOutlet var menuButton: UIBarButtonItem!
     @IBAction func showMenu(sender: UIBarButtonItem) {
-        println("show menu")
         performSegueWithIdentifier("show Menu", sender: sender)
     }
     @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var editSaveButton: UIBarButtonItem!
     
     // MARK: - Variable
-    var contact: ContactModel!
+    var contact: ContactModel! {
+        didSet {
+            if contact.favoriteContact == 0 {
+                var favorisBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+                favorisBtn.setImage(UIImage(named: "notFavoris"), forState: UIControlState.Normal)
+                favorisBtn.addTarget(self.navigationController, action: Selector("favorisButtonPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+                var favorisButton = UIBarButtonItem(customView: favorisBtn)
+                navigationItem.rightBarButtonItems?.append(favorisButton)
+            } else {
+                var favorisBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+                favorisBtn.setImage(UIImage(named: "addedToFavoris"), forState: UIControlState.Normal)
+                favorisBtn.addTarget(self.navigationController, action: Selector("favorisButtonPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+                var favorisButton = UIBarButtonItem(customView: favorisBtn)
+                navigationItem.rightBarButtonItems?.append(favorisButton)
+            }
+        }
+    }
+    var account: AccountModel!
     
-    var identifiers: [String] = ["Contacts Details", "Contacts Meetings", "Contacts Tasks"]
+    var identifiers: [String] = ["Informations", "Contacts Meetings", "Activity Relationship"]
     var contactDetail: ContactDetailsViewController = ContactDetailsViewController()
     var contactMeetings: MeetingsOfContactViewController = MeetingsOfContactViewController()
     var contactActivities: TasksOfContactViewController = TasksOfContactViewController()
@@ -90,8 +125,16 @@ class DetailContactsViewController: UIViewController, UIScrollViewDelegate {
         
         colorButtons(firstPage)
         
+        navigationItem.leftBarButtonItems?.append(createContactButton)
         navigationItem.leftBarButtonItems?.append(homeButton)
         navigationItem.leftBarButtonItems?.append(menuButton)
+        
+        var favorisBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        favorisBtn.setImage(UIImage(named: "notFavoris"), forState: UIControlState.Normal)
+        favorisBtn.addTarget(self.navigationController, action: Selector("favorisButtonPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        var favorisButton = UIBarButtonItem(customView: favorisBtn)
+        
+        navigationItem.rightBarButtonItems?.append(favorisButton)
     }
     
     
@@ -124,13 +167,16 @@ class DetailContactsViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if contact == nil {
+        if contact == nil && !self.create {
             contact = ContactDataModel().getFirstFavoriteContact()
+            navigationBar.title = ("\(contact.lastNameContact)")
         }
         if self.read {
             self.contactDetail.updateUIForReading()
         } else if self.update {
             self.contactDetail.updateUIForUpdating()
+        } else if self.create {
+            self.contactDetail.updateUIForCreating()
         }
     }
 
@@ -145,12 +191,14 @@ class DetailContactsViewController: UIViewController, UIScrollViewDelegate {
         if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[0]) as? ContactDetailsViewController {
             viewControllers.append(viewController)
             viewController.contact = self.contact
+            viewController.account = self.account
             self.contactDetail = viewController
         }
         if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[1]) as? MeetingsOfContactViewController {
             viewControllers.append(viewController)
             self.contactMeetings = viewController
             self.contactMeetings.contact = self.contact
+            self.contactMeetings.visible = true
         }
         if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(identifiers[2]) as? TasksOfContactViewController {
             viewControllers.append(viewController)
@@ -243,7 +291,7 @@ class DetailContactsViewController: UIViewController, UIScrollViewDelegate {
             var menu = menuTitles
             var frame = lastCreatedFrame
             frame.origin.x = frame.origin.x + 8 + frame.size.width
-            frame.size.height = 37
+            frame.size.height = 38
             let button = UIButton(frame: frame)
             let firstItemOfMenuTitles = menu.removeAtIndex(0)
             button.setTitle(firstItemOfMenuTitles, forState: .Normal)
@@ -256,26 +304,6 @@ class DetailContactsViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    @IBAction func favorisButtonPressed(sender: UIButton) {
-        var image: UIImage = favorisButton.imageForState(UIControlState.Normal)!
-        let imageFav: UIImage = UIImage(named: "notFavoris")!
-        let imageFavSelec: UIImage = UIImage(named: "addedToFavoris")!
-        if image == imageFav {
-            favorisButton.setImage(imageFavSelec, forState: UIControlState.Normal)
-            //set favoris = true (1)
-            println("ajouté aux favoris")
-            self.contact.favoriteContact = 1
-            println("favoris: \(self.contact.favoriteContact)")
-        } else {
-            favorisButton.setImage(imageFav, forState: UIControlState.Normal)
-            //set favoris = false (0)
-            println("supprimé des favoris")
-            self.contact.favoriteContact = 0
-            println("favoris: \(self.contact.favoriteContact)")
-        }
-        ContactDataModel().updateContact(self.contact)
-    }
-    
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "show Menu" {
@@ -285,7 +313,7 @@ class DetailContactsViewController: UIViewController, UIScrollViewDelegate {
                 minimumSize.height = 164
                 menuTableViewController.preferredContentSize = minimumSize
                 if let ppc = menuTableViewController.popoverPresentationController {
-                    ppc.barButtonItem = sender as UIBarButtonItem
+                    ppc.barButtonItem = sender as! UIBarButtonItem
                 }
             }
         }
@@ -293,15 +321,15 @@ class DetailContactsViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: - Actions of showing the Master
     @IBOutlet weak var languette: UIImageView!
-        var leftListShown: Bool = false {
-            didSet {
-                if leftListShown {
-                    languette?.image = UIImage(named: "languetteFermeture")
-                } else {
-                    languette?.image = UIImage(named: "languette gauche")
-                }
+    var leftListShown: Bool = true {
+        didSet {
+            if leftListShown {
+                languette?.image = UIImage(named: "languetteFermeture")
+            } else {
+                languette?.image = UIImage(named: "languette gauche")
             }
         }
+    }
     
     @IBAction func showList(sender: UIBarButtonItem) {
         self.revealViewController().revealToggle(sender)
@@ -312,7 +340,7 @@ class DetailContactsViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    @IBAction func showList(sender: UITapGestureRecognizer) {
+    @IBAction func showListTapGestureRecognizer(sender: UITapGestureRecognizer) {
         self.revealViewController().revealToggle(sender)
         if !leftListShown {
             leftListShown = true

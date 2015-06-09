@@ -42,7 +42,7 @@ class ParticipantsOfMeetingOfAccountTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("contacts", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("contacts", forIndexPath: indexPath) as! UITableViewCell
         let row = indexPath.row
         cell.textLabel?.text = contactParticipants[row].lastNameContact + " " + contactParticipants[row].firstNameContact
         return cell
@@ -55,7 +55,7 @@ class ParticipantsOfMeetingOfAccountTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "show details of contact" {
             if let indexPath = tableView.indexPathForSelectedRow() {
-                let destinationViewController = segue.destinationViewController as DetailsOfParticipantsOfMeetingsViewController
+                let destinationViewController = segue.destinationViewController as! DetailsOfParticipantsOfMeetingsViewController
                 destinationViewController.contact = contactParticipants[indexPath.row]
             }
         }

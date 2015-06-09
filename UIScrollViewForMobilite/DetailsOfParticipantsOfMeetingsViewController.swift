@@ -13,7 +13,7 @@ class DetailsOfParticipantsOfMeetingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let contactViewController = storyboard?.instantiateViewControllerWithIdentifier("contactDetailsViewController") as ContactDetailsViewController
+        let contactViewController = storyboard?.instantiateViewControllerWithIdentifier("contactDetailsViewController") as! ContactDetailsViewController
         contactViewController.view.frame = view.frame
         contactViewController.contact = contact
         contactViewController.read = true

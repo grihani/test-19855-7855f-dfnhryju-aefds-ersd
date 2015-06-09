@@ -94,6 +94,9 @@
 		48FCB1591ACAF47200A770B2 /* Bouchonnage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB1581ACAF47200A770B2 /* Bouchonnage.swift */; };
 		9F2A4AF81AE309ED007359DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4881861E1AC94F6600923A18 /* Images.xcassets */; };
 		EF0908171B0B6CFF006F5208 /* DetailContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0908161B0B6CFF006F5208 /* DetailContactsViewController.swift */; };
+		EF1AE8771B17491F00D68B4F /* DoughnutsForVue360.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1AE8761B17491F00D68B4F /* DoughnutsForVue360.swift */; };
+		EF1AE8791B17492B00D68B4F /* GraphViewForVue360.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1AE8781B17492B00D68B4F /* GraphViewForVue360.swift */; };
+		EF1AE87B1B1749AD00D68B4F /* DataBase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = EF1AE87A1B1749AD00D68B4F /* DataBase.sqlite */; };
 		EF54D1331B0CC545005E9E99 /* MeetingsOfContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1321B0CC545005E9E99 /* MeetingsOfContactViewController.swift */; };
 		EF54D1351B0CC55A005E9E99 /* TasksOfContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1341B0CC55A005E9E99 /* TasksOfContactViewController.swift */; };
 		EF54D1371B0CC841005E9E99 /* TaskDetailsOfContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1361B0CC841005E9E99 /* TaskDetailsOfContactViewController.swift */; };
@@ -215,6 +218,9 @@
 		48FCB1561ACAED6A00A770B2 /* AccountDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDataModel.swift; sourceTree = "<group>"; };
 		48FCB1581ACAF47200A770B2 /* Bouchonnage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bouchonnage.swift; sourceTree = "<group>"; };
 		EF0908161B0B6CFF006F5208 /* DetailContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailContactsViewController.swift; sourceTree = "<group>"; };
+		EF1AE8761B17491F00D68B4F /* DoughnutsForVue360.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoughnutsForVue360.swift; sourceTree = "<group>"; };
+		EF1AE8781B17492B00D68B4F /* GraphViewForVue360.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewForVue360.swift; sourceTree = "<group>"; };
+		EF1AE87A1B1749AD00D68B4F /* DataBase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = DataBase.sqlite; sourceTree = "<group>"; };
 		EF54D1321B0CC545005E9E99 /* MeetingsOfContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsOfContactViewController.swift; sourceTree = "<group>"; };
 		EF54D1341B0CC55A005E9E99 /* TasksOfContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksOfContactViewController.swift; sourceTree = "<group>"; };
 		EF54D1361B0CC841005E9E99 /* TaskDetailsOfContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailsOfContactViewController.swift; sourceTree = "<group>"; };
@@ -373,6 +379,7 @@
 				489B315E1AC9520300C04732 /* SWRevealViewController */,
 				485A23C81AD6B28C0074EDD1 /* FunctionsBeforeKnowledge */,
 				488186161AC94F6600923A18 /* UIScrollViewForMobilite.xcdatamodeld */,
+				EF1AE87A1B1749AD00D68B4F /* DataBase.sqlite */,
 				488186141AC94F6600923A18 /* AppDelegate.swift */,
 				489B31621AC9526100C04732 /* UIScrollViewForMobilite-Bridging-Header.h */,
 				4881861E1AC94F6600923A18 /* Images.xcassets */,
@@ -475,6 +482,8 @@
 				489B31631AC952C800C04732 /* ListAccountsViewController.swift */,
 				489B31651AC952DB00C04732 /* DetailAccountsViewController.swift */,
 				488B68B41AEFD4AD00D7652B /* Vue360ViewController.swift */,
+				EF1AE8761B17491F00D68B4F /* DoughnutsForVue360.swift */,
+				EF1AE8781B17492B00D68B4F /* GraphViewForVue360.swift */,
 				4830C1331B03397700DAC19B /* MapOfAccountViewController.swift */,
 				4809A8B91ACD4F3A001FEC98 /* AccountDetailsViewController.swift */,
 				481876D41AE7AC85005BF26F /* PipesOfAccounts */,
@@ -669,6 +678,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF1AE87B1B1749AD00D68B4F /* DataBase.sqlite in Resources */,
 				9F2A4AF81AE309ED007359DD /* Images.xcassets in Resources */,
 				4881861D1AC94F6600923A18 /* Main.storyboard in Resources */,
 				488186221AC94F6600923A18 /* LaunchScreen.xib in Resources */,
@@ -721,6 +731,7 @@
 				48D62EEB1AEA6FD100FEEA5A /* TypologyOfContactViewController.swift in Sources */,
 				48CFE28A1AE7FCFC00FFDFE8 /* ContactDetailsViewController.swift in Sources */,
 				EF54D13D1B0CC8CB005E9E99 /* MeetingsDetailFromContactViewController.swift in Sources */,
+				EF1AE8791B17492B00D68B4F /* GraphViewForVue360.swift in Sources */,
 				48FCB1541ACAE97E00A770B2 /* TasksMeetingsModel.swift in Sources */,
 				489B31661AC952DB00C04732 /* DetailAccountsViewController.swift in Sources */,
 				48FCB1331ACAD73600A770B2 /* FMDatabaseQueue.m in Sources */,
@@ -761,6 +772,7 @@
 				484CDC321AE0E275001E09F8 /* LoadingIndicator.swift in Sources */,
 				EF54D1411B0CC900005E9E99 /* DetailsOfParticipantsOfMeetingFromContactViewController.swift in Sources */,
 				EF54D1331B0CC545005E9E99 /* MeetingsOfContactViewController.swift in Sources */,
+				EF1AE8771B17491F00D68B4F /* DoughnutsForVue360.swift in Sources */,
 				480DA23B1ACC2C1E00F43FA1 /* TasksAccountDataModel.swift in Sources */,
 				48FCB14C1ACAE61700A770B2 /* AccountContractsModel.swift in Sources */,
 				485A23CA1AD6B2BF0074EDD1 /* FunctionsBeforeKnowledge.swift in Sources */,

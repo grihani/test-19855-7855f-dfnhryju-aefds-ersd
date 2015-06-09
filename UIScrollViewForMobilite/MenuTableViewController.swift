@@ -28,8 +28,6 @@ class MenuTableViewController: UITableViewController, UIPopoverPresentationContr
         return 3
     }
     
-    
-    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var presentingViewIndex = 0
         let row = indexPath.row
@@ -38,7 +36,7 @@ class MenuTableViewController: UITableViewController, UIPopoverPresentationContr
             if presentingViewController is DetailAccountsViewController {
                 presentingViewIndex = 0
             }
-            if presentingViewController is ContactDetailsViewController {
+            if presentingViewController is DetailContactsViewController {
                 presentingViewIndex = 1
             }
             if presentingViewController is DetailMeetingsViewController {
@@ -56,9 +54,9 @@ class MenuTableViewController: UITableViewController, UIPopoverPresentationContr
                     homePageUserController.performSegueWithIdentifier("goToModuleAccount", sender: nil)
                 case 1:
                     homePageUserController.performSegueWithIdentifier("goToModuleContacts", sender: nil)
-            case 2:
-                homePageUserController.performSegueWithIdentifier("goToModuleMeetings", sender: nil)
-            default: break
+                case 2:
+                    homePageUserController.performSegueWithIdentifier("goToModuleMeetings", sender: nil)
+                default: break
                 }
             }
         }

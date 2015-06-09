@@ -30,7 +30,13 @@ class ContactDetailsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     var delete: Bool = false
-    var create: Bool = false
+    var create: Bool = false {
+        didSet {
+            if create {
+                updateUIForCreating()
+            }
+        }
+    }
     
     
     func updateUIForReading() {
@@ -158,6 +164,76 @@ class ContactDetailsViewController: UIViewController, UITextFieldDelegate {
         self.idContact1.contentHorizontalAlignment = .Left
     }
     
+    func updateUIForCreating() {
+        accountOfContact?.setTitle("accountOfContact", forState: .Normal)
+        accountDetails?.text = "accountDetails"
+        accountOfContact?.enabled = true
+        self.animationUIForCreating()
+    }
+    
+    func animationUIForCreating() {
+        self.civilityContact.enabled = true
+        self.civilityContact.setTitle("Civility", forState: .Normal)
+        
+        self.firstNameContact.borderStyle = UITextBorderStyle.RoundedRect
+        self.firstNameContact.textAlignment = NSTextAlignment.Left
+        self.firstNameContact.enabled = true
+        self.firstNameContact.text = ""
+        
+        self.lastNameContact.borderStyle = UITextBorderStyle.RoundedRect
+        self.lastNameContact.enabled = true
+        self.lastNameContact.text = ""
+        
+        self.jobTitleContact.borderStyle = .RoundedRect
+        self.jobTitleContact.enabled = true
+        self.jobTitleContact.text = ""
+        
+        self.birthdateContact.enabled = true
+        self.birthdateContact.contentHorizontalAlignment = .Left
+        let today = NSDate()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.timeStyle = .NoStyle
+        let todayDate = dateFormatter.stringFromDate(today)
+        self.birthdateContact.setTitle("Birthdate", forState: .Normal)
+        
+        self.phoneBusinessContact.enabled = true
+        self.phoneBusinessContact.borderStyle = .RoundedRect
+        self.phoneBusinessContact.text = ""
+        
+        self.countryContact.enabled = true
+        self.countryContact.contentHorizontalAlignment = .Left
+        self.countryContact.setTitle("Country", forState: .Normal)
+        
+        self.phoneMobileContact.enabled = true
+        self.phoneMobileContact.borderStyle = .RoundedRect
+        self.phoneMobileContact.text = ""
+        
+        self.emailContact.enabled = true
+        self.emailContact.borderStyle = .RoundedRect
+        self.emailContact.text = ""
+        
+        self.workingAdressContact.editable = true
+        self.workingAdressContact.layer.borderWidth = 1
+        self.workingAdressContact.layer.borderColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1).CGColor
+        self.workingAdressContact.text = ""
+        
+        self.linkedinProfileContact.enabled = true
+        self.linkedinProfileContact.contentHorizontalAlignment = .Left
+        self.linkedinProfileContact.setTitle("Linkedin Profil", forState: .Normal)
+        
+        self.preferredLanguageContact.enabled = true
+        self.preferredLanguageContact.contentHorizontalAlignment = .Left
+        self.preferredLanguageContact.setTitle("Preferred Language", forState: .Normal)
+        
+        self.typeContact.enabled = true
+        self.typeContact.contentHorizontalAlignment = .Left
+        self.typeContact.setTitle("Typologie", forState: .Normal)
+        
+        self.idContact1.enabled = true
+        self.idContact1.contentHorizontalAlignment = .Left
+        self.idContact1.setTitle("Assistant of", forState: .Normal)
+    }
     
     func updateContact() {
         self.update = true
@@ -171,6 +247,13 @@ class ContactDetailsViewController: UIViewController, UITextFieldDelegate {
         self.read = true
         self.delete = false
         self.create = false
+    }
+    
+    func createContact() {
+        self.update = false
+        self.read = false
+        self.delete = false
+        self.create = true
     }
     
     var contact: ContactModel! {
@@ -196,6 +279,9 @@ class ContactDetailsViewController: UIViewController, UITextFieldDelegate {
                 self.typeContact?.setTitle(contact.typeContact, forState: .Normal)
                 self.idContact1?.setTitle(String(contact.idContact1), forState: .Normal)
                 self.read = true
+            }
+            if self.create {
+                updateUIForCreating()
             }
         }
     }
@@ -350,6 +436,9 @@ class ContactDetailsViewController: UIViewController, UITextFieldDelegate {
             if let account = account {
                 accountDetails.text = account.industryAccount + "\n" + account.phoneAccount + "\n" + account.adressAccount
             }
+            if read {
+                accountDetails.enabled = false
+            }
         }
     }
     
@@ -380,18 +469,23 @@ class ContactDetailsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        println("Account : \(account)")
 //        checkStatusOfCreationOfContact()
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if contact == nil {
+        if contact == nil && !self.create {
             contact = ContactDataModel().getFirstFavoriteContact()
+            println("création : \(create)")
+            println()
         }
         if self.read {
             updateUIForReading()
         } else if self.update {
             updateUIForUpdating()
+        } else if self.create {
+            updateUIForCreating()
         }
     }
     override func didReceiveMemoryWarning() {
@@ -410,8 +504,6 @@ class ContactDetailsViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Navigation
-    
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "show Menu" {
             if let menuTableViewController = segue.destinationViewController as? MenuTableViewController {
@@ -420,7 +512,7 @@ class ContactDetailsViewController: UIViewController, UITextFieldDelegate {
                 minimumSize.height = 164
                 menuTableViewController.preferredContentSize = minimumSize
                 if let ppc = menuTableViewController.popoverPresentationController {
-                    ppc.barButtonItem = sender as UIBarButtonItem
+                    ppc.barButtonItem = sender as! UIBarButtonItem
                 }
             }
         }
@@ -523,7 +615,7 @@ class ContactDetailsViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    @IBAction func showList(sender: UITapGestureRecognizer) {
+    @IBAction func showListTapGestureRecognizer(sender: UITapGestureRecognizer) {
         self.revealViewController().revealToggle(sender)
         if !leftListShown {
             leftListShown = true

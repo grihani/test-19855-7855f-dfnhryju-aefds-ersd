@@ -19,30 +19,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        var createdDB = true
-        let filemgr = NSFileManager.defaultManager()
-        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let docsDir = dirPaths[0] as String
-        var dataBasePath = docsDir.stringByAppendingPathComponent("DataBase.sqlite")
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(dataBasePath, forKey: "dataBasePath")
+        let fileManager : NSFileManager = NSFileManager.defaultManager()
+        var fileCopyError:NSError? = NSError()
+        let pathToDocumentsFolder = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        let storePath = pathToDocumentsFolder.stringByAppendingPathComponent("/DataBase.sqlite")
+        if !fileManager.fileExistsAtPath(storePath) {
+            if let defaultStorePath : NSString = NSBundle.mainBundle().pathForResource("DataBase", ofType: "sqlite") {
+                fileManager.copyItemAtPath(defaultStorePath as String, toPath: storePath, error: &fileCopyError)
+            }
+        }
+            // uncomment the next part when you want to change the database
+        else {
+            if let defaultStorePath : NSString = NSBundle.mainBundle().pathForResource("DataBase", ofType: "sqlite") {
+                if !fileManager.contentsEqualAtPath(storePath, andPath: defaultStorePath as String) {
+                    fileManager.removeItemAtPath(storePath, error: &fileCopyError)
+                    fileManager.copyItemAtPath(defaultStorePath as String, toPath: storePath, error: &fileCopyError)
+                }
+            }
+        }
         
-        if !filemgr.fileExistsAtPath(dataBasePath) {
-            createdDB = DataBase().createDataBase(dataBasePath)
-        }
-        if !createdDB {
-            println("the dataBase has not been implemented")
-        } else {
-            println("the dataBase has been implemented")
-        }
-        let contactDB = FMDatabase(path: dataBasePath)
-        contactDataBase = contactDB
+        contactDataBase = FMDatabase(path: storePath)
         if contactDataBase.open() {
             println("ouverture générale de la base de donnée")
         }
-        println(dataBasePath)
-        DataBase().checkingAndInsertingTables()
-        
         return true
     }
 
@@ -76,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "csc.com.UIScrollViewForMobilite" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as NSURL
+        return urls[urls.count-1] as! NSURL
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -99,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             dict[NSUnderlyingErrorKey] = error
-            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as [NSObject : AnyObject])
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")

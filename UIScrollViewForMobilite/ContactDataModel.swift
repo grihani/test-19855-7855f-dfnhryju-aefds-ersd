@@ -75,6 +75,40 @@ class ContactDataModel {
         return contactsOfAccount
     }
     
+    func contactsOfAccountWithIdAccount(#idAccount: Int) -> [(ContactModel, String)] {
+        var contactsOfAccount: [(ContactModel,String)] = []
+        
+        var querySQL = "SELECT * FROM Contacts WHERE idContact IN (SELECT idContact FROM Account_Contacts WHERE idAccount = \(idAccount)) ORDER BY firstNameContact "
+        let results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let results = results {
+            while results.next() == true {
+                var idContact: Int = Int(results.intForColumn("idContact"))
+                var jobTitleContact: String = results.stringForColumn("jobTitleContact")
+                var countryContact: String = results.stringForColumn("countryContact")
+                var civilityContact: String = results.stringForColumn("civilityContact")
+                var firstNameContact: String = results.stringForColumn("firstNameContact")
+                var lastNameContact: String = results.stringForColumn("lastNameContact")
+                var typeContact: String = results.stringForColumn("typeContact")
+                var birthdateContact: String = results.stringForColumn("birthdateContact")
+                var phoneBusinessContact: String = results.stringForColumn("phoneBusinessContact")
+                var phoneMobileContact: String = results.stringForColumn("phoneMobileContact")
+                var emailContact: String = results.stringForColumn("emailContact")
+                var preferredLanguageContact: String = results.stringForColumn("preferredLanguageContact")
+                var workingAdressContact: String = results.stringForColumn("workingAdressContact")
+                var linkedinProfileContact: String = results.stringForColumn("linkedinProfileContact")
+                var idContact1: Int = Int(results.intForColumn("idContact1"))
+                var statusContact: Int = Int(results.intForColumn("statusContact"))
+                var favoriteContact: Int = Int(results.intForColumn("favoriteContact"))
+                var contact = ContactModel(idContact: idContact, jobTitleContact: jobTitleContact, countryContact: countryContact, civilityContact: civilityContact, firstNameContact: firstNameContact, lastNameContact: lastNameContact, typeContact: typeContact, birthdateContact: birthdateContact, phoneBusinessContact: phoneBusinessContact, phoneMobileContact: phoneMobileContact, emailContact: emailContact, preferredLanguageContact: preferredLanguageContact, workingAdressContact: workingAdressContact, linkedinProfileContact: linkedinProfileContact, idContact1: idContact1, statusContact: statusContact, favoriteContact: favoriteContact)
+                
+                var nameAccount = AccountDataModel().accountNameFromIdAccount(idAccount)
+                
+                contactsOfAccount += [(contact,nameAccount)]
+            }
+        }
+        return contactsOfAccount
+    }
+    
     func contactFromIdContact(#idContact: Int) -> ContactModel {
         var contact: ContactModel = ContactModel()
         
@@ -230,9 +264,56 @@ class ContactDataModel {
         return allContactOrdered
     }
     
+    func getListeAlphabet(#order: String) -> [(String, [(ContactModel, String)])] {
+        var listeResult: [(String, [(ContactModel, String)])] = []
+        var querySQL = "SELECT substr(lastNameContact,1,1) as firstLetter FROM Contacts GROUP BY substr(lastNameContact,1,1) ORDER BY substr(lastNameContact,1,1) \(order)"
+        let results = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let result = results {
+            while result.next() == true {
+                var listeContactAccount: [(ContactModel, String)] = []
+                var lettre: String = result.stringForColumn("firstLetter")
+                querySQL = "SELECT * FROM Contacts WHERE lastNameContact LIKE '\(lettre)%' ORDER BY lastNameContact \(order)"
+                let contactsResults = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+                if let contactResult = contactsResults {
+                    while contactResult.next() == true {
+                        var idContact: Int = Int(contactResult.intForColumn("idContact"))
+                        var jobTitleContact: String = contactResult.stringForColumn("jobTitleContact")
+                        var countryContact: String = contactResult.stringForColumn("countryContact")
+                        var civilityContact: String = contactResult.stringForColumn("civilityContact")
+                        var firstNameContact: String = contactResult.stringForColumn("firstNameContact")
+                        var lastNameContact: String = contactResult.stringForColumn("lastNameContact")
+                        var typeContact: String = contactResult.stringForColumn("typeContact")
+                        var birthdateContact: String = contactResult.stringForColumn("birthdateContact")
+                        var phoneBusinessContact: String = contactResult.stringForColumn("phoneBusinessContact")
+                        var phoneMobileContact: String = contactResult.stringForColumn("phoneMobileContact")
+                        var emailContact: String = contactResult.stringForColumn("emailContact")
+                        var preferredLanguageContact: String = contactResult.stringForColumn("preferredLanguageContact")
+                        var workingAdressContact: String = contactResult.stringForColumn("workingAdressContact")
+                        var linkedinProfileContact: String = contactResult.stringForColumn("linkedinProfileContact")
+                        var idContact1: Int = Int(contactResult.intForColumn("idContact1"))
+                        var statusContact: Int = Int(contactResult.intForColumn("statusContact"))
+                        var favoriteContact: Int = Int(contactResult.intForColumn("favoriteContact"))
+                        var contact = ContactModel(idContact: idContact, jobTitleContact: jobTitleContact, countryContact: countryContact, civilityContact: civilityContact, firstNameContact: firstNameContact, lastNameContact: lastNameContact, typeContact: typeContact, birthdateContact: birthdateContact, phoneBusinessContact: phoneBusinessContact, phoneMobileContact: phoneMobileContact, emailContact: emailContact, preferredLanguageContact: preferredLanguageContact, workingAdressContact: workingAdressContact, linkedinProfileContact: linkedinProfileContact, idContact1: idContact1, statusContact: statusContact, favoriteContact: favoriteContact)
+                        
+                        var idAccount = AccountContactDataModel().listeAccountForContact(idContact)
+                        var nameAccount: String = ""
+                        if idAccount.count != 0 {
+                            nameAccount = AccountDataModel().accountNameFromIdAccount(idAccount[0])
+                        }
+                        
+                        listeContactAccount += [(contact,nameAccount)]
+                    }
+                }
+                listeResult += [(lettre, listeContactAccount)]
+            }
+        }
+        
+        return listeResult
+    }
+    
     //Order contacts favorite
-    func allContactsFavorite() -> [ContactModel] {
-        var allContactsFavorite: [ContactModel] = []
+    func allContactsFavorite() -> [(ContactModel,String)] {
+        var allContactsFavorite: [(ContactModel,String)] = []
         var querySQL = "SELECT * FROM Contacts WHERE favoriteContact = 1"
         let results = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
         if let results = results {
@@ -256,7 +337,13 @@ class ContactDataModel {
                 var favoriteContact: Int = Int(results.intForColumn("favoriteContact"))
                 var contact = ContactModel(idContact: idContact, jobTitleContact: jobTitleContact, countryContact: countryContact, civilityContact: civilityContact, firstNameContact: firstNameContact, lastNameContact: lastNameContact, typeContact: typeContact, birthdateContact: birthdateContact, phoneBusinessContact: phoneBusinessContact, phoneMobileContact: phoneMobileContact, emailContact: emailContact, preferredLanguageContact: preferredLanguageContact, workingAdressContact: workingAdressContact, linkedinProfileContact: linkedinProfileContact, idContact1: idContact1, statusContact: statusContact, favoriteContact: favoriteContact)
                 
-                allContactsFavorite.append(contact)
+                var idAccount = AccountContactDataModel().listeAccountForContact(idContact)
+                var nameAccount: String = ""
+                if idAccount.count != 0 {
+                    nameAccount = AccountDataModel().accountNameFromIdAccount(idAccount[0])
+                }
+                
+                allContactsFavorite += [(contact,nameAccount)]
             }
         }
         return allContactsFavorite

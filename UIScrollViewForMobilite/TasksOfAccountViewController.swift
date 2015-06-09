@@ -111,7 +111,7 @@ class TasksOfAccounts: UITableViewController, UITableViewDataSource, UITableView
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("tasks of accounts") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("tasks of accounts") as! UITableViewCell
         let section = indexPath.section
         let row = indexPath.row
         if let dictionary: NSDictionary = collectionOfTasks.objectAtIndex(section) as? NSDictionary {
@@ -173,11 +173,11 @@ class TasksOfContacts: UITableViewController, UITableViewDataSource, UITableView
         var contact = ContactModel()
         if let dictionary: NSDictionary = collectionOfTasks.objectAtIndex(section) as? NSDictionary {
             
-            for key in dictionary.allKeys as [String] {
+            for key in dictionary.allKeys as! [String] {
                 keyAsString = key
             }
         }
-        if let idContact = keyAsString.toInt()? {
+        if let idContact = keyAsString.toInt() {
             contact = ContactDataModel().contactFromIdContact(idContact: idContact)
         }
         
@@ -187,7 +187,7 @@ class TasksOfContacts: UITableViewController, UITableViewDataSource, UITableView
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var keyAsString = ""
         if let dictionary: NSDictionary = collectionOfTasks.objectAtIndex(section) as? NSDictionary {
-            for key in dictionary.allKeys as [String] {
+            for key in dictionary.allKeys as! [String] {
                 keyAsString = key
             }
             if let tasksOfSection = dictionary.objectForKey(keyAsString) as? [TaskModel] {
@@ -202,13 +202,13 @@ class TasksOfContacts: UITableViewController, UITableViewDataSource, UITableView
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("tasks of contacts") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("tasks of contacts") as! UITableViewCell
         let section = indexPath.section
         let row = indexPath.row
         var keyAsString = ""
         if let dictionary: NSDictionary = collectionOfTasks.objectAtIndex(section) as? NSDictionary {
             
-            for key in dictionary.allKeys as [String] {
+            for key in dictionary.allKeys as! [String] {
                 keyAsString = key
             }
             
@@ -272,7 +272,7 @@ class TasksOfMeetings: UITableViewController, UITableViewDataSource, UITableView
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var keyAsString = ""
         if let dictionary: NSDictionary = collectionOfTasks.objectAtIndex(section) as? NSDictionary {
-            for key in dictionary.allKeys as [String] {
+            for key in dictionary.allKeys as! [String] {
                 keyAsString = key
             }
             if let tasksOfSection = dictionary.objectForKey(keyAsString) as? [TaskModel] {
@@ -287,13 +287,13 @@ class TasksOfMeetings: UITableViewController, UITableViewDataSource, UITableView
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("tasks of meetings") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("tasks of meetings") as! UITableViewCell
         let section = indexPath.section
         let row = indexPath.row
         var keyAsString = ""
         if let dictionary: NSDictionary = collectionOfTasks.objectAtIndex(section) as? NSDictionary {
             
-            for key in dictionary.allKeys as [String] {
+            for key in dictionary.allKeys as! [String] {
                 keyAsString = key
             }
             if let tasksOfSection = dictionary.objectForKey(keyAsString) as? [TaskModel] {
@@ -321,7 +321,7 @@ class TasksOfMeetings: UITableViewController, UITableViewDataSource, UITableView
         var keyAsString = ""
         if let dictionary: NSDictionary = collectionOfTasks.objectAtIndex(section) as? NSDictionary {
             
-            for key in dictionary.allKeys as [String] {
+            for key in dictionary.allKeys as! [String] {
                 keyAsString = key
             }
         }

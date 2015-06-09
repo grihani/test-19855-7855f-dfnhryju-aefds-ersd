@@ -16,7 +16,7 @@ class DataBase {
     func createDataBase(dataBasePath: NSString) -> Bool {
         var createDB = false
         var erreursDataBase = "Tout s'est bien passé"
-        let contactDB = FMDatabase(path: dataBasePath)
+        let contactDB = FMDatabase(path: dataBasePath as String)
             
         if contactDB == nil {
             erreursDataBase = ""

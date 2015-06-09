@@ -31,7 +31,7 @@ class MotDePasseOublieViewController: UIViewController, MFMailComposeViewControl
         super.didReceiveMemoryWarning()
     }
     // MARK: - General touch events
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         username.endEditing(true)
         reponseSecrete.endEditing(true)
     }

@@ -39,7 +39,7 @@ class ContactsOfAccountViewController: UIViewController, UITableViewDataSource, 
     var account: AccountModel!
     var viewDidItsLayouts = false
     var contacts: [ContactModel] = []
-    var contactSelected = ContactModel()
+    var contactSelected: ContactModel!
     
     
     let widthPopover = CGFloat(800)
@@ -52,6 +52,9 @@ class ContactsOfAccountViewController: UIViewController, UITableViewDataSource, 
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
         tableView(self.tableView, didSelectRowAtIndexPath: indexPath)
+//        if contactSelected == nil {
+//            self.contactSelected.linkedinProfileContact = contacts[0].linkedinProfileContact
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,7 +71,7 @@ class ContactsOfAccountViewController: UIViewController, UITableViewDataSource, 
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellForContact") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellForContact") as! UITableViewCell
         let row = indexPath.row
         cell.textLabel?.text = contacts[row].lastNameContact + " " + contacts[row].firstNameContact
         return cell

@@ -10,6 +10,7 @@ import UIKit
 
 class MeetingsOfContactViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var visible = false
     // MARK: - IBOutlet
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var chosenDate: UILabel!
@@ -61,18 +62,18 @@ class MeetingsOfContactViewController: UIViewController, UITableViewDataSource, 
             options: .MatchNextTime)
         var i = 0
         var dayToShow = firstDayOfWeek
-//        for button in buttonsForDays {
-//            dayToShow = calendar.dateByAddingUnit(.CalendarUnitDay,
-//                value: 1,
-//                toDate: dayToShow!,
-//                options: .MatchNextTime)
-//            let stringFromDate = dateFormatter.stringFromDate(dayToShow!)
-//            button.setTitle(stringFromDate, forState: UIControlState.Normal)
-//            if let dayToShow = dayToShow {
-//                dates.append(dayToShow)
-//            }
-//            checkForNumberOfMeetings(date: dayToShow!, button: button)
-//        }
+        for button in buttonsForDays {
+            dayToShow = calendar.dateByAddingUnit(.CalendarUnitDay,
+                value: 1,
+                toDate: dayToShow!,
+                options: .MatchNextTime)
+            let stringFromDate = dateFormatter.stringFromDate(dayToShow!)
+            button.setTitle(stringFromDate, forState: UIControlState.Normal)
+            if let dayToShow = dayToShow {
+                dates.append(dayToShow)
+            }
+            checkForNumberOfMeetings(date: dayToShow!, button: button)
+        }
         return dates
     }
     
@@ -91,7 +92,9 @@ class MeetingsOfContactViewController: UIViewController, UITableViewDataSource, 
         let today = NSDate()
         dateFormatter.timeStyle = .NoStyle
         dateFormatter.dateStyle = .FullStyle
-        //self.chosenDate.text = dateFormatter.stringFromDate(today)
+        if visible {
+            self.chosenDate.text = dateFormatter.stringFromDate(today)
+        }
         meetings = MeetingDataModel().allMeetings(fromDate: today, toDate: today)
         println(daysOfCalendar)
     }
@@ -102,94 +105,94 @@ class MeetingsOfContactViewController: UIViewController, UITableViewDataSource, 
     }
     
     override func viewDidLayoutSubviews() {
-        if !viewDidItsLayout {
+        if !viewDidItsLayout && visible {
             self.daysOfCalendar = arrayOfDates()
             viewDidItsLayout = true
-            //colorButtons(NSDate())
-            //checkForNumberOfMeetings(date: NSDate())
+            colorButtons(NSDate())
+            checkForNumberOfMeetings(date: NSDate())
         }
     }
     
     func updateMeetings() {
         if contact == nil {
-            account = AccountDataModel().accountOfNextMeeting()
+//            account = AccountDataModel().accountOfNextMeeting()
         }
-        destinationTableViewController?.meetings = MeetingDataModel().meetingsOfAccount(account: account)
+        MeetingsOfContactTableViewController().meetings = MeetingDataModel().meetingsOfContact(contact)
     }
     
     // MARK: - IBActions
     
-//    @IBAction func checkForMeetings(sender: UIButton) {
-//        let indexOfDate = find(buttonsForDays, sender)
-//        if let indexOfDate = indexOfDate {
-//            dateFormatter.timeStyle = .NoStyle
-//            dateFormatter.dateStyle = .FullStyle
-//            let chosenDate = dateFormatter.stringFromDate(daysOfCalendar[indexOfDate])
-//            self.dateToSendToPopover = daysOfCalendar[indexOfDate]
-//            self.datePicked = daysOfCalendar[indexOfDate]
-//            self.chosenDate.text = chosenDate
-//            colorButtons(daysOfCalendar[indexOfDate])
-//            checkForNumberOfMeetings(date: daysOfCalendar[indexOfDate])
-//            meetings = MeetingDataModel().allMeetings(fromDate: daysOfCalendar[indexOfDate], toDate: daysOfCalendar[indexOfDate])
-//        }
-//    }
+    @IBAction func checkForMeetings(sender: UIButton) {
+        let indexOfDate = find(buttonsForDays, sender)
+        if let indexOfDate = indexOfDate {
+            dateFormatter.timeStyle = .NoStyle
+            dateFormatter.dateStyle = .FullStyle
+            let chosenDate = dateFormatter.stringFromDate(daysOfCalendar[indexOfDate])
+            self.dateToSendToPopover = daysOfCalendar[indexOfDate]
+            self.datePicked = daysOfCalendar[indexOfDate]
+            self.chosenDate.text = chosenDate
+            colorButtons(daysOfCalendar[indexOfDate])
+            checkForNumberOfMeetings(date: daysOfCalendar[indexOfDate])
+            meetings = MeetingDataModel().allMeetings(fromDate: daysOfCalendar[indexOfDate], toDate: daysOfCalendar[indexOfDate])
+        }
+    }
     
     // MARK: - Functions
     
-//    func checkForNumberOfMeetings(#date: NSDate, button: UIButton) {
-//        let (numberOfMeetings, allDayMeeting) = MeetingDataModel().numberOfMeetingsInDay(date)
-//        self.meetingsState.append((numberOfMeetings, allDayMeeting))
-//        var frame = button.frame
-//        if allDayMeeting == 1 {
-//            var labelNumberOfMeetings = UILabel(frame: frame)
-//            labelNumberOfMeetings.layer.masksToBounds = true
-//            labelNumberOfMeetings.layer.cornerRadius = 20
-//            labelNumberOfMeetings.backgroundColor = UIColor.orangeColor()
-//            labelNumberOfMeetings.alpha = 0.2
-//            calendarView.addSubview(labelNumberOfMeetings)
-//        } else if numberOfMeetings > 0 {
-//            frame.size.width -= 30
-//            frame.size.height -= 25
-//            frame.origin.x += 30
-//            var labelNumberOfMeetings = UILabel(frame: frame)
-//            labelNumberOfMeetings.font = UIFont(name: labelNumberOfMeetings.font.fontName, size: 10)
-//            labelNumberOfMeetings.textColor = UIColor.blackColor()
-//            labelNumberOfMeetings.text = String(numberOfMeetings)
-//            calendarView.addSubview(labelNumberOfMeetings)
-//        }
-//    }
+    func checkForNumberOfMeetings(#date: NSDate, button: UIButton) {
+        let (numberOfMeetings, allDayMeeting) = MeetingDataModel().numberOfMeetingsInDay(date)
+        self.meetingsState.append((numberOfMeetings, allDayMeeting))
+        var frame = button.frame
+        if allDayMeeting == 1 {
+            var labelNumberOfMeetings = UILabel(frame: frame)
+            labelNumberOfMeetings.layer.masksToBounds = true
+            labelNumberOfMeetings.layer.cornerRadius = 20
+            labelNumberOfMeetings.backgroundColor = UIColor.orangeColor()
+            labelNumberOfMeetings.alpha = 0.2
+            calendarView.addSubview(labelNumberOfMeetings)
+        } else if numberOfMeetings > 0 {
+            frame.size.width -= 30
+            frame.size.height -= 25
+            frame.origin.x += 30
+            var labelNumberOfMeetings = UILabel(frame: frame)
+            labelNumberOfMeetings.font = UIFont(name: labelNumberOfMeetings.font.fontName, size: 10)
+            labelNumberOfMeetings.textColor = UIColor.blackColor()
+            labelNumberOfMeetings.text = String(numberOfMeetings)
+            calendarView.addSubview(labelNumberOfMeetings)
+        }
+    }
     
-//    func checkForNumberOfMeetings(#date: NSDate) {
-//        let (numberOfMeetings, allDayMeeting) = MeetingDataModel().numberOfMeetingsInDay(date)
-//        if allDayMeeting == 1 {
-//            addMeetingButton.enabled = false
-//        } else {
-//            addMeetingButton.enabled = true
-//        }
-//    }
+    func checkForNumberOfMeetings(#date: NSDate) {
+        let (numberOfMeetings, allDayMeeting) = MeetingDataModel().numberOfMeetingsInDay(date)
+        if allDayMeeting == 1 {
+            addMeetingButton.enabled = false
+        } else {
+            addMeetingButton.enabled = true
+        }
+    }
     
     func colorButtons(date: NSDate) {
         var i = 0
         var dateIndex = 0
         dateFormatter.dateFormat = "yyyy-MM-dd"
-//        for button in buttonsForDays {
-//            button.layer.masksToBounds = true
-//            button.layer.cornerRadius = 20
-//            button.tintColor = blackColor
-//            button.backgroundColor = whiteColor
-//            if dateFormatter.stringFromDate(date) == dateFormatter.stringFromDate(self.daysOfCalendar[i]) {
-//                dateIndex = i
-//            }
-//            i++
-//        }
-//        self.buttonsForDays[dateIndex].backgroundColor = blueCheckedColor
-//        self.buttonsForDays[dateIndex].tintColor = whiteColor
+        for button in buttonsForDays {
+            button.layer.masksToBounds = true
+            button.layer.cornerRadius = 20
+            button.tintColor = blackColor
+            button.backgroundColor = whiteColor
+            if dateFormatter.stringFromDate(date) == dateFormatter.stringFromDate(self.daysOfCalendar[i]) {
+                dateIndex = i
+            }
+            i++
+        }
+        self.buttonsForDays[dateIndex].backgroundColor = blueCheckedColor
+        self.buttonsForDays[dateIndex].tintColor = whiteColor
     }
     
     // MARK: - talbeViewDataSource
     
     private struct cellIdentifiers {
-        static let meetingsOfDay = "meetings of day x"
+        static let meetingsOfDay = "meeting of day"
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -197,7 +200,7 @@ class MeetingsOfContactViewController: UIViewController, UITableViewDataSource, 
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifiers.meetingsOfDay, forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifiers.meetingsOfDay, forIndexPath: indexPath) as! UITableViewCell
         cell.textLabel?.text = meetings[indexPath.row].subjectMeeting
         cell.detailTextLabel?.text = fromSQLiteDateToFullyCustomizedDateOnSwift(meetings[indexPath.row].dateBeginMeeting)
         return cell

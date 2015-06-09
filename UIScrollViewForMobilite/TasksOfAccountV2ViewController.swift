@@ -127,7 +127,7 @@ class TasksOfAccountV2ViewController: UIViewController, UITableViewDataSource, U
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if tableView == tasksOfAccounts {
-            let cell = tableView.dequeueReusableCellWithIdentifier("tasks of accounts", forIndexPath: indexPath) as UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("tasks of accounts", forIndexPath: indexPath) as! UITableViewCell
             let section = indexPath.section
             let row = indexPath.row
             if let dictionary: NSDictionary = collectionOfTasksOfAccounts.objectAtIndex(section) as? NSDictionary {
@@ -146,7 +146,7 @@ class TasksOfAccountV2ViewController: UIViewController, UITableViewDataSource, U
             return cell
         }
         else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("", forIndexPath: indexPath) as UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("", forIndexPath: indexPath) as! UITableViewCell
             return cell
         }
     }

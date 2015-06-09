@@ -28,7 +28,7 @@ class OpportunitiesOfAccountViewController: UIViewController, UITableViewDataSou
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("opportunityOfAccount") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("opportunityOfAccount") as! UITableViewCell
         let row = indexPath.row
         let opportunity = self.opportunitiesOfAccount[row]
         cell.textLabel?.text = String(opportunity.percentageOpportunity) + "% : " + opportunity.nomOpportunite

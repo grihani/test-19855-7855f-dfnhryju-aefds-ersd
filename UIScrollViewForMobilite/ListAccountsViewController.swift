@@ -36,7 +36,7 @@ class ListAccountsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("nameAccounts", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("nameAccounts", forIndexPath: indexPath) as! UITableViewCell
         
         let row = indexPath.row
         cell.textLabel?.text = allAccounts[row].nameAccount
@@ -60,7 +60,7 @@ class ListAccountsViewController: UIViewController, UITableViewDataSource, UITab
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showChosenAccount" {
             if let indexPath = self.listAccounts.indexPathForSelectedRow() {
-                let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailAccountsViewController
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailAccountsViewController
                 controller.account = allAccounts[indexPath.row]
             }
         }

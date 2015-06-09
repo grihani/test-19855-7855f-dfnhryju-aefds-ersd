@@ -96,7 +96,7 @@ class MeetingsDetailViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "show participants of meeting" {
-            let destinationViewController = segue.destinationViewController as ParticipantsOfMeetingOfAccountTableViewController
+            let destinationViewController = segue.destinationViewController as! ParticipantsOfMeetingOfAccountTableViewController
             destinationViewController.meeting = meeting
         }
     }

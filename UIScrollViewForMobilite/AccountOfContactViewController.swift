@@ -33,7 +33,7 @@ class AccountOfContactViewController: UIViewController, UITableViewDataSource, U
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Reuse Identifier") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Reuse Identifier") as! UITableViewCell
         cell.textLabel?.text = allAccounts[indexPath.row].nameAccount
         return cell
     }

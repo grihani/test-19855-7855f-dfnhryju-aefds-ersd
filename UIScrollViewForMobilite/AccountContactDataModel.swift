@@ -19,4 +19,35 @@ class AccountContactDataModel {
         }
         return erreur
     }
+    
+    func listeNameAccountOfContact() -> [(idAccount: Int, nameAccount: String)] {
+        var res: [(idAccount: Int, nameAccount: String)] = []
+        DataBase().createViewForContactsThatHaveAccounts()
+        var querySQL = "SELECT Account.idAccount, Account.nameAccount FROM Account INNER JOIN Contact_Account ON Account.idAccount = Contact_Account.idAccount GROUP BY Account.nameAccount"
+        var results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let result = results {
+            while result.next() {
+                var idAccount: Int = Int(result.intForColumn("idAccount"))
+                var nameAccount: String = result.stringForColumn("nameAccount")
+                res += [(idAccount: idAccount, nameAccount: nameAccount)]
+            }
+        }
+        
+        return res
+    }
+    
+    func listeAccountForContact(idContact: Int) -> [Int] {
+        var idAccount: [Int] = []
+        DataBase().createViewForContactsThatHaveAccounts()
+        var querySQL = "SELECT idAccount FROM Contact_Account WHERE idContact = \(idContact)"
+        var results: FMResultSet? = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let result = results {
+            while result.next() {
+                var idTemp: Int = Int(result.intForColumn("idAccount"))
+                idAccount.append(idTemp)
+            }
+        }
+        
+        return idAccount
+    }
 }

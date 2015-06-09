@@ -267,6 +267,20 @@ class AccountDataModel {
         }
         return accountsMetOnDate
     }
+    
+    func accountNameFromIdAccount(idAccount: Int) -> String {
+        var accountName: String = ""
+        var querySQL = "SELECT nameAccount FROM Account WHERE idAccount = \(idAccount)"
+        let results = contactDataBase.executeQuery(querySQL, withArgumentsInArray: nil)
+        if let result = results {
+            while result.next() == true {
+                accountName = result.stringForColumn("nameAccount")
+            }
+        }
+        
+        return accountName
+    }
+    
     // update the accounts
     func updateAccount(#account: AccountModel) {
         var erreur = String()

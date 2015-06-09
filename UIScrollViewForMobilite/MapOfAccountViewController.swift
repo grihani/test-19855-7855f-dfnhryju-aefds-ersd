@@ -44,7 +44,7 @@ class MapOfAccountViewController: UIViewController, MKMapViewDelegate, CLLocatio
                 mapView.setRegion(region, animated: false)
                 let annotation = MKPointAnnotation()
                 
-                annotation.setCoordinate(placemark.location.coordinate)
+                annotation.coordinate = placemark.location.coordinate
                 annotation.title = account.nameAccount
                 annotation.subtitle = account.phoneAccount
                 mapView.addAnnotation(annotation)

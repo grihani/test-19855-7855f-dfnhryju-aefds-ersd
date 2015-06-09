@@ -54,7 +54,7 @@ class MeetingsOfAccountTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("meetings of Account", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("meetings of Account", forIndexPath: indexPath) as! UITableViewCell
         let row = indexPath.row
         cell.textLabel?.text = meetings[row].subjectMeeting
         cell.detailTextLabel?.text = fromSQLiteDateToFullyCustomizedDateOnSwift(meetings[row].dateBeginMeeting)
@@ -85,7 +85,7 @@ class MeetingsOfAccountTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "show meeting details" {
             if let indexPath = tableView.indexPathForSelectedRow() {
-                let destinationViewController = segue.destinationViewController as MeetingsDetailViewController
+                let destinationViewController = segue.destinationViewController as! MeetingsDetailViewController
                 destinationViewController.meeting = meetings[indexPath.row]
             }
         }

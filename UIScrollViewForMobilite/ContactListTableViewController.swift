@@ -8,19 +8,38 @@
 
 import UIKit
 
-class ContactListTableViewController: UITableViewController {
-
+class ContactListTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    typealias typeAliasSection = [(sectionName: String, contacts: [(ContactModel,String)])]
+    var listeTypeAlias: typeAliasSection = []
+    var listeAccountName: [(idAccount: Int,nameAccount: String)] = []
+    var listeAlphabet: [(String, [(ContactModel,String)])] = []
     var contact: [ContactModel] = []
     
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var segmentedControl: UISegmentedControl! {
+        didSet {
+            
+        }
+    }
     @IBOutlet var listContacts: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     // MARK: - view life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contact = ContactDataModel().allContacts()
+        let listeTempAccount = AccountContactDataModel().listeNameAccountOfContact()
+        
+        for temp in listeTempAccount {
+            listeAccountName.append(idAccount: temp.idAccount, nameAccount: temp.nameAccount)
+        }
+        for account in listeAccountName {
+            var contactTemp = ContactDataModel().contactsOfAccountWithIdAccount(idAccount: account.idAccount)
+            listeTypeAlias += [(sectionName: account.nameAccount, contacts: contactTemp)]
+        }
+        
+//        listContacts.estimatedRowHeight = listContacts.rowHeight
+//        listContacts.rowHeight = UITableViewAutomaticDimension
+        listContacts.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,78 +49,117 @@ class ContactListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            return listeAccountName.count
+        case 1:
+            return listeTypeAlias.count
+        case 2:
+            return 01
+        default:
+            return 01
+        }
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 72
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contact.count
+        return listeTypeAlias[section].contacts.count
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellContact", forIndexPath: indexPath) as UITableViewCell
+        var cell: UITableViewCell = UITableViewCell()
         let row = indexPath.row
-        cell.textLabel?.text = contact[row].civilityContact + " " + contact[row].firstNameContact + " " + contact[row].lastNameContact
+        let section = indexPath.section
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            cell = tableView.dequeueReusableCellWithIdentifier("cell contact par account", forIndexPath: indexPath) as! UITableViewCell
+            cell.textLabel?.text = listeTypeAlias[section].contacts[row].0.firstNameContact + " " + listeTypeAlias[section].contacts[row].0.lastNameContact
+        case 1:
+            let cellTemp = tableView.dequeueReusableCellWithIdentifier("cell contact A to Z", forIndexPath: indexPath) as! ContactListTableViewCell
+            cellTemp.labelNomPrenom.text = listeTypeAlias[section].contacts[row].0.firstNameContact + " " + listeTypeAlias[section].contacts[row].0.lastNameContact
+            cellTemp.labelAccount.text = listeTypeAlias[section].contacts[row].1
+            return cellTemp
+        case 2:
+            let cellTemp = tableView.dequeueReusableCellWithIdentifier("cell contact A to Z", forIndexPath: indexPath) as! ContactListTableViewCell
+            cellTemp.labelNomPrenom.text = listeTypeAlias[section].contacts[row].0.firstNameContact + " " + listeTypeAlias[section].contacts[row].0.lastNameContact
+            cellTemp.labelAccount.text = listeTypeAlias[section].contacts[row].1
+            cell = cellTemp
+        default: break
+        }
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return listeTypeAlias[section].sectionName
     }
     
     // MARK: - Navigation
     @IBAction func changeContactList(sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            println("contacts par accounts")
-            contact = ContactDataModel().contactsPerAccounts()
-        case 1:
-            if segmentedControl.titleForSegmentAtIndex(1) == "A -> Z" {
-                segmentedControl.removeSegmentAtIndex(1, animated: true)
-                println("contact ordre ascendant")
-                contact = ContactDataModel().allContactsWithOrder(order: "ASC")
-//                segmentedControl.setTitle("A -> Z", forSegmentAtIndex: 1)
-                segmentedControl.insertSegmentWithTitle("Z -> A", atIndex: 1, animated: true)
-                var subview: AnyObject = segmentedControl.subviews[1]
-//                subview.backgroundColor = UIColor.blueColor()
-            } else {
-                segmentedControl.removeSegmentAtIndex(1, animated: true)
-                println("contact ordre descendant")
-                contact = ContactDataModel().allContactsWithOrder(order: "DESC")
-//                segmentedControl.setTitle("Z -> A", forSegmentAtIndex: 1)
-                segmentedControl.insertSegmentWithTitle("A -> Z", atIndex: 1, animated: true)
+            let listeTempAccount = AccountContactDataModel().listeNameAccountOfContact()
+            listeTypeAlias.removeAll(keepCapacity: false)
+            for temp in listeTempAccount {
+                listeAccountName.append(idAccount: temp.idAccount, nameAccount: temp.nameAccount)
             }
+            for account in listeAccountName {
+                var contactTemp = ContactDataModel().contactsOfAccountWithIdAccount(idAccount: account.idAccount)
+                listeTypeAlias += [(sectionName: account.nameAccount, contacts: contactTemp)]
+            }
+            listContacts.reloadData()
+        case 1:
+            listeAlphabet = ContactDataModel().getListeAlphabet(order: "ASC")
+            listeTypeAlias.removeAll(keepCapacity: false)
+            for temp in listeAlphabet {
+                listeTypeAlias += [(sectionName: temp.0, contacts: temp.1)]
+            }
+            listContacts.reloadData()
         case 2:
-            println("contact ordre favoris")
-            contact = ContactDataModel().allContactsFavorite()
+            let contact = ContactDataModel().allContactsFavorite()
+            listeTypeAlias.removeAll(keepCapacity: false)
+            listeTypeAlias += [(sectionName: "Favoris", contacts: contact)]
+            listContacts.reloadData()
         default: break
         }
-        listContacts.reloadData()
-    }
-    
-    @IBAction func addButtonPressed(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("createContact", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "chosenContact" {
+        if segue.identifier == "chosenContactParAccount" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 if let controller = segue.destinationViewController.contentViewController as? DetailContactsViewController {
                     controller.read = true
                     controller.update = false
                     controller.create = false
                     controller.delete = false
-                    controller.contact = contact[indexPath.row]
+                    let row = indexPath.row
+                    let section = indexPath.section
+                    controller.contact = listeTypeAlias[section].contacts[row].0
+                    controller.account = AccountDataModel().accountOfContact(contact: controller.contact)
                     println("Contact choisit : \(controller.contact)")
                     println()
                 }
             }
-        }
-        else if segue.identifier == "createContact" {
-            if let controller = segue.destinationViewController.contentViewController as? DetailContactsViewController {
-                controller.read = false
-                controller.update = false
-                controller.create = true
-                controller.delete = false
-                println("création d'un contact")
-                println()
+        } else if segue.identifier == "chosenContactAtoZ" {
+            if let indexPath = self.tableView.indexPathForSelectedRow() {
+                if let controller = segue.destinationViewController.contentViewController as? DetailContactsViewController {
+                    controller.read = true
+                    controller.update = false
+                    controller.create = false
+                    controller.delete = false
+                    let row = indexPath.row
+                    let section = indexPath.section
+                    controller.contact = listeTypeAlias[section].contacts[row].0
+                    controller.account = AccountDataModel().accountOfContact(contact: controller.contact)
+                }
             }
         }
     }
+}
+
+class ContactListTableViewCell: UITableViewCell {
+    @IBOutlet weak var labelNomPrenom: UILabel!
+    @IBOutlet weak var labelAccount: UILabel!
 }
